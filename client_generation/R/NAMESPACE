@@ -44,13 +44,5 @@ export(User)
 export(WorkflowStep)
 
 # APIs
-export(AclApi)
-export(ExecutionApi)
-export(FileApi)
 export(JobApi)
-export(MetricApi)
 export(ProjectApi)
-export(RolesApi)
-export(StorageApi)
-export(SystemApi)
-export(UserApi)

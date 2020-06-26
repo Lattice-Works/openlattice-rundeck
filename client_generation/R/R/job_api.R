@@ -14,11 +14,58 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ job_workflow_get } \emph{ Get job workflow tree. }
+#' \strong{ project_archive_import } \emph{ Import project archive. }
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } id character
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } body object
+#' \item \emph{ @param } job_uuid_option \link{AnyType}
+#' \item \emph{ @param } import_executions character
+#' \item \emph{ @param } import_config character
+#' \item \emph{ @param } import_acl character
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ project_jobs_export } \emph{ Export the job definitions in XML or YAML formats. }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } format \link{AnyType}
+#' \item \emph{ @param } idlist character
+#' \item \emph{ @param } group_path character
+#' \item \emph{ @param } job_filter character
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request.
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ project_jobs_import } \emph{ Import job definitions in XML or YAML formats. }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } body object
+#' \item \emph{ @param } content_type \link{AnyType}
+#' \item \emph{ @param } accept \link{AnyType}
+#' \item \emph{ @param } file_format \link{AnyType}
+#' \item \emph{ @param } dupe_option \link{AnyType}
+#' \item \emph{ @param } uuid_option \link{AnyType}
 #'
 #'
 #' \item status code : 200 | Expected response to a valid request.
@@ -35,15 +82,52 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  job_workflow_get  ####################
+#' ####################  project_archive_import  ####################
 #'
 #' library(openlattice-rundeck)
-#' var.id <- 'id_example' # character | 
+#' var.project <- 'project_example' # character | Name of the project to import jobs into.
+#' var.body <- NULL # object | 
+#' var.job_uuid_option <- AnyType$new() # AnyType | 
+#' var.import_executions <- 'import_executions_example' # character | 
+#' var.import_config <- 'import_config_example' # character | 
+#' var.import_acl <- 'import_acl_example' # character | 
 #'
-#' #Get job workflow tree.
+#' #Import project archive.
 #' api.instance <- JobApi$new()
 #'
-#' result <- api.instance$job_workflow_get(var.id)
+#' result <- api.instance$project_archive_import(var.project, var.body, job_uuid_option=var.job_uuid_option, import_executions=var.import_executions, import_config=var.import_config, import_acl=var.import_acl)
+#'
+#'
+#' ####################  project_jobs_export  ####################
+#'
+#' library(openlattice-rundeck)
+#' var.project <- 'project_example' # character | The project to export jobs for.
+#' var.format <- AnyType$new() # AnyType | XML or YAML format for exported jobs.
+#' var.idlist <- 'idlist_example' # character | A comma-separated list of Job IDs to export.
+#' var.group_path <- 'group_path_example' # character | Group or partial group path to include all jobs within that group path.
+#' var.job_filter <- 'job_filter_example' # character | Filter for the job Name.
+#'
+#' #Export the job definitions in XML or YAML formats.
+#' api.instance <- JobApi$new()
+#'
+#' result <- api.instance$project_jobs_export(var.project, format=var.format, idlist=var.idlist, group_path=var.group_path, job_filter=var.job_filter)
+#'
+#'
+#' ####################  project_jobs_import  ####################
+#'
+#' library(openlattice-rundeck)
+#' var.project <- 'project_example' # character | Name of the project to import jobs into.
+#' var.body <- NULL # object | 
+#' var.content_type <- AnyType$new() # AnyType | 
+#' var.accept <- AnyType$new() # AnyType | 
+#' var.file_format <- AnyType$new() # AnyType | 
+#' var.dupe_option <- AnyType$new() # AnyType | 
+#' var.uuid_option <- AnyType$new() # AnyType | 
+#'
+#' #Import job definitions in XML or YAML formats.
+#' api.instance <- JobApi$new()
+#'
+#' result <- api.instance$project_jobs_import(var.project, var.body, content_type=var.content_type, accept=var.accept, file_format=var.file_format, dupe_option=var.dupe_option, uuid_option=var.uuid_option)
 #'
 #'
 #' }
@@ -62,8 +146,8 @@ JobApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    job_workflow_get = function(id, ...){
-      apiResponse <- self$job_workflow_getWithHttpInfo(id, ...)
+    project_archive_import = function(project, body, job_uuid_option=NULL, import_executions=NULL, import_config=NULL, import_acl=NULL, ...){
+      apiResponse <- self$project_archive_importWithHttpInfo(project, body, job_uuid_option, import_executions, import_config, import_acl, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -76,23 +160,171 @@ JobApi <- R6::R6Class(
       }
     },
 
-    job_workflow_getWithHttpInfo = function(id, ...){
+    project_archive_importWithHttpInfo = function(project, body, job_uuid_option=NULL, import_executions=NULL, import_config=NULL, import_acl=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
       }
 
-      urlPath <- "/api/34/job/{id}/workflow"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      if (missing(`body`)) {
+        stop("Missing required parameter `body`.")
+      }
+
+      queryParams['jobUuidOption'] <- job_uuid_option
+
+      queryParams['importExecutions'] <- import_executions
+
+      queryParams['importConfig'] <- import_config
+
+      queryParams['importACL'] <- import_acl
+
+      if (!missing(`body`)) {
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/project/{project}/import"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_jobs_export = function(project, format=NULL, idlist=NULL, group_path=NULL, job_filter=NULL, ...){
+      apiResponse <- self$project_jobs_exportWithHttpInfo(project, format, idlist, group_path, job_filter, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_jobs_exportWithHttpInfo = function(project, format=NULL, idlist=NULL, group_path=NULL, job_filter=NULL, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      queryParams['format'] <- format
+
+      queryParams['idlist'] <- idlist
+
+      queryParams['groupPath'] <- group_path
+
+      queryParams['jobFilter'] <- job_filter
+
+      urlPath <- "/api/26/project/{project}/jobs/export"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_jobs_import = function(project, body, content_type=NULL, accept=NULL, file_format=NULL, dupe_option=NULL, uuid_option=NULL, ...){
+      apiResponse <- self$project_jobs_importWithHttpInfo(project, body, content_type, accept, file_format, dupe_option, uuid_option, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_jobs_importWithHttpInfo = function(project, body, content_type=NULL, accept=NULL, file_format=NULL, dupe_option=NULL, uuid_option=NULL, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      if (missing(`body`)) {
+        stop("Missing required parameter `body`.")
+      }
+
+      headerParams['content-type'] <- `content_type`
+
+      headerParams['accept'] <- `accept`
+
+      queryParams['fileFormat'] <- file_format
+
+      queryParams['dupeOption'] <- dupe_option
+
+      queryParams['uuidOption'] <- uuid_option
+
+      if (!missing(`body`)) {
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/project/{project}/jobs/import"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
