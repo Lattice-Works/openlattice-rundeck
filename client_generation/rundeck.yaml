@@ -8,6 +8,7 @@ paths:
   /api/26/execution/{id}/output:
     get:
       summary: List input files for an execution
+      operationId: executionOutputGet
       tags:
       - file
       - execution
@@ -33,6 +34,7 @@ paths:
   /api/34/job/{id}/workflow:
     get:
       summary: Get job workflow tree.
+      operationId: jobWorkflowGet
       tags:
       - job
       parameters:
@@ -47,6 +49,7 @@ paths:
   /api/26/project/{project}/motd.md:
     delete:
       summary: Delete project motd.md
+      operationId: projectMotdDelete
       tags:
       - project
       parameters:
@@ -62,6 +65,7 @@ paths:
   /api/26/storage/keys/{path}:
     delete:
       summary: Deletes the file if it exists and returns 204 response.
+      operationId: storageKeyDelete
       tags:
       - storage
       parameters:
@@ -77,6 +81,7 @@ paths:
   /api/26/system/acl/{policyName}:
     delete:
       summary: Delete policy
+      operationId: systemAclPolicyDelete
       tags:
       - system
       - acl
@@ -93,6 +98,7 @@ paths:
   /api/26/user/roles:
     get:
       summary: List the roles of the authenticated user
+      operationId: userRoleList
       tags:
       - user
       - roles
@@ -102,6 +108,7 @@ paths:
   /api/26/metrics:
     get:
       summary: List links to enabled Metrics endpoints
+      operationId: metricList
       tags:
       - metric
       responses:
@@ -854,26 +861,26 @@ components:
           items:
             $ref: '#/definitions/WorkflowStep'
 tags:
-- name: roles
-  description: API endpoints to roless
-- name: execution
-  description: API endpoints to executions
-- name: acl
-  description: API endpoints to acls
-- name: system
-  description: API endpoints to systems
-- name: metric
-  description: API endpoints to metrics
-- name: job
-  description: API endpoints to jobs
-- name: user
-  description: API endpoints to users
-- name: project
-  description: API endpoints to projects
-- name: file
-  description: API endpoints to files
 - name: storage
   description: API endpoints to storages
+- name: metric
+  description: API endpoints to metrics
+- name: user
+  description: API endpoints to users
+- name: acl
+  description: API endpoints to acls
+- name: execution
+  description: API endpoints to executions
+- name: job
+  description: API endpoints to jobs
+- name: roles
+  description: API endpoints to roless
+- name: project
+  description: API endpoints to projects
+- name: system
+  description: API endpoints to systems
+- name: file
+  description: API endpoints to files
 externalDocs:
   description: Combined API specifications for Rundeck
   url: https://github.com/Lattice-Works/openlattice-rundeck

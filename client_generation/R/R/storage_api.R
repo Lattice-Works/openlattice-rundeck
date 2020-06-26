@@ -14,7 +14,7 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ api26_storage_keys_path_delete } \emph{ Deletes the file if it exists and returns 204 response. }
+#' \strong{ storage_key_delete } \emph{ Deletes the file if it exists and returns 204 response. }
 #' 
 #'
 #' \itemize{
@@ -35,7 +35,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  api26_storage_keys_path_delete  ####################
+#' ####################  storage_key_delete  ####################
 #'
 #' library(openlattice-rundeck)
 #' var.path <- AnyType$new() # AnyType | Key path
@@ -43,7 +43,7 @@
 #' #Deletes the file if it exists and returns 204 response.
 #' api.instance <- StorageApi$new()
 #'
-#' result <- api.instance$api26_storage_keys_path_delete(var.path)
+#' result <- api.instance$storage_key_delete(var.path)
 #'
 #'
 #' }
@@ -62,8 +62,8 @@ StorageApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    api26_storage_keys_path_delete = function(path, ...){
-      apiResponse <- self$api26_storage_keys_path_deleteWithHttpInfo(path, ...)
+    storage_key_delete = function(path, ...){
+      apiResponse <- self$storage_key_deleteWithHttpInfo(path, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -76,7 +76,7 @@ StorageApi <- R6::R6Class(
       }
     },
 
-    api26_storage_keys_path_deleteWithHttpInfo = function(path, ...){
+    storage_key_deleteWithHttpInfo = function(path, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()

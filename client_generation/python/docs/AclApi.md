@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_system_acl_policy_name_delete**](AclApi.md#api26_system_acl_policy_name_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
+[**system_acl_policy_delete**](AclApi.md#system_acl_policy_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
 
 
-# **api26_system_acl_policy_name_delete**
-> api26_system_acl_policy_name_delete(policy_name)
+# **system_acl_policy_delete**
+> system_acl_policy_delete(policy_name)
 
 Delete policy
 
@@ -35,9 +35,9 @@ with openlattice-rundeck.ApiClient() as api_client:
 
     try:
         # Delete policy
-        api_instance.api26_system_acl_policy_name_delete(policy_name)
+        api_instance.system_acl_policy_delete(policy_name)
     except ApiException as e:
-        print("Exception when calling AclApi->api26_system_acl_policy_name_delete: %s\n" % e)
+        print("Exception when calling AclApi->system_acl_policy_delete: %s\n" % e)
 ```
 
 ### Parameters

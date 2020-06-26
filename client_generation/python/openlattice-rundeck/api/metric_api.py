@@ -36,13 +36,13 @@ class MetricApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api26_metrics_get(self, **kwargs):  # noqa: E501
+    def metric_list(self, **kwargs):  # noqa: E501
         """List links to enabled Metrics endpoints  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api26_metrics_get(async_req=True)
+        >>> thread = api.metric_list(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -61,15 +61,15 @@ class MetricApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.api26_metrics_get_with_http_info(**kwargs)  # noqa: E501
+        return self.metric_list_with_http_info(**kwargs)  # noqa: E501
 
-    def api26_metrics_get_with_http_info(self, **kwargs):  # noqa: E501
+    def metric_list_with_http_info(self, **kwargs):  # noqa: E501
         """List links to enabled Metrics endpoints  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api26_metrics_get_with_http_info(async_req=True)
+        >>> thread = api.metric_list_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req: Whether to execute the request asynchronously.
@@ -113,7 +113,7 @@ class MetricApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api26_metrics_get" % key
+                    " to method metric_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']

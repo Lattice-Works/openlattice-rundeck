@@ -36,13 +36,13 @@ class JobApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api34_job_id_workflow_get(self, id, **kwargs):  # noqa: E501
+    def job_workflow_get(self, id, **kwargs):  # noqa: E501
         """Get job workflow tree.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api34_job_id_workflow_get(id, async_req=True)
+        >>> thread = api.job_workflow_get(id, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
@@ -63,15 +63,15 @@ class JobApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.api34_job_id_workflow_get_with_http_info(id, **kwargs)  # noqa: E501
+        return self.job_workflow_get_with_http_info(id, **kwargs)  # noqa: E501
 
-    def api34_job_id_workflow_get_with_http_info(self, id, **kwargs):  # noqa: E501
+    def job_workflow_get_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get job workflow tree.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api34_job_id_workflow_get_with_http_info(id, async_req=True)
+        >>> thread = api.job_workflow_get_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
@@ -118,14 +118,14 @@ class JobApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api34_job_id_workflow_get" % key
+                    " to method job_workflow_get" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `api34_job_id_workflow_get`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `job_workflow_get`")  # noqa: E501
 
         collection_formats = {}
 

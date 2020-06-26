@@ -68,9 +68,9 @@ with openlattice-rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Delete policy
-        api_instance.api26_system_acl_policy_name_delete(policy_name)
+        api_instance.system_acl_policy_delete(policy_name)
     except ApiException as e:
-        print("Exception when calling AclApi->api26_system_acl_policy_name_delete: %s\n" % e)
+        print("Exception when calling AclApi->system_acl_policy_delete: %s\n" % e)
     
 ```
 
@@ -80,16 +80,16 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AclApi* | [**api26_system_acl_policy_name_delete**](docs/AclApi.md#api26_system_acl_policy_name_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
-*ExecutionApi* | [**api26_execution_id_output_get**](docs/ExecutionApi.md#api26_execution_id_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
-*FileApi* | [**api26_execution_id_output_get**](docs/FileApi.md#api26_execution_id_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
-*JobApi* | [**api34_job_id_workflow_get**](docs/JobApi.md#api34_job_id_workflow_get) | **GET** /api/34/job/{id}/workflow | Get job workflow tree.
-*MetricApi* | [**api26_metrics_get**](docs/MetricApi.md#api26_metrics_get) | **GET** /api/26/metrics | List links to enabled Metrics endpoints
-*ProjectApi* | [**api26_project_project_motd_md_delete**](docs/ProjectApi.md#api26_project_project_motd_md_delete) | **DELETE** /api/26/project/{project}/motd.md | Delete project motd.md
-*RolesApi* | [**api26_user_roles_get**](docs/RolesApi.md#api26_user_roles_get) | **GET** /api/26/user/roles | List the roles of the authenticated user
-*StorageApi* | [**api26_storage_keys_path_delete**](docs/StorageApi.md#api26_storage_keys_path_delete) | **DELETE** /api/26/storage/keys/{path} | Deletes the file if it exists and returns 204 response.
-*SystemApi* | [**api26_system_acl_policy_name_delete**](docs/SystemApi.md#api26_system_acl_policy_name_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
-*UserApi* | [**api26_user_roles_get**](docs/UserApi.md#api26_user_roles_get) | **GET** /api/26/user/roles | List the roles of the authenticated user
+*AclApi* | [**system_acl_policy_delete**](docs/AclApi.md#system_acl_policy_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
+*ExecutionApi* | [**execution_output_get**](docs/ExecutionApi.md#execution_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
+*FileApi* | [**execution_output_get**](docs/FileApi.md#execution_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
+*JobApi* | [**job_workflow_get**](docs/JobApi.md#job_workflow_get) | **GET** /api/34/job/{id}/workflow | Get job workflow tree.
+*MetricApi* | [**metric_list**](docs/MetricApi.md#metric_list) | **GET** /api/26/metrics | List links to enabled Metrics endpoints
+*ProjectApi* | [**project_motd_delete**](docs/ProjectApi.md#project_motd_delete) | **DELETE** /api/26/project/{project}/motd.md | Delete project motd.md
+*RolesApi* | [**user_role_list**](docs/RolesApi.md#user_role_list) | **GET** /api/26/user/roles | List the roles of the authenticated user
+*StorageApi* | [**storage_key_delete**](docs/StorageApi.md#storage_key_delete) | **DELETE** /api/26/storage/keys/{path} | Deletes the file if it exists and returns 204 response.
+*SystemApi* | [**system_acl_policy_delete**](docs/SystemApi.md#system_acl_policy_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
+*UserApi* | [**user_role_list**](docs/UserApi.md#user_role_list) | **GET** /api/26/user/roles | List the roles of the authenticated user
 
 
 ## Documentation For Models

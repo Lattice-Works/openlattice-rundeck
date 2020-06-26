@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_user_roles_get**](RolesApi.md#api26_user_roles_get) | **GET** /api/26/user/roles | List the roles of the authenticated user
+[**user_role_list**](RolesApi.md#user_role_list) | **GET** /api/26/user/roles | List the roles of the authenticated user
 
 
-# **api26_user_roles_get**
-> api26_user_roles_get()
+# **user_role_list**
+> user_role_list()
 
 List the roles of the authenticated user
 
@@ -19,7 +19,7 @@ library(openlattice-rundeck)
 
 #List the roles of the authenticated user
 api.instance <- RolesApi$new()
-api.instance$api26_user_roles_get()
+api.instance$user_role_list()
 ```
 
 ### Parameters

@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_storage_keys_path_delete**](StorageApi.md#api26_storage_keys_path_delete) | **DELETE** /api/26/storage/keys/{path} | Deletes the file if it exists and returns 204 response.
+[**storage_key_delete**](StorageApi.md#storage_key_delete) | **DELETE** /api/26/storage/keys/{path} | Deletes the file if it exists and returns 204 response.
 
 
-# **api26_storage_keys_path_delete**
-> api26_storage_keys_path_delete(path)
+# **storage_key_delete**
+> storage_key_delete(path)
 
 Deletes the file if it exists and returns 204 response.
 
@@ -20,7 +20,7 @@ var.path <- TODO # AnyType | Key path
 
 #Deletes the file if it exists and returns 204 response.
 api.instance <- StorageApi$new()
-api.instance$api26_storage_keys_path_delete(var.path)
+api.instance$storage_key_delete(var.path)
 ```
 
 ### Parameters

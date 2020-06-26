@@ -14,7 +14,7 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ api26_project_project_motd_md_delete } \emph{ Delete project motd.md }
+#' \strong{ project_motd_delete } \emph{ Delete project motd.md }
 #' 
 #'
 #' \itemize{
@@ -35,7 +35,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  api26_project_project_motd_md_delete  ####################
+#' ####################  project_motd_delete  ####################
 #'
 #' library(openlattice-rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
@@ -43,7 +43,7 @@
 #' #Delete project motd.md
 #' api.instance <- ProjectApi$new()
 #'
-#' result <- api.instance$api26_project_project_motd_md_delete(var.project)
+#' result <- api.instance$project_motd_delete(var.project)
 #'
 #'
 #' }
@@ -62,8 +62,8 @@ ProjectApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    api26_project_project_motd_md_delete = function(project, ...){
-      apiResponse <- self$api26_project_project_motd_md_deleteWithHttpInfo(project, ...)
+    project_motd_delete = function(project, ...){
+      apiResponse <- self$project_motd_deleteWithHttpInfo(project, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -76,7 +76,7 @@ ProjectApi <- R6::R6Class(
       }
     },
 
-    api26_project_project_motd_md_deleteWithHttpInfo = function(project, ...){
+    project_motd_deleteWithHttpInfo = function(project, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()

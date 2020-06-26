@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_execution_id_output_get**](ExecutionApi.md#api26_execution_id_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
+[**execution_output_get**](ExecutionApi.md#execution_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
 
 
-# **api26_execution_id_output_get**
-> api26_execution_id_output_get(id, offset=offset, maxlines=maxlines)
+# **execution_output_get**
+> execution_output_get(id, offset=offset, maxlines=maxlines)
 
 List input files for an execution
 
@@ -37,9 +37,9 @@ maxlines = None # object |  (optional)
 
     try:
         # List input files for an execution
-        api_instance.api26_execution_id_output_get(id, offset=offset, maxlines=maxlines)
+        api_instance.execution_output_get(id, offset=offset, maxlines=maxlines)
     except ApiException as e:
-        print("Exception when calling ExecutionApi->api26_execution_id_output_get: %s\n" % e)
+        print("Exception when calling ExecutionApi->execution_output_get: %s\n" % e)
 ```
 
 ### Parameters

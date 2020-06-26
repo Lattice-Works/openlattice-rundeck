@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api34_job_id_workflow_get**](JobApi.md#api34_job_id_workflow_get) | **GET** /api/34/job/{id}/workflow | Get job workflow tree.
+[**job_workflow_get**](JobApi.md#job_workflow_get) | **GET** /api/34/job/{id}/workflow | Get job workflow tree.
 
 
-# **api34_job_id_workflow_get**
-> api34_job_id_workflow_get(id)
+# **job_workflow_get**
+> job_workflow_get(id)
 
 Get job workflow tree.
 
@@ -35,9 +35,9 @@ with openlattice-rundeck.ApiClient() as api_client:
 
     try:
         # Get job workflow tree.
-        api_instance.api34_job_id_workflow_get(id)
+        api_instance.job_workflow_get(id)
     except ApiException as e:
-        print("Exception when calling JobApi->api34_job_id_workflow_get: %s\n" % e)
+        print("Exception when calling JobApi->job_workflow_get: %s\n" % e)
 ```
 
 ### Parameters

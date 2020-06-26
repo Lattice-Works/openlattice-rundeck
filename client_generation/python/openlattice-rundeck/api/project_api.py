@@ -36,13 +36,13 @@ class ProjectApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api26_project_project_motd_md_delete(self, project, **kwargs):  # noqa: E501
+    def project_motd_delete(self, project, **kwargs):  # noqa: E501
         """Delete project motd.md  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api26_project_project_motd_md_delete(project, async_req=True)
+        >>> thread = api.project_motd_delete(project, async_req=True)
         >>> result = thread.get()
 
         :param project: Name of the project to import jobs into. (required)
@@ -63,15 +63,15 @@ class ProjectApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.api26_project_project_motd_md_delete_with_http_info(project, **kwargs)  # noqa: E501
+        return self.project_motd_delete_with_http_info(project, **kwargs)  # noqa: E501
 
-    def api26_project_project_motd_md_delete_with_http_info(self, project, **kwargs):  # noqa: E501
+    def project_motd_delete_with_http_info(self, project, **kwargs):  # noqa: E501
         """Delete project motd.md  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api26_project_project_motd_md_delete_with_http_info(project, async_req=True)
+        >>> thread = api.project_motd_delete_with_http_info(project, async_req=True)
         >>> result = thread.get()
 
         :param project: Name of the project to import jobs into. (required)
@@ -118,14 +118,14 @@ class ProjectApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api26_project_project_motd_md_delete" % key
+                    " to method project_motd_delete" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'project' is set
         if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
                                                         local_var_params['project'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `project` when calling `api26_project_project_motd_md_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `project` when calling `project_motd_delete`")  # noqa: E501
 
         collection_formats = {}
 

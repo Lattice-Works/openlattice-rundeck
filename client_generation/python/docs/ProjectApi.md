@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_project_project_motd_md_delete**](ProjectApi.md#api26_project_project_motd_md_delete) | **DELETE** /api/26/project/{project}/motd.md | Delete project motd.md
+[**project_motd_delete**](ProjectApi.md#project_motd_delete) | **DELETE** /api/26/project/{project}/motd.md | Delete project motd.md
 
 
-# **api26_project_project_motd_md_delete**
-> api26_project_project_motd_md_delete(project)
+# **project_motd_delete**
+> project_motd_delete(project)
 
 Delete project motd.md
 
@@ -35,9 +35,9 @@ with openlattice-rundeck.ApiClient() as api_client:
 
     try:
         # Delete project motd.md
-        api_instance.api26_project_project_motd_md_delete(project)
+        api_instance.project_motd_delete(project)
     except ApiException as e:
-        print("Exception when calling ProjectApi->api26_project_project_motd_md_delete: %s\n" % e)
+        print("Exception when calling ProjectApi->project_motd_delete: %s\n" % e)
 ```
 
 ### Parameters

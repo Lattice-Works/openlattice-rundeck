@@ -14,7 +14,7 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ api26_user_roles_get } \emph{ List the roles of the authenticated user }
+#' \strong{ user_role_list } \emph{ List the roles of the authenticated user }
 #' 
 #'
 #' \itemize{
@@ -34,14 +34,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  api26_user_roles_get  ####################
+#' ####################  user_role_list  ####################
 #'
 #' library(openlattice-rundeck)
 #'
 #' #List the roles of the authenticated user
 #' api.instance <- RolesApi$new()
 #'
-#' result <- api.instance$api26_user_roles_get()
+#' result <- api.instance$user_role_list()
 #'
 #'
 #' }
@@ -60,8 +60,8 @@ RolesApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    api26_user_roles_get = function(...){
-      apiResponse <- self$api26_user_roles_getWithHttpInfo(...)
+    user_role_list = function(...){
+      apiResponse <- self$user_role_listWithHttpInfo(...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -74,7 +74,7 @@ RolesApi <- R6::R6Class(
       }
     },
 
-    api26_user_roles_getWithHttpInfo = function(...){
+    user_role_listWithHttpInfo = function(...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()

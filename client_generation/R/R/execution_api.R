@@ -14,7 +14,7 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ api26_execution_id_output_get } \emph{ List input files for an execution }
+#' \strong{ execution_output_get } \emph{ List input files for an execution }
 #' 
 #'
 #' \itemize{
@@ -37,7 +37,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  api26_execution_id_output_get  ####################
+#' ####################  execution_output_get  ####################
 #'
 #' library(openlattice-rundeck)
 #' var.id <- 'id_example' # character | 
@@ -47,7 +47,7 @@
 #' #List input files for an execution
 #' api.instance <- ExecutionApi$new()
 #'
-#' result <- api.instance$api26_execution_id_output_get(var.id, offset=var.offset, maxlines=var.maxlines)
+#' result <- api.instance$execution_output_get(var.id, offset=var.offset, maxlines=var.maxlines)
 #'
 #'
 #' }
@@ -66,8 +66,8 @@ ExecutionApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    api26_execution_id_output_get = function(id, offset=NULL, maxlines=NULL, ...){
-      apiResponse <- self$api26_execution_id_output_getWithHttpInfo(id, offset, maxlines, ...)
+    execution_output_get = function(id, offset=NULL, maxlines=NULL, ...){
+      apiResponse <- self$execution_output_getWithHttpInfo(id, offset, maxlines, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -80,7 +80,7 @@ ExecutionApi <- R6::R6Class(
       }
     },
 
-    api26_execution_id_output_getWithHttpInfo = function(id, offset=NULL, maxlines=NULL, ...){
+    execution_output_getWithHttpInfo = function(id, offset=NULL, maxlines=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()

@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_metrics_get**](MetricApi.md#api26_metrics_get) | **GET** /api/26/metrics | List links to enabled Metrics endpoints
+[**metric_list**](MetricApi.md#metric_list) | **GET** /api/26/metrics | List links to enabled Metrics endpoints
 
 
-# **api26_metrics_get**
-> api26_metrics_get()
+# **metric_list**
+> metric_list()
 
 List links to enabled Metrics endpoints
 
@@ -34,9 +34,9 @@ with openlattice-rundeck.ApiClient() as api_client:
     
     try:
         # List links to enabled Metrics endpoints
-        api_instance.api26_metrics_get()
+        api_instance.metric_list()
     except ApiException as e:
-        print("Exception when calling MetricApi->api26_metrics_get: %s\n" % e)
+        print("Exception when calling MetricApi->metric_list: %s\n" % e)
 ```
 
 ### Parameters

@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_project_project_motd_md_delete**](ProjectApi.md#api26_project_project_motd_md_delete) | **DELETE** /api/26/project/{project}/motd.md | Delete project motd.md
+[**project_motd_delete**](ProjectApi.md#project_motd_delete) | **DELETE** /api/26/project/{project}/motd.md | Delete project motd.md
 
 
-# **api26_project_project_motd_md_delete**
-> api26_project_project_motd_md_delete(project)
+# **project_motd_delete**
+> project_motd_delete(project)
 
 Delete project motd.md
 
@@ -20,7 +20,7 @@ var.project <- 'project_example' # character | Name of the project to import job
 
 #Delete project motd.md
 api.instance <- ProjectApi$new()
-api.instance$api26_project_project_motd_md_delete(var.project)
+api.instance$project_motd_delete(var.project)
 ```
 
 ### Parameters

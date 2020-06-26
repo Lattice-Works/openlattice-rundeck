@@ -36,13 +36,13 @@ class AclApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api26_system_acl_policy_name_delete(self, policy_name, **kwargs):  # noqa: E501
+    def system_acl_policy_delete(self, policy_name, **kwargs):  # noqa: E501
         """Delete policy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api26_system_acl_policy_name_delete(policy_name, async_req=True)
+        >>> thread = api.system_acl_policy_delete(policy_name, async_req=True)
         >>> result = thread.get()
 
         :param policy_name: Policy file name (required)
@@ -63,15 +63,15 @@ class AclApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.api26_system_acl_policy_name_delete_with_http_info(policy_name, **kwargs)  # noqa: E501
+        return self.system_acl_policy_delete_with_http_info(policy_name, **kwargs)  # noqa: E501
 
-    def api26_system_acl_policy_name_delete_with_http_info(self, policy_name, **kwargs):  # noqa: E501
+    def system_acl_policy_delete_with_http_info(self, policy_name, **kwargs):  # noqa: E501
         """Delete policy  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api26_system_acl_policy_name_delete_with_http_info(policy_name, async_req=True)
+        >>> thread = api.system_acl_policy_delete_with_http_info(policy_name, async_req=True)
         >>> result = thread.get()
 
         :param policy_name: Policy file name (required)
@@ -118,14 +118,14 @@ class AclApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api26_system_acl_policy_name_delete" % key
+                    " to method system_acl_policy_delete" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'policy_name' is set
         if self.api_client.client_side_validation and ('policy_name' not in local_var_params or  # noqa: E501
                                                         local_var_params['policy_name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `policy_name` when calling `api26_system_acl_policy_name_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `policy_name` when calling `system_acl_policy_delete`")  # noqa: E501
 
         collection_formats = {}
 

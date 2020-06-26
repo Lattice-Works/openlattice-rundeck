@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_storage_keys_path_delete**](StorageApi.md#api26_storage_keys_path_delete) | **DELETE** /api/26/storage/keys/{path} | Deletes the file if it exists and returns 204 response.
+[**storage_key_delete**](StorageApi.md#storage_key_delete) | **DELETE** /api/26/storage/keys/{path} | Deletes the file if it exists and returns 204 response.
 
 
-# **api26_storage_keys_path_delete**
-> api26_storage_keys_path_delete(path)
+# **storage_key_delete**
+> storage_key_delete(path)
 
 Deletes the file if it exists and returns 204 response.
 
@@ -35,9 +35,9 @@ with openlattice-rundeck.ApiClient() as api_client:
 
     try:
         # Deletes the file if it exists and returns 204 response.
-        api_instance.api26_storage_keys_path_delete(path)
+        api_instance.storage_key_delete(path)
     except ApiException as e:
-        print("Exception when calling StorageApi->api26_storage_keys_path_delete: %s\n" % e)
+        print("Exception when calling StorageApi->storage_key_delete: %s\n" % e)
 ```
 
 ### Parameters

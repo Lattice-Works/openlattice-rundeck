@@ -14,7 +14,7 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ api34_job_id_workflow_get } \emph{ Get job workflow tree. }
+#' \strong{ job_workflow_get } \emph{ Get job workflow tree. }
 #' 
 #'
 #' \itemize{
@@ -35,7 +35,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  api34_job_id_workflow_get  ####################
+#' ####################  job_workflow_get  ####################
 #'
 #' library(openlattice-rundeck)
 #' var.id <- 'id_example' # character | 
@@ -43,7 +43,7 @@
 #' #Get job workflow tree.
 #' api.instance <- JobApi$new()
 #'
-#' result <- api.instance$api34_job_id_workflow_get(var.id)
+#' result <- api.instance$job_workflow_get(var.id)
 #'
 #'
 #' }
@@ -62,8 +62,8 @@ JobApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    api34_job_id_workflow_get = function(id, ...){
-      apiResponse <- self$api34_job_id_workflow_getWithHttpInfo(id, ...)
+    job_workflow_get = function(id, ...){
+      apiResponse <- self$job_workflow_getWithHttpInfo(id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -76,7 +76,7 @@ JobApi <- R6::R6Class(
       }
     },
 
-    api34_job_id_workflow_getWithHttpInfo = function(id, ...){
+    job_workflow_getWithHttpInfo = function(id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()

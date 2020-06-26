@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_metrics_get**](MetricApi.md#api26_metrics_get) | **GET** /api/26/metrics | List links to enabled Metrics endpoints
+[**metric_list**](MetricApi.md#metric_list) | **GET** /api/26/metrics | List links to enabled Metrics endpoints
 
 
-# **api26_metrics_get**
-> api26_metrics_get()
+# **metric_list**
+> metric_list()
 
 List links to enabled Metrics endpoints
 
@@ -19,7 +19,7 @@ library(openlattice-rundeck)
 
 #List links to enabled Metrics endpoints
 api.instance <- MetricApi$new()
-api.instance$api26_metrics_get()
+api.instance$metric_list()
 ```
 
 ### Parameters

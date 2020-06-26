@@ -14,7 +14,7 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ api26_metrics_get } \emph{ List links to enabled Metrics endpoints }
+#' \strong{ metric_list } \emph{ List links to enabled Metrics endpoints }
 #' 
 #'
 #' \itemize{
@@ -34,14 +34,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  api26_metrics_get  ####################
+#' ####################  metric_list  ####################
 #'
 #' library(openlattice-rundeck)
 #'
 #' #List links to enabled Metrics endpoints
 #' api.instance <- MetricApi$new()
 #'
-#' result <- api.instance$api26_metrics_get()
+#' result <- api.instance$metric_list()
 #'
 #'
 #' }
@@ -60,8 +60,8 @@ MetricApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    api26_metrics_get = function(...){
-      apiResponse <- self$api26_metrics_getWithHttpInfo(...)
+    metric_list = function(...){
+      apiResponse <- self$metric_listWithHttpInfo(...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -74,7 +74,7 @@ MetricApi <- R6::R6Class(
       }
     },
 
-    api26_metrics_getWithHttpInfo = function(...){
+    metric_listWithHttpInfo = function(...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()

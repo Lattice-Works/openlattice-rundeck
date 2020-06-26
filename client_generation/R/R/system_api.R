@@ -14,7 +14,7 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ api26_system_acl_policy_name_delete } \emph{ Delete policy }
+#' \strong{ system_acl_policy_delete } \emph{ Delete policy }
 #' 
 #'
 #' \itemize{
@@ -35,7 +35,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' ####################  api26_system_acl_policy_name_delete  ####################
+#' ####################  system_acl_policy_delete  ####################
 #'
 #' library(openlattice-rundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
@@ -43,7 +43,7 @@
 #' #Delete policy
 #' api.instance <- SystemApi$new()
 #'
-#' result <- api.instance$api26_system_acl_policy_name_delete(var.policy_name)
+#' result <- api.instance$system_acl_policy_delete(var.policy_name)
 #'
 #'
 #' }
@@ -62,8 +62,8 @@ SystemApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    api26_system_acl_policy_name_delete = function(policy_name, ...){
-      apiResponse <- self$api26_system_acl_policy_name_deleteWithHttpInfo(policy_name, ...)
+    system_acl_policy_delete = function(policy_name, ...){
+      apiResponse <- self$system_acl_policy_deleteWithHttpInfo(policy_name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -76,7 +76,7 @@ SystemApi <- R6::R6Class(
       }
     },
 
-    api26_system_acl_policy_name_deleteWithHttpInfo = function(policy_name, ...){
+    system_acl_policy_deleteWithHttpInfo = function(policy_name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()

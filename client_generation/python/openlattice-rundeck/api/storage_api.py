@@ -36,13 +36,13 @@ class StorageApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def api26_storage_keys_path_delete(self, path, **kwargs):  # noqa: E501
+    def storage_key_delete(self, path, **kwargs):  # noqa: E501
         """Deletes the file if it exists and returns 204 response.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api26_storage_keys_path_delete(path, async_req=True)
+        >>> thread = api.storage_key_delete(path, async_req=True)
         >>> result = thread.get()
 
         :param path: Key path (required)
@@ -63,15 +63,15 @@ class StorageApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.api26_storage_keys_path_delete_with_http_info(path, **kwargs)  # noqa: E501
+        return self.storage_key_delete_with_http_info(path, **kwargs)  # noqa: E501
 
-    def api26_storage_keys_path_delete_with_http_info(self, path, **kwargs):  # noqa: E501
+    def storage_key_delete_with_http_info(self, path, **kwargs):  # noqa: E501
         """Deletes the file if it exists and returns 204 response.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api26_storage_keys_path_delete_with_http_info(path, async_req=True)
+        >>> thread = api.storage_key_delete_with_http_info(path, async_req=True)
         >>> result = thread.get()
 
         :param path: Key path (required)
@@ -118,14 +118,14 @@ class StorageApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method api26_storage_keys_path_delete" % key
+                    " to method storage_key_delete" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'path' is set
         if self.api_client.client_side_validation and ('path' not in local_var_params or  # noqa: E501
                                                         local_var_params['path'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `path` when calling `api26_storage_keys_path_delete`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `path` when calling `storage_key_delete`")  # noqa: E501
 
         collection_formats = {}
 

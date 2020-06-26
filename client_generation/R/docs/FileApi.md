@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_execution_id_output_get**](FileApi.md#api26_execution_id_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
+[**execution_output_get**](FileApi.md#execution_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
 
 
-# **api26_execution_id_output_get**
-> api26_execution_id_output_get(id, offset=var.offset, maxlines=var.maxlines)
+# **execution_output_get**
+> execution_output_get(id, offset=var.offset, maxlines=var.maxlines)
 
 List input files for an execution
 
@@ -22,7 +22,7 @@ var.maxlines <- TODO # AnyType |
 
 #List input files for an execution
 api.instance <- FileApi$new()
-api.instance$api26_execution_id_output_get(var.id, offset=var.offset, maxlines=var.maxlines)
+api.instance$execution_output_get(var.id, offset=var.offset, maxlines=var.maxlines)
 ```
 
 ### Parameters

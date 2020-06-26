@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_user_roles_get**](UserApi.md#api26_user_roles_get) | **GET** /api/26/user/roles | List the roles of the authenticated user
+[**user_role_list**](UserApi.md#user_role_list) | **GET** /api/26/user/roles | List the roles of the authenticated user
 
 
-# **api26_user_roles_get**
-> api26_user_roles_get()
+# **user_role_list**
+> user_role_list()
 
 List the roles of the authenticated user
 
@@ -34,9 +34,9 @@ with openlattice-rundeck.ApiClient() as api_client:
     
     try:
         # List the roles of the authenticated user
-        api_instance.api26_user_roles_get()
+        api_instance.user_role_list()
     except ApiException as e:
-        print("Exception when calling UserApi->api26_user_roles_get: %s\n" % e)
+        print("Exception when calling UserApi->user_role_list: %s\n" % e)
 ```
 
 ### Parameters

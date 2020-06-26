@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api26_system_acl_policy_name_delete**](SystemApi.md#api26_system_acl_policy_name_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
+[**system_acl_policy_delete**](SystemApi.md#system_acl_policy_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
 
 
-# **api26_system_acl_policy_name_delete**
-> api26_system_acl_policy_name_delete(policy_name)
+# **system_acl_policy_delete**
+> system_acl_policy_delete(policy_name)
 
 Delete policy
 
@@ -20,7 +20,7 @@ var.policy_name <- 'policy_name_example' # character | Policy file name
 
 #Delete policy
 api.instance <- SystemApi$new()
-api.instance$api26_system_acl_policy_name_delete(var.policy_name)
+api.instance$system_acl_policy_delete(var.policy_name)
 ```
 
 ### Parameters
