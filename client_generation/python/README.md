@@ -63,14 +63,19 @@ configuration = openlattice-rundeck.Configuration(
 # Enter a context with an instance of the API client
 with openlattice-rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.AclApi(api_client)
-    policy_name = 'policy_name_example' # str | Policy file name
+    api_instance = openlattice-rundeck.JobApi(api_client)
+    project = 'project_example' # str | Name of the project to import jobs into.
+body = None # object | 
+job_uuid_option = None # object |  (optional)
+import_executions = True # bool |  (optional)
+import_config = True # bool |  (optional)
+import_acl = True # bool |  (optional)
 
     try:
-        # Delete policy
-        api_instance.system_acl_policy_delete(policy_name)
+        # Import project archive.
+        api_instance.project_archive_import(project, body, job_uuid_option=job_uuid_option, import_executions=import_executions, import_config=import_config, import_acl=import_acl)
     except ApiException as e:
-        print("Exception when calling AclApi->system_acl_policy_delete: %s\n" % e)
+        print("Exception when calling JobApi->project_archive_import: %s\n" % e)
     
 ```
 
@@ -80,16 +85,19 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AclApi* | [**system_acl_policy_delete**](docs/AclApi.md#system_acl_policy_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
-*ExecutionApi* | [**execution_output_get**](docs/ExecutionApi.md#execution_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
-*FileApi* | [**execution_output_get**](docs/FileApi.md#execution_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
-*JobApi* | [**job_workflow_get**](docs/JobApi.md#job_workflow_get) | **GET** /api/34/job/{id}/workflow | Get job workflow tree.
-*MetricApi* | [**metric_list**](docs/MetricApi.md#metric_list) | **GET** /api/26/metrics | List links to enabled Metrics endpoints
+*JobApi* | [**project_archive_import**](docs/JobApi.md#project_archive_import) | **PUT** /api/26/project/{project}/import | Import project archive.
+*JobApi* | [**project_jobs_export**](docs/JobApi.md#project_jobs_export) | **GET** /api/26/project/{project}/jobs/export | Export the job definitions in XML or YAML formats.
+*JobApi* | [**project_jobs_import**](docs/JobApi.md#project_jobs_import) | **POST** /api/26/project/{project}/jobs/import | Import job definitions in XML or YAML formats.
+*ProjectApi* | [**project_archive_export_sync**](docs/ProjectApi.md#project_archive_export_sync) | **GET** /api/26/project/{project}/export | Export archive of project synchronously
+*ProjectApi* | [**project_archive_import**](docs/ProjectApi.md#project_archive_import) | **PUT** /api/26/project/{project}/import | Import project archive.
+*ProjectApi* | [**project_config_key_delete**](docs/ProjectApi.md#project_config_key_delete) | **DELETE** /api/26/project/{project}/config/{key} | Delete project config key
+*ProjectApi* | [**project_config_update**](docs/ProjectApi.md#project_config_update) | **PUT** /api/26/project/{project}/config | Update project config
+*ProjectApi* | [**project_create**](docs/ProjectApi.md#project_create) | **POST** /api/26/projects | Create a new project
+*ProjectApi* | [**project_delete**](docs/ProjectApi.md#project_delete) | **DELETE** /api/26/project/{project} | Delete project
+*ProjectApi* | [**project_jobs_export**](docs/ProjectApi.md#project_jobs_export) | **GET** /api/26/project/{project}/jobs/export | Export the job definitions in XML or YAML formats.
+*ProjectApi* | [**project_jobs_import**](docs/ProjectApi.md#project_jobs_import) | **POST** /api/26/project/{project}/jobs/import | Import job definitions in XML or YAML formats.
 *ProjectApi* | [**project_motd_delete**](docs/ProjectApi.md#project_motd_delete) | **DELETE** /api/26/project/{project}/motd.md | Delete project motd.md
-*RolesApi* | [**user_role_list**](docs/RolesApi.md#user_role_list) | **GET** /api/26/user/roles | List the roles of the authenticated user
-*StorageApi* | [**storage_key_delete**](docs/StorageApi.md#storage_key_delete) | **DELETE** /api/26/storage/keys/{path} | Deletes the file if it exists and returns 204 response.
-*SystemApi* | [**system_acl_policy_delete**](docs/SystemApi.md#system_acl_policy_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
-*UserApi* | [**user_role_list**](docs/UserApi.md#user_role_list) | **GET** /api/26/user/roles | List the roles of the authenticated user
+*ProjectApi* | [**project_readme_delete**](docs/ProjectApi.md#project_readme_delete) | **DELETE** /api/26/project/{project}/readme.md | Delete project README.md
 
 
 ## Documentation For Models

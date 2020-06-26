@@ -5,47 +5,277 @@ info:
   license:
     name: MIT
 paths:
-  /api/26/execution/{id}/output:
-    get:
-      summary: List input files for an execution
-      operationId: executionOutputGet
+  /api/26/projects:
+    post:
+      summary: Create a new project
+      operationId: projectCreate
       tags:
-      - file
-      - execution
+      - project
       parameters:
-      - name: id
-        schema:
-          type: string
+      - name: ProjectCreateRequest
+        schema: {}
         in: path
         required: true
-      - name: offset
-        schema:
-          type: string
-        in: query
-        required: false
-      - name: maxlines
-        schema:
-          default: 5000
-        in: query
-        required: false
       responses:
         '200':
-          description: List of execution input files
-  /api/34/job/{id}/workflow:
-    get:
-      summary: Get job workflow tree.
-      operationId: jobWorkflowGet
+          description: Success !
+  /api/26/project/{project}:
+    delete:
+      summary: Delete project
+      operationId: projectDelete
       tags:
-      - job
+      - project
       parameters:
-      - name: id
+      - name: project
         schema:
           type: string
         in: path
         required: true
+      responses:
+        '200':
+          description: Success !
+  /api/26/project/{project}/config:
+    put:
+      summary: Update project config
+      operationId: projectConfigUpdate
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Project config updated
+  /api/26/project/{project}/config/{key}:
+    delete:
+      summary: Delete project config key
+      operationId: projectConfigKeyDelete
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      - name: key
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Success !
+  /api/26/project/{project}/jobs/export:
+    get:
+      summary: Export the job definitions in XML or YAML formats.
+      operationId: projectJobsExport
+      tags:
+      - job
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: The project to export jobs for.
+      - name: format
+        schema:
+          default: xml
+        in: query
+        required: false
+        description: XML or YAML format for exported jobs.
+      - name: idlist
+        schema:
+          type: string
+        in: query
+        required: false
+        description: A comma-separated list of Job IDs to export.
+      - name: groupPath
+        schema:
+          type: string
+        in: query
+        required: false
+        description: Group or partial group path to include all jobs within that group
+          path.
+      - name: jobFilter
+        schema:
+          type: string
+        in: query
+        required: false
+        description: Filter for the job Name.
       responses:
         '200':
           description: Expected response to a valid request.
+  /api/26/project/{project}/jobs/import:
+    post:
+      summary: Import job definitions in XML or YAML formats.
+      operationId: projectJobsImport
+      tags:
+      - job
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      - name: content-type
+        schema:
+          default: application/xml
+        in: header
+        required: false
+      - name: accept
+        schema:
+          default: application/xml
+        in: header
+        required: false
+      - name: fileFormat
+        schema: {}
+        in: query
+        required: false
+        x-ms-parameter-grouping:
+          name: job-import-options
+      - name: dupeOption
+        schema: {}
+        in: query
+        required: false
+        x-ms-parameter-grouping:
+          name: job-import-options
+      - name: uuidOption
+        schema: {}
+        in: query
+        required: false
+        x-ms-parameter-grouping:
+          name: job-import-options
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Expected response to a valid request.
+  /api/26/project/{project}/import:
+    put:
+      summary: Import project archive.
+      operationId: projectArchiveImport
+      tags:
+      - job
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      - name: jobUuidOption
+        schema:
+          default: remove
+        in: query
+      - name: importExecutions
+        schema:
+          type: boolean
+        in: query
+      - name: importConfig
+        schema:
+          type: boolean
+        in: query
+      - name: importACL
+        schema:
+          type: boolean
+        in: query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Expected response to a valid request
+  /api/26/project/{project}/export:
+    get:
+      summary: Export archive of project synchronously
+      operationId: projectArchiveExportSync
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      - name: executionIds
+        schema:
+          type: boolean
+        in: query
+        description: A list (comma-separated) of execution IDs. If this is specified
+          then the archive will contain only executions that are specified, and will
+          not contain Jobs, ACLs, or project configuration/readme files.
+      - name: exportAll
+        schema:
+          default: true
+        in: query
+        description: Export all project resources
+      - name: exportJobs
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      - name: exportExecutions
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      - name: exportConfigs
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      - name: exportReadmes
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      - name: exportAcls
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      responses:
+        '200':
+          description: Zip archive
+  /api/26/project/{project}/readme.md:
+    delete:
+      summary: Delete project README.md
+      operationId: projectReadmeDelete
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      responses:
+        '200':
+          description: Success !
   /api/26/project/{project}/motd.md:
     delete:
       summary: Delete project motd.md
@@ -62,58 +292,6 @@ paths:
       responses:
         '200':
           description: Success !
-  /api/26/storage/keys/{path}:
-    delete:
-      summary: Deletes the file if it exists and returns 204 response.
-      operationId: storageKeyDelete
-      tags:
-      - storage
-      parameters:
-      - name: path
-        schema: {}
-        in: path
-        required: true
-        description: Key path
-        x-ms-skip-url-encoding: true
-      responses:
-        '200':
-          description: Success !
-  /api/26/system/acl/{policyName}:
-    delete:
-      summary: Delete policy
-      operationId: systemAclPolicyDelete
-      tags:
-      - system
-      - acl
-      parameters:
-      - name: policyName
-        schema:
-          type: string
-        in: path
-        required: true
-        description: Policy file name
-      responses:
-        '200':
-          description: Success !
-  /api/26/user/roles:
-    get:
-      summary: List the roles of the authenticated user
-      operationId: userRoleList
-      tags:
-      - user
-      - roles
-      responses:
-        '200':
-          description: Expected response to a valid request
-  /api/26/metrics:
-    get:
-      summary: List links to enabled Metrics endpoints
-      operationId: metricList
-      tags:
-      - metric
-      responses:
-        '200':
-          description: List of Metrics endpoint links
 components:
   securitySchemes:
     rundeck_auth:
@@ -861,26 +1039,10 @@ components:
           items:
             $ref: '#/definitions/WorkflowStep'
 tags:
-- name: storage
-  description: API endpoints to storages
-- name: metric
-  description: API endpoints to metrics
-- name: user
-  description: API endpoints to users
-- name: acl
-  description: API endpoints to acls
-- name: execution
-  description: API endpoints to executions
-- name: job
-  description: API endpoints to jobs
-- name: roles
-  description: API endpoints to roless
 - name: project
   description: API endpoints to projects
-- name: system
-  description: API endpoints to systems
-- name: file
-  description: API endpoints to files
+- name: job
+  description: API endpoints to jobs
 externalDocs:
   description: Combined API specifications for Rundeck
   url: https://github.com/Lattice-Works/openlattice-rundeck
