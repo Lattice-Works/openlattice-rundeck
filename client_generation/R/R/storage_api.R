@@ -8,12 +8,30 @@
 
 #' @docType class
 #' @title Storage operations
-#' @description openlattice-rundeck.Storage
+#' @description openlattice_rundeck.Storage
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
 #' @section Methods:
 #' \describe{
+#' \strong{ storage_key_create } \emph{ Set storage key contents }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } path \link{AnyType}
+#' \item \emph{ @param } body object
+#' \item \emph{ @param } content_type \link{AnyType}
+#'
+#'
+#' \item status code : 200 | Success !
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ storage_key_delete } \emph{ Deletes the file if it exists and returns 204 response. }
 #' 
 #'
@@ -30,20 +48,138 @@
 #' }
 #' }
 #'
+#' \strong{ storage_key_get_material } \emph{ Get key material at the specified PATH }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } key_path \link{AnyType}
+#' \item \emph{ @param } accept Enum < [*/*] > 
+#'
+#'
+#' \item status code : 200 | Content
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ storage_key_get_metadata } \emph{ List resources at the specified PATH }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } path \link{AnyType}
+#' \item \emph{ @param } accept Enum < [application/json] > 
+#' \item \emph{ @returnType } \link{StorageKeyListResponse} \cr
+#'
+#'
+#' \item status code : 200 | Content
+#'
+#' \item return type : StorageKeyListResponse 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ storage_key_update } \emph{ Set storage key contents }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } path \link{AnyType}
+#' \item \emph{ @param } body object
+#' \item \emph{ @param } content_type \link{AnyType}
+#'
+#'
+#' \item status code : 200 | Content updated
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' }
 #'
 #'
 #' @examples
 #' \dontrun{
+#' ####################  storage_key_create  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.path <- AnyType$new() # AnyType | Key path
+#' var.body <- NULL # object | 
+#' var.content_type <- AnyType$new() # AnyType | 
+#'
+#' #Set storage key contents
+#' api.instance <- StorageApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$storage_key_create(var.path, var.body, content_type=var.content_type)
+#'
+#'
 #' ####################  storage_key_delete  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.path <- AnyType$new() # AnyType | Key path
 #'
 #' #Deletes the file if it exists and returns 204 response.
 #' api.instance <- StorageApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$storage_key_delete(var.path)
+#'
+#'
+#' ####################  storage_key_get_material  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.key_path <- AnyType$new() # AnyType | Key path
+#' var.accept <- 'accept_example' # character | 
+#'
+#' #Get key material at the specified PATH
+#' api.instance <- StorageApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$storage_key_get_material(var.key_path, var.accept)
+#'
+#'
+#' ####################  storage_key_get_metadata  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.path <- AnyType$new() # AnyType | Key path
+#' var.accept <- 'accept_example' # character | 
+#'
+#' #List resources at the specified PATH
+#' api.instance <- StorageApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$storage_key_get_metadata(var.path, var.accept)
+#'
+#'
+#' ####################  storage_key_update  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.path <- AnyType$new() # AnyType | Key path
+#' var.body <- NULL # object | 
+#' var.content_type <- AnyType$new() # AnyType | 
+#'
+#' #Set storage key contents
+#' api.instance <- StorageApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$storage_key_update(var.path, var.body, content_type=var.content_type)
 #'
 #'
 #' }
@@ -60,6 +196,73 @@ StorageApi <- R6::R6Class(
       }
       else {
         self$apiClient <- ApiClient$new()
+      }
+    },
+    storage_key_create = function(path, body, content_type=NULL, ...){
+      apiResponse <- self$storage_key_createWithHttpInfo(path, body, content_type, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    storage_key_createWithHttpInfo = function(path, body, content_type=NULL, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`path`)) {
+        stop("Missing required parameter `path`.")
+      }
+
+      if (missing(`body`)) {
+        stop("Missing required parameter `body`.")
+      }
+
+      headerParams['content-type'] <- `content_type`
+
+      if (!missing(`body`)) {
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/storage/keys/{path}"
+      if (!missing(`path`)) {
+        urlPath <- gsub(paste0("\\{", "path", "\\}"), URLencode(as.character(`path`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
       }
     },
     storage_key_delete = function(path, ...){
@@ -90,9 +293,204 @@ StorageApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "path", "\\}"), URLencode(as.character(`path`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    storage_key_get_material = function(key_path, accept, ...){
+      apiResponse <- self$storage_key_get_materialWithHttpInfo(key_path, accept, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    storage_key_get_materialWithHttpInfo = function(key_path, accept, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`key_path`)) {
+        stop("Missing required parameter `key_path`.")
+      }
+
+      if (missing(`accept`)) {
+        stop("Missing required parameter `accept`.")
+      }
+
+      headerParams['accept'] <- `accept`
+
+      urlPath <- "/api/26/storage/keys/{keyPath}"
+      if (!missing(`key_path`)) {
+        urlPath <- gsub(paste0("\\{", "keyPath", "\\}"), URLencode(as.character(`key_path`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    storage_key_get_metadata = function(path, accept, ...){
+      apiResponse <- self$storage_key_get_metadataWithHttpInfo(path, accept, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    storage_key_get_metadataWithHttpInfo = function(path, accept, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`path`)) {
+        stop("Missing required parameter `path`.")
+      }
+
+      if (missing(`accept`)) {
+        stop("Missing required parameter `accept`.")
+      }
+
+      headerParams['accept'] <- `accept`
+
+      urlPath <- "/api/26/storage/keys/{path}"
+      if (!missing(`path`)) {
+        urlPath <- gsub(paste0("\\{", "path", "\\}"), URLencode(as.character(`path`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "StorageKeyListResponse", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    storage_key_update = function(path, body, content_type=NULL, ...){
+      apiResponse <- self$storage_key_updateWithHttpInfo(path, body, content_type, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    storage_key_updateWithHttpInfo = function(path, body, content_type=NULL, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`path`)) {
+        stop("Missing required parameter `path`.")
+      }
+
+      if (missing(`body`)) {
+        stop("Missing required parameter `body`.")
+      }
+
+      headerParams['content-type'] <- `content_type`
+
+      if (!missing(`body`)) {
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/storage/keys/{path}"
+      if (!missing(`path`)) {
+        urlPath <- gsub(paste0("\\{", "path", "\\}"), URLencode(as.character(`path`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,

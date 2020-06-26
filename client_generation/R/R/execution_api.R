@@ -8,12 +8,78 @@
 
 #' @docType class
 #' @title Execution operations
-#' @description openlattice-rundeck.Execution
+#' @description openlattice_rundeck.Execution
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
 #' @section Methods:
 #' \describe{
+#' \strong{ execution_bulk_delete } \emph{ Bulk delete executions }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } inline_object \link{InlineObject}
+#' \item \emph{ @returnType } \link{JobExecutionDelete} \cr
+#'
+#'
+#' \item status code : 200 | Execution deleted response
+#'
+#' \item return type : JobExecutionDelete 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execution_delete } \emph{ Delete an exeuction by ID }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id character
+#'
+#'
+#' \item status code : 200 | Success !
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execution_input_files_list } \emph{ List input files for an execution }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id character
+#'
+#'
+#' \item status code : 200 | List of execution input files
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execution_list_running } \emph{ List job executions }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @returnType } \link{ExecutionList} \cr
+#'
+#'
+#' \item status code : 200 | List of executions for job
+#'
+#' \item return type : ExecutionList 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ execution_output_get } \emph{ List input files for an execution }
 #' 
 #'
@@ -21,11 +87,265 @@
 #' \item \emph{ @param } id character
 #' \item \emph{ @param } offset character
 #' \item \emph{ @param } maxlines \link{AnyType}
+#' \item \emph{ @returnType } \link{ExecutionOutput} \cr
 #'
 #'
 #' \item status code : 200 | List of execution input files
 #'
+#' \item return type : ExecutionOutput 
+#' \item response headers :
 #'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execution_query } \emph{ Query for Executions based on Job or Execution details }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } status_filter Enum < [running, succeeded, failed, aborted, timedout, failed-with-retry, scheduled, other] > 
+#' \item \emph{ @param } abortedby_filter character
+#' \item \emph{ @param } user_filter character
+#' \item \emph{ @param } recent_filter character
+#' \item \emph{ @param } older_filter character
+#' \item \emph{ @param } begin character
+#' \item \emph{ @param } adhoc character
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execution_state_get } \emph{ Get detail about the node and step state of an execution by ID. The execution can be currently running or completed. }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id character
+#'
+#'
+#' \item status code : 200 | Ok
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execution_status_get } \emph{ Get the status of an execution by ID }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id character
+#' \item \emph{ @returnType } \link{Execution} \cr
+#'
+#'
+#' \item status code : 200 | Execution status
+#'
+#' \item return type : Execution 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_execution_bulk_disable } \emph{ Bulk disable job executions }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } inline_object3 \link{InlineObject3}
+#' \item \emph{ @returnType } \link{JobBulkOperationResponse} \cr
+#'
+#'
+#' \item status code : 200 | Job toggle execution response
+#'
+#' \item return type : JobBulkOperationResponse 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_execution_bulk_enable } \emph{ Bulk enable job executions }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } inline_object2 \link{InlineObject2}
+#' \item \emph{ @returnType } \link{JobBulkOperationResponse} \cr
+#'
+#'
+#' \item status code : 200 | Job deleted response
+#'
+#' \item return type : JobBulkOperationResponse 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_execution_delete } \emph{ Delete all job executions }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id integer
+#'
+#'
+#' \item status code : 200 | Success !
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_execution_disable } \emph{ Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.) }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id \link{AnyType}
+#'
+#'
+#' \item status code : 200 | Job executions disabled
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_execution_enable } \emph{ Enable executions for a job. (ACL requires toggle_execution action for a job.) }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id \link{AnyType}
+#'
+#'
+#' \item status code : 200 | Job executions enabled
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_execution_list } \emph{ List job executions }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id character
+#' \item \emph{ @returnType } \link{ExecutionList} \cr
+#'
+#'
+#' \item status code : 200 | List of executions for job
+#'
+#' \item return type : ExecutionList 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_execution_run } \emph{ Run the specified job }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } id character
+#' \item \emph{ @param } body object
+#' \item \emph{ @returnType } \link{Execution} \cr
+#'
+#'
+#' \item status code : 200 | Expected response for a valid request
+#'
+#' \item return type : Execution 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_retry_execution } \emph{ Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the &#x60;Retry Failed Nodes ...&#x60; button on the execution page. }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } job_id character
+#' \item \emph{ @param } execution_id integer
+#' \item \emph{ @param } body object
+#' \item \emph{ @returnType } \link{ExecutionList} \cr
+#'
+#'
+#' \item status code : 200 | Exected response to a valid request.
+#'
+#' \item return type : ExecutionList 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ system_executions_disable } \emph{ Disables executions, preventing adhoc and manual and scheduled jobs from running. }
+#' 
+#'
+#' \itemize{
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ system_executions_enable } \emph{ Enables executions, allowing adhoc and manual and scheduled jobs to be run }
+#' 
+#'
+#' \itemize{
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ system_incomplete_log_storage_executions_get } \emph{ List all executions with incomplete log storage }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @returnType } \link{IncompleteLogExecutions} \cr
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#' \item return type : IncompleteLogExecutions 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ system_incomplete_log_storage_executions_resume } \emph{ Resume processing incomplete Log Storage uploads }
+#' 
+#'
+#' \itemize{
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#' \item return type : object 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -37,9 +357,65 @@
 #'
 #' @examples
 #' \dontrun{
+#' ####################  execution_bulk_delete  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.inline_object <- InlineObject$new() # InlineObject | 
+#'
+#' #Bulk delete executions
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execution_bulk_delete(var.inline_object)
+#'
+#'
+#' ####################  execution_delete  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- 'id_example' # character | 
+#'
+#' #Delete an exeuction by ID
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execution_delete(var.id)
+#'
+#'
+#' ####################  execution_input_files_list  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- 'id_example' # character | 
+#'
+#' #List input files for an execution
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execution_input_files_list(var.id)
+#'
+#'
+#' ####################  execution_list_running  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | Project name or * for all projects
+#'
+#' #List job executions
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execution_list_running(var.project)
+#'
+#'
 #' ####################  execution_output_get  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.id <- 'id_example' # character | 
 #' var.offset <- 'offset_example' # character | 
 #' var.maxlines <- AnyType$new() # AnyType | 
@@ -47,7 +423,226 @@
 #' #List input files for an execution
 #' api.instance <- ExecutionApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$execution_output_get(var.id, offset=var.offset, maxlines=var.maxlines)
+#'
+#'
+#' ####################  execution_query  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | 
+#' var.status_filter <- 'status_filter_example' # character | 
+#' var.abortedby_filter <- 'abortedby_filter_example' # character | Username who aborted an execution
+#' var.user_filter <- 'user_filter_example' # character | Username who started the execution
+#' var.recent_filter <- 'recent_filter_example' # character | Use a simple text format to filter executions that completed within a period of time. The format is “XY” where X is an integer, and “Y” is one of: * h: hour * d: day 
+#' var.older_filter <- 'older_filter_example' # character | (same format as recentFilter) return executions that completed before the specified relative period of time
+#' var.begin <- 'begin_example' # character | Specify exact date for earliest execution completion time
+#' var.adhoc <- 'adhoc_example' # character | 
+#'
+#' #Query for Executions based on Job or Execution details
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execution_query(var.project, status_filter=var.status_filter, abortedby_filter=var.abortedby_filter, user_filter=var.user_filter, recent_filter=var.recent_filter, older_filter=var.older_filter, begin=var.begin, adhoc=var.adhoc)
+#'
+#'
+#' ####################  execution_state_get  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- 'id_example' # character | 
+#'
+#' #Get detail about the node and step state of an execution by ID. The execution can be currently running or completed.
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execution_state_get(var.id)
+#'
+#'
+#' ####################  execution_status_get  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- 'id_example' # character | 
+#'
+#' #Get the status of an execution by ID
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execution_status_get(var.id)
+#'
+#'
+#' ####################  job_execution_bulk_disable  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.inline_object3 <- InlineObject3$new() # InlineObject3 | 
+#'
+#' #Bulk disable job executions
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_execution_bulk_disable(var.inline_object3)
+#'
+#'
+#' ####################  job_execution_bulk_enable  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.inline_object2 <- InlineObject2$new() # InlineObject2 | 
+#'
+#' #Bulk enable job executions
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_execution_bulk_enable(var.inline_object2)
+#'
+#'
+#' ####################  job_execution_delete  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- 56 # integer | Job ID
+#'
+#' #Delete all job executions
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_execution_delete(var.id)
+#'
+#'
+#' ####################  job_execution_disable  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- AnyType$new() # AnyType | 
+#'
+#' #Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.)
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_execution_disable(var.id)
+#'
+#'
+#' ####################  job_execution_enable  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- AnyType$new() # AnyType | 
+#'
+#' #Enable executions for a job. (ACL requires toggle_execution action for a job.)
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_execution_enable(var.id)
+#'
+#'
+#' ####################  job_execution_list  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- 'id_example' # character | Job ID
+#'
+#' #List job executions
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_execution_list(var.id)
+#'
+#'
+#' ####################  job_execution_run  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.id <- 'id_example' # character | Job ID
+#' var.body <- NULL # object | 
+#'
+#' #Run the specified job
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_execution_run(var.id, body=var.body)
+#'
+#'
+#' ####################  job_retry_execution  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.job_id <- 'job_id_example' # character | 
+#' var.execution_id <- 56 # integer | 
+#' var.body <- NULL # object | 
+#'
+#' #Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the `Retry Failed Nodes ...` button on the execution page.
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_retry_execution(var.job_id, var.execution_id, body=var.body)
+#'
+#'
+#' ####################  system_executions_disable  ####################
+#'
+#' library(openlattice_rundeck)
+#'
+#' #Disables executions, preventing adhoc and manual and scheduled jobs from running.
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$system_executions_disable()
+#'
+#'
+#' ####################  system_executions_enable  ####################
+#'
+#' library(openlattice_rundeck)
+#'
+#' #Enables executions, allowing adhoc and manual and scheduled jobs to be run
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$system_executions_enable()
+#'
+#'
+#' ####################  system_incomplete_log_storage_executions_get  ####################
+#'
+#' library(openlattice_rundeck)
+#'
+#' #List all executions with incomplete log storage
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$system_incomplete_log_storage_executions_get()
+#'
+#'
+#' ####################  system_incomplete_log_storage_executions_resume  ####################
+#'
+#' library(openlattice_rundeck)
+#'
+#' #Resume processing incomplete Log Storage uploads
+#' api.instance <- ExecutionApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$system_incomplete_log_storage_executions_resume()
 #'
 #'
 #' }
@@ -64,6 +659,231 @@ ExecutionApi <- R6::R6Class(
       }
       else {
         self$apiClient <- ApiClient$new()
+      }
+    },
+    execution_bulk_delete = function(inline_object, ...){
+      apiResponse <- self$execution_bulk_deleteWithHttpInfo(inline_object, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execution_bulk_deleteWithHttpInfo = function(inline_object, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`inline_object`)) {
+        stop("Missing required parameter `inline_object`.")
+      }
+
+      if (!missing(`inline_object`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/executions/delete"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "JobExecutionDelete", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execution_delete = function(id, ...){
+      apiResponse <- self$execution_deleteWithHttpInfo(id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execution_deleteWithHttpInfo = function(id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      urlPath <- "/api/26/execution/{id}"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execution_input_files_list = function(id, ...){
+      apiResponse <- self$execution_input_files_listWithHttpInfo(id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execution_input_files_listWithHttpInfo = function(id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      urlPath <- "/api/26/execution/{id}/input/files"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execution_list_running = function(project, ...){
+      apiResponse <- self$execution_list_runningWithHttpInfo(project, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execution_list_runningWithHttpInfo = function(project, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      urlPath <- "/api/26/project/{project}/executions/running"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "ExecutionList", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
       }
     },
     execution_output_get = function(id, offset=NULL, maxlines=NULL, ...){
@@ -98,6 +918,80 @@ ExecutionApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "ExecutionOutput", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execution_query = function(project, status_filter=NULL, abortedby_filter=NULL, user_filter=NULL, recent_filter=NULL, older_filter=NULL, begin=NULL, adhoc=NULL, ...){
+      apiResponse <- self$execution_queryWithHttpInfo(project, status_filter, abortedby_filter, user_filter, recent_filter, older_filter, begin, adhoc, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execution_queryWithHttpInfo = function(project, status_filter=NULL, abortedby_filter=NULL, user_filter=NULL, recent_filter=NULL, older_filter=NULL, begin=NULL, adhoc=NULL, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      queryParams['statusFilter'] <- status_filter
+
+      queryParams['abortedbyFilter'] <- abortedby_filter
+
+      queryParams['userFilter'] <- user_filter
+
+      queryParams['recentFilter'] <- recent_filter
+
+      queryParams['olderFilter'] <- older_filter
+
+      queryParams['begin'] <- begin
+
+      queryParams['adhoc'] <- adhoc
+
+      urlPath <- "/api/26/project/{project}/executions"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
@@ -108,6 +1002,790 @@ ExecutionApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execution_state_get = function(id, ...){
+      apiResponse <- self$execution_state_getWithHttpInfo(id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execution_state_getWithHttpInfo = function(id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      urlPath <- "/api/26/execution/{id}/state"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execution_status_get = function(id, ...){
+      apiResponse <- self$execution_status_getWithHttpInfo(id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execution_status_getWithHttpInfo = function(id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      urlPath <- "/api/26/execution/{id}"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "Execution", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_execution_bulk_disable = function(inline_object3, ...){
+      apiResponse <- self$job_execution_bulk_disableWithHttpInfo(inline_object3, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_execution_bulk_disableWithHttpInfo = function(inline_object3, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`inline_object3`)) {
+        stop("Missing required parameter `inline_object3`.")
+      }
+
+      if (!missing(`inline_object3`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object3`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/jobs/execution/disable"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "JobBulkOperationResponse", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_execution_bulk_enable = function(inline_object2, ...){
+      apiResponse <- self$job_execution_bulk_enableWithHttpInfo(inline_object2, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_execution_bulk_enableWithHttpInfo = function(inline_object2, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`inline_object2`)) {
+        stop("Missing required parameter `inline_object2`.")
+      }
+
+      if (!missing(`inline_object2`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object2`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/jobs/execution/enable"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "JobBulkOperationResponse", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_execution_delete = function(id, ...){
+      apiResponse <- self$job_execution_deleteWithHttpInfo(id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_execution_deleteWithHttpInfo = function(id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      urlPath <- "/api/26/job/{id}/executions"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_execution_disable = function(id, ...){
+      apiResponse <- self$job_execution_disableWithHttpInfo(id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_execution_disableWithHttpInfo = function(id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      urlPath <- "/api/26/job/{id}/execution/disable"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_execution_enable = function(id, ...){
+      apiResponse <- self$job_execution_enableWithHttpInfo(id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_execution_enableWithHttpInfo = function(id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      urlPath <- "/api/26/job/{id}/execution/enable"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_execution_list = function(id, ...){
+      apiResponse <- self$job_execution_listWithHttpInfo(id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_execution_listWithHttpInfo = function(id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      urlPath <- "/api/26/job/{id}/executions"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "ExecutionList", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_execution_run = function(id, body=NULL, ...){
+      apiResponse <- self$job_execution_runWithHttpInfo(id, body, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_execution_runWithHttpInfo = function(id, body=NULL, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`id`)) {
+        stop("Missing required parameter `id`.")
+      }
+
+      if (!missing(`body`)) {
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/job/{id}/executions"
+      if (!missing(`id`)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "Execution", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_retry_execution = function(job_id, execution_id, body=NULL, ...){
+      apiResponse <- self$job_retry_executionWithHttpInfo(job_id, execution_id, body, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_retry_executionWithHttpInfo = function(job_id, execution_id, body=NULL, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`job_id`)) {
+        stop("Missing required parameter `job_id`.")
+      }
+
+      if (missing(`execution_id`)) {
+        stop("Missing required parameter `execution_id`.")
+      }
+
+      if (!missing(`body`)) {
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/job/{jobID}/retry/{executionID}"
+      if (!missing(`job_id`)) {
+        urlPath <- gsub(paste0("\\{", "jobID", "\\}"), URLencode(as.character(`job_id`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`execution_id`)) {
+        urlPath <- gsub(paste0("\\{", "executionID", "\\}"), URLencode(as.character(`execution_id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "ExecutionList", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    system_executions_disable = function(...){
+      apiResponse <- self$system_executions_disableWithHttpInfo(...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    system_executions_disableWithHttpInfo = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      urlPath <- "/api/26/system/executions/disable"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    system_executions_enable = function(...){
+      apiResponse <- self$system_executions_enableWithHttpInfo(...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    system_executions_enableWithHttpInfo = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      urlPath <- "/api/26/system/executions/enable"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    system_incomplete_log_storage_executions_get = function(...){
+      apiResponse <- self$system_incomplete_log_storage_executions_getWithHttpInfo(...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    system_incomplete_log_storage_executions_getWithHttpInfo = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      urlPath <- "/api/26/system/logstorage/incomplete"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "IncompleteLogExecutions", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    system_incomplete_log_storage_executions_resume = function(...){
+      apiResponse <- self$system_incomplete_log_storage_executions_resumeWithHttpInfo(...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    system_incomplete_log_storage_executions_resumeWithHttpInfo = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      urlPath <- "/api/26/system/logstorage/incomplete/resume"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

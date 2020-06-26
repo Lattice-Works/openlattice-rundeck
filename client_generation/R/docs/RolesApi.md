@@ -8,18 +8,21 @@ Method | HTTP request | Description
 
 
 # **user_role_list**
-> user_role_list()
+> object user_role_list()
 
 List the roles of the authenticated user
 
 ### Example
 ```R
-library(openlattice-rundeck)
+library(openlattice_rundeck)
 
 
 #List the roles of the authenticated user
 api.instance <- RolesApi$new()
-api.instance$user_role_list()
+# Configure API key authorization: rundeck_auth
+api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$user_role_list()
+dput(result)
 ```
 
 ### Parameters
@@ -27,16 +30,16 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

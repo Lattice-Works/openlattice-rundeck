@@ -79,7 +79,7 @@ IncompleteLogExecutions <- R6::R6Class(
         self$`offset` <- IncompleteLogExecutionsObject$`offset`
       }
       if (!is.null(IncompleteLogExecutionsObject$`executions`)) {
-        self$`executions` <- ApiClient$new()$deserializeObj(IncompleteLogExecutionsObject$`executions`, "array[IncompleteLogExecution]", loadNamespace("openlattice-rundeck"))
+        self$`executions` <- ApiClient$new()$deserializeObj(IncompleteLogExecutionsObject$`executions`, "array[IncompleteLogExecution]", loadNamespace("openlattice_rundeck"))
       }
     },
     toJSONString = function() {
@@ -121,7 +121,7 @@ IncompleteLogExecutions <- R6::R6Class(
       self$`total` <- IncompleteLogExecutionsObject$`total`
       self$`max` <- IncompleteLogExecutionsObject$`max`
       self$`offset` <- IncompleteLogExecutionsObject$`offset`
-      self$`executions` <- ApiClient$new()$deserializeObj(IncompleteLogExecutionsObject$`executions`, "array[IncompleteLogExecution]", loadNamespace("openlattice-rundeck"))
+      self$`executions` <- ApiClient$new()$deserializeObj(IncompleteLogExecutionsObject$`executions`, "array[IncompleteLogExecution]", loadNamespace("openlattice_rundeck"))
       self
     }
   )

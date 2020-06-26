@@ -5,11 +5,65 @@ context("Test UserApi")
 
 api.instance <- UserApi$new()
 
-test_that("api26_user_roles_get", {
-  # tests for api26_user_roles_get
+test_that("user_list", {
+  # tests for user_list
+  # base path: http://localhost
+  # List user profiles
+  # @return [array[User]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("user_profile_get", {
+  # tests for user_profile_get
+  # base path: http://localhost
+  # Get same user profile data
+  # @return [User]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("user_profile_get_by_id", {
+  # tests for user_profile_get_by_id
+  # base path: http://localhost
+  # Get another user&#39;s profile data
+  # @param character  user_id  The ID of the user to retrieve profile information for 
+  # @return [User]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("user_profile_update", {
+  # tests for user_profile_update
+  # base path: http://localhost
+  # Modify same user profile data
+  # @param object  body   
+  # @return [User]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("user_profile_update_by_id", {
+  # tests for user_profile_update_by_id
+  # base path: http://localhost
+  # Modify another user&#39;s profile data
+  # @param character  user_id  The ID of the user to retrieve profile information for 
+  # @param object  body   
+  # @return [User]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("user_role_list", {
+  # tests for user_role_list
   # base path: http://localhost
   # List the roles of the authenticated user
-  # @return [Void]
+  # @return [object]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

@@ -1,4 +1,4 @@
-# openlattice-rundeck::JobBulkOperationResponse
+# openlattice_rundeck::JobBulkOperationResponse
 
 ## Properties
 Name | Type | Description | Notes

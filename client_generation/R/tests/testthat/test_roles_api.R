@@ -5,11 +5,11 @@ context("Test RolesApi")
 
 api.instance <- RolesApi$new()
 
-test_that("api26_user_roles_get", {
-  # tests for api26_user_roles_get
+test_that("user_role_list", {
+  # tests for user_role_list
   # base path: http://localhost
   # List the roles of the authenticated user
-  # @return [Void]
+  # @return [object]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

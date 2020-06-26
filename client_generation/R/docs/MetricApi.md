@@ -8,18 +8,21 @@ Method | HTTP request | Description
 
 
 # **metric_list**
-> metric_list()
+> InlineResponse2001 metric_list()
 
 List links to enabled Metrics endpoints
 
 ### Example
 ```R
-library(openlattice-rundeck)
+library(openlattice_rundeck)
 
 
 #List links to enabled Metrics endpoints
 api.instance <- MetricApi$new()
-api.instance$metric_list()
+# Configure API key authorization: rundeck_auth
+api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$metric_list()
+dput(result)
 ```
 
 ### Parameters
@@ -27,16 +30,16 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**InlineResponse2001**](inline_response_200_1.md)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

@@ -1,4 +1,4 @@
-# openlattice-rundeck::BulkJobFailedInfo
+# openlattice_rundeck::BulkJobFailedInfo
 
 ## Properties
 Name | Type | Description | Notes

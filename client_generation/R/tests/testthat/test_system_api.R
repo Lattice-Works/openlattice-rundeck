@@ -5,12 +5,117 @@ context("Test SystemApi")
 
 api.instance <- SystemApi$new()
 
-test_that("api26_system_acl_policy_name_delete", {
-  # tests for api26_system_acl_policy_name_delete
+test_that("system_acl_policy_create", {
+  # tests for system_acl_policy_create
+  # base path: http://localhost
+  # Create a policy
+  # @param character  policy_name  Policy file name 
+  # @param InlineObject12  inline_object12   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_acl_policy_delete", {
+  # tests for system_acl_policy_delete
   # base path: http://localhost
   # Delete policy
   # @param character  policy_name  Policy file name 
   # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_acl_policy_get", {
+  # tests for system_acl_policy_get
+  # base path: http://localhost
+  # Retrieve the YAML texas of the ACL Policy file
+  # @param character  policy_name  Policy file name 
+  # @return [AclPolicyResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_acl_policy_list", {
+  # tests for system_acl_policy_list
+  # base path: http://localhost
+  # List ACL Policies
+  # @return [AclList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_acl_policy_update", {
+  # tests for system_acl_policy_update
+  # base path: http://localhost
+  # Update policy
+  # @param character  policy_name  Policy file name 
+  # @param InlineObject11  inline_object11   
+  # @return [AclPolicyResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_executions_disable", {
+  # tests for system_executions_disable
+  # base path: http://localhost
+  # Disables executions, preventing adhoc and manual and scheduled jobs from running.
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_executions_enable", {
+  # tests for system_executions_enable
+  # base path: http://localhost
+  # Enables executions, allowing adhoc and manual and scheduled jobs to be run
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_incomplete_log_storage_executions_get", {
+  # tests for system_incomplete_log_storage_executions_get
+  # base path: http://localhost
+  # List all executions with incomplete log storage
+  # @return [IncompleteLogExecutions]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_incomplete_log_storage_executions_resume", {
+  # tests for system_incomplete_log_storage_executions_resume
+  # base path: http://localhost
+  # Resume processing incomplete Log Storage uploads
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_info_get", {
+  # tests for system_info_get
+  # base path: http://localhost
+  # Get Rundeck server information and stats
+  # @return [SystemInfo]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_log_storage_info_get", {
+  # tests for system_log_storage_info_get
+  # base path: http://localhost
+  # Get Log Storage information and stats
+  # @return [LogStorage]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

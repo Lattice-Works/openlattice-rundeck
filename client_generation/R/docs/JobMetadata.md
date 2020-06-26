@@ -1,4 +1,4 @@
-# openlattice-rundeck::JobMetadata
+# openlattice_rundeck::JobMetadata
 
 ## Properties
 Name | Type | Description | Notes

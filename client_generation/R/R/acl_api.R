@@ -8,12 +8,29 @@
 
 #' @docType class
 #' @title Acl operations
-#' @description openlattice-rundeck.Acl
+#' @description openlattice_rundeck.Acl
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
 #' @section Methods:
 #' \describe{
+#' \strong{ system_acl_policy_create } \emph{ Create a policy }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } policy_name character
+#' \item \emph{ @param } inline_object12 \link{InlineObject12}
+#'
+#'
+#' \item status code : 200 | Success !
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ system_acl_policy_delete } \emph{ Delete policy }
 #' 
 #'
@@ -30,20 +47,131 @@
 #' }
 #' }
 #'
+#' \strong{ system_acl_policy_get } \emph{ Retrieve the YAML texas of the ACL Policy file }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } policy_name character
+#' \item \emph{ @returnType } \link{AclPolicyResponse} \cr
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#' \item return type : AclPolicyResponse 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ system_acl_policy_list } \emph{ List ACL Policies }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @returnType } \link{AclList} \cr
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#' \item return type : AclList 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ system_acl_policy_update } \emph{ Update policy }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } policy_name character
+#' \item \emph{ @param } inline_object11 \link{InlineObject11}
+#' \item \emph{ @returnType } \link{AclPolicyResponse} \cr
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#' \item return type : AclPolicyResponse 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' }
 #'
 #'
 #' @examples
 #' \dontrun{
+#' ####################  system_acl_policy_create  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.policy_name <- 'policy_name_example' # character | Policy file name
+#' var.inline_object12 <- InlineObject12$new() # InlineObject12 | 
+#'
+#' #Create a policy
+#' api.instance <- AclApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$system_acl_policy_create(var.policy_name, var.inline_object12)
+#'
+#'
 #' ####################  system_acl_policy_delete  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #'
 #' #Delete policy
 #' api.instance <- AclApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$system_acl_policy_delete(var.policy_name)
+#'
+#'
+#' ####################  system_acl_policy_get  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.policy_name <- 'policy_name_example' # character | Policy file name
+#'
+#' #Retrieve the YAML texas of the ACL Policy file
+#' api.instance <- AclApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$system_acl_policy_get(var.policy_name)
+#'
+#'
+#' ####################  system_acl_policy_list  ####################
+#'
+#' library(openlattice_rundeck)
+#'
+#' #List ACL Policies
+#' api.instance <- AclApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$system_acl_policy_list()
+#'
+#'
+#' ####################  system_acl_policy_update  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.policy_name <- 'policy_name_example' # character | Policy file name
+#' var.inline_object11 <- InlineObject11$new() # InlineObject11 | 
+#'
+#' #Update policy
+#' api.instance <- AclApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$system_acl_policy_update(var.policy_name, var.inline_object11)
 #'
 #'
 #' }
@@ -60,6 +188,71 @@ AclApi <- R6::R6Class(
       }
       else {
         self$apiClient <- ApiClient$new()
+      }
+    },
+    system_acl_policy_create = function(policy_name, inline_object12, ...){
+      apiResponse <- self$system_acl_policy_createWithHttpInfo(policy_name, inline_object12, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    system_acl_policy_createWithHttpInfo = function(policy_name, inline_object12, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`policy_name`)) {
+        stop("Missing required parameter `policy_name`.")
+      }
+
+      if (missing(`inline_object12`)) {
+        stop("Missing required parameter `inline_object12`.")
+      }
+
+      if (!missing(`inline_object12`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object12`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/system/acl/{policyName}"
+      if (!missing(`policy_name`)) {
+        urlPath <- gsub(paste0("\\{", "policyName", "\\}"), URLencode(as.character(`policy_name`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
       }
     },
     system_acl_policy_delete = function(policy_name, ...){
@@ -90,6 +283,10 @@ AclApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "policyName", "\\}"), URLencode(as.character(`policy_name`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "DELETE",
@@ -100,6 +297,181 @@ AclApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    system_acl_policy_get = function(policy_name, ...){
+      apiResponse <- self$system_acl_policy_getWithHttpInfo(policy_name, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    system_acl_policy_getWithHttpInfo = function(policy_name, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`policy_name`)) {
+        stop("Missing required parameter `policy_name`.")
+      }
+
+      urlPath <- "/api/26/system/acl/{policyName}"
+      if (!missing(`policy_name`)) {
+        urlPath <- gsub(paste0("\\{", "policyName", "\\}"), URLencode(as.character(`policy_name`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    system_acl_policy_list = function(...){
+      apiResponse <- self$system_acl_policy_listWithHttpInfo(...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    system_acl_policy_listWithHttpInfo = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      urlPath <- "/api/26/system/acl/"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "AclList", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    system_acl_policy_update = function(policy_name, inline_object11, ...){
+      apiResponse <- self$system_acl_policy_updateWithHttpInfo(policy_name, inline_object11, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    system_acl_policy_updateWithHttpInfo = function(policy_name, inline_object11, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`policy_name`)) {
+        stop("Missing required parameter `policy_name`.")
+      }
+
+      if (missing(`inline_object11`)) {
+        stop("Missing required parameter `inline_object11`.")
+      }
+
+      if (!missing(`inline_object11`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object11`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/system/acl/{policyName}"
+      if (!missing(`policy_name`)) {
+        urlPath <- gsub(paste0("\\{", "policyName", "\\}"), URLencode(as.character(`policy_name`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

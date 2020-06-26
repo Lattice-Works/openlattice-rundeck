@@ -5,11 +5,61 @@ context("Test StorageApi")
 
 api.instance <- StorageApi$new()
 
-test_that("api26_storage_keys_path_delete", {
-  # tests for api26_storage_keys_path_delete
+test_that("storage_key_create", {
+  # tests for storage_key_create
+  # base path: http://localhost
+  # Set storage key contents
+  # @param AnyType  path  Key path 
+  # @param object  body   
+  # @param AnyType  content_type    (optional)
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("storage_key_delete", {
+  # tests for storage_key_delete
   # base path: http://localhost
   # Deletes the file if it exists and returns 204 response.
   # @param AnyType  path  Key path 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("storage_key_get_material", {
+  # tests for storage_key_get_material
+  # base path: http://localhost
+  # Get key material at the specified PATH
+  # @param AnyType  key_path  Key path 
+  # @param character  accept   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("storage_key_get_metadata", {
+  # tests for storage_key_get_metadata
+  # base path: http://localhost
+  # List resources at the specified PATH
+  # @param AnyType  path  Key path 
+  # @param character  accept   
+  # @return [StorageKeyListResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("storage_key_update", {
+  # tests for storage_key_update
+  # base path: http://localhost
+  # Set storage key contents
+  # @param AnyType  path  Key path 
+  # @param object  body   
+  # @param AnyType  content_type    (optional)
   # @return [Void]
 
   # uncomment below to test the operation

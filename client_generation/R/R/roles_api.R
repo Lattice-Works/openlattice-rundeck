@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Roles operations
-#' @description openlattice-rundeck.Roles
+#' @description openlattice_rundeck.Roles
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -22,7 +22,7 @@
 #'
 #' \item status code : 200 | Expected response to a valid request
 #'
-#'
+#' \item return type : object 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -36,10 +36,13 @@
 #' \dontrun{
 #' ####################  user_role_list  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #'
 #' #List the roles of the authenticated user
 #' api.instance <- RolesApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$user_role_list()
 #'
@@ -80,6 +83,10 @@ RolesApi <- R6::R6Class(
       headerParams <- c()
 
       urlPath <- "/api/26/user/roles"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
@@ -89,7 +96,13 @@ RolesApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice-rundeck
-from openlattice-rundeck.models.storage_key_list_response import StorageKeyListResponse  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.models.storage_key_list_response import StorageKeyListResponse  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 class TestStorageKeyListResponse(unittest.TestCase):
     """StorageKeyListResponse unit test stubs"""
@@ -33,12 +33,12 @@ class TestStorageKeyListResponse(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice-rundeck.models.storage_key_list_response.StorageKeyListResponse()  # noqa: E501
+        # model = openlattice_rundeck.models.storage_key_list_response.StorageKeyListResponse()  # noqa: E501
         if include_optional :
             return StorageKeyListResponse(
                 resources = [
-                    openlattice-rundeck.models.storage_key_metadata.StorageKeyMetadata(
-                        meta = openlattice-rundeck.models.meta.meta(
+                    openlattice_rundeck.models.storage_key_metadata.StorageKeyMetadata(
+                        meta = openlattice_rundeck.models.meta.meta(
                             rundeck_key_type = 'private', 
                             rundeck_content_mask = '0', 
                             rundeck_content_size = '0', 

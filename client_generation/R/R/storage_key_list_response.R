@@ -83,7 +83,7 @@ StorageKeyListResponse <- R6::R6Class(
     fromJSON = function(StorageKeyListResponseJson) {
       StorageKeyListResponseObject <- jsonlite::fromJSON(StorageKeyListResponseJson)
       if (!is.null(StorageKeyListResponseObject$`resources`)) {
-        self$`resources` <- ApiClient$new()$deserializeObj(StorageKeyListResponseObject$`resources`, "array[StorageKeyMetadata]", loadNamespace("openlattice-rundeck"))
+        self$`resources` <- ApiClient$new()$deserializeObj(StorageKeyListResponseObject$`resources`, "array[StorageKeyMetadata]", loadNamespace("openlattice_rundeck"))
       }
       if (!is.null(StorageKeyListResponseObject$`meta`)) {
         self$`meta` <- StorageKeyListResponseObject$`meta`
@@ -141,7 +141,7 @@ StorageKeyListResponse <- R6::R6Class(
     },
     fromJSONString = function(StorageKeyListResponseJson) {
       StorageKeyListResponseObject <- jsonlite::fromJSON(StorageKeyListResponseJson)
-      self$`resources` <- ApiClient$new()$deserializeObj(StorageKeyListResponseObject$`resources`, "array[StorageKeyMetadata]", loadNamespace("openlattice-rundeck"))
+      self$`resources` <- ApiClient$new()$deserializeObj(StorageKeyListResponseObject$`resources`, "array[StorageKeyMetadata]", loadNamespace("openlattice_rundeck"))
       self$`meta` <- StorageKeyListResponseObject$`meta`
       self$`url` <- StorageKeyListResponseObject$`url`
       self$`type` <- StorageKeyListResponseObject$`type`

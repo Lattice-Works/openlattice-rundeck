@@ -14,22 +14,57 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.user_api import UserApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.user_api import UserApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestUserApi(unittest.TestCase):
     """UserApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.user_api.UserApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.user_api.UserApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_user_roles_get(self):
-        """Test case for api26_user_roles_get
+    def test_user_list(self):
+        """Test case for user_list
+
+        List user profiles  # noqa: E501
+        """
+        pass
+
+    def test_user_profile_get(self):
+        """Test case for user_profile_get
+
+        Get same user profile data  # noqa: E501
+        """
+        pass
+
+    def test_user_profile_get_by_id(self):
+        """Test case for user_profile_get_by_id
+
+        Get another user's profile data  # noqa: E501
+        """
+        pass
+
+    def test_user_profile_update(self):
+        """Test case for user_profile_update
+
+        Modify same user profile data  # noqa: E501
+        """
+        pass
+
+    def test_user_profile_update_by_id(self):
+        """Test case for user_profile_update_by_id
+
+        Modify another user's profile data  # noqa: E501
+        """
+        pass
+
+    def test_user_role_list(self):
+        """Test case for user_role_list
 
         List the roles of the authenticated user  # noqa: E501
         """

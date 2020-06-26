@@ -14,24 +14,52 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.acl_api import AclApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.acl_api import AclApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestAclApi(unittest.TestCase):
     """AclApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.acl_api.AclApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.acl_api.AclApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_system_acl_policy_name_delete(self):
-        """Test case for api26_system_acl_policy_name_delete
+    def test_system_acl_policy_create(self):
+        """Test case for system_acl_policy_create
+
+        Create a policy  # noqa: E501
+        """
+        pass
+
+    def test_system_acl_policy_delete(self):
+        """Test case for system_acl_policy_delete
 
         Delete policy  # noqa: E501
+        """
+        pass
+
+    def test_system_acl_policy_get(self):
+        """Test case for system_acl_policy_get
+
+        Retrieve the YAML texas of the ACL Policy file  # noqa: E501
+        """
+        pass
+
+    def test_system_acl_policy_list(self):
+        """Test case for system_acl_policy_list
+
+        List ACL Policies  # noqa: E501
+        """
+        pass
+
+    def test_system_acl_policy_update(self):
+        """Test case for system_acl_policy_update
+
+        Update policy  # noqa: E501
         """
         pass
 

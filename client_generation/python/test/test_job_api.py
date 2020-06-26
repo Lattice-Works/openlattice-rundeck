@@ -14,24 +14,38 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.job_api import JobApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.job_api import JobApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestJobApi(unittest.TestCase):
     """JobApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.job_api.JobApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.job_api.JobApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api34_job_id_workflow_get(self):
-        """Test case for api34_job_id_workflow_get
+    def test_project_archive_import(self):
+        """Test case for project_archive_import
 
-        Get job workflow tree.  # noqa: E501
+        Import project archive.  # noqa: E501
+        """
+        pass
+
+    def test_project_jobs_export(self):
+        """Test case for project_jobs_export
+
+        Export the job definitions in XML or YAML formats.  # noqa: E501
+        """
+        pass
+
+    def test_project_jobs_import(self):
+        """Test case for project_jobs_import
+
+        Import job definitions in XML or YAML formats.  # noqa: E501
         """
         pass
 

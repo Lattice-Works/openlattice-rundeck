@@ -14,24 +14,52 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.storage_api import StorageApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.storage_api import StorageApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestStorageApi(unittest.TestCase):
     """StorageApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.storage_api.StorageApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.storage_api.StorageApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_storage_keys_path_delete(self):
-        """Test case for api26_storage_keys_path_delete
+    def test_storage_key_create(self):
+        """Test case for storage_key_create
+
+        Set storage key contents  # noqa: E501
+        """
+        pass
+
+    def test_storage_key_delete(self):
+        """Test case for storage_key_delete
 
         Deletes the file if it exists and returns 204 response.  # noqa: E501
+        """
+        pass
+
+    def test_storage_key_get_material(self):
+        """Test case for storage_key_get_material
+
+        Get key material at the specified PATH  # noqa: E501
+        """
+        pass
+
+    def test_storage_key_get_metadata(self):
+        """Test case for storage_key_get_metadata
+
+        List resources at the specified PATH  # noqa: E501
+        """
+        pass
+
+    def test_storage_key_update(self):
+        """Test case for storage_key_update
+
+        Set storage key contents  # noqa: E501
         """
         pass
 

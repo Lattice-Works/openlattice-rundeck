@@ -1,4 +1,4 @@
-# openlattice-rundeck::TakeoverScheduleRequest
+# openlattice_rundeck::TakeoverScheduleRequest
 
 ## Properties
 Name | Type | Description | Notes

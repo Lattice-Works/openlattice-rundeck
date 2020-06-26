@@ -1,4 +1,4 @@
-# openlattice-rundeck::JobExecutionDelete
+# openlattice_rundeck::JobExecutionDelete
 
 ## Properties
 Name | Type | Description | Notes

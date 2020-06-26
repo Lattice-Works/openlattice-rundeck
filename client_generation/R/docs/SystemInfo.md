@@ -1,4 +1,4 @@
-# openlattice-rundeck::SystemInfo
+# openlattice_rundeck::SystemInfo
 
 ## Properties
 Name | Type | Description | Notes

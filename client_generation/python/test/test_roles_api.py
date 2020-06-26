@@ -14,22 +14,22 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.roles_api import RolesApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.roles_api import RolesApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestRolesApi(unittest.TestCase):
     """RolesApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.roles_api.RolesApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.roles_api.RolesApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_user_roles_get(self):
-        """Test case for api26_user_roles_get
+    def test_user_role_list(self):
+        """Test case for user_role_list
 
         List the roles of the authenticated user  # noqa: E501
         """

@@ -1,4 +1,4 @@
-# openlattice-rundeck::JobReference
+# openlattice_rundeck::JobReference
 
 ## Properties
 Name | Type | Description | Notes

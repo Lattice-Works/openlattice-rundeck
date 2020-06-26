@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice-rundeck
-from openlattice-rundeck.models.incomplete_log_executions import IncompleteLogExecutions  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.models.incomplete_log_executions import IncompleteLogExecutions  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 class TestIncompleteLogExecutions(unittest.TestCase):
     """IncompleteLogExecutions unit test stubs"""
@@ -33,19 +33,19 @@ class TestIncompleteLogExecutions(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice-rundeck.models.incomplete_log_executions.IncompleteLogExecutions()  # noqa: E501
+        # model = openlattice_rundeck.models.incomplete_log_executions.IncompleteLogExecutions()  # noqa: E501
         if include_optional :
             return IncompleteLogExecutions(
                 total = 1.337, 
                 max = 1.337, 
                 offset = 1.337, 
                 executions = [
-                    openlattice-rundeck.models.incomplete_log_execution.IncompleteLogExecution(
+                    openlattice_rundeck.models.incomplete_log_execution.IncompleteLogExecution(
                         id = '0', 
                         project = '0', 
                         href = '0', 
                         permalink = '0', 
-                        storage = openlattice-rundeck.models.storage.storage(
+                        storage = openlattice_rundeck.models.storage.storage(
                             local_files_present = True, 
                             incomplete_filetypes = [
                                 '0'
@@ -64,12 +64,12 @@ class TestIncompleteLogExecutions(unittest.TestCase):
                 max = 1.337,
                 offset = 1.337,
                 executions = [
-                    openlattice-rundeck.models.incomplete_log_execution.IncompleteLogExecution(
+                    openlattice_rundeck.models.incomplete_log_execution.IncompleteLogExecution(
                         id = '0', 
                         project = '0', 
                         href = '0', 
                         permalink = '0', 
-                        storage = openlattice-rundeck.models.storage.storage(
+                        storage = openlattice_rundeck.models.storage.storage(
                             local_files_present = True, 
                             incomplete_filetypes = [
                                 '0'

@@ -5,14 +5,25 @@ context("Test FileApi")
 
 api.instance <- FileApi$new()
 
-test_that("api26_execution_id_output_get", {
-  # tests for api26_execution_id_output_get
+test_that("execution_input_files_list", {
+  # tests for execution_input_files_list
+  # base path: http://localhost
+  # List input files for an execution
+  # @param character  id   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("execution_output_get", {
+  # tests for execution_output_get
   # base path: http://localhost
   # List input files for an execution
   # @param character  id   
   # @param character  offset    (optional)
   # @param AnyType  maxlines    (optional)
-  # @return [Void]
+  # @return [ExecutionOutput]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

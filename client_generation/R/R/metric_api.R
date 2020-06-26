@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Metric operations
-#' @description openlattice-rundeck.Metric
+#' @description openlattice_rundeck.Metric
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -18,11 +18,12 @@
 #' 
 #'
 #' \itemize{
+#' \item \emph{ @returnType } \link{InlineResponse2001} \cr
 #'
 #'
 #' \item status code : 200 | List of Metrics endpoint links
 #'
-#'
+#' \item return type : InlineResponse2001 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -36,10 +37,13 @@
 #' \dontrun{
 #' ####################  metric_list  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #'
 #' #List links to enabled Metrics endpoints
 #' api.instance <- MetricApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$metric_list()
 #'
@@ -80,6 +84,10 @@ MetricApi <- R6::R6Class(
       headerParams <- c()
 
       urlPath <- "/api/26/metrics"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
@@ -89,7 +97,13 @@ MetricApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "InlineResponse2001", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

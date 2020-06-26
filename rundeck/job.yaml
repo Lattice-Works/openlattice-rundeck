@@ -427,7 +427,7 @@ paths:
   /api/26/job/{id}/input/files:
     get:
       summary: List uploaded input files for job
-      operationId: jobInputFileUpload
+      operationId: jobInputFilesUpload
       tags:
       - job
       parameters:

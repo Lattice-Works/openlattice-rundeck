@@ -5,11 +5,11 @@ context("Test MetricApi")
 
 api.instance <- MetricApi$new()
 
-test_that("api26_metrics_get", {
-  # tests for api26_metrics_get
+test_that("metric_list", {
+  # tests for metric_list
   # base path: http://localhost
   # List links to enabled Metrics endpoints
-  # @return [Void]
+  # @return [InlineResponse2001]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

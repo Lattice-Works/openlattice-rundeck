@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice-rundeck
-from openlattice-rundeck.models.storage_key_metadata import StorageKeyMetadata  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.models.storage_key_metadata import StorageKeyMetadata  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 class TestStorageKeyMetadata(unittest.TestCase):
     """StorageKeyMetadata unit test stubs"""
@@ -33,7 +33,7 @@ class TestStorageKeyMetadata(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice-rundeck.models.storage_key_metadata.StorageKeyMetadata()  # noqa: E501
+        # model = openlattice_rundeck.models.storage_key_metadata.StorageKeyMetadata()  # noqa: E501
         if include_optional :
             return StorageKeyMetadata(
                 meta = None, 

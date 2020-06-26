@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice-rundeck
-from openlattice-rundeck.models.invalid_acl_policy_response_policies import InvalidAclPolicyResponsePolicies  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.models.invalid_acl_policy_response_policies import InvalidAclPolicyResponsePolicies  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 class TestInvalidAclPolicyResponsePolicies(unittest.TestCase):
     """InvalidAclPolicyResponsePolicies unit test stubs"""
@@ -33,7 +33,7 @@ class TestInvalidAclPolicyResponsePolicies(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice-rundeck.models.invalid_acl_policy_response_policies.InvalidAclPolicyResponsePolicies()  # noqa: E501
+        # model = openlattice_rundeck.models.invalid_acl_policy_response_policies.InvalidAclPolicyResponsePolicies()  # noqa: E501
         if include_optional :
             return InvalidAclPolicyResponsePolicies(
                 policy = '0', 
