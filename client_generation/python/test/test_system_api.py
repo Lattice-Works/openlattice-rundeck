@@ -14,24 +14,94 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.system_api import SystemApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.system_api import SystemApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestSystemApi(unittest.TestCase):
     """SystemApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.system_api.SystemApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.system_api.SystemApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_system_acl_policy_name_delete(self):
-        """Test case for api26_system_acl_policy_name_delete
+    def test_system_acl_policy_create(self):
+        """Test case for system_acl_policy_create
+
+        Create a policy  # noqa: E501
+        """
+        pass
+
+    def test_system_acl_policy_delete(self):
+        """Test case for system_acl_policy_delete
 
         Delete policy  # noqa: E501
+        """
+        pass
+
+    def test_system_acl_policy_get(self):
+        """Test case for system_acl_policy_get
+
+        Retrieve the YAML texas of the ACL Policy file  # noqa: E501
+        """
+        pass
+
+    def test_system_acl_policy_list(self):
+        """Test case for system_acl_policy_list
+
+        List ACL Policies  # noqa: E501
+        """
+        pass
+
+    def test_system_acl_policy_update(self):
+        """Test case for system_acl_policy_update
+
+        Update policy  # noqa: E501
+        """
+        pass
+
+    def test_system_executions_disable(self):
+        """Test case for system_executions_disable
+
+        Disables executions, preventing adhoc and manual and scheduled jobs from running.  # noqa: E501
+        """
+        pass
+
+    def test_system_executions_enable(self):
+        """Test case for system_executions_enable
+
+        Enables executions, allowing adhoc and manual and scheduled jobs to be run  # noqa: E501
+        """
+        pass
+
+    def test_system_incomplete_log_storage_executions_get(self):
+        """Test case for system_incomplete_log_storage_executions_get
+
+        List all executions with incomplete log storage  # noqa: E501
+        """
+        pass
+
+    def test_system_incomplete_log_storage_executions_resume(self):
+        """Test case for system_incomplete_log_storage_executions_resume
+
+        Resume processing incomplete Log Storage uploads  # noqa: E501
+        """
+        pass
+
+    def test_system_info_get(self):
+        """Test case for system_info_get
+
+        Get Rundeck server information and stats  # noqa: E501
+        """
+        pass
+
+    def test_system_log_storage_info_get(self):
+        """Test case for system_log_storage_info_get
+
+        Get Log Storage information and stats  # noqa: E501
         """
         pass
 

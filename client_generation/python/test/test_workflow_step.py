@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice-rundeck
-from openlattice-rundeck.models.workflow_step import WorkflowStep  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.models.workflow_step import WorkflowStep  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 class TestWorkflowStep(unittest.TestCase):
     """WorkflowStep unit test stubs"""
@@ -33,7 +33,7 @@ class TestWorkflowStep(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice-rundeck.models.workflow_step.WorkflowStep()  # noqa: E501
+        # model = openlattice_rundeck.models.workflow_step.WorkflowStep()  # noqa: E501
         if include_optional :
             return WorkflowStep(
                 jobref = None, 
@@ -46,8 +46,8 @@ class TestWorkflowStep(unittest.TestCase):
                 type = '0', 
                 node_step = '0', 
                 workflow = [
-                    openlattice-rundeck.models.workflow_step.WorkflowStep(
-                        jobref = openlattice-rundeck.models.jobref.jobref(
+                    openlattice_rundeck.models.workflow_step.WorkflowStep(
+                        jobref = openlattice_rundeck.models.jobref.jobref(
                             name = '0', 
                             group = '0', 
                             uuid = '0', 
@@ -62,7 +62,7 @@ class TestWorkflowStep(unittest.TestCase):
                         type = '0', 
                         node_step = '0', 
                         workflow = [
-                            openlattice-rundeck.models.workflow_step.WorkflowStep(
+                            openlattice_rundeck.models.workflow_step.WorkflowStep(
                                 job_id = '0', 
                                 description = '0', 
                                 exec = '0', 

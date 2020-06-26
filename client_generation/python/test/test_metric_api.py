@@ -14,22 +14,22 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.metric_api import MetricApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.metric_api import MetricApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestMetricApi(unittest.TestCase):
     """MetricApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.metric_api.MetricApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.metric_api.MetricApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_metrics_get(self):
-        """Test case for api26_metrics_get
+    def test_metric_list(self):
+        """Test case for metric_list
 
         List links to enabled Metrics endpoints  # noqa: E501
         """

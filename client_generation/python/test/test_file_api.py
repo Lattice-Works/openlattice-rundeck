@@ -14,22 +14,29 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.file_api import FileApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.file_api import FileApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestFileApi(unittest.TestCase):
     """FileApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.file_api.FileApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.file_api.FileApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_execution_id_output_get(self):
-        """Test case for api26_execution_id_output_get
+    def test_execution_input_files_list(self):
+        """Test case for execution_input_files_list
+
+        List input files for an execution  # noqa: E501
+        """
+        pass
+
+    def test_execution_output_get(self):
+        """Test case for execution_output_get
 
         List input files for an execution  # noqa: E501
         """

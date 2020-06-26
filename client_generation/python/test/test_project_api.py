@@ -14,24 +14,87 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.project_api import ProjectApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.project_api import ProjectApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestProjectApi(unittest.TestCase):
     """ProjectApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.project_api.ProjectApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.project_api.ProjectApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_project_project_motd_md_delete(self):
-        """Test case for api26_project_project_motd_md_delete
+    def test_project_archive_export_sync(self):
+        """Test case for project_archive_export_sync
+
+        Export archive of project synchronously  # noqa: E501
+        """
+        pass
+
+    def test_project_archive_import(self):
+        """Test case for project_archive_import
+
+        Import project archive.  # noqa: E501
+        """
+        pass
+
+    def test_project_config_key_delete(self):
+        """Test case for project_config_key_delete
+
+        Delete project config key  # noqa: E501
+        """
+        pass
+
+    def test_project_config_update(self):
+        """Test case for project_config_update
+
+        Update project config  # noqa: E501
+        """
+        pass
+
+    def test_project_create(self):
+        """Test case for project_create
+
+        Create a new project  # noqa: E501
+        """
+        pass
+
+    def test_project_delete(self):
+        """Test case for project_delete
+
+        Delete project  # noqa: E501
+        """
+        pass
+
+    def test_project_jobs_export(self):
+        """Test case for project_jobs_export
+
+        Export the job definitions in XML or YAML formats.  # noqa: E501
+        """
+        pass
+
+    def test_project_jobs_import(self):
+        """Test case for project_jobs_import
+
+        Import job definitions in XML or YAML formats.  # noqa: E501
+        """
+        pass
+
+    def test_project_motd_delete(self):
+        """Test case for project_motd_delete
 
         Delete project motd.md  # noqa: E501
+        """
+        pass
+
+    def test_project_readme_delete(self):
+        """Test case for project_readme_delete
+
+        Delete project README.md  # noqa: E501
         """
         pass
 

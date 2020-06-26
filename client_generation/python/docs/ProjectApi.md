@@ -1,20 +1,193 @@
-# openlattice-rundeck.ProjectApi
+# openlattice_rundeck.ProjectApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**execution_list_running**](ProjectApi.md#execution_list_running) | **GET** /api/26/project/{project}/executions/running | List job executions
+[**job_list**](ProjectApi.md#job_list) | **GET** /api/26/project/{project}/jobs | List the jobs that exist for a project
 [**project_archive_export_sync**](ProjectApi.md#project_archive_export_sync) | **GET** /api/26/project/{project}/export | Export archive of project synchronously
 [**project_archive_import**](ProjectApi.md#project_archive_import) | **PUT** /api/26/project/{project}/import | Import project archive.
+[**project_config_get**](ProjectApi.md#project_config_get) | **GET** /api/26/project/{project}/config | Get project config
 [**project_config_key_delete**](ProjectApi.md#project_config_key_delete) | **DELETE** /api/26/project/{project}/config/{key} | Delete project config key
+[**project_config_key_get**](ProjectApi.md#project_config_key_get) | **GET** /api/26/project/{project}/config/{key} | Get project config key
+[**project_config_key_set**](ProjectApi.md#project_config_key_set) | **PUT** /api/26/project/{project}/config/{key} | Get project config key
 [**project_config_update**](ProjectApi.md#project_config_update) | **PUT** /api/26/project/{project}/config | Update project config
 [**project_create**](ProjectApi.md#project_create) | **POST** /api/26/projects | Create a new project
 [**project_delete**](ProjectApi.md#project_delete) | **DELETE** /api/26/project/{project} | Delete project
+[**project_get**](ProjectApi.md#project_get) | **GET** /api/26/project/{project} | Get information about a project
 [**project_jobs_export**](ProjectApi.md#project_jobs_export) | **GET** /api/26/project/{project}/jobs/export | Export the job definitions in XML or YAML formats.
 [**project_jobs_import**](ProjectApi.md#project_jobs_import) | **POST** /api/26/project/{project}/jobs/import | Import job definitions in XML or YAML formats.
+[**project_list**](ProjectApi.md#project_list) | **GET** /api/26/projects | List projects
 [**project_motd_delete**](ProjectApi.md#project_motd_delete) | **DELETE** /api/26/project/{project}/motd.md | Delete project motd.md
+[**project_motd_get**](ProjectApi.md#project_motd_get) | **GET** /api/26/project/{project}/motd.md | Get the readme.md contents
+[**project_motd_put**](ProjectApi.md#project_motd_put) | **PUT** /api/26/project/{project}/motd.md | Create or modify project MOTD.md
 [**project_readme_delete**](ProjectApi.md#project_readme_delete) | **DELETE** /api/26/project/{project}/readme.md | Delete project README.md
+[**project_readme_get**](ProjectApi.md#project_readme_get) | **GET** /api/26/project/{project}/readme.md | Get the readme.md contents
+[**project_readme_put**](ProjectApi.md#project_readme_put) | **PUT** /api/26/project/{project}/readme.md | Create or modify project README.md
 
+
+# **execution_list_running**
+> execution_list_running(project)
+
+List job executions
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | Project name or * for all projects
+
+    try:
+        # List job executions
+        api_instance.execution_list_running(project)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->execution_list_running: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**| Project name or * for all projects | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of executions for job |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **job_list**
+> job_list(project, id_list=id_list, group_path=group_path, job_filter=job_filter, job_exact_filter=job_exact_filter, group_path_exact=group_path_exact, scheduled_filter=scheduled_filter, server_node_uuid_filter=server_node_uuid_filter)
+
+List the jobs that exist for a project
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | Project name
+id_list = 'id_list_example' # str | Comma separated list of Job IDs to include (optional)
+group_path = 'group_path_example' # str | Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only. (optional)
+job_filter = 'job_filter_example' # str | A filter for the job name. Matches any job name that contains this value. (optional)
+job_exact_filter = 'job_exact_filter_example' # str | An exact job name to match. (optional)
+group_path_exact = 'group_path_exact_example' # str | An exact group path to match. Set to the special value \"-\" to match the top level jobs only. (optional)
+scheduled_filter = True # bool | Specify whether to return only scheduled or only not scheduled jobs. (optional)
+server_node_uuid_filter = 'server_node_uuid_filter_example' # str | In cluster mode, use to select scheduled jobs assigned to the server with the given UUID. (optional)
+
+    try:
+        # List the jobs that exist for a project
+        api_instance.job_list(project, id_list=id_list, group_path=group_path, job_filter=job_filter, job_exact_filter=job_exact_filter, group_path_exact=group_path_exact, scheduled_filter=scheduled_filter, server_node_uuid_filter=server_node_uuid_filter)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->job_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**| Project name | 
+ **id_list** | **str**| Comma separated list of Job IDs to include | [optional] 
+ **group_path** | **str**| Group or partial group path to include all jobs within that group path. Set to the special value \&quot;-\&quot; to match the top level jobs only. | [optional] 
+ **job_filter** | **str**| A filter for the job name. Matches any job name that contains this value. | [optional] 
+ **job_exact_filter** | **str**| An exact job name to match. | [optional] 
+ **group_path_exact** | **str**| An exact group path to match. Set to the special value \&quot;-\&quot; to match the top level jobs only. | [optional] 
+ **scheduled_filter** | **bool**| Specify whether to return only scheduled or only not scheduled jobs. | [optional] 
+ **server_node_uuid_filter** | **str**| In cluster mode, use to select scheduled jobs assigned to the server with the given UUID. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Expected response to a valid request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **project_archive_export_sync**
 > project_archive_export_sync(project, execution_ids=execution_ids, export_all=export_all, export_jobs=export_jobs, export_executions=export_executions, export_configs=export_configs, export_readmes=export_readmes, export_acls=export_acls)
@@ -23,23 +196,38 @@ Export archive of project synchronously
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 execution_ids = True # bool | A list (comma-separated) of execution IDs. If this is specified then the archive will contain only executions that are specified, and will not contain Jobs, ACLs, or project configuration/readme files. (optional)
 export_all = None # object | Export all project resources (optional)
@@ -75,7 +263,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -96,23 +284,38 @@ Import project archive.
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 body = None # object | 
 job_uuid_option = None # object |  (optional)
@@ -144,7 +347,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -158,6 +361,80 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **project_config_get**
+> project_config_get(project)
+
+Get project config
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | 
+
+    try:
+        # Get project config
+        api_instance.project_config_get(project)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_config_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project info |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **project_config_key_delete**
 > project_config_key_delete(project, key)
 
@@ -165,23 +442,38 @@ Delete project config key
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 key = 'key_example' # str | 
 
@@ -205,7 +497,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -219,6 +511,160 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **project_config_key_get**
+> project_config_key_get(project, key)
+
+Get project config key
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | 
+key = 'key_example' # str | 
+
+    try:
+        # Get project config key
+        api_instance.project_config_key_get(project, key)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_config_key_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**|  | 
+ **key** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project config key and value |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **project_config_key_set**
+> project_config_key_set(project, key, inline_object7)
+
+Get project config key
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | 
+key = 'key_example' # str | 
+inline_object7 = openlattice_rundeck.InlineObject7() # InlineObject7 | 
+
+    try:
+        # Get project config key
+        api_instance.project_config_key_set(project, key, inline_object7)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_config_key_set: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**|  | 
+ **key** | **str**|  | 
+ **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project config key set |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **project_config_update**
 > project_config_update(project, body)
 
@@ -226,23 +672,38 @@ Update project config
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 body = None # object | 
 
@@ -266,7 +727,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -281,34 +742,49 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **project_create**
-> project_create(project_create_request)
+> project_create(inline_object6)
 
 Create a new project
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
-    project_create_request = None # object | 
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    inline_object6 = openlattice_rundeck.InlineObject6() # InlineObject6 | 
 
     try:
         # Create a new project
-        api_instance.project_create(project_create_request)
+        api_instance.project_create(inline_object6)
     except ApiException as e:
         print("Exception when calling ProjectApi->project_create: %s\n" % e)
 ```
@@ -317,7 +793,7 @@ with openlattice-rundeck.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_create_request** | [**object**](.md)|  | 
+ **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
 
 ### Return type
 
@@ -325,11 +801,11 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 ### HTTP response details
@@ -346,23 +822,38 @@ Delete project
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 
     try:
@@ -384,7 +875,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -398,6 +889,80 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **project_get**
+> project_get(project)
+
+Get information about a project
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | 
+
+    try:
+        # Get information about a project
+        api_instance.project_get(project)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Project info |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **project_jobs_export**
 > project_jobs_export(project, format=format, idlist=idlist, group_path=group_path, job_filter=job_filter)
 
@@ -405,23 +970,38 @@ Export the job definitions in XML or YAML formats.
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | The project to export jobs for.
 format = None # object | XML or YAML format for exported jobs. (optional)
 idlist = 'idlist_example' # str | A comma-separated list of Job IDs to export. (optional)
@@ -451,7 +1031,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -472,23 +1052,38 @@ Import job definitions in XML or YAML formats.
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 body = None # object | 
 content_type = None # object |  (optional)
@@ -522,7 +1117,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -536,6 +1131,76 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **project_list**
+> project_list()
+
+List projects
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    
+    try:
+        # List projects
+        api_instance.project_list()
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_list: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of projects |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **project_motd_delete**
 > project_motd_delete(project)
 
@@ -543,23 +1208,38 @@ Delete project motd.md
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 
     try:
@@ -581,7 +1261,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -595,6 +1275,156 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **project_motd_get**
+> project_motd_get(project)
+
+Get the readme.md contents
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | Name of the project to import jobs into.
+
+    try:
+        # Get the readme.md contents
+        api_instance.project_motd_get(project)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_motd_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**| Name of the project to import jobs into. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | motd.md contents |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **project_motd_put**
+> project_motd_put(project, inline_object9)
+
+Create or modify project MOTD.md
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | Name of the project to import jobs into.
+inline_object9 = openlattice_rundeck.InlineObject9() # InlineObject9 | 
+
+    try:
+        # Create or modify project MOTD.md
+        api_instance.project_motd_put(project, inline_object9)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_motd_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**| Name of the project to import jobs into. | 
+ **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Expected response to a valid request. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **project_readme_delete**
 > project_readme_delete(project)
 
@@ -602,23 +1432,38 @@ Delete project README.md
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.ProjectApi(api_client)
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 
     try:
@@ -640,7 +1485,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -651,6 +1496,156 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success ! |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **project_readme_get**
+> project_readme_get(project)
+
+Get the readme.md contents
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | Name of the project to import jobs into.
+
+    try:
+        # Get the readme.md contents
+        api_instance.project_readme_get(project)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_readme_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**| Name of the project to import jobs into. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | readme.md contents |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **project_readme_put**
+> project_readme_put(project, inline_object8)
+
+Create or modify project README.md
+
+### Example
+
+* Api Key Authentication (rundeck_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice_rundeck.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    project = 'project_example' # str | Name of the project to import jobs into.
+inline_object8 = openlattice_rundeck.InlineObject8() # InlineObject8 | 
+
+    try:
+        # Create or modify project README.md
+        api_instance.project_readme_put(project, inline_object8)
+    except ApiException as e:
+        print("Exception when calling ProjectApi->project_readme_put: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **str**| Name of the project to import jobs into. | 
+ **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Expected response to a valid request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

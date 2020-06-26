@@ -14,24 +14,157 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice-rundeck
-from openlattice-rundeck.api.execution_api import ExecutionApi  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.api.execution_api import ExecutionApi  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 
 class TestExecutionApi(unittest.TestCase):
     """ExecutionApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice-rundeck.api.execution_api.ExecutionApi()  # noqa: E501
+        self.api = openlattice_rundeck.api.execution_api.ExecutionApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_api26_execution_id_output_get(self):
-        """Test case for api26_execution_id_output_get
+    def test_execution_bulk_delete(self):
+        """Test case for execution_bulk_delete
+
+        Bulk delete executions  # noqa: E501
+        """
+        pass
+
+    def test_execution_delete(self):
+        """Test case for execution_delete
+
+        Delete an exeuction by ID  # noqa: E501
+        """
+        pass
+
+    def test_execution_input_files_list(self):
+        """Test case for execution_input_files_list
 
         List input files for an execution  # noqa: E501
+        """
+        pass
+
+    def test_execution_list_running(self):
+        """Test case for execution_list_running
+
+        List job executions  # noqa: E501
+        """
+        pass
+
+    def test_execution_output_get(self):
+        """Test case for execution_output_get
+
+        List input files for an execution  # noqa: E501
+        """
+        pass
+
+    def test_execution_query(self):
+        """Test case for execution_query
+
+        Query for Executions based on Job or Execution details  # noqa: E501
+        """
+        pass
+
+    def test_execution_state_get(self):
+        """Test case for execution_state_get
+
+        Get detail about the node and step state of an execution by ID. The execution can be currently running or completed.  # noqa: E501
+        """
+        pass
+
+    def test_execution_status_get(self):
+        """Test case for execution_status_get
+
+        Get the status of an execution by ID  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_bulk_disable(self):
+        """Test case for job_execution_bulk_disable
+
+        Bulk disable job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_bulk_enable(self):
+        """Test case for job_execution_bulk_enable
+
+        Bulk enable job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_delete(self):
+        """Test case for job_execution_delete
+
+        Delete all job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_disable(self):
+        """Test case for job_execution_disable
+
+        Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.)  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_enable(self):
+        """Test case for job_execution_enable
+
+        Enable executions for a job. (ACL requires toggle_execution action for a job.)  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_list(self):
+        """Test case for job_execution_list
+
+        List job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_run(self):
+        """Test case for job_execution_run
+
+        Run the specified job  # noqa: E501
+        """
+        pass
+
+    def test_job_retry_execution(self):
+        """Test case for job_retry_execution
+
+        Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the `Retry Failed Nodes ...` button on the execution page.  # noqa: E501
+        """
+        pass
+
+    def test_system_executions_disable(self):
+        """Test case for system_executions_disable
+
+        Disables executions, preventing adhoc and manual and scheduled jobs from running.  # noqa: E501
+        """
+        pass
+
+    def test_system_executions_enable(self):
+        """Test case for system_executions_enable
+
+        Enables executions, allowing adhoc and manual and scheduled jobs to be run  # noqa: E501
+        """
+        pass
+
+    def test_system_incomplete_log_storage_executions_get(self):
+        """Test case for system_incomplete_log_storage_executions_get
+
+        List all executions with incomplete log storage  # noqa: E501
+        """
+        pass
+
+    def test_system_incomplete_log_storage_executions_resume(self):
+        """Test case for system_incomplete_log_storage_executions_resume
+
+        Resume processing incomplete Log Storage uploads  # noqa: E501
         """
         pass
 

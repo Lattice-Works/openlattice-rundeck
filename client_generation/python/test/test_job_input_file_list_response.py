@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice-rundeck
-from openlattice-rundeck.models.job_input_file_list_response import JobInputFileListResponse  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.models.job_input_file_list_response import JobInputFileListResponse  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 class TestJobInputFileListResponse(unittest.TestCase):
     """JobInputFileListResponse unit test stubs"""
@@ -33,16 +33,16 @@ class TestJobInputFileListResponse(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice-rundeck.models.job_input_file_list_response.JobInputFileListResponse()  # noqa: E501
+        # model = openlattice_rundeck.models.job_input_file_list_response.JobInputFileListResponse()  # noqa: E501
         if include_optional :
             return JobInputFileListResponse(
-                paging = openlattice-rundeck.models.paging.Paging(
+                paging = openlattice_rundeck.models.paging.Paging(
                     count = 56, 
                     total = 56, 
                     offset = 56, 
                     max = 56, ), 
                 files = [
-                    openlattice-rundeck.models.job_input_file_info.JobInputFileInfo(
+                    openlattice_rundeck.models.job_input_file_info.JobInputFileInfo(
                         id = '0', 
                         user = '0', 
                         file_state = 'temp', 
@@ -58,13 +58,13 @@ class TestJobInputFileListResponse(unittest.TestCase):
             )
         else :
             return JobInputFileListResponse(
-                paging = openlattice-rundeck.models.paging.Paging(
+                paging = openlattice_rundeck.models.paging.Paging(
                     count = 56, 
                     total = 56, 
                     offset = 56, 
                     max = 56, ),
                 files = [
-                    openlattice-rundeck.models.job_input_file_info.JobInputFileInfo(
+                    openlattice_rundeck.models.job_input_file_info.JobInputFileInfo(
                         id = '0', 
                         user = '0', 
                         file_state = 'temp', 

@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice-rundeck
-from openlattice-rundeck.models.takeover_schedule_request import TakeoverScheduleRequest  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.models.takeover_schedule_request import TakeoverScheduleRequest  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 class TestTakeoverScheduleRequest(unittest.TestCase):
     """TakeoverScheduleRequest unit test stubs"""
@@ -33,7 +33,7 @@ class TestTakeoverScheduleRequest(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice-rundeck.models.takeover_schedule_request.TakeoverScheduleRequest()  # noqa: E501
+        # model = openlattice_rundeck.models.takeover_schedule_request.TakeoverScheduleRequest()  # noqa: E501
         if include_optional :
             return TakeoverScheduleRequest(
                 server = None, 

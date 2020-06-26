@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice-rundeck
-from openlattice-rundeck.models.execution import Execution  # noqa: E501
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.models.execution import Execution  # noqa: E501
+from openlattice_rundeck.rest import ApiException
 
 class TestExecution(unittest.TestCase):
     """Execution unit test stubs"""
@@ -33,7 +33,7 @@ class TestExecution(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice-rundeck.models.execution.Execution()  # noqa: E501
+        # model = openlattice_rundeck.models.execution.Execution()  # noqa: E501
         if include_optional :
             return Execution(
                 id = 1.337, 
@@ -44,10 +44,10 @@ class TestExecution(unittest.TestCase):
                 project = '0', 
                 user = '0', 
                 server_uuid = '0', 
-                date_started = openlattice-rundeck.models.date_started.date-started(
+                date_started = openlattice_rundeck.models.date_started.date-started(
                     unixtime = 1.337, 
                     date = '0', ), 
-                job = openlattice-rundeck.models.job_metadata.JobMetadata(
+                job = openlattice_rundeck.models.job_metadata.JobMetadata(
                     id = '0', 
                     name = '0', 
                     group = '0', 
@@ -58,7 +58,7 @@ class TestExecution(unittest.TestCase):
                     scheduled = True, 
                     schedule_enabled = True, 
                     average_duration = 1.337, 
-                    options = openlattice-rundeck.models.options.options(), ), 
+                    options = openlattice_rundeck.models.options.options(), ), 
                 description = '0', 
                 argstring = '0', 
                 successful_nodes = [

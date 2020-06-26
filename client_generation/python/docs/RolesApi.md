@@ -1,4 +1,4 @@
-# openlattice-rundeck.RolesApi
+# openlattice_rundeck.RolesApi
 
 All URIs are relative to *http://localhost*
 
@@ -14,23 +14,38 @@ List the roles of the authenticated user
 
 ### Example
 
+* Api Key Authentication (rundeck_auth):
 ```python
 from __future__ import print_function
 import time
-import openlattice-rundeck
-from openlattice-rundeck.rest import ApiException
+import openlattice_rundeck
+from openlattice_rundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice-rundeck.Configuration(
+configuration = openlattice_rundeck.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: rundeck_auth
+configuration = openlattice_rundeck.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'rundeck_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice-rundeck.ApiClient() as api_client:
+with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice-rundeck.RolesApi(api_client)
+    api_instance = openlattice_rundeck.RolesApi(api_client)
     
     try:
         # List the roles of the authenticated user
@@ -48,7 +63,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
