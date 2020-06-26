@@ -36,6 +36,313 @@ class ProjectApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def execution_list_running(self, project, **kwargs):  # noqa: E501
+        """List job executions  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.execution_list_running(project, async_req=True)
+        >>> result = thread.get()
+
+        :param project: Project name or * for all projects (required)
+        :type project: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: ExecutionList
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.execution_list_running_with_http_info(project, **kwargs)  # noqa: E501
+
+    def execution_list_running_with_http_info(self, project, **kwargs):  # noqa: E501
+        """List job executions  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.execution_list_running_with_http_info(project, async_req=True)
+        >>> result = thread.get()
+
+        :param project: Project name or * for all projects (required)
+        :type project: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(ExecutionList, status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'project'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method execution_list_running" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'project' is set
+        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
+                                                        local_var_params['project'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `project` when calling `execution_list_running`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'project' in local_var_params:
+            path_params['project'] = local_var_params['project']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['rundeck_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/26/project/{project}/executions/running', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ExecutionList',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
+    def job_list(self, project, **kwargs):  # noqa: E501
+        """List the jobs that exist for a project  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.job_list(project, async_req=True)
+        >>> result = thread.get()
+
+        :param project: Project name (required)
+        :type project: str
+        :param id_list: Comma separated list of Job IDs to include
+        :type id_list: str
+        :param group_path: Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only.
+        :type group_path: str
+        :param job_filter: A filter for the job name. Matches any job name that contains this value.
+        :type job_filter: str
+        :param job_exact_filter: An exact job name to match.
+        :type job_exact_filter: str
+        :param group_path_exact: An exact group path to match. Set to the special value \"-\" to match the top level jobs only.
+        :type group_path_exact: str
+        :param scheduled_filter: Specify whether to return only scheduled or only not scheduled jobs.
+        :type scheduled_filter: bool
+        :param server_node_uuid_filter: In cluster mode, use to select scheduled jobs assigned to the server with the given UUID.
+        :type server_node_uuid_filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: list[Job]
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.job_list_with_http_info(project, **kwargs)  # noqa: E501
+
+    def job_list_with_http_info(self, project, **kwargs):  # noqa: E501
+        """List the jobs that exist for a project  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.job_list_with_http_info(project, async_req=True)
+        >>> result = thread.get()
+
+        :param project: Project name (required)
+        :type project: str
+        :param id_list: Comma separated list of Job IDs to include
+        :type id_list: str
+        :param group_path: Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only.
+        :type group_path: str
+        :param job_filter: A filter for the job name. Matches any job name that contains this value.
+        :type job_filter: str
+        :param job_exact_filter: An exact job name to match.
+        :type job_exact_filter: str
+        :param group_path_exact: An exact group path to match. Set to the special value \"-\" to match the top level jobs only.
+        :type group_path_exact: str
+        :param scheduled_filter: Specify whether to return only scheduled or only not scheduled jobs.
+        :type scheduled_filter: bool
+        :param server_node_uuid_filter: In cluster mode, use to select scheduled jobs assigned to the server with the given UUID.
+        :type server_node_uuid_filter: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: tuple(list[Job], status_code(int), headers(HTTPHeaderDict))
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'project',
+            'id_list',
+            'group_path',
+            'job_filter',
+            'job_exact_filter',
+            'group_path_exact',
+            'scheduled_filter',
+            'server_node_uuid_filter'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method job_list" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'project' is set
+        if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
+                                                        local_var_params['project'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `project` when calling `job_list`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'project' in local_var_params:
+            path_params['project'] = local_var_params['project']  # noqa: E501
+
+        query_params = []
+        if 'id_list' in local_var_params and local_var_params['id_list'] is not None:  # noqa: E501
+            query_params.append(('idList', local_var_params['id_list']))  # noqa: E501
+        if 'group_path' in local_var_params and local_var_params['group_path'] is not None:  # noqa: E501
+            query_params.append(('groupPath', local_var_params['group_path']))  # noqa: E501
+        if 'job_filter' in local_var_params and local_var_params['job_filter'] is not None:  # noqa: E501
+            query_params.append(('jobFilter', local_var_params['job_filter']))  # noqa: E501
+        if 'job_exact_filter' in local_var_params and local_var_params['job_exact_filter'] is not None:  # noqa: E501
+            query_params.append(('jobExactFilter', local_var_params['job_exact_filter']))  # noqa: E501
+        if 'group_path_exact' in local_var_params and local_var_params['group_path_exact'] is not None:  # noqa: E501
+            query_params.append(('groupPathExact', local_var_params['group_path_exact']))  # noqa: E501
+        if 'scheduled_filter' in local_var_params and local_var_params['scheduled_filter'] is not None:  # noqa: E501
+            query_params.append(('scheduledFilter', local_var_params['scheduled_filter']))  # noqa: E501
+        if 'server_node_uuid_filter' in local_var_params and local_var_params['server_node_uuid_filter'] is not None:  # noqa: E501
+            query_params.append(('serverNodeUUIDFilter', local_var_params['server_node_uuid_filter']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['rundeck_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/26/project/{project}/jobs', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Job]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
     def project_archive_export_sync(self, project, **kwargs):  # noqa: E501
         """Export archive of project synchronously  # noqa: E501
 
@@ -787,21 +1094,21 @@ class ProjectApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def project_config_key_set(self, project, key, inline_object1, **kwargs):  # noqa: E501
+    def project_config_key_set(self, project, key, inline_object7, **kwargs):  # noqa: E501
         """Get project config key  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.project_config_key_set(project, key, inline_object1, async_req=True)
+        >>> thread = api.project_config_key_set(project, key, inline_object7, async_req=True)
         >>> result = thread.get()
 
         :param project: (required)
         :type project: str
         :param key: (required)
         :type key: str
-        :param inline_object1: (required)
-        :type inline_object1: InlineObject1
+        :param inline_object7: (required)
+        :type inline_object7: InlineObject7
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -818,23 +1125,23 @@ class ProjectApi(object):
         :rtype: object
         """
         kwargs['_return_http_data_only'] = True
-        return self.project_config_key_set_with_http_info(project, key, inline_object1, **kwargs)  # noqa: E501
+        return self.project_config_key_set_with_http_info(project, key, inline_object7, **kwargs)  # noqa: E501
 
-    def project_config_key_set_with_http_info(self, project, key, inline_object1, **kwargs):  # noqa: E501
+    def project_config_key_set_with_http_info(self, project, key, inline_object7, **kwargs):  # noqa: E501
         """Get project config key  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.project_config_key_set_with_http_info(project, key, inline_object1, async_req=True)
+        >>> thread = api.project_config_key_set_with_http_info(project, key, inline_object7, async_req=True)
         >>> result = thread.get()
 
         :param project: (required)
         :type project: str
         :param key: (required)
         :type key: str
-        :param inline_object1: (required)
-        :type inline_object1: InlineObject1
+        :param inline_object7: (required)
+        :type inline_object7: InlineObject7
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -863,7 +1170,7 @@ class ProjectApi(object):
         all_params = [
             'project',
             'key',
-            'inline_object1'
+            'inline_object7'
         ]
         all_params.extend(
             [
@@ -891,10 +1198,10 @@ class ProjectApi(object):
         if self.api_client.client_side_validation and ('key' not in local_var_params or  # noqa: E501
                                                         local_var_params['key'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `key` when calling `project_config_key_set`")  # noqa: E501
-        # verify the required parameter 'inline_object1' is set
-        if self.api_client.client_side_validation and ('inline_object1' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object1'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object1` when calling `project_config_key_set`")  # noqa: E501
+        # verify the required parameter 'inline_object7' is set
+        if self.api_client.client_side_validation and ('inline_object7' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_object7'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object7` when calling `project_config_key_set`")  # noqa: E501
 
         collection_formats = {}
 
@@ -912,8 +1219,8 @@ class ProjectApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object1' in local_var_params:
-            body_params = local_var_params['inline_object1']
+        if 'inline_object7' in local_var_params:
+            body_params = local_var_params['inline_object7']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1082,17 +1389,17 @@ class ProjectApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def project_create(self, inline_object, **kwargs):  # noqa: E501
+    def project_create(self, inline_object6, **kwargs):  # noqa: E501
         """Create a new project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.project_create(inline_object, async_req=True)
+        >>> thread = api.project_create(inline_object6, async_req=True)
         >>> result = thread.get()
 
-        :param inline_object: (required)
-        :type inline_object: InlineObject
+        :param inline_object6: (required)
+        :type inline_object6: InlineObject6
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1109,19 +1416,19 @@ class ProjectApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.project_create_with_http_info(inline_object, **kwargs)  # noqa: E501
+        return self.project_create_with_http_info(inline_object6, **kwargs)  # noqa: E501
 
-    def project_create_with_http_info(self, inline_object, **kwargs):  # noqa: E501
+    def project_create_with_http_info(self, inline_object6, **kwargs):  # noqa: E501
         """Create a new project  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.project_create_with_http_info(inline_object, async_req=True)
+        >>> thread = api.project_create_with_http_info(inline_object6, async_req=True)
         >>> result = thread.get()
 
-        :param inline_object: (required)
-        :type inline_object: InlineObject
+        :param inline_object6: (required)
+        :type inline_object6: InlineObject6
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1148,7 +1455,7 @@ class ProjectApi(object):
         local_var_params = locals()
 
         all_params = [
-            'inline_object'
+            'inline_object6'
         ]
         all_params.extend(
             [
@@ -1168,10 +1475,10 @@ class ProjectApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'inline_object' is set
-        if self.api_client.client_side_validation and ('inline_object' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object` when calling `project_create`")  # noqa: E501
+        # verify the required parameter 'inline_object6' is set
+        if self.api_client.client_side_validation and ('inline_object6' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_object6'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object6` when calling `project_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1185,8 +1492,8 @@ class ProjectApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object' in local_var_params:
-            body_params = local_var_params['inline_object']
+        if 'inline_object6' in local_var_params:
+            body_params = local_var_params['inline_object6']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2173,19 +2480,19 @@ class ProjectApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def project_motd_put(self, project, inline_object3, **kwargs):  # noqa: E501
+    def project_motd_put(self, project, inline_object9, **kwargs):  # noqa: E501
         """Create or modify project MOTD.md  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.project_motd_put(project, inline_object3, async_req=True)
+        >>> thread = api.project_motd_put(project, inline_object9, async_req=True)
         >>> result = thread.get()
 
         :param project: Name of the project to import jobs into. (required)
         :type project: str
-        :param inline_object3: (required)
-        :type inline_object3: InlineObject3
+        :param inline_object9: (required)
+        :type inline_object9: InlineObject9
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2202,21 +2509,21 @@ class ProjectApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.project_motd_put_with_http_info(project, inline_object3, **kwargs)  # noqa: E501
+        return self.project_motd_put_with_http_info(project, inline_object9, **kwargs)  # noqa: E501
 
-    def project_motd_put_with_http_info(self, project, inline_object3, **kwargs):  # noqa: E501
+    def project_motd_put_with_http_info(self, project, inline_object9, **kwargs):  # noqa: E501
         """Create or modify project MOTD.md  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.project_motd_put_with_http_info(project, inline_object3, async_req=True)
+        >>> thread = api.project_motd_put_with_http_info(project, inline_object9, async_req=True)
         >>> result = thread.get()
 
         :param project: Name of the project to import jobs into. (required)
         :type project: str
-        :param inline_object3: (required)
-        :type inline_object3: InlineObject3
+        :param inline_object9: (required)
+        :type inline_object9: InlineObject9
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -2244,7 +2551,7 @@ class ProjectApi(object):
 
         all_params = [
             'project',
-            'inline_object3'
+            'inline_object9'
         ]
         all_params.extend(
             [
@@ -2268,10 +2575,10 @@ class ProjectApi(object):
         if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
                                                         local_var_params['project'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `project` when calling `project_motd_put`")  # noqa: E501
-        # verify the required parameter 'inline_object3' is set
-        if self.api_client.client_side_validation and ('inline_object3' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object3'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object3` when calling `project_motd_put`")  # noqa: E501
+        # verify the required parameter 'inline_object9' is set
+        if self.api_client.client_side_validation and ('inline_object9' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_object9'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object9` when calling `project_motd_put`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2287,8 +2594,8 @@ class ProjectApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object3' in local_var_params:
-            body_params = local_var_params['inline_object3']
+        if 'inline_object9' in local_var_params:
+            body_params = local_var_params['inline_object9']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2567,19 +2874,19 @@ class ProjectApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def project_readme_put(self, project, inline_object2, **kwargs):  # noqa: E501
+    def project_readme_put(self, project, inline_object8, **kwargs):  # noqa: E501
         """Create or modify project README.md  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.project_readme_put(project, inline_object2, async_req=True)
+        >>> thread = api.project_readme_put(project, inline_object8, async_req=True)
         >>> result = thread.get()
 
         :param project: Name of the project to import jobs into. (required)
         :type project: str
-        :param inline_object2: (required)
-        :type inline_object2: InlineObject2
+        :param inline_object8: (required)
+        :type inline_object8: InlineObject8
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2596,21 +2903,21 @@ class ProjectApi(object):
         :rtype: None
         """
         kwargs['_return_http_data_only'] = True
-        return self.project_readme_put_with_http_info(project, inline_object2, **kwargs)  # noqa: E501
+        return self.project_readme_put_with_http_info(project, inline_object8, **kwargs)  # noqa: E501
 
-    def project_readme_put_with_http_info(self, project, inline_object2, **kwargs):  # noqa: E501
+    def project_readme_put_with_http_info(self, project, inline_object8, **kwargs):  # noqa: E501
         """Create or modify project README.md  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.project_readme_put_with_http_info(project, inline_object2, async_req=True)
+        >>> thread = api.project_readme_put_with_http_info(project, inline_object8, async_req=True)
         >>> result = thread.get()
 
         :param project: Name of the project to import jobs into. (required)
         :type project: str
-        :param inline_object2: (required)
-        :type inline_object2: InlineObject2
+        :param inline_object8: (required)
+        :type inline_object8: InlineObject8
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -2638,7 +2945,7 @@ class ProjectApi(object):
 
         all_params = [
             'project',
-            'inline_object2'
+            'inline_object8'
         ]
         all_params.extend(
             [
@@ -2662,10 +2969,10 @@ class ProjectApi(object):
         if self.api_client.client_side_validation and ('project' not in local_var_params or  # noqa: E501
                                                         local_var_params['project'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `project` when calling `project_readme_put`")  # noqa: E501
-        # verify the required parameter 'inline_object2' is set
-        if self.api_client.client_side_validation and ('inline_object2' not in local_var_params or  # noqa: E501
-                                                        local_var_params['inline_object2'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `inline_object2` when calling `project_readme_put`")  # noqa: E501
+        # verify the required parameter 'inline_object8' is set
+        if self.api_client.client_side_validation and ('inline_object8' not in local_var_params or  # noqa: E501
+                                                        local_var_params['inline_object8'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `inline_object8` when calling `project_readme_put`")  # noqa: E501
 
         collection_formats = {}
 
@@ -2681,8 +2988,8 @@ class ProjectApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'inline_object2' in local_var_params:
-            body_params = local_var_params['inline_object2']
+        if 'inline_object8' in local_var_params:
+            body_params = local_var_params['inline_object8']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501

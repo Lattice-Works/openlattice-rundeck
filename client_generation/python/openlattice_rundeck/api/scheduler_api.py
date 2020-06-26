@@ -60,7 +60,7 @@ class SchedulerApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: list[Job]
         """
         kwargs['_return_http_data_only'] = True
         return self.system_scheduled_jobs_for_server_with_http_info(uuid, **kwargs)  # noqa: E501
@@ -96,7 +96,7 @@ class SchedulerApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(list[Job], status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -141,6 +141,10 @@ class SchedulerApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -152,7 +156,7 @@ class SchedulerApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='list[Job]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -183,7 +187,7 @@ class SchedulerApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: list[Job]
         """
         kwargs['_return_http_data_only'] = True
         return self.system_scheduled_jobs_list_with_http_info(**kwargs)  # noqa: E501
@@ -217,7 +221,7 @@ class SchedulerApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(list[Job], status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -255,6 +259,10 @@ class SchedulerApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -266,7 +274,7 @@ class SchedulerApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='list[Job]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -299,7 +307,7 @@ class SchedulerApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: TakeoverScheduleResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.system_scheduler_takeover_with_http_info(inline_object10, **kwargs)  # noqa: E501
@@ -335,7 +343,7 @@ class SchedulerApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(TakeoverScheduleResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -380,6 +388,10 @@ class SchedulerApi(object):
         body_params = None
         if 'inline_object10' in local_var_params:
             body_params = local_var_params['inline_object10']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -395,7 +407,7 @@ class SchedulerApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='TakeoverScheduleResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

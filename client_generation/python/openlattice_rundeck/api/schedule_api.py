@@ -60,7 +60,7 @@ class ScheduleApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: JobBulkOperationResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.job_schedule_bulk_disable_with_http_info(inline_object5, **kwargs)  # noqa: E501
@@ -96,7 +96,7 @@ class ScheduleApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(JobBulkOperationResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -141,6 +141,10 @@ class ScheduleApi(object):
         body_params = None
         if 'inline_object5' in local_var_params:
             body_params = local_var_params['inline_object5']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -156,7 +160,7 @@ class ScheduleApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='JobBulkOperationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -189,7 +193,7 @@ class ScheduleApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: JobBulkOperationResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.job_schedule_bulk_enable_with_http_info(inline_object4, **kwargs)  # noqa: E501
@@ -225,7 +229,7 @@ class ScheduleApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(JobBulkOperationResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -270,6 +274,10 @@ class ScheduleApi(object):
         body_params = None
         if 'inline_object4' in local_var_params:
             body_params = local_var_params['inline_object4']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -285,7 +293,7 @@ class ScheduleApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='JobBulkOperationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -318,7 +326,7 @@ class ScheduleApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.job_schedule_disable_with_http_info(id, **kwargs)  # noqa: E501
@@ -354,7 +362,7 @@ class ScheduleApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -399,6 +407,10 @@ class ScheduleApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -410,7 +422,7 @@ class ScheduleApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -443,7 +455,7 @@ class ScheduleApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.job_schedule_enable_with_http_info(id, **kwargs)  # noqa: E501
@@ -479,7 +491,7 @@ class ScheduleApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -524,6 +536,10 @@ class ScheduleApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -535,7 +551,7 @@ class ScheduleApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

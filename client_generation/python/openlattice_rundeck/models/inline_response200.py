@@ -35,16 +35,18 @@ class InlineResponse200(object):
     openapi_types = {
         'name': 'str',
         'description': 'str',
-        'url': 'str'
+        'url': 'str',
+        'label': 'str'
     }
 
     attribute_map = {
         'name': 'name',
         'description': 'description',
-        'url': 'url'
+        'url': 'url',
+        'label': 'label'
     }
 
-    def __init__(self, name=None, description=None, url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, url=None, label=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse200 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class InlineResponse200(object):
         self._name = None
         self._description = None
         self._url = None
+        self._label = None
         self.discriminator = None
 
         if name is not None:
@@ -61,6 +64,8 @@ class InlineResponse200(object):
             self.description = description
         if url is not None:
             self.url = url
+        if label is not None:
+            self.label = label
 
     @property
     def name(self):
@@ -124,6 +129,27 @@ class InlineResponse200(object):
         """
 
         self._url = url
+
+    @property
+    def label(self):
+        """Gets the label of this InlineResponse200.  # noqa: E501
+
+
+        :return: The label of this InlineResponse200.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this InlineResponse200.
+
+
+        :param label: The label of this InlineResponse200.  # noqa: E501
+        :type label: str
+        """
+
+        self._label = label
 
     def to_dict(self):
         """Returns the model properties as a dict"""

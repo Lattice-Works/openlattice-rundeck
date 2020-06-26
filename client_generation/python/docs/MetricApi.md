@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **metric_list**
-> metric_list()
+> InlineResponse2001 metric_list()
 
 List links to enabled Metrics endpoints
 
@@ -49,7 +49,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List links to enabled Metrics endpoints
-        api_instance.metric_list()
+        api_response = api_instance.metric_list()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling MetricApi->metric_list: %s\n" % e)
 ```
@@ -59,7 +60,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -68,7 +69,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

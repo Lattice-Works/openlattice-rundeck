@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **user_role_list**
-> user_role_list()
+> object user_role_list()
 
 List the roles of the authenticated user
 
@@ -49,7 +49,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List the roles of the authenticated user
-        api_instance.user_role_list()
+        api_response = api_instance.user_role_list()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling RolesApi->user_role_list: %s\n" % e)
 ```
@@ -59,7 +60,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -68,7 +69,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

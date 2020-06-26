@@ -164,7 +164,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **storage_key_get_material**
-> storage_key_get_material(key_path, accept)
+> object storage_key_get_material(key_path, accept)
 
 Get key material at the specified PATH
 
@@ -207,7 +207,8 @@ accept = 'accept_example' # str |
 
     try:
         # Get key material at the specified PATH
-        api_instance.storage_key_get_material(key_path, accept)
+        api_response = api_instance.storage_key_get_material(key_path, accept)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling StorageApi->storage_key_get_material: %s\n" % e)
 ```
@@ -221,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -230,7 +231,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -240,7 +241,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **storage_key_get_metadata**
-> storage_key_get_metadata(path, accept)
+> StorageKeyListResponse storage_key_get_metadata(path, accept)
 
 List resources at the specified PATH
 
@@ -283,7 +284,8 @@ accept = 'accept_example' # str |
 
     try:
         # List resources at the specified PATH
-        api_instance.storage_key_get_metadata(path, accept)
+        api_response = api_instance.storage_key_get_metadata(path, accept)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling StorageApi->storage_key_get_metadata: %s\n" % e)
 ```
@@ -297,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**StorageKeyListResponse**](StorageKeyListResponse.md)
 
 ### Authorization
 
@@ -306,7 +308,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

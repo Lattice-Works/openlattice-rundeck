@@ -60,7 +60,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: JobExecutionDelete
         """
         kwargs['_return_http_data_only'] = True
         return self.execution_bulk_delete_with_http_info(inline_object, **kwargs)  # noqa: E501
@@ -96,7 +96,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(JobExecutionDelete, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -141,6 +141,10 @@ class ExecutionApi(object):
         body_params = None
         if 'inline_object' in local_var_params:
             body_params = local_var_params['inline_object']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -156,7 +160,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='JobExecutionDelete',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -314,7 +318,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.execution_input_files_list_with_http_info(id, **kwargs)  # noqa: E501
@@ -350,7 +354,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -395,6 +399,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -406,7 +414,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -439,7 +447,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: ExecutionList
         """
         kwargs['_return_http_data_only'] = True
         return self.execution_list_running_with_http_info(project, **kwargs)  # noqa: E501
@@ -475,7 +483,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(ExecutionList, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -520,6 +528,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -531,7 +543,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ExecutionList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -568,7 +580,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: ExecutionOutput
         """
         kwargs['_return_http_data_only'] = True
         return self.execution_output_get_with_http_info(id, **kwargs)  # noqa: E501
@@ -608,7 +620,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(ExecutionOutput, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -659,6 +671,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -670,7 +686,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ExecutionOutput',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1002,7 +1018,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: Execution
         """
         kwargs['_return_http_data_only'] = True
         return self.execution_status_get_with_http_info(id, **kwargs)  # noqa: E501
@@ -1038,7 +1054,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(Execution, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -1083,6 +1099,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -1094,7 +1114,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='Execution',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1127,7 +1147,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: JobBulkOperationResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.job_execution_bulk_disable_with_http_info(inline_object3, **kwargs)  # noqa: E501
@@ -1163,7 +1183,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(JobBulkOperationResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -1208,6 +1228,10 @@ class ExecutionApi(object):
         body_params = None
         if 'inline_object3' in local_var_params:
             body_params = local_var_params['inline_object3']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1223,7 +1247,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='JobBulkOperationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1256,7 +1280,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: JobBulkOperationResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.job_execution_bulk_enable_with_http_info(inline_object2, **kwargs)  # noqa: E501
@@ -1292,7 +1316,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(JobBulkOperationResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -1337,6 +1361,10 @@ class ExecutionApi(object):
         body_params = None
         if 'inline_object2' in local_var_params:
             body_params = local_var_params['inline_object2']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1352,7 +1380,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='JobBulkOperationResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1510,7 +1538,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.job_execution_disable_with_http_info(id, **kwargs)  # noqa: E501
@@ -1546,7 +1574,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -1591,6 +1619,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -1602,7 +1634,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1635,7 +1667,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.job_execution_enable_with_http_info(id, **kwargs)  # noqa: E501
@@ -1671,7 +1703,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -1716,6 +1748,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -1727,7 +1763,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1760,7 +1796,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: ExecutionList
         """
         kwargs['_return_http_data_only'] = True
         return self.job_execution_list_with_http_info(id, **kwargs)  # noqa: E501
@@ -1796,7 +1832,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(ExecutionList, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -1841,6 +1877,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -1852,7 +1892,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ExecutionList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1887,7 +1927,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: Execution
         """
         kwargs['_return_http_data_only'] = True
         return self.job_execution_run_with_http_info(id, **kwargs)  # noqa: E501
@@ -1925,7 +1965,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(Execution, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -1973,6 +2013,10 @@ class ExecutionApi(object):
         body_params = None
         if 'body' in local_var_params:
             body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1988,7 +2032,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='Execution',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2025,7 +2069,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: ExecutionList
         """
         kwargs['_return_http_data_only'] = True
         return self.job_retry_execution_with_http_info(job_id, execution_id, **kwargs)  # noqa: E501
@@ -2065,7 +2109,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(ExecutionList, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -2120,6 +2164,10 @@ class ExecutionApi(object):
         body_params = None
         if 'body' in local_var_params:
             body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -2135,7 +2183,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='ExecutionList',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2166,7 +2214,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.system_executions_disable_with_http_info(**kwargs)  # noqa: E501
@@ -2200,7 +2248,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -2238,6 +2286,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -2249,7 +2301,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2280,7 +2332,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.system_executions_enable_with_http_info(**kwargs)  # noqa: E501
@@ -2314,7 +2366,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -2352,6 +2404,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -2363,7 +2419,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2394,7 +2450,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: IncompleteLogExecutions
         """
         kwargs['_return_http_data_only'] = True
         return self.system_incomplete_log_storage_executions_get_with_http_info(**kwargs)  # noqa: E501
@@ -2428,7 +2484,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(IncompleteLogExecutions, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -2466,6 +2522,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -2477,7 +2537,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='IncompleteLogExecutions',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2508,7 +2568,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
         return self.system_incomplete_log_storage_executions_resume_with_http_info(**kwargs)  # noqa: E501
@@ -2542,7 +2602,7 @@ class ExecutionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -2580,6 +2640,10 @@ class ExecutionApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['rundeck_auth']  # noqa: E501
 
@@ -2591,7 +2655,7 @@ class ExecutionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

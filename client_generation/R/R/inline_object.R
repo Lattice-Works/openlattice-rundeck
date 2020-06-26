@@ -10,9 +10,7 @@
 #' @title InlineObject
 #' @description InlineObject Class
 #' @format An \code{R6Class} generator object
-#' @field name  character [optional]
-#'
-#' @field config  object [optional]
+#' @field ids  list( character ) [optional]
 #'
 #'
 #' @importFrom R6 R6Class
@@ -21,55 +19,38 @@
 InlineObject <- R6::R6Class(
   'InlineObject',
   public = list(
-    `name` = NULL,
-    `config` = NULL,
-    initialize = function(`name`=NULL, `config`=NULL, ...){
+    `ids` = NULL,
+    initialize = function(`ids`=NULL, ...){
       local.optional.var <- list(...)
-      if (!is.null(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
-      }
-      if (!is.null(`config`)) {
-        self$`config` <- `config`
+      if (!is.null(`ids`)) {
+        stopifnot(is.vector(`ids`))
+        sapply(`ids`, function(x) stopifnot(is.character(x)))
+        self$`ids` <- `ids`
       }
     },
     toJSON = function() {
       InlineObjectObject <- list()
-      if (!is.null(self$`name`)) {
-        InlineObjectObject[['name']] <-
-          self$`name`
-      }
-      if (!is.null(self$`config`)) {
-        InlineObjectObject[['config']] <-
-          self$`config`
+      if (!is.null(self$`ids`)) {
+        InlineObjectObject[['ids']] <-
+          self$`ids`
       }
 
       InlineObjectObject
     },
     fromJSON = function(InlineObjectJson) {
       InlineObjectObject <- jsonlite::fromJSON(InlineObjectJson)
-      if (!is.null(InlineObjectObject$`name`)) {
-        self$`name` <- InlineObjectObject$`name`
-      }
-      if (!is.null(InlineObjectObject$`config`)) {
-        self$`config` <- InlineObjectObject$`config`
+      if (!is.null(InlineObjectObject$`ids`)) {
+        self$`ids` <- ApiClient$new()$deserializeObj(InlineObjectObject$`ids`, "array[character]", loadNamespace("openlattice_rundeck"))
       }
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`name`)) {
+        if (!is.null(self$`ids`)) {
         sprintf(
-        '"name":
-          "%s"
-                ',
-        self$`name`
-        )},
-        if (!is.null(self$`config`)) {
-        sprintf(
-        '"config":
-          "%s"
-                ',
-        self$`config`
+        '"ids":
+           [%s]
+        ',
+        paste(unlist(lapply(self$`ids`, function(x) paste0('"', x, '"'))), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -77,8 +58,7 @@ InlineObject <- R6::R6Class(
     },
     fromJSONString = function(InlineObjectJson) {
       InlineObjectObject <- jsonlite::fromJSON(InlineObjectJson)
-      self$`name` <- InlineObjectObject$`name`
-      self$`config` <- InlineObjectObject$`config`
+      self$`ids` <- ApiClient$new()$deserializeObj(InlineObjectObject$`ids`, "array[character]", loadNamespace("openlattice_rundeck"))
       self
     }
   )

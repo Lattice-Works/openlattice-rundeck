@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **job_bulk_delete**
-> job_bulk_delete(inline_object1)
+> JobBulkOperationResponse job_bulk_delete(inline_object1)
 
 Delete multiple job definitions at once
 
@@ -50,7 +50,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Delete multiple job definitions at once
-        api_instance.job_bulk_delete(inline_object1)
+        api_response = api_instance.job_bulk_delete(inline_object1)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling BulkApi->job_bulk_delete: %s\n" % e)
 ```
@@ -63,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**JobBulkOperationResponse**](JobBulkOperationResponse.md)
 
 ### Authorization
 
@@ -72,7 +73,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

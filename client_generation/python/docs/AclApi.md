@@ -162,7 +162,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_acl_policy_get**
-> system_acl_policy_get(policy_name)
+> AclPolicyResponse system_acl_policy_get(policy_name)
 
 Retrieve the YAML texas of the ACL Policy file
 
@@ -204,7 +204,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve the YAML texas of the ACL Policy file
-        api_instance.system_acl_policy_get(policy_name)
+        api_response = api_instance.system_acl_policy_get(policy_name)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling AclApi->system_acl_policy_get: %s\n" % e)
 ```
@@ -217,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**AclPolicyResponse**](AclPolicyResponse.md)
 
 ### Authorization
 
@@ -226,7 +227,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -236,7 +237,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_acl_policy_list**
-> system_acl_policy_list()
+> AclList system_acl_policy_list()
 
 List ACL Policies
 
@@ -277,7 +278,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List ACL Policies
-        api_instance.system_acl_policy_list()
+        api_response = api_instance.system_acl_policy_list()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling AclApi->system_acl_policy_list: %s\n" % e)
 ```
@@ -287,7 +289,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**AclList**](AclList.md)
 
 ### Authorization
 
@@ -296,7 +298,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -306,7 +308,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_acl_policy_update**
-> system_acl_policy_update(policy_name, inline_object11)
+> AclPolicyResponse system_acl_policy_update(policy_name, inline_object11)
 
 Update policy
 
@@ -349,7 +351,8 @@ inline_object11 = openlattice_rundeck.InlineObject11() # InlineObject11 |
 
     try:
         # Update policy
-        api_instance.system_acl_policy_update(policy_name, inline_object11)
+        api_response = api_instance.system_acl_policy_update(policy_name, inline_object11)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling AclApi->system_acl_policy_update: %s\n" % e)
 ```
@@ -363,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**AclPolicyResponse**](AclPolicyResponse.md)
 
 ### Authorization
 
@@ -372,7 +375,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

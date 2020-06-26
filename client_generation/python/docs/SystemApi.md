@@ -168,7 +168,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_acl_policy_get**
-> system_acl_policy_get(policy_name)
+> AclPolicyResponse system_acl_policy_get(policy_name)
 
 Retrieve the YAML texas of the ACL Policy file
 
@@ -210,7 +210,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve the YAML texas of the ACL Policy file
-        api_instance.system_acl_policy_get(policy_name)
+        api_response = api_instance.system_acl_policy_get(policy_name)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_acl_policy_get: %s\n" % e)
 ```
@@ -223,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**AclPolicyResponse**](AclPolicyResponse.md)
 
 ### Authorization
 
@@ -232,7 +233,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -242,7 +243,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_acl_policy_list**
-> system_acl_policy_list()
+> AclList system_acl_policy_list()
 
 List ACL Policies
 
@@ -283,7 +284,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List ACL Policies
-        api_instance.system_acl_policy_list()
+        api_response = api_instance.system_acl_policy_list()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_acl_policy_list: %s\n" % e)
 ```
@@ -293,7 +295,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**AclList**](AclList.md)
 
 ### Authorization
 
@@ -302,7 +304,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -312,7 +314,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_acl_policy_update**
-> system_acl_policy_update(policy_name, inline_object11)
+> AclPolicyResponse system_acl_policy_update(policy_name, inline_object11)
 
 Update policy
 
@@ -355,7 +357,8 @@ inline_object11 = openlattice_rundeck.InlineObject11() # InlineObject11 |
 
     try:
         # Update policy
-        api_instance.system_acl_policy_update(policy_name, inline_object11)
+        api_response = api_instance.system_acl_policy_update(policy_name, inline_object11)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_acl_policy_update: %s\n" % e)
 ```
@@ -369,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**AclPolicyResponse**](AclPolicyResponse.md)
 
 ### Authorization
 
@@ -378,7 +381,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -388,7 +391,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_executions_disable**
-> system_executions_disable()
+> object system_executions_disable()
 
 Disables executions, preventing adhoc and manual and scheduled jobs from running.
 
@@ -429,7 +432,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Disables executions, preventing adhoc and manual and scheduled jobs from running.
-        api_instance.system_executions_disable()
+        api_response = api_instance.system_executions_disable()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_executions_disable: %s\n" % e)
 ```
@@ -439,7 +443,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -448,7 +452,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -458,7 +462,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_executions_enable**
-> system_executions_enable()
+> object system_executions_enable()
 
 Enables executions, allowing adhoc and manual and scheduled jobs to be run
 
@@ -499,7 +503,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Enables executions, allowing adhoc and manual and scheduled jobs to be run
-        api_instance.system_executions_enable()
+        api_response = api_instance.system_executions_enable()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_executions_enable: %s\n" % e)
 ```
@@ -509,7 +514,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -518,7 +523,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -528,7 +533,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_incomplete_log_storage_executions_get**
-> system_incomplete_log_storage_executions_get()
+> IncompleteLogExecutions system_incomplete_log_storage_executions_get()
 
 List all executions with incomplete log storage
 
@@ -569,7 +574,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List all executions with incomplete log storage
-        api_instance.system_incomplete_log_storage_executions_get()
+        api_response = api_instance.system_incomplete_log_storage_executions_get()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_incomplete_log_storage_executions_get: %s\n" % e)
 ```
@@ -579,7 +585,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**IncompleteLogExecutions**](IncompleteLogExecutions.md)
 
 ### Authorization
 
@@ -588,7 +594,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -598,7 +604,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_incomplete_log_storage_executions_resume**
-> system_incomplete_log_storage_executions_resume()
+> object system_incomplete_log_storage_executions_resume()
 
 Resume processing incomplete Log Storage uploads
 
@@ -639,7 +645,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Resume processing incomplete Log Storage uploads
-        api_instance.system_incomplete_log_storage_executions_resume()
+        api_response = api_instance.system_incomplete_log_storage_executions_resume()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_incomplete_log_storage_executions_resume: %s\n" % e)
 ```
@@ -649,7 +656,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -658,7 +665,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -668,7 +675,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_info_get**
-> system_info_get()
+> SystemInfo system_info_get()
 
 Get Rundeck server information and stats
 
@@ -709,7 +716,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Get Rundeck server information and stats
-        api_instance.system_info_get()
+        api_response = api_instance.system_info_get()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_info_get: %s\n" % e)
 ```
@@ -719,7 +727,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**SystemInfo**](SystemInfo.md)
 
 ### Authorization
 
@@ -728,7 +736,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -738,7 +746,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_log_storage_info_get**
-> system_log_storage_info_get()
+> LogStorage system_log_storage_info_get()
 
 Get Log Storage information and stats
 
@@ -779,7 +787,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Get Log Storage information and stats
-        api_instance.system_log_storage_info_get()
+        api_response = api_instance.system_log_storage_info_get()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling SystemApi->system_log_storage_info_get: %s\n" % e)
 ```
@@ -789,7 +798,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**LogStorage**](LogStorage.md)
 
 ### Authorization
 
@@ -798,7 +807,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

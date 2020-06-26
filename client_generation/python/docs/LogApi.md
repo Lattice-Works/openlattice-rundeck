@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **system_incomplete_log_storage_executions_get**
-> system_incomplete_log_storage_executions_get()
+> IncompleteLogExecutions system_incomplete_log_storage_executions_get()
 
 List all executions with incomplete log storage
 
@@ -51,7 +51,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List all executions with incomplete log storage
-        api_instance.system_incomplete_log_storage_executions_get()
+        api_response = api_instance.system_incomplete_log_storage_executions_get()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling LogApi->system_incomplete_log_storage_executions_get: %s\n" % e)
 ```
@@ -61,7 +62,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**IncompleteLogExecutions**](IncompleteLogExecutions.md)
 
 ### Authorization
 
@@ -70,7 +71,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -80,7 +81,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_incomplete_log_storage_executions_resume**
-> system_incomplete_log_storage_executions_resume()
+> object system_incomplete_log_storage_executions_resume()
 
 Resume processing incomplete Log Storage uploads
 
@@ -121,7 +122,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Resume processing incomplete Log Storage uploads
-        api_instance.system_incomplete_log_storage_executions_resume()
+        api_response = api_instance.system_incomplete_log_storage_executions_resume()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling LogApi->system_incomplete_log_storage_executions_resume: %s\n" % e)
 ```
@@ -131,7 +133,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -140,7 +142,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -150,7 +152,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_log_storage_info_get**
-> system_log_storage_info_get()
+> LogStorage system_log_storage_info_get()
 
 Get Log Storage information and stats
 
@@ -191,7 +193,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Get Log Storage information and stats
-        api_instance.system_log_storage_info_get()
+        api_response = api_instance.system_log_storage_info_get()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling LogApi->system_log_storage_info_get: %s\n" % e)
 ```
@@ -201,7 +204,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**LogStorage**](LogStorage.md)
 
 ### Authorization
 
@@ -210,7 +213,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

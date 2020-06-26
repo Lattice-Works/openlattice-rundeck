@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **character** |  | [optional] 
+**ids** | **array[character]** |  | [optional] 
 
 

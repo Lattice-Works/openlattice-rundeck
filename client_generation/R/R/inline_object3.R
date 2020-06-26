@@ -10,7 +10,7 @@
 #' @title InlineObject3
 #' @description InlineObject3 Class
 #' @format An \code{R6Class} generator object
-#' @field contents  character [optional]
+#' @field ids  list( character ) [optional]
 #'
 #'
 #' @importFrom R6 R6Class
@@ -19,37 +19,38 @@
 InlineObject3 <- R6::R6Class(
   'InlineObject3',
   public = list(
-    `contents` = NULL,
-    initialize = function(`contents`=NULL, ...){
+    `ids` = NULL,
+    initialize = function(`ids`=NULL, ...){
       local.optional.var <- list(...)
-      if (!is.null(`contents`)) {
-        stopifnot(is.character(`contents`), length(`contents`) == 1)
-        self$`contents` <- `contents`
+      if (!is.null(`ids`)) {
+        stopifnot(is.vector(`ids`))
+        sapply(`ids`, function(x) stopifnot(is.character(x)))
+        self$`ids` <- `ids`
       }
     },
     toJSON = function() {
       InlineObject3Object <- list()
-      if (!is.null(self$`contents`)) {
-        InlineObject3Object[['contents']] <-
-          self$`contents`
+      if (!is.null(self$`ids`)) {
+        InlineObject3Object[['ids']] <-
+          self$`ids`
       }
 
       InlineObject3Object
     },
     fromJSON = function(InlineObject3Json) {
       InlineObject3Object <- jsonlite::fromJSON(InlineObject3Json)
-      if (!is.null(InlineObject3Object$`contents`)) {
-        self$`contents` <- InlineObject3Object$`contents`
+      if (!is.null(InlineObject3Object$`ids`)) {
+        self$`ids` <- ApiClient$new()$deserializeObj(InlineObject3Object$`ids`, "array[character]", loadNamespace("openlattice_rundeck"))
       }
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`contents`)) {
+        if (!is.null(self$`ids`)) {
         sprintf(
-        '"contents":
-          "%s"
-                ',
-        self$`contents`
+        '"ids":
+           [%s]
+        ',
+        paste(unlist(lapply(self$`ids`, function(x) paste0('"', x, '"'))), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -57,7 +58,7 @@ InlineObject3 <- R6::R6Class(
     },
     fromJSONString = function(InlineObject3Json) {
       InlineObject3Object <- jsonlite::fromJSON(InlineObject3Json)
-      self$`contents` <- InlineObject3Object$`contents`
+      self$`ids` <- ApiClient$new()$deserializeObj(InlineObject3Object$`ids`, "array[character]", loadNamespace("openlattice_rundeck"))
       self
     }
   )

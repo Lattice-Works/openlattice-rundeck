@@ -5,6 +5,806 @@ info:
   license:
     name: MIT
 paths:
+  /api/26/execution/{id}:
+    get:
+      summary: Get the status of an execution by ID
+      operationId: executionStatusGet
+      tags:
+      - execution
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Execution status
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Execution'
+      security:
+      - rundeck_auth: []
+    delete:
+      summary: Delete an exeuction by ID
+      operationId: executionDelete
+      tags:
+      - execution
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Success !
+      security:
+      - rundeck_auth: []
+  /api/26/executions/delete:
+    post:
+      summary: Bulk delete executions
+      operationId: executionBulkDelete
+      tags:
+      - execution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Execution deleted response
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobExecutionDelete'
+      security:
+      - rundeck_auth: []
+  /api/26/execution/{id}/state:
+    get:
+      summary: Get detail about the node and step state of an execution by ID. The
+        execution can be currently running or completed.
+      operationId: executionStateGet
+      tags:
+      - execution
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Ok
+      security:
+      - rundeck_auth: []
+  /api/26/execution/{id}/input/files:
+    get:
+      summary: List input files for an execution
+      operationId: executionInputFilesList
+      tags:
+      - file
+      - execution
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: List of execution input files
+          content:
+            application/json:
+              schema:
+                required:
+                - files
+                properties:
+                  files:
+                    type: array
+                    items:
+                      $ref: '#/definitions/JobInputFileInfo'
+      security:
+      - rundeck_auth: []
+  /api/26/project/{project}/executions/running:
+    get:
+      summary: List job executions
+      operationId: executionListRunning
+      tags:
+      - project
+      - execution
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Project name or * for all projects
+      responses:
+        '200':
+          description: List of executions for job
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ExecutionList'
+      security:
+      - rundeck_auth: []
+  /api/26/project/{project}/executions:
+    get:
+      summary: Query for Executions based on Job or Execution details
+      operationId: executionQuery
+      tags:
+      - execution
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      - name: statusFilter
+        schema:
+          enum:
+          - running
+          - succeeded
+          - failed
+          - aborted
+          - timedout
+          - failed-with-retry
+          - scheduled
+          - other
+        in: query
+      - name: abortedbyFilter
+        schema:
+          type: string
+        in: query
+        description: Username who aborted an execution
+      - name: userFilter
+        schema:
+          type: string
+        in: query
+        description: Username who started the execution
+      - name: recentFilter
+        schema:
+          type: string
+        in: query
+        description: "Use a simple text format to filter executions that completed\
+          \ within a period of time. The format is \u201CXY\u201D where X is an integer,\
+          \ and \u201CY\u201D is one of:\n* h: hour\n* d: day\n"
+      - name: olderFilter
+        schema:
+          type: string
+        in: query
+        description: (same format as recentFilter) return executions that completed
+          before the specified relative period of time
+      - name: begin
+        schema:
+          type: string
+        in: query
+        description: Specify exact date for earliest execution completion time
+      - name: adhoc
+        schema:
+          type: boolean
+        in: query
+      responses:
+        '200':
+          description: Success
+      security:
+      - rundeck_auth: []
+  /api/26/execution/{id}/output:
+    get:
+      summary: List input files for an execution
+      operationId: executionOutputGet
+      tags:
+      - file
+      - execution
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      - name: offset
+        schema:
+          type: string
+        in: query
+        required: false
+      - name: maxlines
+        schema:
+          default: 5000
+        in: query
+        required: false
+      responses:
+        '200':
+          description: List of execution input files
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ExecutionOutput'
+      security:
+      - rundeck_auth: []
+  /api/26/project/{project}/jobs:
+    get:
+      summary: List the jobs that exist for a project
+      operationId: jobList
+      tags:
+      - project
+      - job
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Project name
+      - name: idList
+        schema:
+          type: string
+        in: query
+        required: false
+        description: Comma separated list of Job IDs to include
+      - name: groupPath
+        schema:
+          type: string
+        in: query
+        required: false
+        description: Group or partial group path to include all jobs within that group
+          path. Set to the special value "-" to match the top level jobs only.
+      - name: jobFilter
+        schema:
+          type: string
+        in: query
+        required: false
+        description: A filter for the job name. Matches any job name that contains
+          this value.
+      - name: jobExactFilter
+        schema:
+          type: string
+        in: query
+        required: false
+        description: An exact job name to match.
+      - name: groupPathExact
+        schema:
+          type: string
+        in: query
+        required: false
+        description: An exact group path to match. Set to the special value "-" to
+          match the top level jobs only.
+      - name: scheduledFilter
+        schema:
+          type: boolean
+        in: query
+        required: false
+        description: Specify whether to return only scheduled or only not scheduled
+          jobs.
+      - name: serverNodeUUIDFilter
+        schema:
+          type: string
+        in: query
+        required: false
+        description: In cluster mode, use to select scheduled jobs assigned to the
+          server with the given UUID.
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/definitions/Job'
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}/executions:
+    get:
+      summary: List job executions
+      operationId: jobExecutionList
+      tags:
+      - job
+      - execution
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Job ID
+      responses:
+        '200':
+          description: List of executions for job
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ExecutionList'
+      security:
+      - rundeck_auth: []
+    post:
+      summary: Run the specified job
+      operationId: jobExecutionRun
+      tags:
+      - job
+      - execution
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Job ID
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Expected response for a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Execution'
+      security:
+      - rundeck_auth: []
+    delete:
+      summary: Delete all job executions
+      operationId: jobExecutionDelete
+      tags:
+      - job
+      - execution
+      parameters:
+      - name: id
+        schema:
+          type: integer
+        in: path
+        required: true
+        description: Job ID
+      responses:
+        '200':
+          description: Success !
+      security:
+      - rundeck_auth: []
+  /api/26/job/{jobID}/retry/{executionID}:
+    post:
+      summary: Retry a failed job execution on failed nodes only or on the same as
+        the execution. This is the same functionality as the `Retry Failed Nodes ...`
+        button on the execution page.
+      operationId: jobRetryExecution
+      tags:
+      - job
+      - execution
+      parameters:
+      - name: jobID
+        schema:
+          type: string
+        in: path
+        required: true
+      - name: executionID
+        schema:
+          type: integer
+        in: path
+        required: true
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Exected response to a valid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ExecutionList'
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}:
+    get:
+      summary: Export a single job definition in XML or YAML formats.
+      operationId: jobGet
+      tags:
+      - job
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+        description: ID of the job to export.
+      - name: format
+        schema:
+          default: xml
+        in: query
+        required: false
+      responses:
+        '200':
+          description: Expected response to a valid request.
+          content:
+            application/json:
+              schema:
+                type: object
+                format: file
+      security:
+      - rundeck_auth: []
+    delete:
+      summary: Delete a single job definition.
+      operationId: jobDelete
+      tags:
+      - job
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+        description: ID of job to delete.
+      responses:
+        '200':
+          description: Success !
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}/info:
+    get:
+      summary: Get metadata about a specific job.
+      operationId: jobInfoGet
+      tags:
+      - job
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Expected response to a valid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobMetadata'
+      security:
+      - rundeck_auth: []
+  /api/26/jobs/delete:
+    post:
+      summary: Delete multiple job definitions at once
+      operationId: jobBulkDelete
+      tags:
+      - job
+      - bulk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Job deleted response
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobBulkOperationResponse'
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}/execution/enable:
+    post:
+      summary: Enable executions for a job. (ACL requires toggle_execution action
+        for a job.)
+      operationId: jobExecutionEnable
+      tags:
+      - job
+      - execution
+      parameters:
+      - name: id
+        schema: {}
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Job executions enabled
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}/execution/disable:
+    post:
+      summary: Disable all executions for a job (scheduled or manual). (ACL requires
+        toggle_execution action for a job.)
+      operationId: jobExecutionDisable
+      tags:
+      - job
+      - execution
+      parameters:
+      - name: id
+        schema: {}
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Job executions disabled
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}/schedule/enable:
+    post:
+      summary: Enable the schedule for a job. (ACL requires toggle_schedule action
+        for a job.)
+      operationId: jobScheduleEnable
+      tags:
+      - job
+      - schedule
+      parameters:
+      - name: id
+        schema: {}
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Job schedule enabled
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}/schedule/disable:
+    post:
+      summary: Disable the schedule for a job. (ACL requires toggle_schedule action
+        for a job.)
+      operationId: jobScheduleDisable
+      tags:
+      - job
+      - schedule
+      parameters:
+      - name: id
+        schema: {}
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Job schedules disabled
+          content:
+            application/json:
+              schema:
+                properties:
+                  success:
+                    type: boolean
+      security:
+      - rundeck_auth: []
+  /api/26/jobs/execution/enable:
+    post:
+      summary: Bulk enable job executions
+      operationId: jobExecutionBulkEnable
+      tags:
+      - job
+      - execution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Job deleted response
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobBulkOperationResponse'
+      security:
+      - rundeck_auth: []
+  /api/26/jobs/execution/disable:
+    post:
+      summary: Bulk disable job executions
+      operationId: jobExecutionBulkDisable
+      tags:
+      - job
+      - execution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Job toggle execution response
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobBulkOperationResponse'
+      security:
+      - rundeck_auth: []
+  /api/26/jobs/schedule/enable:
+    post:
+      summary: Bulk enable job schedule
+      operationId: jobScheduleBulkEnable
+      tags:
+      - job
+      - schedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Job toggle schedule response
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobBulkOperationResponse'
+      security:
+      - rundeck_auth: []
+  /api/26/jobs/schedule/disable:
+    post:
+      summary: Bulk disable job schedule
+      operationId: jobScheduleBulkDisable
+      tags:
+      - job
+      - schedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Job toggle schedule response
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobBulkOperationResponse'
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}/input/file:
+    post:
+      summary: Upload file as job option
+      operationId: jobInputFileUpload
+      tags:
+      - job
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      - name: optionName
+        schema:
+          type: string
+        in: query
+        required: true
+      - name: fileName
+        schema:
+          type: string
+        in: query
+        required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Yay
+      security:
+      - rundeck_auth: []
+  /api/26/job/{id}/input/files:
+    get:
+      summary: List uploaded input files for job
+      operationId: jobInputFilesUpload
+      tags:
+      - job
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: List of input files
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobInputFileListResponse'
+      security:
+      - rundeck_auth: []
+  /api/26/jobs/file/{id}:
+    get:
+      summary: Get job input file info
+      operationId: jobInputFileInfoGet
+      tags:
+      - job
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Job input file info
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/JobInputFileInfo'
+      security:
+      - rundeck_auth: []
+  /api/34/job/{id}/workflow:
+    get:
+      summary: Get job workflow tree.
+      operationId: jobWorkflowGet
+      tags:
+      - job
+      parameters:
+      - name: id
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Expected response to a valid request.
+          content:
+            application/json:
+              schema:
+                required:
+                - workflow
+                properties:
+                  workflow:
+                    type: array
+                    items:
+                      $ref: '#/definitions/WorkflowStep'
+      security:
+      - rundeck_auth: []
   /api/26/projects:
     get:
       summary: List projects
@@ -560,6 +1360,617 @@ paths:
       responses:
         '200':
           description: Success !
+      security:
+      - rundeck_auth: []
+  /api/26/storage/keys/{keyPath}:
+    get:
+      summary: Get key material at the specified PATH
+      operationId: storageKeyGetMaterial
+      tags:
+      - storage
+      parameters:
+      - name: keyPath
+        schema: {}
+        in: path
+        required: true
+        description: Key path
+        x-ms-skip-url-encoding: true
+      - name: accept
+        schema:
+          enum:
+          - '*/*'
+        in: header
+        required: true
+      responses:
+        '200':
+          description: Content
+          content:
+            application/json:
+              schema:
+                type: object
+                format: file
+      security:
+      - rundeck_auth: []
+  /api/26/storage/keys/{path}:
+    get:
+      summary: List resources at the specified PATH
+      operationId: storageKeyGetMetadata
+      tags:
+      - storage
+      parameters:
+      - name: path
+        schema: {}
+        in: path
+        required: true
+        description: Key path
+        x-ms-skip-url-encoding: true
+      - name: accept
+        schema:
+          enum:
+          - application/json
+        in: header
+        required: true
+      responses:
+        '200':
+          description: Content
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/StorageKeyListResponse'
+      security:
+      - rundeck_auth: []
+    post:
+      summary: Set storage key contents
+      operationId: storageKeyCreate
+      tags:
+      - storage
+      parameters:
+      - name: path
+        schema: {}
+        in: path
+        required: true
+        description: Key path
+        x-ms-skip-url-encoding: true
+      - name: content-type
+        schema:
+          default: application/pgp-keys
+        in: header
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Success !
+      security:
+      - rundeck_auth: []
+    put:
+      summary: Set storage key contents
+      operationId: storageKeyUpdate
+      tags:
+      - storage
+      parameters:
+      - name: path
+        schema: {}
+        in: path
+        required: true
+        description: Key path
+        x-ms-skip-url-encoding: true
+      - name: content-type
+        schema:
+          default: application/pgp-keys
+        in: header
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Content updated
+      security:
+      - rundeck_auth: []
+    delete:
+      summary: Deletes the file if it exists and returns 204 response.
+      operationId: storageKeyDelete
+      tags:
+      - storage
+      parameters:
+      - name: path
+        schema: {}
+        in: path
+        required: true
+        description: Key path
+        x-ms-skip-url-encoding: true
+      responses:
+        '200':
+          description: Success !
+      security:
+      - rundeck_auth: []
+  /api/26/system/info:
+    get:
+      summary: Get Rundeck server information and stats
+      operationId: systemInfoGet
+      tags:
+      - system
+      responses:
+        '200':
+          description: System info response
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/SystemInfo'
+      security:
+      - rundeck_auth: []
+  /api/26/system/logstorage:
+    get:
+      summary: Get Log Storage information and stats
+      operationId: systemLogStorageInfoGet
+      tags:
+      - system
+      - log
+      responses:
+        '200':
+          description: Expected reponse to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/LogStorage'
+      security:
+      - rundeck_auth: []
+  /api/26/system/logstorage/incomplete:
+    get:
+      summary: List all executions with incomplete log storage
+      operationId: systemIncompleteLogStorageExecutionsGet
+      tags:
+      - system
+      - execution
+      - log
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/IncompleteLogExecutions'
+      security:
+      - rundeck_auth: []
+  /api/26/system/logstorage/incomplete/resume:
+    post:
+      summary: Resume processing incomplete Log Storage uploads
+      operationId: systemIncompleteLogStorageExecutionsResume
+      tags:
+      - system
+      - execution
+      - log
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                properties:
+                  resumed:
+                    type: boolean
+      security:
+      - rundeck_auth: []
+  /api/26/system/executions/enable:
+    post:
+      summary: Enables executions, allowing adhoc and manual and scheduled jobs to
+        be run
+      operationId: systemExecutionsEnable
+      tags:
+      - system
+      - execution
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                properties:
+                  executionMode:
+                    type: string
+      security:
+      - rundeck_auth: []
+  /api/26/system/executions/disable:
+    post:
+      summary: Disables executions, preventing adhoc and manual and scheduled jobs
+        from running.
+      operationId: systemExecutionsDisable
+      tags:
+      - system
+      - execution
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                properties:
+                  executionMode:
+                    type: string
+      security:
+      - rundeck_auth: []
+  /api/26/scheduler/takeover:
+    put:
+      summary: Tell a Rundeck server in cluster mode to claim all scheduled jobs from
+        another cluster server
+      operationId: systemSchedulerTakeover
+      tags:
+      - scheduler
+      - cluster
+      - job
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                server:
+                  type: object
+                  required:
+                  - uuid
+                  - all
+                  properties:
+                    uuid:
+                      type: string
+                    all:
+                      type: boolean
+                project:
+                  type: string
+                job:
+                  type: object
+                  required:
+                  - id
+                  properties:
+                    id:
+                      type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/TakeoverScheduleResponse'
+      security:
+      - rundeck_auth: []
+  /api/26/scheduler/server/{uuid}/jobs:
+    get:
+      summary: List the scheduled Jobs with their schedule owned by the cluster server
+        with the specified UUID
+      operationId: systemScheduledJobsForServer
+      tags:
+      - scheduler
+      - cluster
+      - job
+      parameters:
+      - name: uuid
+        schema:
+          type: string
+        in: path
+        required: true
+        description: The ID of the user to retrieve profile information for
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/definitions/Job'
+      security:
+      - rundeck_auth: []
+  /api/26/scheduler/jobs:
+    get:
+      summary: List the scheduled Jobs with their schedule owned by the cluster server
+      operationId: systemScheduledJobsList
+      tags:
+      - scheduler
+      - cluster
+      - job
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/definitions/Job'
+      security:
+      - rundeck_auth: []
+  /api/26/system/acl/:
+    get:
+      summary: List ACL Policies
+      operationId: systemAclPolicyList
+      tags:
+      - system
+      - acl
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/AclList'
+      security:
+      - rundeck_auth: []
+  /api/26/system/acl/{policyName}:
+    get:
+      summary: Retrieve the YAML texas of the ACL Policy file
+      operationId: systemAclPolicyGet
+      tags:
+      - system
+      - acl
+      parameters:
+      - name: policyName
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Policy file name
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/AclPolicyResponse'
+      security:
+      - rundeck_auth: []
+    post:
+      summary: Create a policy
+      operationId: systemAclPolicyCreate
+      tags:
+      - system
+      - acl
+      parameters:
+      - name: policyName
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Policy file name
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: string
+      responses:
+        '200':
+          description: Success !
+      security:
+      - rundeck_auth: []
+    put:
+      summary: Update policy
+      operationId: systemAclPolicyUpdate
+      tags:
+      - system
+      - acl
+      parameters:
+      - name: policyName
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Policy file name
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/AclPolicyResponse'
+      security:
+      - rundeck_auth: []
+    delete:
+      summary: Delete policy
+      operationId: systemAclPolicyDelete
+      tags:
+      - system
+      - acl
+      parameters:
+      - name: policyName
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Policy file name
+      responses:
+        '200':
+          description: Success !
+      security:
+      - rundeck_auth: []
+  /api/26/user/list:
+    get:
+      summary: List user profiles
+      operationId: userList
+      tags:
+      - user
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/definitions/User'
+      security:
+      - rundeck_auth: []
+  /api/26/user/info:
+    get:
+      summary: Get same user profile data
+      operationId: userProfileGet
+      tags:
+      - user
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/User'
+      security:
+      - rundeck_auth: []
+    post:
+      summary: Modify same user profile data
+      operationId: userProfileUpdate
+      tags:
+      - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/User'
+      security:
+      - rundeck_auth: []
+  /api/26/user/info/{userID}:
+    get:
+      summary: Get another user's profile data
+      operationId: userProfileGetById
+      tags:
+      - user
+      parameters:
+      - name: userID
+        schema:
+          type: string
+        in: path
+        required: true
+        description: The ID of the user to retrieve profile information for
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/User'
+      security:
+      - rundeck_auth: []
+    post:
+      summary: Modify another user's profile data
+      operationId: userProfileUpdateById
+      tags:
+      - user
+      parameters:
+      - name: userID
+        schema:
+          type: string
+        in: path
+        required: true
+        description: The ID of the user to retrieve profile information for
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/User'
+      security:
+      - rundeck_auth: []
+  /api/26/user/roles:
+    get:
+      summary: List the roles of the authenticated user
+      operationId: userRoleList
+      tags:
+      - user
+      - roles
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                required:
+                - roles
+                properties:
+                  roles:
+                    type: array
+                    items:
+                      type: string
+      security:
+      - rundeck_auth: []
+  /api/26/metrics:
+    get:
+      summary: List links to enabled Metrics endpoints
+      operationId: metricList
+      tags:
+      - metric
+      responses:
+        '200':
+          description: List of Metrics endpoint links
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - _links
+                properties:
+                  _links:
+                    type: object
+                    required:
+                    - metrics
+                    - ping
+                    - threads
+                    - healthcheck
+                    properties:
+                      metrics:
+                        properties:
+                          href:
+                            type: string
+                        required:
+                        - href
+                      ping:
+                        properties:
+                          href:
+                            type: string
+                        required:
+                        - href
+                      threads:
+                        properties:
+                          href:
+                            type: string
+                        required:
+                        - href
+                      healthcheck:
+                        properties:
+                          href:
+                            type: string
+                        required:
+                        - href
       security:
       - rundeck_auth: []
 components:
@@ -1309,10 +2720,36 @@ components:
           items:
             $ref: '#/definitions/WorkflowStep'
 tags:
-- name: project
-  description: API endpoints to projects
+- name: cluster
+  description: API endpoints to clusters
+- name: execution
+  description: API endpoints to executions
+- name: file
+  description: API endpoints to files
+- name: storage
+  description: API endpoints to storages
+- name: roles
+  description: API endpoints to roless
+- name: bulk
+  description: API endpoints to bulks
+- name: schedule
+  description: API endpoints to schedules
 - name: job
   description: API endpoints to jobs
+- name: project
+  description: API endpoints to projects
+- name: system
+  description: API endpoints to systems
+- name: log
+  description: API endpoints to logs
+- name: scheduler
+  description: API endpoints to schedulers
+- name: acl
+  description: API endpoints to acls
+- name: user
+  description: API endpoints to users
+- name: metric
+  description: API endpoints to metrics
 externalDocs:
   description: Combined API specifications for Rundeck
   url: https://github.com/Lattice-Works/openlattice-rundeck

@@ -14,6 +14,47 @@
 #'
 #' @section Methods:
 #' \describe{
+#' \strong{ execution_list_running } \emph{ List job executions }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @returnType } \link{ExecutionList} \cr
+#'
+#'
+#' \item status code : 200 | List of executions for job
+#'
+#' \item return type : ExecutionList 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ job_list } \emph{ List the jobs that exist for a project }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } id_list character
+#' \item \emph{ @param } group_path character
+#' \item \emph{ @param } job_filter character
+#' \item \emph{ @param } job_exact_filter character
+#' \item \emph{ @param } group_path_exact character
+#' \item \emph{ @param } scheduled_filter character
+#' \item \emph{ @param } server_node_uuid_filter character
+#' \item \emph{ @returnType } list( \link{Job} ) \cr
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#' \item return type : array[Job] 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ project_archive_export_sync } \emph{ Export archive of project synchronously }
 #' 
 #'
@@ -114,7 +155,7 @@
 #' \itemize{
 #' \item \emph{ @param } project character
 #' \item \emph{ @param } key character
-#' \item \emph{ @param } inline_object1 \link{InlineObject1}
+#' \item \emph{ @param } inline_object7 \link{InlineObject7}
 #'
 #'
 #' \item status code : 200 | Project config key set
@@ -147,7 +188,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } inline_object \link{InlineObject}
+#' \item \emph{ @param } inline_object6 \link{InlineObject6}
 #'
 #'
 #' \item status code : 200 | Success !
@@ -287,7 +328,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } project character
-#' \item \emph{ @param } inline_object3 \link{InlineObject3}
+#' \item \emph{ @param } inline_object9 \link{InlineObject9}
 #'
 #'
 #' \item status code : 200 | Expected response to a valid request.
@@ -336,7 +377,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } project character
-#' \item \emph{ @param } inline_object2 \link{InlineObject2}
+#' \item \emph{ @param } inline_object8 \link{InlineObject8}
 #'
 #'
 #' \item status code : 200 | Expected response to a valid request
@@ -353,6 +394,41 @@
 #'
 #' @examples
 #' \dontrun{
+#' ####################  execution_list_running  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | Project name or * for all projects
+#'
+#' #List job executions
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execution_list_running(var.project)
+#'
+#'
+#' ####################  job_list  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | Project name
+#' var.id_list <- 'id_list_example' # character | Comma separated list of Job IDs to include
+#' var.group_path <- 'group_path_example' # character | Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only.
+#' var.job_filter <- 'job_filter_example' # character | A filter for the job name. Matches any job name that contains this value.
+#' var.job_exact_filter <- 'job_exact_filter_example' # character | An exact job name to match.
+#' var.group_path_exact <- 'group_path_exact_example' # character | An exact group path to match. Set to the special value \"-\" to match the top level jobs only.
+#' var.scheduled_filter <- 'scheduled_filter_example' # character | Specify whether to return only scheduled or only not scheduled jobs.
+#' var.server_node_uuid_filter <- 'server_node_uuid_filter_example' # character | In cluster mode, use to select scheduled jobs assigned to the server with the given UUID.
+#'
+#' #List the jobs that exist for a project
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$job_list(var.project, id_list=var.id_list, group_path=var.group_path, job_filter=var.job_filter, job_exact_filter=var.job_exact_filter, group_path_exact=var.group_path_exact, scheduled_filter=var.scheduled_filter, server_node_uuid_filter=var.server_node_uuid_filter)
+#'
+#'
 #' ####################  project_archive_export_sync  ####################
 #'
 #' library(openlattice_rundeck)
@@ -442,7 +518,7 @@
 #' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | 
 #' var.key <- 'key_example' # character | 
-#' var.inline_object1 <- InlineObject1$new() # InlineObject1 | 
+#' var.inline_object7 <- InlineObject7$new() # InlineObject7 | 
 #'
 #' #Get project config key
 #' api.instance <- ProjectApi$new()
@@ -450,7 +526,7 @@
 #' #Configure API key authorization: rundeck_auth
 #' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$project_config_key_set(var.project, var.key, var.inline_object1)
+#' result <- api.instance$project_config_key_set(var.project, var.key, var.inline_object7)
 #'
 #'
 #' ####################  project_config_update  ####################
@@ -471,7 +547,7 @@
 #' ####################  project_create  ####################
 #'
 #' library(openlattice_rundeck)
-#' var.inline_object <- InlineObject$new() # InlineObject | 
+#' var.inline_object6 <- InlineObject6$new() # InlineObject6 | 
 #'
 #' #Create a new project
 #' api.instance <- ProjectApi$new()
@@ -479,7 +555,7 @@
 #' #Configure API key authorization: rundeck_auth
 #' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$project_create(var.inline_object)
+#' result <- api.instance$project_create(var.inline_object6)
 #'
 #'
 #' ####################  project_delete  ####################
@@ -593,7 +669,7 @@
 #'
 #' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
-#' var.inline_object3 <- InlineObject3$new() # InlineObject3 | 
+#' var.inline_object9 <- InlineObject9$new() # InlineObject9 | 
 #'
 #' #Create or modify project MOTD.md
 #' api.instance <- ProjectApi$new()
@@ -601,7 +677,7 @@
 #' #Configure API key authorization: rundeck_auth
 #' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$project_motd_put(var.project, var.inline_object3)
+#' result <- api.instance$project_motd_put(var.project, var.inline_object9)
 #'
 #'
 #' ####################  project_readme_delete  ####################
@@ -636,7 +712,7 @@
 #'
 #' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
-#' var.inline_object2 <- InlineObject2$new() # InlineObject2 | 
+#' var.inline_object8 <- InlineObject8$new() # InlineObject8 | 
 #'
 #' #Create or modify project README.md
 #' api.instance <- ProjectApi$new()
@@ -644,7 +720,7 @@
 #' #Configure API key authorization: rundeck_auth
 #' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$project_readme_put(var.project, var.inline_object2)
+#' result <- api.instance$project_readme_put(var.project, var.inline_object8)
 #'
 #'
 #' }
@@ -661,6 +737,132 @@ ProjectApi <- R6::R6Class(
       }
       else {
         self$apiClient <- ApiClient$new()
+      }
+    },
+    execution_list_running = function(project, ...){
+      apiResponse <- self$execution_list_runningWithHttpInfo(project, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execution_list_runningWithHttpInfo = function(project, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      urlPath <- "/api/26/project/{project}/executions/running"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "ExecutionList", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    job_list = function(project, id_list=NULL, group_path=NULL, job_filter=NULL, job_exact_filter=NULL, group_path_exact=NULL, scheduled_filter=NULL, server_node_uuid_filter=NULL, ...){
+      apiResponse <- self$job_listWithHttpInfo(project, id_list, group_path, job_filter, job_exact_filter, group_path_exact, scheduled_filter, server_node_uuid_filter, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    job_listWithHttpInfo = function(project, id_list=NULL, group_path=NULL, job_filter=NULL, job_exact_filter=NULL, group_path_exact=NULL, scheduled_filter=NULL, server_node_uuid_filter=NULL, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      queryParams['idList'] <- id_list
+
+      queryParams['groupPath'] <- group_path
+
+      queryParams['jobFilter'] <- job_filter
+
+      queryParams['jobExactFilter'] <- job_exact_filter
+
+      queryParams['groupPathExact'] <- group_path_exact
+
+      queryParams['scheduledFilter'] <- scheduled_filter
+
+      queryParams['serverNodeUUIDFilter'] <- server_node_uuid_filter
+
+      urlPath <- "/api/26/project/{project}/jobs"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "array[Job]", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
       }
     },
     project_archive_export_sync = function(project, execution_ids=NULL, export_all=NULL, export_jobs=NULL, export_executions=NULL, export_configs=NULL, export_readmes=NULL, export_acls=NULL, ...){
@@ -984,8 +1186,8 @@ ProjectApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    project_config_key_set = function(project, key, inline_object1, ...){
-      apiResponse <- self$project_config_key_setWithHttpInfo(project, key, inline_object1, ...)
+    project_config_key_set = function(project, key, inline_object7, ...){
+      apiResponse <- self$project_config_key_setWithHttpInfo(project, key, inline_object7, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -998,7 +1200,7 @@ ProjectApi <- R6::R6Class(
       }
     },
 
-    project_config_key_setWithHttpInfo = function(project, key, inline_object1, ...){
+    project_config_key_setWithHttpInfo = function(project, key, inline_object7, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1011,16 +1213,16 @@ ProjectApi <- R6::R6Class(
         stop("Missing required parameter `key`.")
       }
 
-      if (missing(`inline_object1`)) {
-        stop("Missing required parameter `inline_object1`.")
+      if (missing(`inline_object7`)) {
+        stop("Missing required parameter `inline_object7`.")
       }
 
-      if (!missing(`inline_object1`)) {
+      if (!missing(`inline_object7`)) {
         body <- sprintf(
         '
           %s
         ',
-            jsonlite::toJSON(`inline_object1`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`inline_object7`$toJSON(), auto_unbox=TRUE, digits = NA)
         )
       } else {
         body <- NULL
@@ -1128,8 +1330,8 @@ ProjectApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    project_create = function(inline_object, ...){
-      apiResponse <- self$project_createWithHttpInfo(inline_object, ...)
+    project_create = function(inline_object6, ...){
+      apiResponse <- self$project_createWithHttpInfo(inline_object6, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1142,21 +1344,21 @@ ProjectApi <- R6::R6Class(
       }
     },
 
-    project_createWithHttpInfo = function(inline_object, ...){
+    project_createWithHttpInfo = function(inline_object6, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`inline_object`)) {
-        stop("Missing required parameter `inline_object`.")
+      if (missing(`inline_object6`)) {
+        stop("Missing required parameter `inline_object6`.")
       }
 
-      if (!missing(`inline_object`)) {
+      if (!missing(`inline_object6`)) {
         body <- sprintf(
         '
           %s
         ',
-            jsonlite::toJSON(`inline_object`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`inline_object6`$toJSON(), auto_unbox=TRUE, digits = NA)
         )
       } else {
         body <- NULL
@@ -1590,8 +1792,8 @@ ProjectApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    project_motd_put = function(project, inline_object3, ...){
-      apiResponse <- self$project_motd_putWithHttpInfo(project, inline_object3, ...)
+    project_motd_put = function(project, inline_object9, ...){
+      apiResponse <- self$project_motd_putWithHttpInfo(project, inline_object9, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1604,7 +1806,7 @@ ProjectApi <- R6::R6Class(
       }
     },
 
-    project_motd_putWithHttpInfo = function(project, inline_object3, ...){
+    project_motd_putWithHttpInfo = function(project, inline_object9, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1613,16 +1815,16 @@ ProjectApi <- R6::R6Class(
         stop("Missing required parameter `project`.")
       }
 
-      if (missing(`inline_object3`)) {
-        stop("Missing required parameter `inline_object3`.")
+      if (missing(`inline_object9`)) {
+        stop("Missing required parameter `inline_object9`.")
       }
 
-      if (!missing(`inline_object3`)) {
+      if (!missing(`inline_object9`)) {
         body <- sprintf(
         '
           %s
         ',
-            jsonlite::toJSON(`inline_object3`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`inline_object9`$toJSON(), auto_unbox=TRUE, digits = NA)
         )
       } else {
         body <- NULL
@@ -1761,8 +1963,8 @@ ProjectApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    project_readme_put = function(project, inline_object2, ...){
-      apiResponse <- self$project_readme_putWithHttpInfo(project, inline_object2, ...)
+    project_readme_put = function(project, inline_object8, ...){
+      apiResponse <- self$project_readme_putWithHttpInfo(project, inline_object8, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1775,7 +1977,7 @@ ProjectApi <- R6::R6Class(
       }
     },
 
-    project_readme_putWithHttpInfo = function(project, inline_object2, ...){
+    project_readme_putWithHttpInfo = function(project, inline_object8, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1784,16 +1986,16 @@ ProjectApi <- R6::R6Class(
         stop("Missing required parameter `project`.")
       }
 
-      if (missing(`inline_object2`)) {
-        stop("Missing required parameter `inline_object2`.")
+      if (missing(`inline_object8`)) {
+        stop("Missing required parameter `inline_object8`.")
       }
 
-      if (!missing(`inline_object2`)) {
+      if (!missing(`inline_object8`)) {
         body <- sprintf(
         '
           %s
         ',
-            jsonlite::toJSON(`inline_object2`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`inline_object8`$toJSON(), auto_unbox=TRUE, digits = NA)
         )
       } else {
         body <- NULL

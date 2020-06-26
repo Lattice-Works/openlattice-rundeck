@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **job_schedule_bulk_disable**
-> job_schedule_bulk_disable(inline_object5)
+> JobBulkOperationResponse job_schedule_bulk_disable(inline_object5)
 
 Bulk disable job schedule
 
@@ -53,7 +53,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Bulk disable job schedule
-        api_instance.job_schedule_bulk_disable(inline_object5)
+        api_response = api_instance.job_schedule_bulk_disable(inline_object5)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ScheduleApi->job_schedule_bulk_disable: %s\n" % e)
 ```
@@ -66,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**JobBulkOperationResponse**](JobBulkOperationResponse.md)
 
 ### Authorization
 
@@ -75,7 +76,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -85,7 +86,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_schedule_bulk_enable**
-> job_schedule_bulk_enable(inline_object4)
+> JobBulkOperationResponse job_schedule_bulk_enable(inline_object4)
 
 Bulk enable job schedule
 
@@ -127,7 +128,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Bulk enable job schedule
-        api_instance.job_schedule_bulk_enable(inline_object4)
+        api_response = api_instance.job_schedule_bulk_enable(inline_object4)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ScheduleApi->job_schedule_bulk_enable: %s\n" % e)
 ```
@@ -140,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**JobBulkOperationResponse**](JobBulkOperationResponse.md)
 
 ### Authorization
 
@@ -149,7 +151,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -159,7 +161,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_schedule_disable**
-> job_schedule_disable(id)
+> object job_schedule_disable(id)
 
 Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)
 
@@ -201,7 +203,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)
-        api_instance.job_schedule_disable(id)
+        api_response = api_instance.job_schedule_disable(id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ScheduleApi->job_schedule_disable: %s\n" % e)
 ```
@@ -214,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -223,7 +226,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -233,7 +236,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_schedule_enable**
-> job_schedule_enable(id)
+> object job_schedule_enable(id)
 
 Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)
 
@@ -275,7 +278,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)
-        api_instance.job_schedule_enable(id)
+        api_response = api_instance.job_schedule_enable(id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ScheduleApi->job_schedule_enable: %s\n" % e)
 ```
@@ -288,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -297,7 +301,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

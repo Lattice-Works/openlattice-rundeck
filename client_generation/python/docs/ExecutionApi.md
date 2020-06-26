@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 
 # **execution_bulk_delete**
-> execution_bulk_delete(inline_object)
+> JobExecutionDelete execution_bulk_delete(inline_object)
 
 Bulk delete executions
 
@@ -69,7 +69,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Bulk delete executions
-        api_instance.execution_bulk_delete(inline_object)
+        api_response = api_instance.execution_bulk_delete(inline_object)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->execution_bulk_delete: %s\n" % e)
 ```
@@ -82,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**JobExecutionDelete**](JobExecutionDelete.md)
 
 ### Authorization
 
@@ -91,7 +92,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -175,7 +176,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **execution_input_files_list**
-> execution_input_files_list(id)
+> object execution_input_files_list(id)
 
 List input files for an execution
 
@@ -217,7 +218,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # List input files for an execution
-        api_instance.execution_input_files_list(id)
+        api_response = api_instance.execution_input_files_list(id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->execution_input_files_list: %s\n" % e)
 ```
@@ -230,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -239,7 +241,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -249,7 +251,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **execution_list_running**
-> execution_list_running(project)
+> ExecutionList execution_list_running(project)
 
 List job executions
 
@@ -291,7 +293,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # List job executions
-        api_instance.execution_list_running(project)
+        api_response = api_instance.execution_list_running(project)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->execution_list_running: %s\n" % e)
 ```
@@ -304,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ExecutionList**](ExecutionList.md)
 
 ### Authorization
 
@@ -313,7 +316,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -323,7 +326,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **execution_output_get**
-> execution_output_get(id, offset=offset, maxlines=maxlines)
+> ExecutionOutput execution_output_get(id, offset=offset, maxlines=maxlines)
 
 List input files for an execution
 
@@ -367,7 +370,8 @@ maxlines = None # object |  (optional)
 
     try:
         # List input files for an execution
-        api_instance.execution_output_get(id, offset=offset, maxlines=maxlines)
+        api_response = api_instance.execution_output_get(id, offset=offset, maxlines=maxlines)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->execution_output_get: %s\n" % e)
 ```
@@ -382,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ExecutionOutput**](ExecutionOutput.md)
 
 ### Authorization
 
@@ -391,7 +395,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -563,7 +567,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **execution_status_get**
-> execution_status_get(id)
+> Execution execution_status_get(id)
 
 Get the status of an execution by ID
 
@@ -605,7 +609,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Get the status of an execution by ID
-        api_instance.execution_status_get(id)
+        api_response = api_instance.execution_status_get(id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->execution_status_get: %s\n" % e)
 ```
@@ -618,7 +623,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Execution**](Execution.md)
 
 ### Authorization
 
@@ -627,7 +632,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -637,7 +642,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_execution_bulk_disable**
-> job_execution_bulk_disable(inline_object3)
+> JobBulkOperationResponse job_execution_bulk_disable(inline_object3)
 
 Bulk disable job executions
 
@@ -679,7 +684,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Bulk disable job executions
-        api_instance.job_execution_bulk_disable(inline_object3)
+        api_response = api_instance.job_execution_bulk_disable(inline_object3)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->job_execution_bulk_disable: %s\n" % e)
 ```
@@ -692,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**JobBulkOperationResponse**](JobBulkOperationResponse.md)
 
 ### Authorization
 
@@ -701,7 +707,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -711,7 +717,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_execution_bulk_enable**
-> job_execution_bulk_enable(inline_object2)
+> JobBulkOperationResponse job_execution_bulk_enable(inline_object2)
 
 Bulk enable job executions
 
@@ -753,7 +759,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Bulk enable job executions
-        api_instance.job_execution_bulk_enable(inline_object2)
+        api_response = api_instance.job_execution_bulk_enable(inline_object2)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->job_execution_bulk_enable: %s\n" % e)
 ```
@@ -766,7 +773,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**JobBulkOperationResponse**](JobBulkOperationResponse.md)
 
 ### Authorization
 
@@ -775,7 +782,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -859,7 +866,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_execution_disable**
-> job_execution_disable(id)
+> object job_execution_disable(id)
 
 Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.)
 
@@ -901,7 +908,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.)
-        api_instance.job_execution_disable(id)
+        api_response = api_instance.job_execution_disable(id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->job_execution_disable: %s\n" % e)
 ```
@@ -914,7 +922,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -923,7 +931,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -933,7 +941,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_execution_enable**
-> job_execution_enable(id)
+> object job_execution_enable(id)
 
 Enable executions for a job. (ACL requires toggle_execution action for a job.)
 
@@ -975,7 +983,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Enable executions for a job. (ACL requires toggle_execution action for a job.)
-        api_instance.job_execution_enable(id)
+        api_response = api_instance.job_execution_enable(id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->job_execution_enable: %s\n" % e)
 ```
@@ -988,7 +997,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -997,7 +1006,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1007,7 +1016,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_execution_list**
-> job_execution_list(id)
+> ExecutionList job_execution_list(id)
 
 List job executions
 
@@ -1049,7 +1058,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # List job executions
-        api_instance.job_execution_list(id)
+        api_response = api_instance.job_execution_list(id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->job_execution_list: %s\n" % e)
 ```
@@ -1062,7 +1072,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ExecutionList**](ExecutionList.md)
 
 ### Authorization
 
@@ -1071,7 +1081,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1081,7 +1091,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_execution_run**
-> job_execution_run(id, body=body)
+> Execution job_execution_run(id, body=body)
 
 Run the specified job
 
@@ -1124,7 +1134,8 @@ body = None # object |  (optional)
 
     try:
         # Run the specified job
-        api_instance.job_execution_run(id, body=body)
+        api_response = api_instance.job_execution_run(id, body=body)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->job_execution_run: %s\n" % e)
 ```
@@ -1138,7 +1149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Execution**](Execution.md)
 
 ### Authorization
 
@@ -1147,7 +1158,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1157,7 +1168,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_retry_execution**
-> job_retry_execution(job_id, execution_id, body=body)
+> ExecutionList job_retry_execution(job_id, execution_id, body=body)
 
 Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the `Retry Failed Nodes ...` button on the execution page.
 
@@ -1201,7 +1212,8 @@ body = None # object |  (optional)
 
     try:
         # Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the `Retry Failed Nodes ...` button on the execution page.
-        api_instance.job_retry_execution(job_id, execution_id, body=body)
+        api_response = api_instance.job_retry_execution(job_id, execution_id, body=body)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->job_retry_execution: %s\n" % e)
 ```
@@ -1216,7 +1228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ExecutionList**](ExecutionList.md)
 
 ### Authorization
 
@@ -1225,7 +1237,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1235,7 +1247,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_executions_disable**
-> system_executions_disable()
+> object system_executions_disable()
 
 Disables executions, preventing adhoc and manual and scheduled jobs from running.
 
@@ -1276,7 +1288,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Disables executions, preventing adhoc and manual and scheduled jobs from running.
-        api_instance.system_executions_disable()
+        api_response = api_instance.system_executions_disable()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->system_executions_disable: %s\n" % e)
 ```
@@ -1286,7 +1299,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -1295,7 +1308,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1305,7 +1318,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_executions_enable**
-> system_executions_enable()
+> object system_executions_enable()
 
 Enables executions, allowing adhoc and manual and scheduled jobs to be run
 
@@ -1346,7 +1359,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Enables executions, allowing adhoc and manual and scheduled jobs to be run
-        api_instance.system_executions_enable()
+        api_response = api_instance.system_executions_enable()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->system_executions_enable: %s\n" % e)
 ```
@@ -1356,7 +1370,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -1365,7 +1379,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1375,7 +1389,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_incomplete_log_storage_executions_get**
-> system_incomplete_log_storage_executions_get()
+> IncompleteLogExecutions system_incomplete_log_storage_executions_get()
 
 List all executions with incomplete log storage
 
@@ -1416,7 +1430,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List all executions with incomplete log storage
-        api_instance.system_incomplete_log_storage_executions_get()
+        api_response = api_instance.system_incomplete_log_storage_executions_get()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->system_incomplete_log_storage_executions_get: %s\n" % e)
 ```
@@ -1426,7 +1441,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**IncompleteLogExecutions**](IncompleteLogExecutions.md)
 
 ### Authorization
 
@@ -1435,7 +1450,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1445,7 +1460,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_incomplete_log_storage_executions_resume**
-> system_incomplete_log_storage_executions_resume()
+> object system_incomplete_log_storage_executions_resume()
 
 Resume processing incomplete Log Storage uploads
 
@@ -1486,7 +1501,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Resume processing incomplete Log Storage uploads
-        api_instance.system_incomplete_log_storage_executions_resume()
+        api_response = api_instance.system_incomplete_log_storage_executions_resume()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->system_incomplete_log_storage_executions_resume: %s\n" % e)
 ```
@@ -1496,7 +1512,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -1505,7 +1521,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

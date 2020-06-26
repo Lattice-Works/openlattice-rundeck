@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **user_list**
-> user_list()
+> list[User] user_list()
 
 List user profiles
 
@@ -54,7 +54,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List user profiles
-        api_instance.user_list()
+        api_response = api_instance.user_list()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling UserApi->user_list: %s\n" % e)
 ```
@@ -64,7 +65,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**list[User]**](User.md)
 
 ### Authorization
 
@@ -73,7 +74,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -83,7 +84,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_profile_get**
-> user_profile_get()
+> User user_profile_get()
 
 Get same user profile data
 
@@ -124,7 +125,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # Get same user profile data
-        api_instance.user_profile_get()
+        api_response = api_instance.user_profile_get()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling UserApi->user_profile_get: %s\n" % e)
 ```
@@ -134,7 +136,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**User**](User.md)
 
 ### Authorization
 
@@ -143,7 +145,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -153,7 +155,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_profile_get_by_id**
-> user_profile_get_by_id(user_id)
+> User user_profile_get_by_id(user_id)
 
 Get another user's profile data
 
@@ -195,7 +197,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Get another user's profile data
-        api_instance.user_profile_get_by_id(user_id)
+        api_response = api_instance.user_profile_get_by_id(user_id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling UserApi->user_profile_get_by_id: %s\n" % e)
 ```
@@ -208,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**User**](User.md)
 
 ### Authorization
 
@@ -217,7 +220,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -227,7 +230,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_profile_update**
-> user_profile_update(body)
+> User user_profile_update(body)
 
 Modify same user profile data
 
@@ -269,7 +272,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Modify same user profile data
-        api_instance.user_profile_update(body)
+        api_response = api_instance.user_profile_update(body)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling UserApi->user_profile_update: %s\n" % e)
 ```
@@ -282,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**User**](User.md)
 
 ### Authorization
 
@@ -291,7 +295,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -301,7 +305,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_profile_update_by_id**
-> user_profile_update_by_id(user_id, body)
+> User user_profile_update_by_id(user_id, body)
 
 Modify another user's profile data
 
@@ -344,7 +348,8 @@ body = None # object |
 
     try:
         # Modify another user's profile data
-        api_instance.user_profile_update_by_id(user_id, body)
+        api_response = api_instance.user_profile_update_by_id(user_id, body)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling UserApi->user_profile_update_by_id: %s\n" % e)
 ```
@@ -358,7 +363,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**User**](User.md)
 
 ### Authorization
 
@@ -367,7 +372,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -377,7 +382,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_role_list**
-> user_role_list()
+> object user_role_list()
 
 List the roles of the authenticated user
 
@@ -418,7 +423,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List the roles of the authenticated user
-        api_instance.user_role_list()
+        api_response = api_instance.user_role_list()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling UserApi->user_role_list: %s\n" % e)
 ```
@@ -428,7 +434,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -437,7 +443,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **execution_input_files_list**
-> execution_input_files_list(id)
+> object execution_input_files_list(id)
 
 List input files for an execution
 
@@ -51,7 +51,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # List input files for an execution
-        api_instance.execution_input_files_list(id)
+        api_response = api_instance.execution_input_files_list(id)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling FileApi->execution_input_files_list: %s\n" % e)
 ```
@@ -64,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -73,7 +74,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -83,7 +84,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **execution_output_get**
-> execution_output_get(id, offset=offset, maxlines=maxlines)
+> ExecutionOutput execution_output_get(id, offset=offset, maxlines=maxlines)
 
 List input files for an execution
 
@@ -127,7 +128,8 @@ maxlines = None # object |  (optional)
 
     try:
         # List input files for an execution
-        api_instance.execution_output_get(id, offset=offset, maxlines=maxlines)
+        api_response = api_instance.execution_output_get(id, offset=offset, maxlines=maxlines)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling FileApi->execution_output_get: %s\n" % e)
 ```
@@ -142,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ExecutionOutput**](ExecutionOutput.md)
 
 ### Authorization
 
@@ -151,7 +153,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

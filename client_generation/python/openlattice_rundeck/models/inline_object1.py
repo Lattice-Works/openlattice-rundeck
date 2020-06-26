@@ -33,45 +33,45 @@ class InlineObject1(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'value': 'str'
+        'ids': 'list[str]'
     }
 
     attribute_map = {
-        'value': 'value'
+        'ids': 'ids'
     }
 
-    def __init__(self, value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ids=None, local_vars_configuration=None):  # noqa: E501
         """InlineObject1 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._value = None
+        self._ids = None
         self.discriminator = None
 
-        if value is not None:
-            self.value = value
+        if ids is not None:
+            self.ids = ids
 
     @property
-    def value(self):
-        """Gets the value of this InlineObject1.  # noqa: E501
+    def ids(self):
+        """Gets the ids of this InlineObject1.  # noqa: E501
 
 
-        :return: The value of this InlineObject1.  # noqa: E501
-        :rtype: str
+        :return: The ids of this InlineObject1.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._value
+        return self._ids
 
-    @value.setter
-    def value(self, value):
-        """Sets the value of this InlineObject1.
+    @ids.setter
+    def ids(self, ids):
+        """Sets the ids of this InlineObject1.
 
 
-        :param value: The value of this InlineObject1.  # noqa: E501
-        :type value: str
+        :param ids: The ids of this InlineObject1.  # noqa: E501
+        :type ids: list[str]
         """
 
-        self._value = value
+        self._ids = ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

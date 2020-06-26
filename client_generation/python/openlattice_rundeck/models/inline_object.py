@@ -33,71 +33,45 @@ class InlineObject(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str',
-        'config': 'object'
+        'ids': 'list[str]'
     }
 
     attribute_map = {
-        'name': 'name',
-        'config': 'config'
+        'ids': 'ids'
     }
 
-    def __init__(self, name=None, config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ids=None, local_vars_configuration=None):  # noqa: E501
         """InlineObject - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._name = None
-        self._config = None
+        self._ids = None
         self.discriminator = None
 
-        if name is not None:
-            self.name = name
-        if config is not None:
-            self.config = config
+        if ids is not None:
+            self.ids = ids
 
     @property
-    def name(self):
-        """Gets the name of this InlineObject.  # noqa: E501
+    def ids(self):
+        """Gets the ids of this InlineObject.  # noqa: E501
 
 
-        :return: The name of this InlineObject.  # noqa: E501
-        :rtype: str
+        :return: The ids of this InlineObject.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._name
+        return self._ids
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this InlineObject.
-
-
-        :param name: The name of this InlineObject.  # noqa: E501
-        :type name: str
-        """
-
-        self._name = name
-
-    @property
-    def config(self):
-        """Gets the config of this InlineObject.  # noqa: E501
+    @ids.setter
+    def ids(self, ids):
+        """Sets the ids of this InlineObject.
 
 
-        :return: The config of this InlineObject.  # noqa: E501
-        :rtype: object
-        """
-        return self._config
-
-    @config.setter
-    def config(self, config):
-        """Sets the config of this InlineObject.
-
-
-        :param config: The config of this InlineObject.  # noqa: E501
-        :type config: object
+        :param ids: The ids of this InlineObject.  # noqa: E501
+        :type ids: list[str]
         """
 
-        self._config = config
+        self._ids = ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

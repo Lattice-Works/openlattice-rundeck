@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**execution_list_running**](ProjectApi.md#execution_list_running) | **GET** /api/26/project/{project}/executions/running | List job executions
+[**job_list**](ProjectApi.md#job_list) | **GET** /api/26/project/{project}/jobs | List the jobs that exist for a project
 [**project_archive_export_sync**](ProjectApi.md#project_archive_export_sync) | **GET** /api/26/project/{project}/export | Export archive of project synchronously
 [**project_archive_import**](ProjectApi.md#project_archive_import) | **PUT** /api/26/project/{project}/import | Import project archive.
 [**project_config_get**](ProjectApi.md#project_config_get) | **GET** /api/26/project/{project}/config | Get project config
@@ -24,6 +26,106 @@ Method | HTTP request | Description
 [**project_readme_get**](ProjectApi.md#project_readme_get) | **GET** /api/26/project/{project}/readme.md | Get the readme.md contents
 [**project_readme_put**](ProjectApi.md#project_readme_put) | **PUT** /api/26/project/{project}/readme.md | Create or modify project README.md
 
+
+# **execution_list_running**
+> ExecutionList execution_list_running(project)
+
+List job executions
+
+### Example
+```R
+library(openlattice_rundeck)
+
+var.project <- 'project_example' # character | Project name or * for all projects
+
+#List job executions
+api.instance <- ProjectApi$new()
+# Configure API key authorization: rundeck_auth
+api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$execution_list_running(var.project)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **character**| Project name or * for all projects | 
+
+### Return type
+
+[**ExecutionList**](ExecutionList.md)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of executions for job |  -  |
+
+# **job_list**
+> array[Job] job_list(project, id_list=var.id_list, group_path=var.group_path, job_filter=var.job_filter, job_exact_filter=var.job_exact_filter, group_path_exact=var.group_path_exact, scheduled_filter=var.scheduled_filter, server_node_uuid_filter=var.server_node_uuid_filter)
+
+List the jobs that exist for a project
+
+### Example
+```R
+library(openlattice_rundeck)
+
+var.project <- 'project_example' # character | Project name
+var.id_list <- 'id_list_example' # character | Comma separated list of Job IDs to include
+var.group_path <- 'group_path_example' # character | Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only.
+var.job_filter <- 'job_filter_example' # character | A filter for the job name. Matches any job name that contains this value.
+var.job_exact_filter <- 'job_exact_filter_example' # character | An exact job name to match.
+var.group_path_exact <- 'group_path_exact_example' # character | An exact group path to match. Set to the special value \"-\" to match the top level jobs only.
+var.scheduled_filter <- 'scheduled_filter_example' # character | Specify whether to return only scheduled or only not scheduled jobs.
+var.server_node_uuid_filter <- 'server_node_uuid_filter_example' # character | In cluster mode, use to select scheduled jobs assigned to the server with the given UUID.
+
+#List the jobs that exist for a project
+api.instance <- ProjectApi$new()
+# Configure API key authorization: rundeck_auth
+api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$job_list(var.project, id_list=var.id_list, group_path=var.group_path, job_filter=var.job_filter, job_exact_filter=var.job_exact_filter, group_path_exact=var.group_path_exact, scheduled_filter=var.scheduled_filter, server_node_uuid_filter=var.server_node_uuid_filter)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project** | **character**| Project name | 
+ **id_list** | **character**| Comma separated list of Job IDs to include | [optional] 
+ **group_path** | **character**| Group or partial group path to include all jobs within that group path. Set to the special value \&quot;-\&quot; to match the top level jobs only. | [optional] 
+ **job_filter** | **character**| A filter for the job name. Matches any job name that contains this value. | [optional] 
+ **job_exact_filter** | **character**| An exact job name to match. | [optional] 
+ **group_path_exact** | **character**| An exact group path to match. Set to the special value \&quot;-\&quot; to match the top level jobs only. | [optional] 
+ **scheduled_filter** | **character**| Specify whether to return only scheduled or only not scheduled jobs. | [optional] 
+ **server_node_uuid_filter** | **character**| In cluster mode, use to select scheduled jobs assigned to the server with the given UUID. | [optional] 
+
+### Return type
+
+[**array[Job]**](Job.md)
+
+### Authorization
+
+[rundeck_auth](../README.md#rundeck_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Expected response to a valid request |  -  |
 
 # **project_archive_export_sync**
 > object project_archive_export_sync(project, execution_ids=var.execution_ids, export_all=var.export_all, export_jobs=var.export_jobs, export_executions=var.export_executions, export_configs=var.export_configs, export_readmes=var.export_readmes, export_acls=var.export_acls)
@@ -267,7 +369,7 @@ Name | Type | Description  | Notes
 | **200** | Project config key and value |  -  |
 
 # **project_config_key_set**
-> object project_config_key_set(project, key, inline_object1)
+> object project_config_key_set(project, key, inline_object7)
 
 Get project config key
 
@@ -277,13 +379,13 @@ library(openlattice_rundeck)
 
 var.project <- 'project_example' # character | 
 var.key <- 'key_example' # character | 
-var.inline_object1 <- inline_object_1$new("value_example") # InlineObject1 | 
+var.inline_object7 <- inline_object_7$new("value_example") # InlineObject7 | 
 
 #Get project config key
 api.instance <- ProjectApi$new()
 # Configure API key authorization: rundeck_auth
 api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$project_config_key_set(var.project, var.key, var.inline_object1)
+result <- api.instance$project_config_key_set(var.project, var.key, var.inline_object7)
 dput(result)
 ```
 
@@ -293,7 +395,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project** | **character**|  | 
  **key** | **character**|  | 
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **inline_object7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -358,7 +460,7 @@ void (empty response body)
 | **200** | Project config updated |  -  |
 
 # **project_create**
-> project_create(inline_object)
+> project_create(inline_object6)
 
 Create a new project
 
@@ -366,20 +468,20 @@ Create a new project
 ```R
 library(openlattice_rundeck)
 
-var.inline_object <- inline_object$new("name_example", 123) # InlineObject | 
+var.inline_object6 <- inline_object_6$new("name_example", 123) # InlineObject6 | 
 
 #Create a new project
 api.instance <- ProjectApi$new()
 # Configure API key authorization: rundeck_auth
 api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
-api.instance$project_create(var.inline_object)
+api.instance$project_create(var.inline_object6)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object** | [**InlineObject**](InlineObject.md)|  | 
+ **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | 
 
 ### Return type
 
@@ -715,7 +817,7 @@ Name | Type | Description  | Notes
 | **200** | motd.md contents |  -  |
 
 # **project_motd_put**
-> project_motd_put(project, inline_object3)
+> project_motd_put(project, inline_object9)
 
 Create or modify project MOTD.md
 
@@ -724,13 +826,13 @@ Create or modify project MOTD.md
 library(openlattice_rundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
-var.inline_object3 <- inline_object_3$new("contents_example") # InlineObject3 | 
+var.inline_object9 <- inline_object_9$new("contents_example") # InlineObject9 | 
 
 #Create or modify project MOTD.md
 api.instance <- ProjectApi$new()
 # Configure API key authorization: rundeck_auth
 api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
-api.instance$project_motd_put(var.project, var.inline_object3)
+api.instance$project_motd_put(var.project, var.inline_object9)
 ```
 
 ### Parameters
@@ -738,7 +840,7 @@ api.instance$project_motd_put(var.project, var.inline_object3)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project** | **character**| Name of the project to import jobs into. | 
- **inline_object3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **inline_object9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
@@ -844,7 +946,7 @@ Name | Type | Description  | Notes
 | **200** | readme.md contents |  -  |
 
 # **project_readme_put**
-> project_readme_put(project, inline_object2)
+> project_readme_put(project, inline_object8)
 
 Create or modify project README.md
 
@@ -853,13 +955,13 @@ Create or modify project README.md
 library(openlattice_rundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
-var.inline_object2 <- inline_object_2$new("contents_example") # InlineObject2 | 
+var.inline_object8 <- inline_object_8$new("contents_example") # InlineObject8 | 
 
 #Create or modify project README.md
 api.instance <- ProjectApi$new()
 # Configure API key authorization: rundeck_auth
 api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
-api.instance$project_readme_put(var.project, var.inline_object2)
+api.instance$project_readme_put(var.project, var.inline_object8)
 ```
 
 ### Parameters
@@ -867,7 +969,7 @@ api.instance$project_readme_put(var.project, var.inline_object2)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project** | **character**| Name of the project to import jobs into. | 
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **inline_object8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 

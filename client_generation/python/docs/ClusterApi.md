@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **system_scheduled_jobs_for_server**
-> system_scheduled_jobs_for_server(uuid)
+> list[Job] system_scheduled_jobs_for_server(uuid)
 
 List the scheduled Jobs with their schedule owned by the cluster server with the specified UUID
 
@@ -52,7 +52,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # List the scheduled Jobs with their schedule owned by the cluster server with the specified UUID
-        api_instance.system_scheduled_jobs_for_server(uuid)
+        api_response = api_instance.system_scheduled_jobs_for_server(uuid)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ClusterApi->system_scheduled_jobs_for_server: %s\n" % e)
 ```
@@ -65,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**list[Job]**](Job.md)
 
 ### Authorization
 
@@ -74,7 +75,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -84,7 +85,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_scheduled_jobs_list**
-> system_scheduled_jobs_list()
+> list[Job] system_scheduled_jobs_list()
 
 List the scheduled Jobs with their schedule owned by the cluster server
 
@@ -125,7 +126,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
     
     try:
         # List the scheduled Jobs with their schedule owned by the cluster server
-        api_instance.system_scheduled_jobs_list()
+        api_response = api_instance.system_scheduled_jobs_list()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ClusterApi->system_scheduled_jobs_list: %s\n" % e)
 ```
@@ -135,7 +137,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**list[Job]**](Job.md)
 
 ### Authorization
 
@@ -144,7 +146,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -154,7 +156,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **system_scheduler_takeover**
-> system_scheduler_takeover(inline_object10)
+> TakeoverScheduleResponse system_scheduler_takeover(inline_object10)
 
 Tell a Rundeck server in cluster mode to claim all scheduled jobs from another cluster server
 
@@ -196,7 +198,8 @@ with openlattice_rundeck.ApiClient(configuration) as api_client:
 
     try:
         # Tell a Rundeck server in cluster mode to claim all scheduled jobs from another cluster server
-        api_instance.system_scheduler_takeover(inline_object10)
+        api_response = api_instance.system_scheduler_takeover(inline_object10)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ClusterApi->system_scheduler_takeover: %s\n" % e)
 ```
@@ -209,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**TakeoverScheduleResponse**](TakeoverScheduleResponse.md)
 
 ### Authorization
 
@@ -218,7 +221,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
