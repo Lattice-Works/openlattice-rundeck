@@ -1,0 +1,1048 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Rundeck
+  license:
+    name: MIT
+paths:
+  /api/26/projects:
+    post:
+      summary: Create a new project
+      operationId: projectCreate
+      tags:
+      - project
+      parameters:
+      - name: ProjectCreateRequest
+        schema: {}
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Success !
+  /api/26/project/{project}:
+    delete:
+      summary: Delete project
+      operationId: projectDelete
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Success !
+  /api/26/project/{project}/config:
+    put:
+      summary: Update project config
+      operationId: projectConfigUpdate
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Project config updated
+  /api/26/project/{project}/config/{key}:
+    delete:
+      summary: Delete project config key
+      operationId: projectConfigKeyDelete
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      - name: key
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Success !
+  /api/26/project/{project}/jobs/export:
+    get:
+      summary: Export the job definitions in XML or YAML formats.
+      operationId: projectJobsExport
+      tags:
+      - job
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: The project to export jobs for.
+      - name: format
+        schema:
+          default: xml
+        in: query
+        required: false
+        description: XML or YAML format for exported jobs.
+      - name: idlist
+        schema:
+          type: string
+        in: query
+        required: false
+        description: A comma-separated list of Job IDs to export.
+      - name: groupPath
+        schema:
+          type: string
+        in: query
+        required: false
+        description: Group or partial group path to include all jobs within that group
+          path.
+      - name: jobFilter
+        schema:
+          type: string
+        in: query
+        required: false
+        description: Filter for the job Name.
+      responses:
+        '200':
+          description: Expected response to a valid request.
+  /api/26/project/{project}/jobs/import:
+    post:
+      summary: Import job definitions in XML or YAML formats.
+      operationId: projectJobsImport
+      tags:
+      - job
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      - name: content-type
+        schema:
+          default: application/xml
+        in: header
+        required: false
+      - name: accept
+        schema:
+          default: application/xml
+        in: header
+        required: false
+      - name: fileFormat
+        schema: {}
+        in: query
+        required: false
+        x-ms-parameter-grouping:
+          name: job-import-options
+      - name: dupeOption
+        schema: {}
+        in: query
+        required: false
+        x-ms-parameter-grouping:
+          name: job-import-options
+      - name: uuidOption
+        schema: {}
+        in: query
+        required: false
+        x-ms-parameter-grouping:
+          name: job-import-options
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Expected response to a valid request.
+  /api/26/project/{project}/import:
+    put:
+      summary: Import project archive.
+      operationId: projectArchiveImport
+      tags:
+      - job
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      - name: jobUuidOption
+        schema:
+          default: remove
+        in: query
+      - name: importExecutions
+        schema:
+          type: boolean
+        in: query
+      - name: importConfig
+        schema:
+          type: boolean
+        in: query
+      - name: importACL
+        schema:
+          type: boolean
+        in: query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Expected response to a valid request
+  /api/26/project/{project}/export:
+    get:
+      summary: Export archive of project synchronously
+      operationId: projectArchiveExportSync
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      - name: executionIds
+        schema:
+          type: boolean
+        in: query
+        description: A list (comma-separated) of execution IDs. If this is specified
+          then the archive will contain only executions that are specified, and will
+          not contain Jobs, ACLs, or project configuration/readme files.
+      - name: exportAll
+        schema:
+          default: true
+        in: query
+        description: Export all project resources
+      - name: exportJobs
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      - name: exportExecutions
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      - name: exportConfigs
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      - name: exportReadmes
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      - name: exportAcls
+        schema:
+          type: boolean
+        in: query
+        description: Export all project resources
+      responses:
+        '200':
+          description: Zip archive
+  /api/26/project/{project}/readme.md:
+    delete:
+      summary: Delete project README.md
+      operationId: projectReadmeDelete
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      responses:
+        '200':
+          description: Success !
+  /api/26/project/{project}/motd.md:
+    delete:
+      summary: Delete project motd.md
+      operationId: projectMotdDelete
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      responses:
+        '200':
+          description: Success !
+components:
+  securitySchemes:
+    rundeck_auth:
+      type: apiKey
+      in: header
+      name: X-Rundeck-Auth-Token
+  schemas:
+    User:
+      properties:
+        login:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+    ModifyUserRequest:
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+    SystemInfo:
+      properties:
+        system:
+          properties:
+            timestamp:
+              properties:
+                epoch:
+                  type: number
+                unit:
+                  type: string
+                datetime:
+                  type: string
+            rundeck:
+              properties:
+                version:
+                  type: string
+                build:
+                  type: string
+                node:
+                  type: string
+                base:
+                  type: string
+                apiversion:
+                  type: number
+                serverUUID:
+                  type: string
+            executions:
+              properties:
+                active:
+                  type: boolean
+                executionMode:
+                  type: string
+            os:
+              properties:
+                arch:
+                  type: string
+                name:
+                  type: string
+                version:
+                  type: string
+            jvm:
+              properties:
+                name:
+                  type: string
+                vendor:
+                  type: string
+                version:
+                  type: string
+                implementationVersion:
+                  type: string
+            stats:
+              properties:
+                uptime:
+                  properties:
+                    duration:
+                      type: number
+                    unit:
+                      type: string
+                    since:
+                      properties:
+                        epoch:
+                          type: number
+                        unit:
+                          type: string
+                        datetime:
+                          type: string
+                cpu:
+                  properties:
+                    loadAverage:
+                      properties:
+                        unit:
+                          type: string
+                        average:
+                          type: number
+                    processors:
+                      type: number
+                memory:
+                  properties:
+                    unit:
+                      type: string
+                    max:
+                      type: number
+                    free:
+                      type: number
+                    total:
+                      type: number
+                scheduler:
+                  properties:
+                    running:
+                      type: number
+                    threadPoolSize:
+                      type: number
+                threads:
+                  properties:
+                    active:
+                      type: number
+            metrics:
+              properties:
+                href:
+                  type: string
+                contentType:
+                  type: string
+            threadDump:
+              properties:
+                href:
+                  type: string
+                contentType:
+                  type: string
+    LogStorage:
+      properties:
+        enabled:
+          type: boolean
+          description: True if plugin is configured
+        pluginName:
+          type: string
+          description: Name of the configured plugin
+        succeededCount:
+          type: number
+          description: Number of successful storage requests
+        failedCount:
+          type: number
+          description: Number of failed storage requests
+        queuedCount:
+          type: number
+          description: Number of queued storage requests
+        totalCount:
+          type: number
+          description: Total number of storage requests (currently queued plus previously
+            processed)
+        incompleteCount:
+          type: number
+          description: Number of storage requests which have not completed successfully
+        missingCount:
+          type: number
+          description: Number of executions for this cluster node which have no associated
+            storage requests
+    IncompleteLogExecution:
+      properties:
+        id:
+          type: string
+        project:
+          type: string
+        href:
+          type: string
+        permalink:
+          type: string
+        storage:
+          properties:
+            localFilesPresent:
+              type: boolean
+            incompleteFiletypes:
+              type: array
+              items:
+                type: string
+            queued:
+              type: boolean
+            failed:
+              type: boolean
+            date:
+              type: string
+        errors:
+          type: array
+          items:
+            type: string
+    IncompleteFileType:
+      type: string
+      enum:
+      - rdlog
+      - state.json
+      - execution.xml
+      description: Comma-separated list of filetypes which have not be uploaded, e.g.
+        rdlog,state.json. Types are rdlog (log output), state.json (workflow state
+        data), execution.xml (execution definition)
+    IncompleteLogExecutions:
+      required:
+      - total
+      - max
+      - offset
+      - executions
+      properties:
+        total:
+          type: number
+        max:
+          type: number
+        offset:
+          type: number
+        executions:
+          type: array
+          items:
+            $ref: '#/definitions/IncompleteLogExecution'
+    TakeoverScheduleRequest:
+      properties:
+        server:
+          properties:
+            uuid:
+              type: string
+            all:
+              type: boolean
+        project:
+          type: string
+        job:
+          properties:
+            id:
+              type: string
+    JobReference:
+      properties:
+        href:
+          type: string
+        permalink:
+          type: string
+        id:
+          type: string
+        pervious-owner:
+          type: string
+    TakeoverScheduleResponse:
+      properties:
+        takeoverSchedule:
+          properties:
+            project:
+              type: string
+            jobs:
+              properties:
+                failed:
+                  type: array
+                  items:
+                    $ref: '#/definitions/JobReference'
+                successfull:
+                  type: array
+                  items:
+                    $ref: '#/definitions/JobReference'
+                total:
+                  type: number
+            server:
+              properties:
+                uuid:
+                  type: string
+                all:
+                  type: boolean
+        self:
+          properties:
+            server:
+              properties:
+                uuid:
+                  type: string
+        message:
+          type: string
+        apiversion:
+          type: number
+        success:
+          type: boolean
+    Project:
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        config:
+          type: object
+    Job:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        group:
+          type: string
+        project:
+          type: string
+        description:
+          type: string
+        href:
+          type: string
+        permalink:
+          type: string
+        scheduled:
+          type: boolean
+        scheduleEnabled:
+          type: boolean
+        serverNodeUUID:
+          type: string
+        serverOwner:
+          type: string
+        enabled:
+          type: boolean
+    JobMetadata:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        group:
+          type: string
+        project:
+          type: string
+        description:
+          type: string
+        href:
+          type: string
+        permalink:
+          type: string
+        scheduled:
+          type: boolean
+        scheduleEnabled:
+          type: boolean
+        averageDuration:
+          type: number
+        options:
+          type: object
+    JobBulkOperationResponse:
+      required:
+      - requestCount
+      - allsuccessful
+      properties:
+        requestCount:
+          description: The number of job IDs that were in the delete request.
+          type: number
+        allsuccessful:
+          type: boolean
+        succeeded:
+          type: array
+          items:
+            $ref: '#/definitions/BulkJobSucceededInfo'
+        failed:
+          type: array
+          items:
+            $ref: '#/definitions/BulkJobFailedInfo'
+    JobInputFileListResponse:
+      required:
+      - paging
+      - files
+      properties:
+        paging:
+          $ref: '#/definitions/Paging'
+        files:
+          type: array
+          items:
+            $ref: '#/definitions/JobInputFileInfo'
+    JobInputFileInfo:
+      required:
+      - id
+      - user
+      - fileState
+      - sha
+      - jobId
+      - dateCreated
+      - serverNodeUUID
+      - fileName
+      - expirationDate
+      - exec
+      properties:
+        id:
+          type: string
+        user:
+          type: string
+        fileState:
+          type: string
+          enum:
+          - temp
+          - deleted
+          - expired
+          - retained
+        sha:
+          type: string
+        jobId:
+          type: string
+        dateCreated:
+          type: string
+        serverNodeUUID:
+          type: string
+        fileName:
+          type: string
+        size:
+          type: integer
+        expirationDate:
+          type: string
+        execId:
+          type: string
+    BulkJobSucceededInfo:
+      required:
+      - id
+      - message
+      properties:
+        id:
+          type: string
+        message:
+          type: string
+    BulkJobFailedInfo:
+      required:
+      - id
+      - message
+      - errorCode
+      properties:
+        id:
+          type: string
+        errorCode:
+          type: string
+        message:
+          type: string
+    ExecutionList:
+      properties:
+        paging:
+          $ref: '#/definitions/Paging'
+        executions:
+          type: array
+          items:
+            $ref: '#/definitions/Execution'
+    Execution:
+      properties:
+        id:
+          type: number
+        href:
+          type: string
+        permalink:
+          type: string
+        status:
+          type: string
+          enum:
+          - running
+          - succeeded
+          - failed
+          - aborted
+          - timedout
+          - failed-with-retry
+          - scheduled
+          - other
+        customStatus:
+          type: string
+        project:
+          type: string
+        user:
+          type: string
+        serverUUID:
+          type: string
+        date-started:
+          properties:
+            unixtime:
+              type: number
+            date:
+              type: string
+        job:
+          $ref: '#/definitions/JobMetadata'
+        description:
+          type: string
+        argstring:
+          type: string
+        successfulNodes:
+          type: array
+          items:
+            type: string
+    JobExecutionDelete:
+      properties:
+        failedCount:
+          type: number
+        successCount:
+          type: number
+        allsuccessful:
+          type: boolean
+        requestCount:
+          type: number
+        failures:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              message:
+                type: string
+    AclReference:
+      properties:
+        path:
+          type: string
+        type:
+          type: string
+        name:
+          type: string
+        href:
+          type: string
+    AclList:
+      properties:
+        path:
+          type: string
+        type:
+          type: string
+        href:
+          type: string
+        resources:
+          type: array
+          items:
+            $ref: '#/definitions/AclReference'
+    AclPolicyResponse:
+      required:
+      - contents
+      properties:
+        contents:
+          type: string
+          description: Policy as JSON encoded YAML string
+    InvalidAclPolicyResponse:
+      properties:
+        valid:
+          type: boolean
+        policies:
+          type: array
+          items:
+            type: object
+            properties:
+              policy:
+                type: string
+              errors:
+                type: array
+                items:
+                  type: string
+    RetryExecutionRequest:
+      properties:
+        argString:
+          description: Argument string to pass to the job, of the form `-opt value
+            -opt2 value ...`
+          type: string
+        loglevel:
+          description: Loglevel to use
+          type: string
+          enum:
+          - DEBUG
+          - VERBOSE
+          - INFO
+          - WARN
+          - ERROR
+        asUser:
+          description: A username identifying the user who ran the job. Requires `runAs`
+            permission.
+          type: string
+        options:
+          description: Option value for option named `OPTNAME`. If specified the `argString`
+            value is ignored (*API v18* or later).
+          type: object
+    ExecuteJobRequest:
+      properties:
+        argString:
+          description: Argument string to pass to the job, of the form `-opt value
+            -opt2 value ...`
+          type: string
+        loglevel:
+          description: Loglevel to use
+          type: string
+          enum:
+          - DEBUG
+          - VERBOSE
+          - INFO
+          - WARN
+          - ERROR
+        asUser:
+          description: A username identifying the user who ran the job. Requires `runAs`
+            permission.
+          type: string
+        filter:
+          description: A node filter string.
+          type: string
+        runAtTime:
+          description: Specify a time to run the job (*API v18* or later). `ISO-8601`
+            format with optional milliseconds.
+          type: string
+        options:
+          description: Option value for option named `OPTNAME`. If specified the `argString`
+            value is ignored (*API v18* or later).
+          type: object
+    StorageKeyMetaType:
+      type: string
+      enum:
+      - private
+      - public
+      x-ms-enum:
+        name: StorageKeyMetaType
+    StorageKeyMetadata:
+      properties:
+        meta:
+          properties:
+            Rundeck-key-type:
+              $ref: '#/definitions/StorageKeyMetaType'
+            Rundeck-content-mask:
+              type: string
+            Rundeck-content-size:
+              type: string
+            Rundeck-content-type:
+              type: string
+        url:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        path:
+          type: string
+    StorageKeyListResponse:
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/definitions/StorageKeyMetadata'
+        meta:
+          properties:
+            Rundeck-key-type:
+              $ref: '#/definitions/StorageKeyMetaType'
+            Rundeck-content-mask:
+              type: string
+            Rundeck-content-size:
+              type: string
+            Rundeck-content-type:
+              type: string
+        url:
+          type: string
+        type:
+          type: string
+        path:
+          type: string
+    Paging:
+      properties:
+        count:
+          type: integer
+        total:
+          type: integer
+        offset:
+          type: integer
+        max:
+          type: integer
+    ExecutionOutput:
+      required:
+      - id
+      - offset
+      - completed
+      - execCompleted
+      - hasFailedNodes
+      - execState
+      - lastModified
+      - execDuration
+      - percentLoaded
+      - totalSize
+      - retryBackoff
+      - clusterExec
+      - compacted
+      - entries
+      properties:
+        id:
+          type: string
+        offset:
+          type: string
+        completed:
+          type: boolean
+        execCompleted:
+          type: boolean
+        hasFailedNodes:
+          type: boolean
+        execState:
+          type: string
+        lastModified:
+          type: string
+        execDuration:
+          type: number
+        percentLoaded:
+          type: number
+        totalSize:
+          type: number
+        retryBackoff:
+          type: number
+        clusterExec:
+          type: boolean
+        compacted:
+          type: boolean
+        entries:
+          type: array
+          items:
+            $ref: '#/definitions/ExecutionOutputEntry'
+    ExecutionOutputEntry:
+      properties:
+        time:
+          type: string
+        absolute_time:
+          type: string
+        log:
+          type: string
+        level:
+          type: string
+        stepctx:
+          type: string
+        node:
+          type: string
+    WorkflowStep:
+      properties:
+        jobref:
+          properties:
+            name:
+              type: string
+            group:
+              type: string
+            uuid:
+              type: string
+            nodeStep:
+              type: string
+            importOptions:
+              type: boolean
+        jobId:
+          type: string
+        description:
+          type: string
+        exec:
+          type: string
+        script:
+          type: string
+        scriptfile:
+          type: string
+        scripturl:
+          type: string
+        type:
+          type: string
+        nodeStep:
+          type: string
+        workflow:
+          type: array
+          items:
+            $ref: '#/definitions/WorkflowStep'
+tags:
+- name: project
+  description: API endpoints to projects
+- name: job
+  description: API endpoints to jobs
+externalDocs:
+  description: Combined API specifications for Rundeck
+  url: https://github.com/Lattice-Works/openlattice-rundeck
