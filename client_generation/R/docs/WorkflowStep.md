@@ -1,4 +1,4 @@
-# openlattice-rundeck::WorkflowStep
+# openlattice_rundeck::WorkflowStep
 
 ## Properties
 Name | Type | Description | Notes

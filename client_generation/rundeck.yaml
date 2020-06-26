@@ -6,20 +6,73 @@ info:
     name: MIT
 paths:
   /api/26/projects:
+    get:
+      summary: List projects
+      operationId: projectList
+      tags:
+      - project
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    url:
+                      type: string
+                    label:
+                      type: string
+      security:
+      - rundeck_auth: []
     post:
       summary: Create a new project
       operationId: projectCreate
       tags:
       - project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                config:
+                  type: object
+      responses:
+        '200':
+          description: Success !
+      security:
+      - rundeck_auth: []
+  /api/26/project/{project}:
+    get:
+      summary: Get information about a project
+      operationId: projectGet
+      tags:
+      - project
       parameters:
-      - name: ProjectCreateRequest
-        schema: {}
+      - name: project
+        schema:
+          type: string
         in: path
         required: true
       responses:
         '200':
-          description: Success !
-  /api/26/project/{project}:
+          description: Project info
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/Project'
+      security:
+      - rundeck_auth: []
     delete:
       summary: Delete project
       operationId: projectDelete
@@ -34,7 +87,29 @@ paths:
       responses:
         '200':
           description: Success !
+      security:
+      - rundeck_auth: []
   /api/26/project/{project}/config:
+    get:
+      summary: Get project config
+      operationId: projectConfigGet
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Project info
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - rundeck_auth: []
     put:
       summary: Update project config
       operationId: projectConfigUpdate
@@ -55,7 +130,76 @@ paths:
       responses:
         '200':
           description: Project config updated
+      security:
+      - rundeck_auth: []
   /api/26/project/{project}/config/{key}:
+    get:
+      summary: Get project config key
+      operationId: projectConfigKeyGet
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      - name: key
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Project config key and value
+          content:
+            application/json:
+              schema:
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+      security:
+      - rundeck_auth: []
+    put:
+      summary: Get project config key
+      operationId: projectConfigKeySet
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+      - name: key
+        schema:
+          type: string
+        in: path
+        required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: string
+      responses:
+        '200':
+          description: Project config key set
+          content:
+            application/json:
+              schema:
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+      security:
+      - rundeck_auth: []
     delete:
       summary: Delete project config key
       operationId: projectConfigKeyDelete
@@ -75,6 +219,8 @@ paths:
       responses:
         '200':
           description: Success !
+      security:
+      - rundeck_auth: []
   /api/26/project/{project}/jobs/export:
     get:
       summary: Export the job definitions in XML or YAML formats.
@@ -117,6 +263,12 @@ paths:
       responses:
         '200':
           description: Expected response to a valid request.
+          content:
+            application/json:
+              schema:
+                type: string
+      security:
+      - rundeck_auth: []
   /api/26/project/{project}/jobs/import:
     post:
       summary: Import job definitions in XML or YAML formats.
@@ -168,6 +320,13 @@ paths:
       responses:
         '200':
           description: Expected response to a valid request.
+          content:
+            application/json:
+              schema:
+                type: object
+                format: file
+      security:
+      - rundeck_auth: []
   /api/26/project/{project}/import:
     put:
       summary: Import project archive.
@@ -207,6 +366,8 @@ paths:
       responses:
         '200':
           description: Expected response to a valid request
+      security:
+      - rundeck_auth: []
   /api/26/project/{project}/export:
     get:
       summary: Export archive of project synchronously
@@ -260,7 +421,63 @@ paths:
       responses:
         '200':
           description: Zip archive
+          content:
+            application/json:
+              schema:
+                type: object
+                format: file
+      security:
+      - rundeck_auth: []
   /api/26/project/{project}/readme.md:
+    get:
+      summary: Get the readme.md contents
+      operationId: projectReadmeGet
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      responses:
+        '200':
+          description: readme.md contents
+          content:
+            application/json:
+              schema:
+                properties:
+                  contents:
+                    type: string
+      security:
+      - rundeck_auth: []
+    put:
+      summary: Create or modify project README.md
+      operationId: projectReadmePut
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+      security:
+      - rundeck_auth: []
     delete:
       summary: Delete project README.md
       operationId: projectReadmeDelete
@@ -276,7 +493,58 @@ paths:
       responses:
         '200':
           description: Success !
+      security:
+      - rundeck_auth: []
   /api/26/project/{project}/motd.md:
+    get:
+      summary: Get the readme.md contents
+      operationId: projectMotdGet
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      responses:
+        '200':
+          description: motd.md contents
+          content:
+            application/json:
+              schema:
+                properties:
+                  contents:
+                    type: string
+      security:
+      - rundeck_auth: []
+    put:
+      summary: Create or modify project MOTD.md
+      operationId: projectMotdPut
+      tags:
+      - project
+      parameters:
+      - name: project
+        schema:
+          type: string
+        in: path
+        required: true
+        description: Name of the project to import jobs into.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: string
+      responses:
+        '200':
+          description: Expected response to a valid request.
+      security:
+      - rundeck_auth: []
     delete:
       summary: Delete project motd.md
       operationId: projectMotdDelete
@@ -292,6 +560,8 @@ paths:
       responses:
         '200':
           description: Success !
+      security:
+      - rundeck_auth: []
 components:
   securitySchemes:
     rundeck_auth:

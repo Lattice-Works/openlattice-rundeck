@@ -1,4 +1,4 @@
-# openlattice-rundeck::BulkJobSucceededInfo
+# openlattice_rundeck::BulkJobSucceededInfo
 
 ## Properties
 Name | Type | Description | Notes

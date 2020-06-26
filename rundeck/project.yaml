@@ -29,6 +29,7 @@ paths:
                 name:        {type: string}
                 description: {type: string}
                 url:         {type: string}
+                label:       {type: string}
     post:
       summary: Create a new project
       operationId: projectCreate

@@ -77,15 +77,19 @@ configuration = openlattice_rundeck.Configuration(
 # Enter a context with an instance of the API client
 with openlattice_rundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.AclApi(api_client)
-    policy_name = 'policy_name_example' # str | Policy file name
-inline_object12 = openlattice_rundeck.InlineObject12() # InlineObject12 | 
+    api_instance = openlattice_rundeck.JobApi(api_client)
+    project = 'project_example' # str | Name of the project to import jobs into.
+body = None # object | 
+job_uuid_option = None # object |  (optional)
+import_executions = True # bool |  (optional)
+import_config = True # bool |  (optional)
+import_acl = True # bool |  (optional)
 
     try:
-        # Create a policy
-        api_instance.system_acl_policy_create(policy_name, inline_object12)
+        # Import project archive.
+        api_instance.project_archive_import(project, body, job_uuid_option=job_uuid_option, import_executions=import_executions, import_config=import_config, import_acl=import_acl)
     except ApiException as e:
-        print("Exception when calling AclApi->system_acl_policy_create: %s\n" % e)
+        print("Exception when calling JobApi->project_archive_import: %s\n" % e)
     
 ```
 
@@ -95,70 +99,9 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AclApi* | [**system_acl_policy_create**](docs/AclApi.md#system_acl_policy_create) | **POST** /api/26/system/acl/{policyName} | Create a policy
-*AclApi* | [**system_acl_policy_delete**](docs/AclApi.md#system_acl_policy_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
-*AclApi* | [**system_acl_policy_get**](docs/AclApi.md#system_acl_policy_get) | **GET** /api/26/system/acl/{policyName} | Retrieve the YAML texas of the ACL Policy file
-*AclApi* | [**system_acl_policy_list**](docs/AclApi.md#system_acl_policy_list) | **GET** /api/26/system/acl/ | List ACL Policies
-*AclApi* | [**system_acl_policy_update**](docs/AclApi.md#system_acl_policy_update) | **PUT** /api/26/system/acl/{policyName} | Update policy
-*BulkApi* | [**job_bulk_delete**](docs/BulkApi.md#job_bulk_delete) | **POST** /api/26/jobs/delete | Delete multiple job definitions at once
-*ClusterApi* | [**system_scheduled_jobs_for_server**](docs/ClusterApi.md#system_scheduled_jobs_for_server) | **GET** /api/26/scheduler/server/{uuid}/jobs | List the scheduled Jobs with their schedule owned by the cluster server with the specified UUID
-*ClusterApi* | [**system_scheduled_jobs_list**](docs/ClusterApi.md#system_scheduled_jobs_list) | **GET** /api/26/scheduler/jobs | List the scheduled Jobs with their schedule owned by the cluster server
-*ClusterApi* | [**system_scheduler_takeover**](docs/ClusterApi.md#system_scheduler_takeover) | **PUT** /api/26/scheduler/takeover | Tell a Rundeck server in cluster mode to claim all scheduled jobs from another cluster server
-*ExecutionApi* | [**execution_bulk_delete**](docs/ExecutionApi.md#execution_bulk_delete) | **POST** /api/26/executions/delete | Bulk delete executions
-*ExecutionApi* | [**execution_delete**](docs/ExecutionApi.md#execution_delete) | **DELETE** /api/26/execution/{id} | Delete an exeuction by ID
-*ExecutionApi* | [**execution_input_files_list**](docs/ExecutionApi.md#execution_input_files_list) | **GET** /api/26/execution/{id}/input/files | List input files for an execution
-*ExecutionApi* | [**execution_list_running**](docs/ExecutionApi.md#execution_list_running) | **GET** /api/26/project/{project}/executions/running | List job executions
-*ExecutionApi* | [**execution_output_get**](docs/ExecutionApi.md#execution_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
-*ExecutionApi* | [**execution_query**](docs/ExecutionApi.md#execution_query) | **GET** /api/26/project/{project}/executions | Query for Executions based on Job or Execution details
-*ExecutionApi* | [**execution_state_get**](docs/ExecutionApi.md#execution_state_get) | **GET** /api/26/execution/{id}/state | Get detail about the node and step state of an execution by ID. The execution can be currently running or completed.
-*ExecutionApi* | [**execution_status_get**](docs/ExecutionApi.md#execution_status_get) | **GET** /api/26/execution/{id} | Get the status of an execution by ID
-*ExecutionApi* | [**job_execution_bulk_disable**](docs/ExecutionApi.md#job_execution_bulk_disable) | **POST** /api/26/jobs/execution/disable | Bulk disable job executions
-*ExecutionApi* | [**job_execution_bulk_enable**](docs/ExecutionApi.md#job_execution_bulk_enable) | **POST** /api/26/jobs/execution/enable | Bulk enable job executions
-*ExecutionApi* | [**job_execution_delete**](docs/ExecutionApi.md#job_execution_delete) | **DELETE** /api/26/job/{id}/executions | Delete all job executions
-*ExecutionApi* | [**job_execution_disable**](docs/ExecutionApi.md#job_execution_disable) | **POST** /api/26/job/{id}/execution/disable | Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.)
-*ExecutionApi* | [**job_execution_enable**](docs/ExecutionApi.md#job_execution_enable) | **POST** /api/26/job/{id}/execution/enable | Enable executions for a job. (ACL requires toggle_execution action for a job.)
-*ExecutionApi* | [**job_execution_list**](docs/ExecutionApi.md#job_execution_list) | **GET** /api/26/job/{id}/executions | List job executions
-*ExecutionApi* | [**job_execution_run**](docs/ExecutionApi.md#job_execution_run) | **POST** /api/26/job/{id}/executions | Run the specified job
-*ExecutionApi* | [**job_retry_execution**](docs/ExecutionApi.md#job_retry_execution) | **POST** /api/26/job/{jobID}/retry/{executionID} | Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the &#x60;Retry Failed Nodes ...&#x60; button on the execution page.
-*ExecutionApi* | [**system_executions_disable**](docs/ExecutionApi.md#system_executions_disable) | **POST** /api/26/system/executions/disable | Disables executions, preventing adhoc and manual and scheduled jobs from running.
-*ExecutionApi* | [**system_executions_enable**](docs/ExecutionApi.md#system_executions_enable) | **POST** /api/26/system/executions/enable | Enables executions, allowing adhoc and manual and scheduled jobs to be run
-*ExecutionApi* | [**system_incomplete_log_storage_executions_get**](docs/ExecutionApi.md#system_incomplete_log_storage_executions_get) | **GET** /api/26/system/logstorage/incomplete | List all executions with incomplete log storage
-*ExecutionApi* | [**system_incomplete_log_storage_executions_resume**](docs/ExecutionApi.md#system_incomplete_log_storage_executions_resume) | **POST** /api/26/system/logstorage/incomplete/resume | Resume processing incomplete Log Storage uploads
-*FileApi* | [**execution_input_files_list**](docs/FileApi.md#execution_input_files_list) | **GET** /api/26/execution/{id}/input/files | List input files for an execution
-*FileApi* | [**execution_output_get**](docs/FileApi.md#execution_output_get) | **GET** /api/26/execution/{id}/output | List input files for an execution
-*JobApi* | [**job_bulk_delete**](docs/JobApi.md#job_bulk_delete) | **POST** /api/26/jobs/delete | Delete multiple job definitions at once
-*JobApi* | [**job_delete**](docs/JobApi.md#job_delete) | **DELETE** /api/26/job/{id} | Delete a single job definition.
-*JobApi* | [**job_execution_bulk_disable**](docs/JobApi.md#job_execution_bulk_disable) | **POST** /api/26/jobs/execution/disable | Bulk disable job executions
-*JobApi* | [**job_execution_bulk_enable**](docs/JobApi.md#job_execution_bulk_enable) | **POST** /api/26/jobs/execution/enable | Bulk enable job executions
-*JobApi* | [**job_execution_delete**](docs/JobApi.md#job_execution_delete) | **DELETE** /api/26/job/{id}/executions | Delete all job executions
-*JobApi* | [**job_execution_disable**](docs/JobApi.md#job_execution_disable) | **POST** /api/26/job/{id}/execution/disable | Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.)
-*JobApi* | [**job_execution_enable**](docs/JobApi.md#job_execution_enable) | **POST** /api/26/job/{id}/execution/enable | Enable executions for a job. (ACL requires toggle_execution action for a job.)
-*JobApi* | [**job_execution_list**](docs/JobApi.md#job_execution_list) | **GET** /api/26/job/{id}/executions | List job executions
-*JobApi* | [**job_execution_run**](docs/JobApi.md#job_execution_run) | **POST** /api/26/job/{id}/executions | Run the specified job
-*JobApi* | [**job_get**](docs/JobApi.md#job_get) | **GET** /api/26/job/{id} | Export a single job definition in XML or YAML formats.
-*JobApi* | [**job_info_get**](docs/JobApi.md#job_info_get) | **GET** /api/26/job/{id}/info | Get metadata about a specific job.
-*JobApi* | [**job_input_file_info_get**](docs/JobApi.md#job_input_file_info_get) | **GET** /api/26/jobs/file/{id} | Get job input file info
-*JobApi* | [**job_input_file_upload**](docs/JobApi.md#job_input_file_upload) | **POST** /api/26/job/{id}/input/file | Upload file as job option
-*JobApi* | [**job_input_files_upload**](docs/JobApi.md#job_input_files_upload) | **GET** /api/26/job/{id}/input/files | List uploaded input files for job
-*JobApi* | [**job_list**](docs/JobApi.md#job_list) | **GET** /api/26/project/{project}/jobs | List the jobs that exist for a project
-*JobApi* | [**job_retry_execution**](docs/JobApi.md#job_retry_execution) | **POST** /api/26/job/{jobID}/retry/{executionID} | Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the &#x60;Retry Failed Nodes ...&#x60; button on the execution page.
-*JobApi* | [**job_schedule_bulk_disable**](docs/JobApi.md#job_schedule_bulk_disable) | **POST** /api/26/jobs/schedule/disable | Bulk disable job schedule
-*JobApi* | [**job_schedule_bulk_enable**](docs/JobApi.md#job_schedule_bulk_enable) | **POST** /api/26/jobs/schedule/enable | Bulk enable job schedule
-*JobApi* | [**job_schedule_disable**](docs/JobApi.md#job_schedule_disable) | **POST** /api/26/job/{id}/schedule/disable | Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)
-*JobApi* | [**job_schedule_enable**](docs/JobApi.md#job_schedule_enable) | **POST** /api/26/job/{id}/schedule/enable | Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)
-*JobApi* | [**job_workflow_get**](docs/JobApi.md#job_workflow_get) | **GET** /api/34/job/{id}/workflow | Get job workflow tree.
 *JobApi* | [**project_archive_import**](docs/JobApi.md#project_archive_import) | **PUT** /api/26/project/{project}/import | Import project archive.
 *JobApi* | [**project_jobs_export**](docs/JobApi.md#project_jobs_export) | **GET** /api/26/project/{project}/jobs/export | Export the job definitions in XML or YAML formats.
 *JobApi* | [**project_jobs_import**](docs/JobApi.md#project_jobs_import) | **POST** /api/26/project/{project}/jobs/import | Import job definitions in XML or YAML formats.
-*JobApi* | [**system_scheduled_jobs_for_server**](docs/JobApi.md#system_scheduled_jobs_for_server) | **GET** /api/26/scheduler/server/{uuid}/jobs | List the scheduled Jobs with their schedule owned by the cluster server with the specified UUID
-*JobApi* | [**system_scheduled_jobs_list**](docs/JobApi.md#system_scheduled_jobs_list) | **GET** /api/26/scheduler/jobs | List the scheduled Jobs with their schedule owned by the cluster server
-*JobApi* | [**system_scheduler_takeover**](docs/JobApi.md#system_scheduler_takeover) | **PUT** /api/26/scheduler/takeover | Tell a Rundeck server in cluster mode to claim all scheduled jobs from another cluster server
-*LogApi* | [**system_incomplete_log_storage_executions_get**](docs/LogApi.md#system_incomplete_log_storage_executions_get) | **GET** /api/26/system/logstorage/incomplete | List all executions with incomplete log storage
-*LogApi* | [**system_incomplete_log_storage_executions_resume**](docs/LogApi.md#system_incomplete_log_storage_executions_resume) | **POST** /api/26/system/logstorage/incomplete/resume | Resume processing incomplete Log Storage uploads
-*LogApi* | [**system_log_storage_info_get**](docs/LogApi.md#system_log_storage_info_get) | **GET** /api/26/system/logstorage | Get Log Storage information and stats
-*MetricApi* | [**metric_list**](docs/MetricApi.md#metric_list) | **GET** /api/26/metrics | List links to enabled Metrics endpoints
-*ProjectApi* | [**execution_list_running**](docs/ProjectApi.md#execution_list_running) | **GET** /api/26/project/{project}/executions/running | List job executions
-*ProjectApi* | [**job_list**](docs/ProjectApi.md#job_list) | **GET** /api/26/project/{project}/jobs | List the jobs that exist for a project
 *ProjectApi* | [**project_archive_export_sync**](docs/ProjectApi.md#project_archive_export_sync) | **GET** /api/26/project/{project}/export | Export archive of project synchronously
 *ProjectApi* | [**project_archive_import**](docs/ProjectApi.md#project_archive_import) | **PUT** /api/26/project/{project}/import | Import project archive.
 *ProjectApi* | [**project_config_get**](docs/ProjectApi.md#project_config_get) | **GET** /api/26/project/{project}/config | Get project config
@@ -178,36 +121,6 @@ Class | Method | HTTP request | Description
 *ProjectApi* | [**project_readme_delete**](docs/ProjectApi.md#project_readme_delete) | **DELETE** /api/26/project/{project}/readme.md | Delete project README.md
 *ProjectApi* | [**project_readme_get**](docs/ProjectApi.md#project_readme_get) | **GET** /api/26/project/{project}/readme.md | Get the readme.md contents
 *ProjectApi* | [**project_readme_put**](docs/ProjectApi.md#project_readme_put) | **PUT** /api/26/project/{project}/readme.md | Create or modify project README.md
-*RolesApi* | [**user_role_list**](docs/RolesApi.md#user_role_list) | **GET** /api/26/user/roles | List the roles of the authenticated user
-*ScheduleApi* | [**job_schedule_bulk_disable**](docs/ScheduleApi.md#job_schedule_bulk_disable) | **POST** /api/26/jobs/schedule/disable | Bulk disable job schedule
-*ScheduleApi* | [**job_schedule_bulk_enable**](docs/ScheduleApi.md#job_schedule_bulk_enable) | **POST** /api/26/jobs/schedule/enable | Bulk enable job schedule
-*ScheduleApi* | [**job_schedule_disable**](docs/ScheduleApi.md#job_schedule_disable) | **POST** /api/26/job/{id}/schedule/disable | Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)
-*ScheduleApi* | [**job_schedule_enable**](docs/ScheduleApi.md#job_schedule_enable) | **POST** /api/26/job/{id}/schedule/enable | Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)
-*SchedulerApi* | [**system_scheduled_jobs_for_server**](docs/SchedulerApi.md#system_scheduled_jobs_for_server) | **GET** /api/26/scheduler/server/{uuid}/jobs | List the scheduled Jobs with their schedule owned by the cluster server with the specified UUID
-*SchedulerApi* | [**system_scheduled_jobs_list**](docs/SchedulerApi.md#system_scheduled_jobs_list) | **GET** /api/26/scheduler/jobs | List the scheduled Jobs with their schedule owned by the cluster server
-*SchedulerApi* | [**system_scheduler_takeover**](docs/SchedulerApi.md#system_scheduler_takeover) | **PUT** /api/26/scheduler/takeover | Tell a Rundeck server in cluster mode to claim all scheduled jobs from another cluster server
-*StorageApi* | [**storage_key_create**](docs/StorageApi.md#storage_key_create) | **POST** /api/26/storage/keys/{path} | Set storage key contents
-*StorageApi* | [**storage_key_delete**](docs/StorageApi.md#storage_key_delete) | **DELETE** /api/26/storage/keys/{path} | Deletes the file if it exists and returns 204 response.
-*StorageApi* | [**storage_key_get_material**](docs/StorageApi.md#storage_key_get_material) | **GET** /api/26/storage/keys/{keyPath} | Get key material at the specified PATH
-*StorageApi* | [**storage_key_get_metadata**](docs/StorageApi.md#storage_key_get_metadata) | **GET** /api/26/storage/keys/{path} | List resources at the specified PATH
-*StorageApi* | [**storage_key_update**](docs/StorageApi.md#storage_key_update) | **PUT** /api/26/storage/keys/{path} | Set storage key contents
-*SystemApi* | [**system_acl_policy_create**](docs/SystemApi.md#system_acl_policy_create) | **POST** /api/26/system/acl/{policyName} | Create a policy
-*SystemApi* | [**system_acl_policy_delete**](docs/SystemApi.md#system_acl_policy_delete) | **DELETE** /api/26/system/acl/{policyName} | Delete policy
-*SystemApi* | [**system_acl_policy_get**](docs/SystemApi.md#system_acl_policy_get) | **GET** /api/26/system/acl/{policyName} | Retrieve the YAML texas of the ACL Policy file
-*SystemApi* | [**system_acl_policy_list**](docs/SystemApi.md#system_acl_policy_list) | **GET** /api/26/system/acl/ | List ACL Policies
-*SystemApi* | [**system_acl_policy_update**](docs/SystemApi.md#system_acl_policy_update) | **PUT** /api/26/system/acl/{policyName} | Update policy
-*SystemApi* | [**system_executions_disable**](docs/SystemApi.md#system_executions_disable) | **POST** /api/26/system/executions/disable | Disables executions, preventing adhoc and manual and scheduled jobs from running.
-*SystemApi* | [**system_executions_enable**](docs/SystemApi.md#system_executions_enable) | **POST** /api/26/system/executions/enable | Enables executions, allowing adhoc and manual and scheduled jobs to be run
-*SystemApi* | [**system_incomplete_log_storage_executions_get**](docs/SystemApi.md#system_incomplete_log_storage_executions_get) | **GET** /api/26/system/logstorage/incomplete | List all executions with incomplete log storage
-*SystemApi* | [**system_incomplete_log_storage_executions_resume**](docs/SystemApi.md#system_incomplete_log_storage_executions_resume) | **POST** /api/26/system/logstorage/incomplete/resume | Resume processing incomplete Log Storage uploads
-*SystemApi* | [**system_info_get**](docs/SystemApi.md#system_info_get) | **GET** /api/26/system/info | Get Rundeck server information and stats
-*SystemApi* | [**system_log_storage_info_get**](docs/SystemApi.md#system_log_storage_info_get) | **GET** /api/26/system/logstorage | Get Log Storage information and stats
-*UserApi* | [**user_list**](docs/UserApi.md#user_list) | **GET** /api/26/user/list | List user profiles
-*UserApi* | [**user_profile_get**](docs/UserApi.md#user_profile_get) | **GET** /api/26/user/info | Get same user profile data
-*UserApi* | [**user_profile_get_by_id**](docs/UserApi.md#user_profile_get_by_id) | **GET** /api/26/user/info/{userID} | Get another user&#39;s profile data
-*UserApi* | [**user_profile_update**](docs/UserApi.md#user_profile_update) | **POST** /api/26/user/info | Modify same user profile data
-*UserApi* | [**user_profile_update_by_id**](docs/UserApi.md#user_profile_update_by_id) | **POST** /api/26/user/info/{userID} | Modify another user&#39;s profile data
-*UserApi* | [**user_role_list**](docs/UserApi.md#user_role_list) | **GET** /api/26/user/roles | List the roles of the authenticated user
 
 
 ## Documentation For Models
@@ -215,8 +128,6 @@ Class | Method | HTTP request | Description
  - [AclList](docs/AclList.md)
  - [AclPolicyResponse](docs/AclPolicyResponse.md)
  - [AclReference](docs/AclReference.md)
- - [Api26SchedulerTakeoverJob](docs/Api26SchedulerTakeoverJob.md)
- - [Api26SchedulerTakeoverServer](docs/Api26SchedulerTakeoverServer.md)
  - [BulkJobFailedInfo](docs/BulkJobFailedInfo.md)
  - [BulkJobSucceededInfo](docs/BulkJobSucceededInfo.md)
  - [ExecuteJobRequest](docs/ExecuteJobRequest.md)
@@ -229,17 +140,9 @@ Class | Method | HTTP request | Description
  - [IncompleteLogExecutions](docs/IncompleteLogExecutions.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineObject1](docs/InlineObject1.md)
- - [InlineObject10](docs/InlineObject10.md)
- - [InlineObject11](docs/InlineObject11.md)
- - [InlineObject12](docs/InlineObject12.md)
  - [InlineObject2](docs/InlineObject2.md)
  - [InlineObject3](docs/InlineObject3.md)
- - [InlineObject4](docs/InlineObject4.md)
- - [InlineObject5](docs/InlineObject5.md)
- - [InlineObject6](docs/InlineObject6.md)
- - [InlineObject7](docs/InlineObject7.md)
- - [InlineObject8](docs/InlineObject8.md)
- - [InlineObject9](docs/InlineObject9.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [InvalidAclPolicyResponse](docs/InvalidAclPolicyResponse.md)
  - [InvalidAclPolicyResponsePolicies](docs/InvalidAclPolicyResponsePolicies.md)
  - [Job](docs/Job.md)

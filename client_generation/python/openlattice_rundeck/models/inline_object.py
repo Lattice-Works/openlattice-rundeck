@@ -33,45 +33,71 @@ class InlineObject(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'ids': 'list[str]'
+        'name': 'str',
+        'config': 'object'
     }
 
     attribute_map = {
-        'ids': 'ids'
+        'name': 'name',
+        'config': 'config'
     }
 
-    def __init__(self, ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, config=None, local_vars_configuration=None):  # noqa: E501
         """InlineObject - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._ids = None
+        self._name = None
+        self._config = None
         self.discriminator = None
 
-        if ids is not None:
-            self.ids = ids
+        if name is not None:
+            self.name = name
+        if config is not None:
+            self.config = config
 
     @property
-    def ids(self):
-        """Gets the ids of this InlineObject.  # noqa: E501
+    def name(self):
+        """Gets the name of this InlineObject.  # noqa: E501
 
 
-        :return: The ids of this InlineObject.  # noqa: E501
-        :rtype: list[str]
+        :return: The name of this InlineObject.  # noqa: E501
+        :rtype: str
         """
-        return self._ids
+        return self._name
 
-    @ids.setter
-    def ids(self, ids):
-        """Sets the ids of this InlineObject.
+    @name.setter
+    def name(self, name):
+        """Sets the name of this InlineObject.
 
 
-        :param ids: The ids of this InlineObject.  # noqa: E501
-        :type ids: list[str]
+        :param name: The name of this InlineObject.  # noqa: E501
+        :type name: str
         """
 
-        self._ids = ids
+        self._name = name
+
+    @property
+    def config(self):
+        """Gets the config of this InlineObject.  # noqa: E501
+
+
+        :return: The config of this InlineObject.  # noqa: E501
+        :rtype: object
+        """
+        return self._config
+
+    @config.setter
+    def config(self, config):
+        """Sets the config of this InlineObject.
+
+
+        :param config: The config of this InlineObject.  # noqa: E501
+        :type config: object
+        """
+
+        self._config = config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

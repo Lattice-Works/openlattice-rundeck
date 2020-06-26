@@ -1,4 +1,4 @@
-# openlattice-rundeck::InvalidAclPolicyResponsePolicies
+# openlattice_rundeck::InvalidAclPolicyResponsePolicies
 
 ## Properties
 Name | Type | Description | Notes

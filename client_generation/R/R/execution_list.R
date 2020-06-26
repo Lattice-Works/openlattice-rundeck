@@ -56,7 +56,7 @@ ExecutionList <- R6::R6Class(
         self$`paging` <- pagingObject
       }
       if (!is.null(ExecutionListObject$`executions`)) {
-        self$`executions` <- ApiClient$new()$deserializeObj(ExecutionListObject$`executions`, "array[Execution]", loadNamespace("openlattice-rundeck"))
+        self$`executions` <- ApiClient$new()$deserializeObj(ExecutionListObject$`executions`, "array[Execution]", loadNamespace("openlattice_rundeck"))
       }
     },
     toJSONString = function() {
@@ -82,7 +82,7 @@ ExecutionList <- R6::R6Class(
     fromJSONString = function(ExecutionListJson) {
       ExecutionListObject <- jsonlite::fromJSON(ExecutionListJson)
       self$`paging` <- Paging$new()$fromJSON(jsonlite::toJSON(ExecutionListObject$paging, auto_unbox = TRUE, digits = NA))
-      self$`executions` <- ApiClient$new()$deserializeObj(ExecutionListObject$`executions`, "array[Execution]", loadNamespace("openlattice-rundeck"))
+      self$`executions` <- ApiClient$new()$deserializeObj(ExecutionListObject$`executions`, "array[Execution]", loadNamespace("openlattice_rundeck"))
       self
     }
   )

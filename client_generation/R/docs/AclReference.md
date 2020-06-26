@@ -1,4 +1,4 @@
-# openlattice-rundeck::AclReference
+# openlattice_rundeck::AclReference
 
 ## Properties
 Name | Type | Description | Notes

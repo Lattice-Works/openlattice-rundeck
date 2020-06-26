@@ -1,4 +1,4 @@
-# openlattice-rundeck::AclList
+# openlattice_rundeck::AclList
 
 ## Properties
 Name | Type | Description | Notes

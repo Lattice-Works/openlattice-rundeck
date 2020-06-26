@@ -213,7 +213,7 @@ ExecutionOutput <- R6::R6Class(
         self$`compacted` <- ExecutionOutputObject$`compacted`
       }
       if (!is.null(ExecutionOutputObject$`entries`)) {
-        self$`entries` <- ApiClient$new()$deserializeObj(ExecutionOutputObject$`entries`, "array[ExecutionOutputEntry]", loadNamespace("openlattice-rundeck"))
+        self$`entries` <- ApiClient$new()$deserializeObj(ExecutionOutputObject$`entries`, "array[ExecutionOutputEntry]", loadNamespace("openlattice_rundeck"))
       }
     },
     toJSONString = function() {
@@ -335,7 +335,7 @@ ExecutionOutput <- R6::R6Class(
       self$`retryBackoff` <- ExecutionOutputObject$`retryBackoff`
       self$`clusterExec` <- ExecutionOutputObject$`clusterExec`
       self$`compacted` <- ExecutionOutputObject$`compacted`
-      self$`entries` <- ApiClient$new()$deserializeObj(ExecutionOutputObject$`entries`, "array[ExecutionOutputEntry]", loadNamespace("openlattice-rundeck"))
+      self$`entries` <- ApiClient$new()$deserializeObj(ExecutionOutputObject$`entries`, "array[ExecutionOutputEntry]", loadNamespace("openlattice_rundeck"))
       self
     }
   )

@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Job operations
-#' @description openlattice-rundeck.Job
+#' @description openlattice_rundeck.Job
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -48,7 +48,7 @@
 #'
 #' \item status code : 200 | Expected response to a valid request.
 #'
-#'
+#' \item return type : character 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -70,7 +70,7 @@
 #'
 #' \item status code : 200 | Expected response to a valid request.
 #'
-#'
+#' \item return type : object 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -84,7 +84,7 @@
 #' \dontrun{
 #' ####################  project_archive_import  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.body <- NULL # object | 
 #' var.job_uuid_option <- AnyType$new() # AnyType | 
@@ -95,12 +95,15 @@
 #' #Import project archive.
 #' api.instance <- JobApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_archive_import(var.project, var.body, job_uuid_option=var.job_uuid_option, import_executions=var.import_executions, import_config=var.import_config, import_acl=var.import_acl)
 #'
 #'
 #' ####################  project_jobs_export  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | The project to export jobs for.
 #' var.format <- AnyType$new() # AnyType | XML or YAML format for exported jobs.
 #' var.idlist <- 'idlist_example' # character | A comma-separated list of Job IDs to export.
@@ -110,12 +113,15 @@
 #' #Export the job definitions in XML or YAML formats.
 #' api.instance <- JobApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_jobs_export(var.project, format=var.format, idlist=var.idlist, group_path=var.group_path, job_filter=var.job_filter)
 #'
 #'
 #' ####################  project_jobs_import  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.body <- NULL # object | 
 #' var.content_type <- AnyType$new() # AnyType | 
@@ -126,6 +132,9 @@
 #'
 #' #Import job definitions in XML or YAML formats.
 #' api.instance <- JobApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$project_jobs_import(var.project, var.body, content_type=var.content_type, accept=var.accept, file_format=var.file_format, dupe_option=var.dupe_option, uuid_option=var.uuid_option)
 #'
@@ -197,6 +206,10 @@ JobApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "PUT",
@@ -251,6 +264,10 @@ JobApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
@@ -260,7 +277,13 @@ JobApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "character", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -322,6 +345,10 @@ JobApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
@@ -331,7 +358,13 @@ JobApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

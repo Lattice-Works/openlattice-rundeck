@@ -1,4 +1,4 @@
-# openlattice-rundeck::ExecuteJobRequest
+# openlattice_rundeck::ExecuteJobRequest
 
 ## Properties
 Name | Type | Description | Notes

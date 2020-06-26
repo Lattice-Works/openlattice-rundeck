@@ -54,7 +54,7 @@ InvalidAclPolicyResponsePolicies <- R6::R6Class(
         self$`policy` <- InvalidAclPolicyResponsePoliciesObject$`policy`
       }
       if (!is.null(InvalidAclPolicyResponsePoliciesObject$`errors`)) {
-        self$`errors` <- ApiClient$new()$deserializeObj(InvalidAclPolicyResponsePoliciesObject$`errors`, "array[character]", loadNamespace("openlattice-rundeck"))
+        self$`errors` <- ApiClient$new()$deserializeObj(InvalidAclPolicyResponsePoliciesObject$`errors`, "array[character]", loadNamespace("openlattice_rundeck"))
       }
     },
     toJSONString = function() {
@@ -80,7 +80,7 @@ InvalidAclPolicyResponsePolicies <- R6::R6Class(
     fromJSONString = function(InvalidAclPolicyResponsePoliciesJson) {
       InvalidAclPolicyResponsePoliciesObject <- jsonlite::fromJSON(InvalidAclPolicyResponsePoliciesJson)
       self$`policy` <- InvalidAclPolicyResponsePoliciesObject$`policy`
-      self$`errors` <- ApiClient$new()$deserializeObj(InvalidAclPolicyResponsePoliciesObject$`errors`, "array[character]", loadNamespace("openlattice-rundeck"))
+      self$`errors` <- ApiClient$new()$deserializeObj(InvalidAclPolicyResponsePoliciesObject$`errors`, "array[character]", loadNamespace("openlattice_rundeck"))
       self
     }
   )

@@ -1,4 +1,4 @@
-Package: openlattice-rundeck
+Package: openlattice_rundeck
 Title: R Package Client for Rundeck
 Version: 0.1.0
 Authors@R: person("OpenAPI Generator community", email = "team@openapitools.org", role = c("aut", "cre"))

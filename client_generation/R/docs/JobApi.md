@@ -16,7 +16,7 @@ Import project archive.
 
 ### Example
 ```R
-library(openlattice-rundeck)
+library(openlattice_rundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.body <- NULL # object | 
@@ -27,6 +27,8 @@ var.import_acl <- 'import_acl_example' # character |
 
 #Import project archive.
 api.instance <- JobApi$new()
+# Configure API key authorization: rundeck_auth
+api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
 api.instance$project_archive_import(var.project, var.body, job_uuid_option=var.job_uuid_option, import_executions=var.import_executions, import_config=var.import_config, import_acl=var.import_acl)
 ```
 
@@ -47,7 +49,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
@@ -60,13 +62,13 @@ No authorization required
 | **200** | Expected response to a valid request |  -  |
 
 # **project_jobs_export**
-> project_jobs_export(project, format=var.format, idlist=var.idlist, group_path=var.group_path, job_filter=var.job_filter)
+> character project_jobs_export(project, format=var.format, idlist=var.idlist, group_path=var.group_path, job_filter=var.job_filter)
 
 Export the job definitions in XML or YAML formats.
 
 ### Example
 ```R
-library(openlattice-rundeck)
+library(openlattice_rundeck)
 
 var.project <- 'project_example' # character | The project to export jobs for.
 var.format <- TODO # AnyType | XML or YAML format for exported jobs.
@@ -76,7 +78,10 @@ var.job_filter <- 'job_filter_example' # character | Filter for the job Name.
 
 #Export the job definitions in XML or YAML formats.
 api.instance <- JobApi$new()
-api.instance$project_jobs_export(var.project, format=var.format, idlist=var.idlist, group_path=var.group_path, job_filter=var.job_filter)
+# Configure API key authorization: rundeck_auth
+api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$project_jobs_export(var.project, format=var.format, idlist=var.idlist, group_path=var.group_path, job_filter=var.job_filter)
+dput(result)
 ```
 
 ### Parameters
@@ -91,16 +96,16 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**character**
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -108,13 +113,13 @@ No authorization required
 | **200** | Expected response to a valid request. |  -  |
 
 # **project_jobs_import**
-> project_jobs_import(project, body, content_type=var.content_type, accept=var.accept, file_format=var.file_format, dupe_option=var.dupe_option, uuid_option=var.uuid_option)
+> object project_jobs_import(project, body, content_type=var.content_type, accept=var.accept, file_format=var.file_format, dupe_option=var.dupe_option, uuid_option=var.uuid_option)
 
 Import job definitions in XML or YAML formats.
 
 ### Example
 ```R
-library(openlattice-rundeck)
+library(openlattice_rundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.body <- NULL # object | 
@@ -126,7 +131,10 @@ var.uuid_option <- TODO # AnyType |
 
 #Import job definitions in XML or YAML formats.
 api.instance <- JobApi$new()
-api.instance$project_jobs_import(var.project, var.body, content_type=var.content_type, accept=var.accept, file_format=var.file_format, dupe_option=var.dupe_option, uuid_option=var.uuid_option)
+# Configure API key authorization: rundeck_auth
+api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$project_jobs_import(var.project, var.body, content_type=var.content_type, accept=var.accept, file_format=var.file_format, dupe_option=var.dupe_option, uuid_option=var.uuid_option)
+dput(result)
 ```
 
 ### Parameters
@@ -143,16 +151,16 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
-No authorization required
+[rundeck_auth](../README.md#rundeck_auth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

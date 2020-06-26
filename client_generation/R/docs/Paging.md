@@ -1,4 +1,4 @@
-# openlattice-rundeck::Paging
+# openlattice_rundeck::Paging
 
 ## Properties
 Name | Type | Description | Notes

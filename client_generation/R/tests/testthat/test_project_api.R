@@ -5,11 +5,237 @@ context("Test ProjectApi")
 
 api.instance <- ProjectApi$new()
 
-test_that("api26_project_project_motd_md_delete", {
-  # tests for api26_project_project_motd_md_delete
+test_that("project_archive_export_sync", {
+  # tests for project_archive_export_sync
+  # base path: http://localhost
+  # Export archive of project synchronously
+  # @param character  project  Name of the project to import jobs into. 
+  # @param character  execution_ids  A list (comma-separated) of execution IDs. If this is specified then the archive will contain only executions that are specified, and will not contain Jobs, ACLs, or project configuration/readme files.  (optional)
+  # @param AnyType  export_all  Export all project resources  (optional)
+  # @param character  export_jobs  Export all project resources  (optional)
+  # @param character  export_executions  Export all project resources  (optional)
+  # @param character  export_configs  Export all project resources  (optional)
+  # @param character  export_readmes  Export all project resources  (optional)
+  # @param character  export_acls  Export all project resources  (optional)
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_archive_import", {
+  # tests for project_archive_import
+  # base path: http://localhost
+  # Import project archive.
+  # @param character  project  Name of the project to import jobs into. 
+  # @param object  body   
+  # @param AnyType  job_uuid_option    (optional)
+  # @param character  import_executions    (optional)
+  # @param character  import_config    (optional)
+  # @param character  import_acl    (optional)
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_config_get", {
+  # tests for project_config_get
+  # base path: http://localhost
+  # Get project config
+  # @param character  project   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_config_key_delete", {
+  # tests for project_config_key_delete
+  # base path: http://localhost
+  # Delete project config key
+  # @param character  project   
+  # @param character  key   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_config_key_get", {
+  # tests for project_config_key_get
+  # base path: http://localhost
+  # Get project config key
+  # @param character  project   
+  # @param character  key   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_config_key_set", {
+  # tests for project_config_key_set
+  # base path: http://localhost
+  # Get project config key
+  # @param character  project   
+  # @param character  key   
+  # @param InlineObject1  inline_object1   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_config_update", {
+  # tests for project_config_update
+  # base path: http://localhost
+  # Update project config
+  # @param character  project   
+  # @param object  body   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_create", {
+  # tests for project_create
+  # base path: http://localhost
+  # Create a new project
+  # @param InlineObject  inline_object   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_delete", {
+  # tests for project_delete
+  # base path: http://localhost
+  # Delete project
+  # @param character  project   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_get", {
+  # tests for project_get
+  # base path: http://localhost
+  # Get information about a project
+  # @param character  project   
+  # @return [Project]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_jobs_export", {
+  # tests for project_jobs_export
+  # base path: http://localhost
+  # Export the job definitions in XML or YAML formats.
+  # @param character  project  The project to export jobs for. 
+  # @param AnyType  format  XML or YAML format for exported jobs.  (optional)
+  # @param character  idlist  A comma-separated list of Job IDs to export.  (optional)
+  # @param character  group_path  Group or partial group path to include all jobs within that group path.  (optional)
+  # @param character  job_filter  Filter for the job Name.  (optional)
+  # @return [character]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_jobs_import", {
+  # tests for project_jobs_import
+  # base path: http://localhost
+  # Import job definitions in XML or YAML formats.
+  # @param character  project  Name of the project to import jobs into. 
+  # @param object  body   
+  # @param AnyType  content_type    (optional)
+  # @param AnyType  accept    (optional)
+  # @param AnyType  file_format    (optional)
+  # @param AnyType  dupe_option    (optional)
+  # @param AnyType  uuid_option    (optional)
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_list", {
+  # tests for project_list
+  # base path: http://localhost
+  # List projects
+  # @return [array[InlineResponse200]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_motd_delete", {
+  # tests for project_motd_delete
   # base path: http://localhost
   # Delete project motd.md
   # @param character  project  Name of the project to import jobs into. 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_motd_get", {
+  # tests for project_motd_get
+  # base path: http://localhost
+  # Get the readme.md contents
+  # @param character  project  Name of the project to import jobs into. 
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_motd_put", {
+  # tests for project_motd_put
+  # base path: http://localhost
+  # Create or modify project MOTD.md
+  # @param character  project  Name of the project to import jobs into. 
+  # @param InlineObject3  inline_object3   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_readme_delete", {
+  # tests for project_readme_delete
+  # base path: http://localhost
+  # Delete project README.md
+  # @param character  project  Name of the project to import jobs into. 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_readme_get", {
+  # tests for project_readme_get
+  # base path: http://localhost
+  # Get the readme.md contents
+  # @param character  project  Name of the project to import jobs into. 
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_readme_put", {
+  # tests for project_readme_put
+  # base path: http://localhost
+  # Create or modify project README.md
+  # @param character  project  Name of the project to import jobs into. 
+  # @param InlineObject2  inline_object2   
   # @return [Void]
 
   # uncomment below to test the operation

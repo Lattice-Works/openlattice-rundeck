@@ -1,4 +1,4 @@
-# openlattice-rundeck::ExecutionOutput
+# openlattice_rundeck::ExecutionOutput
 
 ## Properties
 Name | Type | Description | Notes

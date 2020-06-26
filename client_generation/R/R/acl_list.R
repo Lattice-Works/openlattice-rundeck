@@ -82,7 +82,7 @@ AclList <- R6::R6Class(
         self$`href` <- AclListObject$`href`
       }
       if (!is.null(AclListObject$`resources`)) {
-        self$`resources` <- ApiClient$new()$deserializeObj(AclListObject$`resources`, "array[AclReference]", loadNamespace("openlattice-rundeck"))
+        self$`resources` <- ApiClient$new()$deserializeObj(AclListObject$`resources`, "array[AclReference]", loadNamespace("openlattice_rundeck"))
       }
     },
     toJSONString = function() {
@@ -124,7 +124,7 @@ AclList <- R6::R6Class(
       self$`path` <- AclListObject$`path`
       self$`type` <- AclListObject$`type`
       self$`href` <- AclListObject$`href`
-      self$`resources` <- ApiClient$new()$deserializeObj(AclListObject$`resources`, "array[AclReference]", loadNamespace("openlattice-rundeck"))
+      self$`resources` <- ApiClient$new()$deserializeObj(AclListObject$`resources`, "array[AclReference]", loadNamespace("openlattice_rundeck"))
       self
     }
   )

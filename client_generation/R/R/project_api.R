@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Project operations
-#' @description openlattice-rundeck.Project
+#' @description openlattice_rundeck.Project
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -30,7 +30,7 @@
 #'
 #' \item status code : 200 | Zip archive
 #'
-#'
+#' \item return type : object 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -58,6 +58,22 @@
 #' }
 #' }
 #'
+#' \strong{ project_config_get } \emph{ Get project config }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#'
+#'
+#' \item status code : 200 | Project info
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ project_config_key_delete } \emph{ Delete project config key }
 #' 
 #'
@@ -69,6 +85,41 @@
 #' \item status code : 200 | Success !
 #'
 #'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ project_config_key_get } \emph{ Get project config key }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } key character
+#'
+#'
+#' \item status code : 200 | Project config key and value
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ project_config_key_set } \emph{ Get project config key }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } key character
+#' \item \emph{ @param } inline_object1 \link{InlineObject1}
+#'
+#'
+#' \item status code : 200 | Project config key set
+#'
+#' \item return type : object 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -96,7 +147,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } project_create_request \link{AnyType}
+#' \item \emph{ @param } inline_object \link{InlineObject}
 #'
 #'
 #' \item status code : 200 | Success !
@@ -124,6 +175,23 @@
 #' }
 #' }
 #'
+#' \strong{ project_get } \emph{ Get information about a project }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @returnType } \link{Project} \cr
+#'
+#'
+#' \item status code : 200 | Project info
+#'
+#' \item return type : Project 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ project_jobs_export } \emph{ Export the job definitions in XML or YAML formats. }
 #' 
 #'
@@ -137,7 +205,7 @@
 #'
 #' \item status code : 200 | Expected response to a valid request.
 #'
-#'
+#' \item return type : character 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -159,7 +227,23 @@
 #'
 #' \item status code : 200 | Expected response to a valid request.
 #'
+#' \item return type : object 
+#' \item response headers :
 #'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ project_list } \emph{ List projects }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @returnType } list( \link{inline_response_200} ) \cr
+#'
+#'
+#' \item status code : 200 | List of projects
+#'
+#' \item return type : array[InlineResponse200] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -174,6 +258,39 @@
 #'
 #'
 #' \item status code : 200 | Success !
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ project_motd_get } \emph{ Get the readme.md contents }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#'
+#'
+#' \item status code : 200 | motd.md contents
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ project_motd_put } \emph{ Create or modify project MOTD.md }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } inline_object3 \link{InlineObject3}
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request.
 #'
 #'
 #' \item response headers :
@@ -198,6 +315,39 @@
 #' }
 #' }
 #'
+#' \strong{ project_readme_get } \emph{ Get the readme.md contents }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#'
+#'
+#' \item status code : 200 | readme.md contents
+#'
+#' \item return type : object 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ project_readme_put } \emph{ Create or modify project README.md }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } project character
+#' \item \emph{ @param } inline_object2 \link{InlineObject2}
+#'
+#'
+#' \item status code : 200 | Expected response to a valid request
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' }
 #'
 #'
@@ -205,7 +355,7 @@
 #' \dontrun{
 #' ####################  project_archive_export_sync  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.execution_ids <- 'execution_ids_example' # character | A list (comma-separated) of execution IDs. If this is specified then the archive will contain only executions that are specified, and will not contain Jobs, ACLs, or project configuration/readme files.
 #' var.export_all <- AnyType$new() # AnyType | Export all project resources
@@ -218,12 +368,15 @@
 #' #Export archive of project synchronously
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_archive_export_sync(var.project, execution_ids=var.execution_ids, export_all=var.export_all, export_jobs=var.export_jobs, export_executions=var.export_executions, export_configs=var.export_configs, export_readmes=var.export_readmes, export_acls=var.export_acls)
 #'
 #'
 #' ####################  project_archive_import  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.body <- NULL # object | 
 #' var.job_uuid_option <- AnyType$new() # AnyType | 
@@ -234,58 +387,132 @@
 #' #Import project archive.
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_archive_import(var.project, var.body, job_uuid_option=var.job_uuid_option, import_executions=var.import_executions, import_config=var.import_config, import_acl=var.import_acl)
+#'
+#'
+#' ####################  project_config_get  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | 
+#'
+#' #Get project config
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_config_get(var.project)
 #'
 #'
 #' ####################  project_config_key_delete  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | 
 #' var.key <- 'key_example' # character | 
 #'
 #' #Delete project config key
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_config_key_delete(var.project, var.key)
+#'
+#'
+#' ####################  project_config_key_get  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | 
+#' var.key <- 'key_example' # character | 
+#'
+#' #Get project config key
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_config_key_get(var.project, var.key)
+#'
+#'
+#' ####################  project_config_key_set  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | 
+#' var.key <- 'key_example' # character | 
+#' var.inline_object1 <- InlineObject1$new() # InlineObject1 | 
+#'
+#' #Get project config key
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_config_key_set(var.project, var.key, var.inline_object1)
 #'
 #'
 #' ####################  project_config_update  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | 
 #' var.body <- NULL # object | 
 #'
 #' #Update project config
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_config_update(var.project, var.body)
 #'
 #'
 #' ####################  project_create  ####################
 #'
-#' library(openlattice-rundeck)
-#' var.project_create_request <- AnyType$new() # AnyType | 
+#' library(openlattice_rundeck)
+#' var.inline_object <- InlineObject$new() # InlineObject | 
 #'
 #' #Create a new project
 #' api.instance <- ProjectApi$new()
 #'
-#' result <- api.instance$project_create(var.project_create_request)
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_create(var.inline_object)
 #'
 #'
 #' ####################  project_delete  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | 
 #'
 #' #Delete project
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_delete(var.project)
+#'
+#'
+#' ####################  project_get  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | 
+#'
+#' #Get information about a project
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_get(var.project)
 #'
 #'
 #' ####################  project_jobs_export  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | The project to export jobs for.
 #' var.format <- AnyType$new() # AnyType | XML or YAML format for exported jobs.
 #' var.idlist <- 'idlist_example' # character | A comma-separated list of Job IDs to export.
@@ -295,12 +522,15 @@
 #' #Export the job definitions in XML or YAML formats.
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_jobs_export(var.project, format=var.format, idlist=var.idlist, group_path=var.group_path, job_filter=var.job_filter)
 #'
 #'
 #' ####################  project_jobs_import  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.body <- NULL # object | 
 #' var.content_type <- AnyType$new() # AnyType | 
@@ -312,29 +542,109 @@
 #' #Import job definitions in XML or YAML formats.
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_jobs_import(var.project, var.body, content_type=var.content_type, accept=var.accept, file_format=var.file_format, dupe_option=var.dupe_option, uuid_option=var.uuid_option)
+#'
+#'
+#' ####################  project_list  ####################
+#'
+#' library(openlattice_rundeck)
+#'
+#' #List projects
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_list()
 #'
 #'
 #' ####################  project_motd_delete  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #'
 #' #Delete project motd.md
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_motd_delete(var.project)
+#'
+#'
+#' ####################  project_motd_get  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | Name of the project to import jobs into.
+#'
+#' #Get the readme.md contents
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_motd_get(var.project)
+#'
+#'
+#' ####################  project_motd_put  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | Name of the project to import jobs into.
+#' var.inline_object3 <- InlineObject3$new() # InlineObject3 | 
+#'
+#' #Create or modify project MOTD.md
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_motd_put(var.project, var.inline_object3)
 #'
 #'
 #' ####################  project_readme_delete  ####################
 #'
-#' library(openlattice-rundeck)
+#' library(openlattice_rundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #'
 #' #Delete project README.md
 #' api.instance <- ProjectApi$new()
 #'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
 #' result <- api.instance$project_readme_delete(var.project)
+#'
+#'
+#' ####################  project_readme_get  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | Name of the project to import jobs into.
+#'
+#' #Get the readme.md contents
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_readme_get(var.project)
+#'
+#'
+#' ####################  project_readme_put  ####################
+#'
+#' library(openlattice_rundeck)
+#' var.project <- 'project_example' # character | Name of the project to import jobs into.
+#' var.inline_object2 <- InlineObject2$new() # InlineObject2 | 
+#'
+#' #Create or modify project README.md
+#' api.instance <- ProjectApi$new()
+#'
+#' #Configure API key authorization: rundeck_auth
+#' api.instance$apiClient$apiKeys['X-Rundeck-Auth-Token'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$project_readme_put(var.project, var.inline_object2)
 #'
 #'
 #' }
@@ -395,6 +705,10 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
@@ -404,7 +718,13 @@ ProjectApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -464,6 +784,10 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "PUT",
@@ -474,6 +798,62 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_config_get = function(project, ...){
+      apiResponse <- self$project_config_getWithHttpInfo(project, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_config_getWithHttpInfo = function(project, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      urlPath <- "/api/26/project/{project}/config"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -518,6 +898,10 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "key", "\\}"), URLencode(as.character(`key`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "DELETE",
@@ -528,6 +912,149 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_config_key_get = function(project, key, ...){
+      apiResponse <- self$project_config_key_getWithHttpInfo(project, key, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_config_key_getWithHttpInfo = function(project, key, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      if (missing(`key`)) {
+        stop("Missing required parameter `key`.")
+      }
+
+      urlPath <- "/api/26/project/{project}/config/{key}"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`key`)) {
+        urlPath <- gsub(paste0("\\{", "key", "\\}"), URLencode(as.character(`key`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_config_key_set = function(project, key, inline_object1, ...){
+      apiResponse <- self$project_config_key_setWithHttpInfo(project, key, inline_object1, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_config_key_setWithHttpInfo = function(project, key, inline_object1, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      if (missing(`key`)) {
+        stop("Missing required parameter `key`.")
+      }
+
+      if (missing(`inline_object1`)) {
+        stop("Missing required parameter `inline_object1`.")
+      }
+
+      if (!missing(`inline_object1`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object1`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/project/{project}/config/{key}"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`key`)) {
+        urlPath <- gsub(paste0("\\{", "key", "\\}"), URLencode(as.character(`key`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -579,6 +1106,10 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "PUT",
@@ -597,8 +1128,8 @@ ProjectApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    project_create = function(project_create_request, ...){
-      apiResponse <- self$project_createWithHttpInfo(project_create_request, ...)
+    project_create = function(inline_object, ...){
+      apiResponse <- self$project_createWithHttpInfo(inline_object, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -611,20 +1142,31 @@ ProjectApi <- R6::R6Class(
       }
     },
 
-    project_createWithHttpInfo = function(project_create_request, ...){
+    project_createWithHttpInfo = function(inline_object, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`project_create_request`)) {
-        stop("Missing required parameter `project_create_request`.")
+      if (missing(`inline_object`)) {
+        stop("Missing required parameter `inline_object`.")
+      }
+
+      if (!missing(`inline_object`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
       }
 
       urlPath <- "/api/26/projects"
-      if (!missing(`project_create_request`)) {
-        urlPath <- gsub(paste0("\\{", "ProjectCreateRequest", "\\}"), URLencode(as.character(`project_create_request`), reserved = TRUE), urlPath)
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
       }
-
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
@@ -671,6 +1213,10 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "DELETE",
@@ -681,6 +1227,62 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_get = function(project, ...){
+      apiResponse <- self$project_getWithHttpInfo(project, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_getWithHttpInfo = function(project, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      urlPath <- "/api/26/project/{project}"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "Project", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -725,6 +1327,10 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
@@ -734,7 +1340,13 @@ ProjectApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "character", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -796,6 +1408,10 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
@@ -805,7 +1421,61 @@ ProjectApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_list = function(...){
+      apiResponse <- self$project_listWithHttpInfo(...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_listWithHttpInfo = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      urlPath <- "/api/26/projects"
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "array[InlineResponse200]", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -842,9 +1512,134 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_motd_get = function(project, ...){
+      apiResponse <- self$project_motd_getWithHttpInfo(project, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_motd_getWithHttpInfo = function(project, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      urlPath <- "/api/26/project/{project}/motd.md"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_motd_put = function(project, inline_object3, ...){
+      apiResponse <- self$project_motd_putWithHttpInfo(project, inline_object3, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_motd_putWithHttpInfo = function(project, inline_object3, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      if (missing(`inline_object3`)) {
+        stop("Missing required parameter `inline_object3`.")
+      }
+
+      if (!missing(`inline_object3`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object3`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/project/{project}/motd.md"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
@@ -888,9 +1683,134 @@ ProjectApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
       }
 
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_readme_get = function(project, ...){
+      apiResponse <- self$project_readme_getWithHttpInfo(project, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_readme_getWithHttpInfo = function(project, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      urlPath <- "/api/26/project/{project}/readme.md"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    project_readme_put = function(project, inline_object2, ...){
+      apiResponse <- self$project_readme_putWithHttpInfo(project, inline_object2, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    project_readme_putWithHttpInfo = function(project, inline_object2, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`project`)) {
+        stop("Missing required parameter `project`.")
+      }
+
+      if (missing(`inline_object2`)) {
+        stop("Missing required parameter `inline_object2`.")
+      }
+
+      if (!missing(`inline_object2`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object2`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/api/26/project/{project}/readme.md"
+      if (!missing(`project`)) {
+        urlPath <- gsub(paste0("\\{", "project", "\\}"), URLencode(as.character(`project`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-Rundeck-Auth-Token" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]) > 0) {
+        headerParams['X-Rundeck-Auth-Token'] <- paste(unlist(self$apiClient$apiKeys["X-Rundeck-Auth-Token"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,

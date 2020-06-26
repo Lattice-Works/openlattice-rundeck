@@ -5,12 +5,49 @@ context("Test JobApi")
 
 api.instance <- JobApi$new()
 
-test_that("api34_job_id_workflow_get", {
-  # tests for api34_job_id_workflow_get
+test_that("project_archive_import", {
+  # tests for project_archive_import
   # base path: http://localhost
-  # Get job workflow tree.
-  # @param character  id   
+  # Import project archive.
+  # @param character  project  Name of the project to import jobs into. 
+  # @param object  body   
+  # @param AnyType  job_uuid_option    (optional)
+  # @param character  import_executions    (optional)
+  # @param character  import_config    (optional)
+  # @param character  import_acl    (optional)
   # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_jobs_export", {
+  # tests for project_jobs_export
+  # base path: http://localhost
+  # Export the job definitions in XML or YAML formats.
+  # @param character  project  The project to export jobs for. 
+  # @param AnyType  format  XML or YAML format for exported jobs.  (optional)
+  # @param character  idlist  A comma-separated list of Job IDs to export.  (optional)
+  # @param character  group_path  Group or partial group path to include all jobs within that group path.  (optional)
+  # @param character  job_filter  Filter for the job Name.  (optional)
+  # @return [character]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("project_jobs_import", {
+  # tests for project_jobs_import
+  # base path: http://localhost
+  # Import job definitions in XML or YAML formats.
+  # @param character  project  Name of the project to import jobs into. 
+  # @param object  body   
+  # @param AnyType  content_type    (optional)
+  # @param AnyType  accept    (optional)
+  # @param AnyType  file_format    (optional)
+  # @param AnyType  dupe_option    (optional)
+  # @param AnyType  uuid_option    (optional)
+  # @return [object]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
