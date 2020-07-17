@@ -208,7 +208,7 @@ Execution <- R6::R6Class(
         self$`argstring` <- ExecutionObject$`argstring`
       }
       if (!is.null(ExecutionObject$`successfulNodes`)) {
-        self$`successfulNodes` <- ApiClient$new()$deserializeObj(ExecutionObject$`successfulNodes`, "array[character]", loadNamespace("openlattice_rundeck"))
+        self$`successfulNodes` <- ApiClient$new()$deserializeObj(ExecutionObject$`successfulNodes`, "array[character]", loadNamespace("olrundeck"))
       }
     },
     toJSONString = function() {
@@ -322,7 +322,7 @@ Execution <- R6::R6Class(
       self$`job` <- JobMetadata$new()$fromJSON(jsonlite::toJSON(ExecutionObject$job, auto_unbox = TRUE, digits = NA))
       self$`description` <- ExecutionObject$`description`
       self$`argstring` <- ExecutionObject$`argstring`
-      self$`successfulNodes` <- ApiClient$new()$deserializeObj(ExecutionObject$`successfulNodes`, "array[character]", loadNamespace("openlattice_rundeck"))
+      self$`successfulNodes` <- ApiClient$new()$deserializeObj(ExecutionObject$`successfulNodes`, "array[character]", loadNamespace("olrundeck"))
       self
     }
   )

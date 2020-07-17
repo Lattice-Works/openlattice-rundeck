@@ -16,7 +16,7 @@ List the scheduled Jobs with their schedule owned by the cluster server with the
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.uuid <- 'uuid_example' # character | The ID of the user to retrieve profile information for
 
@@ -59,7 +59,7 @@ List the scheduled Jobs with their schedule owned by the cluster server
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List the scheduled Jobs with their schedule owned by the cluster server
@@ -98,7 +98,7 @@ Tell a Rundeck server in cluster mode to claim all scheduled jobs from another c
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object10 <- inline_object_10$new(_api_26_scheduler_takeover_server$new("uuid_example", "all_example"), "project_example", _api_26_scheduler_takeover_job$new("id_example")) # InlineObject10 | 
 

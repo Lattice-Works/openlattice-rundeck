@@ -1,4 +1,4 @@
-# openlattice_rundeck::InlineResponse200
+# olrundeck::InlineResponse200
 
 ## Properties
 Name | Type | Description | Notes

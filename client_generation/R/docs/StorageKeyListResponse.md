@@ -1,4 +1,4 @@
-# openlattice_rundeck::StorageKeyListResponse
+# olrundeck::StorageKeyListResponse
 
 ## Properties
 Name | Type | Description | Notes

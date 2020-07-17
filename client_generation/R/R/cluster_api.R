@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Cluster operations
-#' @description openlattice_rundeck.Cluster
+#' @description olrundeck.Cluster
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -71,7 +71,7 @@
 #' \dontrun{
 #' ####################  system_scheduled_jobs_for_server  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.uuid <- 'uuid_example' # character | The ID of the user to retrieve profile information for
 #'
 #' #List the scheduled Jobs with their schedule owned by the cluster server with the specified UUID
@@ -85,7 +85,7 @@
 #'
 #' ####################  system_scheduled_jobs_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List the scheduled Jobs with their schedule owned by the cluster server
 #' api.instance <- ClusterApi$new()
@@ -98,7 +98,7 @@
 #'
 #' ####################  system_scheduler_takeover  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.inline_object10 <- InlineObject10$new() # InlineObject10 | 
 #'
 #' #Tell a Rundeck server in cluster mode to claim all scheduled jobs from another cluster server
@@ -168,7 +168,7 @@ ClusterApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[Job]", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "array[Job]", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -216,7 +216,7 @@ ClusterApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[Job]", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "array[Job]", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -279,7 +279,7 @@ ClusterApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "TakeoverScheduleResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "TakeoverScheduleResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

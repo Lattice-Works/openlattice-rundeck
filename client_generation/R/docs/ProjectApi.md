@@ -34,7 +34,7 @@ List job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Project name or * for all projects
 
@@ -77,7 +77,7 @@ List the jobs that exist for a project
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Project name
 var.id_list <- 'id_list_example' # character | Comma separated list of Job IDs to include
@@ -134,7 +134,7 @@ Export archive of project synchronously
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.execution_ids <- 'execution_ids_example' # character | A list (comma-separated) of execution IDs. If this is specified then the archive will contain only executions that are specified, and will not contain Jobs, ACLs, or project configuration/readme files.
@@ -191,7 +191,7 @@ Import project archive.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.body <- NULL # object | 
@@ -243,7 +243,7 @@ Get project config
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | 
 
@@ -286,7 +286,7 @@ Delete project config key
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | 
 var.key <- 'key_example' # character | 
@@ -330,7 +330,7 @@ Get project config key
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | 
 var.key <- 'key_example' # character | 
@@ -375,7 +375,7 @@ Get project config key
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | 
 var.key <- 'key_example' # character | 
@@ -422,7 +422,7 @@ Update project config
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | 
 var.body <- NULL # object | 
@@ -466,7 +466,7 @@ Create a new project
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object6 <- inline_object_6$new("name_example", 123) # InlineObject6 | 
 
@@ -508,7 +508,7 @@ Delete project
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | 
 
@@ -550,7 +550,7 @@ Get information about a project
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | 
 
@@ -593,7 +593,7 @@ Export the job definitions in XML or YAML formats.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | The project to export jobs for.
 var.format <- TODO # AnyType | XML or YAML format for exported jobs.
@@ -644,7 +644,7 @@ Import job definitions in XML or YAML formats.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.body <- NULL # object | 
@@ -699,7 +699,7 @@ List projects
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List projects
@@ -738,7 +738,7 @@ Delete project motd.md
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 
@@ -780,7 +780,7 @@ Get the readme.md contents
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 
@@ -823,7 +823,7 @@ Create or modify project MOTD.md
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.inline_object9 <- inline_object_9$new("contents_example") # InlineObject9 | 
@@ -867,7 +867,7 @@ Delete project README.md
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 
@@ -909,7 +909,7 @@ Get the readme.md contents
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 
@@ -952,7 +952,7 @@ Create or modify project README.md
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.inline_object8 <- inline_object_8$new("contents_example") # InlineObject8 | 

@@ -1,4 +1,4 @@
 library(testthat)
-library(openlattice_rundeck)
+library(olrundeck)
 
-test_check("openlattice_rundeck")
+test_check("olrundeck")

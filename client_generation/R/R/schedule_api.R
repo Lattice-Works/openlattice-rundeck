@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Schedule operations
-#' @description openlattice_rundeck.Schedule
+#' @description olrundeck.Schedule
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -87,7 +87,7 @@
 #' \dontrun{
 #' ####################  job_schedule_bulk_disable  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.inline_object5 <- InlineObject5$new() # InlineObject5 | 
 #'
 #' #Bulk disable job schedule
@@ -101,7 +101,7 @@
 #'
 #' ####################  job_schedule_bulk_enable  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.inline_object4 <- InlineObject4$new() # InlineObject4 | 
 #'
 #' #Bulk enable job schedule
@@ -115,7 +115,7 @@
 #'
 #' ####################  job_schedule_disable  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.id <- AnyType$new() # AnyType | 
 #'
 #' #Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)
@@ -129,7 +129,7 @@
 #'
 #' ####################  job_schedule_enable  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.id <- AnyType$new() # AnyType | 
 #'
 #' #Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)
@@ -206,7 +206,7 @@ ScheduleApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "JobBulkOperationResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "JobBulkOperationResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -269,7 +269,7 @@ ScheduleApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "JobBulkOperationResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "JobBulkOperationResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -325,7 +325,7 @@ ScheduleApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -381,7 +381,7 @@ ScheduleApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

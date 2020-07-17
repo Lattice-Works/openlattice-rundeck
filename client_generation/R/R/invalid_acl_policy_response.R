@@ -53,7 +53,7 @@ InvalidAclPolicyResponse <- R6::R6Class(
         self$`valid` <- InvalidAclPolicyResponseObject$`valid`
       }
       if (!is.null(InvalidAclPolicyResponseObject$`policies`)) {
-        self$`policies` <- ApiClient$new()$deserializeObj(InvalidAclPolicyResponseObject$`policies`, "array[InvalidAclPolicyResponsePolicies]", loadNamespace("openlattice_rundeck"))
+        self$`policies` <- ApiClient$new()$deserializeObj(InvalidAclPolicyResponseObject$`policies`, "array[InvalidAclPolicyResponsePolicies]", loadNamespace("olrundeck"))
       }
     },
     toJSONString = function() {
@@ -79,7 +79,7 @@ InvalidAclPolicyResponse <- R6::R6Class(
     fromJSONString = function(InvalidAclPolicyResponseJson) {
       InvalidAclPolicyResponseObject <- jsonlite::fromJSON(InvalidAclPolicyResponseJson)
       self$`valid` <- InvalidAclPolicyResponseObject$`valid`
-      self$`policies` <- ApiClient$new()$deserializeObj(InvalidAclPolicyResponseObject$`policies`, "array[InvalidAclPolicyResponsePolicies]", loadNamespace("openlattice_rundeck"))
+      self$`policies` <- ApiClient$new()$deserializeObj(InvalidAclPolicyResponseObject$`policies`, "array[InvalidAclPolicyResponsePolicies]", loadNamespace("olrundeck"))
       self
     }
   )

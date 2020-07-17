@@ -5,6 +5,35 @@ context("Test ProjectApi")
 
 api.instance <- ProjectApi$new()
 
+test_that("execution_list_running", {
+  # tests for execution_list_running
+  # base path: http://localhost
+  # List job executions
+  # @param character  project  Project name or * for all projects 
+  # @return [ExecutionList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_list", {
+  # tests for job_list
+  # base path: http://localhost
+  # List the jobs that exist for a project
+  # @param character  project  Project name 
+  # @param character  id_list  Comma separated list of Job IDs to include  (optional)
+  # @param character  group_path  Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only.  (optional)
+  # @param character  job_filter  A filter for the job name. Matches any job name that contains this value.  (optional)
+  # @param character  job_exact_filter  An exact job name to match.  (optional)
+  # @param character  group_path_exact  An exact group path to match. Set to the special value \"-\" to match the top level jobs only.  (optional)
+  # @param character  scheduled_filter  Specify whether to return only scheduled or only not scheduled jobs.  (optional)
+  # @param character  server_node_uuid_filter  In cluster mode, use to select scheduled jobs assigned to the server with the given UUID.  (optional)
+  # @return [array[Job]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("project_archive_export_sync", {
   # tests for project_archive_export_sync
   # base path: http://localhost
@@ -80,7 +109,7 @@ test_that("project_config_key_set", {
   # Get project config key
   # @param character  project   
   # @param character  key   
-  # @param InlineObject1  inline_object1   
+  # @param InlineObject7  inline_object7   
   # @return [object]
 
   # uncomment below to test the operation
@@ -103,7 +132,7 @@ test_that("project_create", {
   # tests for project_create
   # base path: http://localhost
   # Create a new project
-  # @param InlineObject  inline_object   
+  # @param InlineObject6  inline_object6   
   # @return [Void]
 
   # uncomment below to test the operation
@@ -201,7 +230,7 @@ test_that("project_motd_put", {
   # base path: http://localhost
   # Create or modify project MOTD.md
   # @param character  project  Name of the project to import jobs into. 
-  # @param InlineObject3  inline_object3   
+  # @param InlineObject9  inline_object9   
   # @return [Void]
 
   # uncomment below to test the operation
@@ -235,7 +264,7 @@ test_that("project_readme_put", {
   # base path: http://localhost
   # Create or modify project README.md
   # @param character  project  Name of the project to import jobs into. 
-  # @param InlineObject2  inline_object2   
+  # @param InlineObject8  inline_object8   
   # @return [Void]
 
   # uncomment below to test the operation

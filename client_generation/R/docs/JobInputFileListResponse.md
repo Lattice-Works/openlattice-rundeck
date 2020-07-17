@@ -1,4 +1,4 @@
-# openlattice_rundeck::JobInputFileListResponse
+# olrundeck::JobInputFileListResponse
 
 ## Properties
 Name | Type | Description | Notes

@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Storage operations
-#' @description openlattice_rundeck.Storage
+#' @description olrundeck.Storage
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -108,7 +108,7 @@
 #' \dontrun{
 #' ####################  storage_key_create  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.path <- AnyType$new() # AnyType | Key path
 #' var.body <- NULL # object | 
 #' var.content_type <- AnyType$new() # AnyType | 
@@ -124,7 +124,7 @@
 #'
 #' ####################  storage_key_delete  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.path <- AnyType$new() # AnyType | Key path
 #'
 #' #Deletes the file if it exists and returns 204 response.
@@ -138,7 +138,7 @@
 #'
 #' ####################  storage_key_get_material  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.key_path <- AnyType$new() # AnyType | Key path
 #' var.accept <- 'accept_example' # character | 
 #'
@@ -153,7 +153,7 @@
 #'
 #' ####################  storage_key_get_metadata  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.path <- AnyType$new() # AnyType | Key path
 #' var.accept <- 'accept_example' # character | 
 #'
@@ -168,7 +168,7 @@
 #'
 #' ####################  storage_key_update  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.path <- AnyType$new() # AnyType | Key path
 #' var.body <- NULL # object | 
 #' var.content_type <- AnyType$new() # AnyType | 
@@ -363,7 +363,7 @@ StorageApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -425,7 +425,7 @@ StorageApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "StorageKeyListResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "StorageKeyListResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

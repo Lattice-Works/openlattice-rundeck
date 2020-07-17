@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Roles operations
-#' @description openlattice_rundeck.Roles
+#' @description olrundeck.Roles
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -36,7 +36,7 @@
 #' \dontrun{
 #' ####################  user_role_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List the roles of the authenticated user
 #' api.instance <- RolesApi$new()
@@ -97,7 +97,7 @@ RolesApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

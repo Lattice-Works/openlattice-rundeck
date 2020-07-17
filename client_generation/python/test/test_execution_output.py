@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.execution_output import ExecutionOutput  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.execution_output import ExecutionOutput  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestExecutionOutput(unittest.TestCase):
     """ExecutionOutput unit test stubs"""
@@ -33,7 +33,7 @@ class TestExecutionOutput(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.execution_output.ExecutionOutput()  # noqa: E501
+        # model = olrundeck.models.execution_output.ExecutionOutput()  # noqa: E501
         if include_optional :
             return ExecutionOutput(
                 id = '0', 
@@ -50,7 +50,7 @@ class TestExecutionOutput(unittest.TestCase):
                 cluster_exec = True, 
                 compacted = True, 
                 entries = [
-                    openlattice_rundeck.models.execution_output_entry.ExecutionOutputEntry(
+                    olrundeck.models.execution_output_entry.ExecutionOutputEntry(
                         time = '0', 
                         absolute_time = '0', 
                         log = '0', 
@@ -75,7 +75,7 @@ class TestExecutionOutput(unittest.TestCase):
                 cluster_exec = True,
                 compacted = True,
                 entries = [
-                    openlattice_rundeck.models.execution_output_entry.ExecutionOutputEntry(
+                    olrundeck.models.execution_output_entry.ExecutionOutputEntry(
                         time = '0', 
                         absolute_time = '0', 
                         log = '0', 

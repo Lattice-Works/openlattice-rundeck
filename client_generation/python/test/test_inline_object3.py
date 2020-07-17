@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.inline_object3 import InlineObject3  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.inline_object3 import InlineObject3  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestInlineObject3(unittest.TestCase):
     """InlineObject3 unit test stubs"""
@@ -33,7 +33,7 @@ class TestInlineObject3(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.inline_object3.InlineObject3()  # noqa: E501
+        # model = olrundeck.models.inline_object3.InlineObject3()  # noqa: E501
         if include_optional :
             return InlineObject3(
                 ids = [

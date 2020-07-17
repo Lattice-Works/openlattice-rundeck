@@ -14,7 +14,7 @@ List the roles of the authenticated user
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List the roles of the authenticated user

@@ -14,7 +14,7 @@ Delete multiple job definitions at once
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object1 <- inline_object_1$new(list("ids_example")) # InlineObject1 | 
 

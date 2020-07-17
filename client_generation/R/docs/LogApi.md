@@ -16,7 +16,7 @@ List all executions with incomplete log storage
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List all executions with incomplete log storage
@@ -55,7 +55,7 @@ Resume processing incomplete Log Storage uploads
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Resume processing incomplete Log Storage uploads
@@ -94,7 +94,7 @@ Get Log Storage information and stats
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Get Log Storage information and stats

@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.execution_list import ExecutionList  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.execution_list import ExecutionList  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestExecutionList(unittest.TestCase):
     """ExecutionList unit test stubs"""
@@ -33,16 +33,16 @@ class TestExecutionList(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.execution_list.ExecutionList()  # noqa: E501
+        # model = olrundeck.models.execution_list.ExecutionList()  # noqa: E501
         if include_optional :
             return ExecutionList(
-                paging = openlattice_rundeck.models.paging.Paging(
+                paging = olrundeck.models.paging.Paging(
                     count = 56, 
                     total = 56, 
                     offset = 56, 
                     max = 56, ), 
                 executions = [
-                    openlattice_rundeck.models.execution.Execution(
+                    olrundeck.models.execution.Execution(
                         id = 1.337, 
                         href = '0', 
                         permalink = '0', 
@@ -51,10 +51,10 @@ class TestExecutionList(unittest.TestCase):
                         project = '0', 
                         user = '0', 
                         server_uuid = '0', 
-                        date_started = openlattice_rundeck.models.date_started.date-started(
+                        date_started = olrundeck.models.date_started.date-started(
                             unixtime = 1.337, 
                             date = '0', ), 
-                        job = openlattice_rundeck.models.job_metadata.JobMetadata(
+                        job = olrundeck.models.job_metadata.JobMetadata(
                             id = '0', 
                             name = '0', 
                             group = '0', 
@@ -65,7 +65,7 @@ class TestExecutionList(unittest.TestCase):
                             scheduled = True, 
                             schedule_enabled = True, 
                             average_duration = 1.337, 
-                            options = openlattice_rundeck.models.options.options(), ), 
+                            options = olrundeck.models.options.options(), ), 
                         description = '0', 
                         argstring = '0', 
                         successful_nodes = [

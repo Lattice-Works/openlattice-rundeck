@@ -1,4 +1,4 @@
-# openlattice_rundeck::LogStorage
+# olrundeck::LogStorage
 
 ## Properties
 Name | Type | Description | Notes

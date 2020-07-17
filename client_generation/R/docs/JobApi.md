@@ -40,7 +40,7 @@ Delete multiple job definitions at once
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object1 <- inline_object_1$new(list("ids_example")) # InlineObject1 | 
 
@@ -83,7 +83,7 @@ Delete a single job definition.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | ID of job to delete.
 
@@ -125,7 +125,7 @@ Bulk disable job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object3 <- inline_object_3$new(list("ids_example")) # InlineObject3 | 
 
@@ -168,7 +168,7 @@ Bulk enable job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object2 <- inline_object_2$new(list("ids_example")) # InlineObject2 | 
 
@@ -211,7 +211,7 @@ Delete all job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 56 # integer | Job ID
 
@@ -253,7 +253,7 @@ Disable all executions for a job (scheduled or manual). (ACL requires toggle_exe
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- TODO # AnyType | 
 
@@ -296,7 +296,7 @@ Enable executions for a job. (ACL requires toggle_execution action for a job.)
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- TODO # AnyType | 
 
@@ -339,7 +339,7 @@ List job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | Job ID
 
@@ -382,7 +382,7 @@ Run the specified job
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | Job ID
 var.body <- NULL # object | 
@@ -427,7 +427,7 @@ Export a single job definition in XML or YAML formats.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | ID of the job to export.
 var.format <- TODO # AnyType | 
@@ -472,7 +472,7 @@ Get metadata about a specific job.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -515,7 +515,7 @@ Get job input file info
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -558,7 +558,7 @@ Upload file as job option
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 var.option_name <- 'option_name_example' # character | 
@@ -606,7 +606,7 @@ List uploaded input files for job
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -649,7 +649,7 @@ List the jobs that exist for a project
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Project name
 var.id_list <- 'id_list_example' # character | Comma separated list of Job IDs to include
@@ -706,7 +706,7 @@ Retry a failed job execution on failed nodes only or on the same as the executio
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.job_id <- 'job_id_example' # character | 
 var.execution_id <- 56 # integer | 
@@ -753,7 +753,7 @@ Bulk disable job schedule
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object5 <- inline_object_5$new(list("ids_example")) # InlineObject5 | 
 
@@ -796,7 +796,7 @@ Bulk enable job schedule
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object4 <- inline_object_4$new(list("ids_example")) # InlineObject4 | 
 
@@ -839,7 +839,7 @@ Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- TODO # AnyType | 
 
@@ -882,7 +882,7 @@ Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- TODO # AnyType | 
 
@@ -925,7 +925,7 @@ Get job workflow tree.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -968,7 +968,7 @@ Import project archive.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.body <- NULL # object | 
@@ -1020,7 +1020,7 @@ Export the job definitions in XML or YAML formats.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | The project to export jobs for.
 var.format <- TODO # AnyType | XML or YAML format for exported jobs.
@@ -1071,7 +1071,7 @@ Import job definitions in XML or YAML formats.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Name of the project to import jobs into.
 var.body <- NULL # object | 
@@ -1126,7 +1126,7 @@ List the scheduled Jobs with their schedule owned by the cluster server with the
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.uuid <- 'uuid_example' # character | The ID of the user to retrieve profile information for
 
@@ -1169,7 +1169,7 @@ List the scheduled Jobs with their schedule owned by the cluster server
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List the scheduled Jobs with their schedule owned by the cluster server
@@ -1208,7 +1208,7 @@ Tell a Rundeck server in cluster mode to claim all scheduled jobs from another c
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object10 <- inline_object_10$new(_api_26_scheduler_takeover_server$new("uuid_example", "all_example"), "project_example", _api_26_scheduler_takeover_job$new("id_example")) # InlineObject10 | 
 

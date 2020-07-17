@@ -1,4 +1,4 @@
-# openlattice_rundeck::AclPolicyResponse
+# olrundeck::AclPolicyResponse
 
 ## Properties
 Name | Type | Description | Notes

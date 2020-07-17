@@ -14,16 +14,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice_rundeck
-from openlattice_rundeck.api.scheduler_api import SchedulerApi  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.api.scheduler_api import SchedulerApi  # noqa: E501
+from olrundeck.rest import ApiException
 
 
 class TestSchedulerApi(unittest.TestCase):
     """SchedulerApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice_rundeck.api.scheduler_api.SchedulerApi()  # noqa: E501
+        self.api = olrundeck.api.scheduler_api.SchedulerApi()  # noqa: E501
 
     def tearDown(self):
         pass

@@ -5,10 +5,10 @@ context("Test InlineObject1")
 
 model.instance <- InlineObject1$new()
 
-test_that("value", {
-  # tests for the property `value` (character)
+test_that("ids", {
+  # tests for the property `ids` (array[character])
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`value`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`ids`, "EXPECTED_RESULT")
 })
 

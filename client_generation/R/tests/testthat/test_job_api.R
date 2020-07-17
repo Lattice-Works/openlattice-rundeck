@@ -5,6 +5,251 @@ context("Test JobApi")
 
 api.instance <- JobApi$new()
 
+test_that("job_bulk_delete", {
+  # tests for job_bulk_delete
+  # base path: http://localhost
+  # Delete multiple job definitions at once
+  # @param InlineObject1  inline_object1   
+  # @return [JobBulkOperationResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_delete", {
+  # tests for job_delete
+  # base path: http://localhost
+  # Delete a single job definition.
+  # @param character  id  ID of job to delete. 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_execution_bulk_disable", {
+  # tests for job_execution_bulk_disable
+  # base path: http://localhost
+  # Bulk disable job executions
+  # @param InlineObject3  inline_object3   
+  # @return [JobBulkOperationResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_execution_bulk_enable", {
+  # tests for job_execution_bulk_enable
+  # base path: http://localhost
+  # Bulk enable job executions
+  # @param InlineObject2  inline_object2   
+  # @return [JobBulkOperationResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_execution_delete", {
+  # tests for job_execution_delete
+  # base path: http://localhost
+  # Delete all job executions
+  # @param integer  id  Job ID 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_execution_disable", {
+  # tests for job_execution_disable
+  # base path: http://localhost
+  # Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.)
+  # @param AnyType  id   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_execution_enable", {
+  # tests for job_execution_enable
+  # base path: http://localhost
+  # Enable executions for a job. (ACL requires toggle_execution action for a job.)
+  # @param AnyType  id   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_execution_list", {
+  # tests for job_execution_list
+  # base path: http://localhost
+  # List job executions
+  # @param character  id  Job ID 
+  # @return [ExecutionList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_execution_run", {
+  # tests for job_execution_run
+  # base path: http://localhost
+  # Run the specified job
+  # @param character  id  Job ID 
+  # @param object  body    (optional)
+  # @return [Execution]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_get", {
+  # tests for job_get
+  # base path: http://localhost
+  # Export a single job definition in XML or YAML formats.
+  # @param character  id  ID of the job to export. 
+  # @param AnyType  format    (optional)
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_info_get", {
+  # tests for job_info_get
+  # base path: http://localhost
+  # Get metadata about a specific job.
+  # @param character  id   
+  # @return [JobMetadata]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_input_file_info_get", {
+  # tests for job_input_file_info_get
+  # base path: http://localhost
+  # Get job input file info
+  # @param character  id   
+  # @return [JobInputFileInfo]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_input_file_upload", {
+  # tests for job_input_file_upload
+  # base path: http://localhost
+  # Upload file as job option
+  # @param character  id   
+  # @param character  option_name   
+  # @param character  file_name   
+  # @param object  body   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_input_files_upload", {
+  # tests for job_input_files_upload
+  # base path: http://localhost
+  # List uploaded input files for job
+  # @param character  id   
+  # @return [JobInputFileListResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_list", {
+  # tests for job_list
+  # base path: http://localhost
+  # List the jobs that exist for a project
+  # @param character  project  Project name 
+  # @param character  id_list  Comma separated list of Job IDs to include  (optional)
+  # @param character  group_path  Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only.  (optional)
+  # @param character  job_filter  A filter for the job name. Matches any job name that contains this value.  (optional)
+  # @param character  job_exact_filter  An exact job name to match.  (optional)
+  # @param character  group_path_exact  An exact group path to match. Set to the special value \"-\" to match the top level jobs only.  (optional)
+  # @param character  scheduled_filter  Specify whether to return only scheduled or only not scheduled jobs.  (optional)
+  # @param character  server_node_uuid_filter  In cluster mode, use to select scheduled jobs assigned to the server with the given UUID.  (optional)
+  # @return [array[Job]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_retry_execution", {
+  # tests for job_retry_execution
+  # base path: http://localhost
+  # Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the &#x60;Retry Failed Nodes ...&#x60; button on the execution page.
+  # @param character  job_id   
+  # @param integer  execution_id   
+  # @param object  body    (optional)
+  # @return [ExecutionList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_schedule_bulk_disable", {
+  # tests for job_schedule_bulk_disable
+  # base path: http://localhost
+  # Bulk disable job schedule
+  # @param InlineObject5  inline_object5   
+  # @return [JobBulkOperationResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_schedule_bulk_enable", {
+  # tests for job_schedule_bulk_enable
+  # base path: http://localhost
+  # Bulk enable job schedule
+  # @param InlineObject4  inline_object4   
+  # @return [JobBulkOperationResponse]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_schedule_disable", {
+  # tests for job_schedule_disable
+  # base path: http://localhost
+  # Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)
+  # @param AnyType  id   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_schedule_enable", {
+  # tests for job_schedule_enable
+  # base path: http://localhost
+  # Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)
+  # @param AnyType  id   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("job_workflow_get", {
+  # tests for job_workflow_get
+  # base path: http://localhost
+  # Get job workflow tree.
+  # @param character  id   
+  # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("project_archive_import", {
   # tests for project_archive_import
   # base path: http://localhost
@@ -48,6 +293,38 @@ test_that("project_jobs_import", {
   # @param AnyType  dupe_option    (optional)
   # @param AnyType  uuid_option    (optional)
   # @return [object]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_scheduled_jobs_for_server", {
+  # tests for system_scheduled_jobs_for_server
+  # base path: http://localhost
+  # List the scheduled Jobs with their schedule owned by the cluster server with the specified UUID
+  # @param character  uuid  The ID of the user to retrieve profile information for 
+  # @return [array[Job]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_scheduled_jobs_list", {
+  # tests for system_scheduled_jobs_list
+  # base path: http://localhost
+  # List the scheduled Jobs with their schedule owned by the cluster server
+  # @return [array[Job]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("system_scheduler_takeover", {
+  # tests for system_scheduler_takeover
+  # base path: http://localhost
+  # Tell a Rundeck server in cluster mode to claim all scheduled jobs from another cluster server
+  # @param InlineObject10  inline_object10   
+  # @return [TakeoverScheduleResponse]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

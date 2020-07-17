@@ -33,7 +33,7 @@ Bulk delete executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object <- inline_object$new(list("ids_example")) # InlineObject | 
 
@@ -76,7 +76,7 @@ Delete an exeuction by ID
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -118,7 +118,7 @@ List input files for an execution
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -161,7 +161,7 @@ List job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | Project name or * for all projects
 
@@ -204,7 +204,7 @@ List input files for an execution
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 var.offset <- 'offset_example' # character | 
@@ -251,7 +251,7 @@ Query for Executions based on Job or Execution details
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.project <- 'project_example' # character | 
 var.status_filter <- 'status_filter_example' # character | 
@@ -307,7 +307,7 @@ Get detail about the node and step state of an execution by ID. The execution ca
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -349,7 +349,7 @@ Get the status of an execution by ID
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -392,7 +392,7 @@ Bulk disable job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object3 <- inline_object_3$new(list("ids_example")) # InlineObject3 | 
 
@@ -435,7 +435,7 @@ Bulk enable job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object2 <- inline_object_2$new(list("ids_example")) # InlineObject2 | 
 
@@ -478,7 +478,7 @@ Delete all job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 56 # integer | Job ID
 
@@ -520,7 +520,7 @@ Disable all executions for a job (scheduled or manual). (ACL requires toggle_exe
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- TODO # AnyType | 
 
@@ -563,7 +563,7 @@ Enable executions for a job. (ACL requires toggle_execution action for a job.)
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- TODO # AnyType | 
 
@@ -606,7 +606,7 @@ List job executions
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | Job ID
 
@@ -649,7 +649,7 @@ Run the specified job
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | Job ID
 var.body <- NULL # object | 
@@ -694,7 +694,7 @@ Retry a failed job execution on failed nodes only or on the same as the executio
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.job_id <- 'job_id_example' # character | 
 var.execution_id <- 56 # integer | 
@@ -741,7 +741,7 @@ Disables executions, preventing adhoc and manual and scheduled jobs from running
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Disables executions, preventing adhoc and manual and scheduled jobs from running.
@@ -780,7 +780,7 @@ Enables executions, allowing adhoc and manual and scheduled jobs to be run
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Enables executions, allowing adhoc and manual and scheduled jobs to be run
@@ -819,7 +819,7 @@ List all executions with incomplete log storage
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List all executions with incomplete log storage
@@ -858,7 +858,7 @@ Resume processing incomplete Log Storage uploads
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Resume processing incomplete Log Storage uploads

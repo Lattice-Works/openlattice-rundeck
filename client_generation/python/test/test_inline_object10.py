@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.inline_object10 import InlineObject10  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.inline_object10 import InlineObject10  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestInlineObject10(unittest.TestCase):
     """InlineObject10 unit test stubs"""
@@ -33,14 +33,14 @@ class TestInlineObject10(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.inline_object10.InlineObject10()  # noqa: E501
+        # model = olrundeck.models.inline_object10.InlineObject10()  # noqa: E501
         if include_optional :
             return InlineObject10(
-                server = openlattice_rundeck.models._api_26_scheduler_takeover_server._api_26_scheduler_takeover_server(
+                server = olrundeck.models._api_26_scheduler_takeover_server._api_26_scheduler_takeover_server(
                     uuid = '0', 
                     all = True, ), 
                 project = '0', 
-                job = openlattice_rundeck.models._api_26_scheduler_takeover_job._api_26_scheduler_takeover_job(
+                job = olrundeck.models._api_26_scheduler_takeover_job._api_26_scheduler_takeover_job(
                     id = '0', )
             )
         else :

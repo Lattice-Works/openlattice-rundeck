@@ -14,16 +14,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice_rundeck
-from openlattice_rundeck.api.log_api import LogApi  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.api.log_api import LogApi  # noqa: E501
+from olrundeck.rest import ApiException
 
 
 class TestLogApi(unittest.TestCase):
     """LogApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice_rundeck.api.log_api.LogApi()  # noqa: E501
+        self.api = olrundeck.api.log_api.LogApi()  # noqa: E501
 
     def tearDown(self):
         pass

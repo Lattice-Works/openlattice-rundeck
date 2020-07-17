@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.job_execution_delete import JobExecutionDelete  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.job_execution_delete import JobExecutionDelete  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestJobExecutionDelete(unittest.TestCase):
     """JobExecutionDelete unit test stubs"""
@@ -33,7 +33,7 @@ class TestJobExecutionDelete(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.job_execution_delete.JobExecutionDelete()  # noqa: E501
+        # model = olrundeck.models.job_execution_delete.JobExecutionDelete()  # noqa: E501
         if include_optional :
             return JobExecutionDelete(
                 failed_count = 1.337, 
@@ -41,7 +41,7 @@ class TestJobExecutionDelete(unittest.TestCase):
                 allsuccessful = True, 
                 request_count = 1.337, 
                 failures = [
-                    openlattice_rundeck.models.job_execution_delete_failures.JobExecutionDelete_failures(
+                    olrundeck.models.job_execution_delete_failures.JobExecutionDelete_failures(
                         id = '0', 
                         message = '0', )
                     ]

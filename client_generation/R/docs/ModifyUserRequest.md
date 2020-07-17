@@ -1,4 +1,4 @@
-# openlattice_rundeck::ModifyUserRequest
+# olrundeck::ModifyUserRequest
 
 ## Properties
 Name | Type | Description | Notes

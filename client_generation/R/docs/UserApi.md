@@ -19,7 +19,7 @@ List user profiles
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List user profiles
@@ -58,7 +58,7 @@ Get same user profile data
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Get same user profile data
@@ -97,7 +97,7 @@ Get another user's profile data
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.user_id <- 'user_id_example' # character | The ID of the user to retrieve profile information for
 
@@ -140,7 +140,7 @@ Modify same user profile data
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.body <- NULL # object | 
 
@@ -183,7 +183,7 @@ Modify another user's profile data
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.user_id <- 'user_id_example' # character | The ID of the user to retrieve profile information for
 var.body <- NULL # object | 
@@ -228,7 +228,7 @@ List the roles of the authenticated user
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List the roles of the authenticated user

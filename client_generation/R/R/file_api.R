@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title File operations
-#' @description openlattice_rundeck.File
+#' @description olrundeck.File
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -56,7 +56,7 @@
 #' \dontrun{
 #' ####################  execution_input_files_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.id <- 'id_example' # character | 
 #'
 #' #List input files for an execution
@@ -70,7 +70,7 @@
 #'
 #' ####################  execution_output_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.id <- 'id_example' # character | 
 #' var.offset <- 'offset_example' # character | 
 #' var.maxlines <- AnyType$new() # AnyType | 
@@ -142,7 +142,7 @@ FileApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -202,7 +202,7 @@ FileApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ExecutionOutput", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "ExecutionOutput", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

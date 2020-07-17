@@ -165,7 +165,7 @@ WorkflowStep <- R6::R6Class(
         self$`nodeStep` <- WorkflowStepObject$`nodeStep`
       }
       if (!is.null(WorkflowStepObject$`workflow`)) {
-        self$`workflow` <- ApiClient$new()$deserializeObj(WorkflowStepObject$`workflow`, "array[WorkflowStep]", loadNamespace("openlattice_rundeck"))
+        self$`workflow` <- ApiClient$new()$deserializeObj(WorkflowStepObject$`workflow`, "array[WorkflowStep]", loadNamespace("olrundeck"))
       }
     },
     toJSONString = function() {
@@ -255,7 +255,7 @@ WorkflowStep <- R6::R6Class(
       self$`scripturl` <- WorkflowStepObject$`scripturl`
       self$`type` <- WorkflowStepObject$`type`
       self$`nodeStep` <- WorkflowStepObject$`nodeStep`
-      self$`workflow` <- ApiClient$new()$deserializeObj(WorkflowStepObject$`workflow`, "array[WorkflowStep]", loadNamespace("openlattice_rundeck"))
+      self$`workflow` <- ApiClient$new()$deserializeObj(WorkflowStepObject$`workflow`, "array[WorkflowStep]", loadNamespace("olrundeck"))
       self
     }
   )

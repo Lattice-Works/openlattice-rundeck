@@ -24,7 +24,7 @@ Create a policy
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.policy_name <- 'policy_name_example' # character | Policy file name
 var.inline_object12 <- inline_object_12$new("contents_example") # InlineObject12 | 
@@ -68,7 +68,7 @@ Delete policy
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.policy_name <- 'policy_name_example' # character | Policy file name
 
@@ -110,7 +110,7 @@ Retrieve the YAML texas of the ACL Policy file
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.policy_name <- 'policy_name_example' # character | Policy file name
 
@@ -153,7 +153,7 @@ List ACL Policies
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List ACL Policies
@@ -192,7 +192,7 @@ Update policy
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.policy_name <- 'policy_name_example' # character | Policy file name
 var.inline_object11 <- inline_object_11$new("contents_example") # InlineObject11 | 
@@ -237,7 +237,7 @@ Disables executions, preventing adhoc and manual and scheduled jobs from running
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Disables executions, preventing adhoc and manual and scheduled jobs from running.
@@ -276,7 +276,7 @@ Enables executions, allowing adhoc and manual and scheduled jobs to be run
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Enables executions, allowing adhoc and manual and scheduled jobs to be run
@@ -315,7 +315,7 @@ List all executions with incomplete log storage
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List all executions with incomplete log storage
@@ -354,7 +354,7 @@ Resume processing incomplete Log Storage uploads
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Resume processing incomplete Log Storage uploads
@@ -393,7 +393,7 @@ Get Rundeck server information and stats
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Get Rundeck server information and stats
@@ -432,7 +432,7 @@ Get Log Storage information and stats
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #Get Log Storage information and stats
