@@ -14,18 +14,32 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice_rundeck
-from openlattice_rundeck.api.project_api import ProjectApi  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.api.project_api import ProjectApi  # noqa: E501
+from olrundeck.rest import ApiException
 
 
 class TestProjectApi(unittest.TestCase):
     """ProjectApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice_rundeck.api.project_api.ProjectApi()  # noqa: E501
+        self.api = olrundeck.api.project_api.ProjectApi()  # noqa: E501
 
     def tearDown(self):
+        pass
+
+    def test_execution_list_running(self):
+        """Test case for execution_list_running
+
+        List job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_list(self):
+        """Test case for job_list
+
+        List the jobs that exist for a project  # noqa: E501
+        """
         pass
 
     def test_project_archive_export_sync(self):
@@ -42,10 +56,31 @@ class TestProjectApi(unittest.TestCase):
         """
         pass
 
+    def test_project_config_get(self):
+        """Test case for project_config_get
+
+        Get project config  # noqa: E501
+        """
+        pass
+
     def test_project_config_key_delete(self):
         """Test case for project_config_key_delete
 
         Delete project config key  # noqa: E501
+        """
+        pass
+
+    def test_project_config_key_get(self):
+        """Test case for project_config_key_get
+
+        Get project config key  # noqa: E501
+        """
+        pass
+
+    def test_project_config_key_set(self):
+        """Test case for project_config_key_set
+
+        Get project config key  # noqa: E501
         """
         pass
 
@@ -70,6 +105,13 @@ class TestProjectApi(unittest.TestCase):
         """
         pass
 
+    def test_project_get(self):
+        """Test case for project_get
+
+        Get information about a project  # noqa: E501
+        """
+        pass
+
     def test_project_jobs_export(self):
         """Test case for project_jobs_export
 
@@ -84,6 +126,13 @@ class TestProjectApi(unittest.TestCase):
         """
         pass
 
+    def test_project_list(self):
+        """Test case for project_list
+
+        List projects  # noqa: E501
+        """
+        pass
+
     def test_project_motd_delete(self):
         """Test case for project_motd_delete
 
@@ -91,10 +140,38 @@ class TestProjectApi(unittest.TestCase):
         """
         pass
 
+    def test_project_motd_get(self):
+        """Test case for project_motd_get
+
+        Get the readme.md contents  # noqa: E501
+        """
+        pass
+
+    def test_project_motd_put(self):
+        """Test case for project_motd_put
+
+        Create or modify project MOTD.md  # noqa: E501
+        """
+        pass
+
     def test_project_readme_delete(self):
         """Test case for project_readme_delete
 
         Delete project README.md  # noqa: E501
+        """
+        pass
+
+    def test_project_readme_get(self):
+        """Test case for project_readme_get
+
+        Get the readme.md contents  # noqa: E501
+        """
+        pass
+
+    def test_project_readme_put(self):
+        """Test case for project_readme_put
+
+        Create or modify project README.md  # noqa: E501
         """
         pass
 

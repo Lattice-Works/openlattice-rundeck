@@ -1,4 +1,4 @@
-# openlattice_rundeck::Api26SchedulerTakeoverServer
+# olrundeck::Api26SchedulerTakeoverServer
 
 ## Properties
 Name | Type | Description | Notes

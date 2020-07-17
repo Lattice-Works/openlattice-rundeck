@@ -1,4 +1,4 @@
-# openlattice_rundeck::IncompleteLogExecution
+# olrundeck::IncompleteLogExecution
 
 ## Properties
 Name | Type | Description | Notes

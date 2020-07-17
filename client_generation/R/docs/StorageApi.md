@@ -18,7 +18,7 @@ Set storage key contents
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.path <- TODO # AnyType | Key path
 var.body <- NULL # object | 
@@ -64,7 +64,7 @@ Deletes the file if it exists and returns 204 response.
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.path <- TODO # AnyType | Key path
 
@@ -106,7 +106,7 @@ Get key material at the specified PATH
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.key_path <- TODO # AnyType | Key path
 var.accept <- 'accept_example' # character | 
@@ -151,7 +151,7 @@ List resources at the specified PATH
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.path <- TODO # AnyType | Key path
 var.accept <- 'accept_example' # character | 
@@ -196,7 +196,7 @@ Set storage key contents
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.path <- TODO # AnyType | Key path
 var.body <- NULL # object | 

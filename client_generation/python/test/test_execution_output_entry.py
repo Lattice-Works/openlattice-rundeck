@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.execution_output_entry import ExecutionOutputEntry  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.execution_output_entry import ExecutionOutputEntry  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestExecutionOutputEntry(unittest.TestCase):
     """ExecutionOutputEntry unit test stubs"""
@@ -33,7 +33,7 @@ class TestExecutionOutputEntry(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.execution_output_entry.ExecutionOutputEntry()  # noqa: E501
+        # model = olrundeck.models.execution_output_entry.ExecutionOutputEntry()  # noqa: E501
         if include_optional :
             return ExecutionOutputEntry(
                 time = '0', 

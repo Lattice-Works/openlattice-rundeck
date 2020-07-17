@@ -78,10 +78,10 @@ JobBulkOperationResponse <- R6::R6Class(
         self$`allsuccessful` <- JobBulkOperationResponseObject$`allsuccessful`
       }
       if (!is.null(JobBulkOperationResponseObject$`succeeded`)) {
-        self$`succeeded` <- ApiClient$new()$deserializeObj(JobBulkOperationResponseObject$`succeeded`, "array[BulkJobSucceededInfo]", loadNamespace("openlattice_rundeck"))
+        self$`succeeded` <- ApiClient$new()$deserializeObj(JobBulkOperationResponseObject$`succeeded`, "array[BulkJobSucceededInfo]", loadNamespace("olrundeck"))
       }
       if (!is.null(JobBulkOperationResponseObject$`failed`)) {
-        self$`failed` <- ApiClient$new()$deserializeObj(JobBulkOperationResponseObject$`failed`, "array[BulkJobFailedInfo]", loadNamespace("openlattice_rundeck"))
+        self$`failed` <- ApiClient$new()$deserializeObj(JobBulkOperationResponseObject$`failed`, "array[BulkJobFailedInfo]", loadNamespace("olrundeck"))
       }
     },
     toJSONString = function() {
@@ -122,8 +122,8 @@ JobBulkOperationResponse <- R6::R6Class(
       JobBulkOperationResponseObject <- jsonlite::fromJSON(JobBulkOperationResponseJson)
       self$`requestCount` <- JobBulkOperationResponseObject$`requestCount`
       self$`allsuccessful` <- JobBulkOperationResponseObject$`allsuccessful`
-      self$`succeeded` <- ApiClient$new()$deserializeObj(JobBulkOperationResponseObject$`succeeded`, "array[BulkJobSucceededInfo]", loadNamespace("openlattice_rundeck"))
-      self$`failed` <- ApiClient$new()$deserializeObj(JobBulkOperationResponseObject$`failed`, "array[BulkJobFailedInfo]", loadNamespace("openlattice_rundeck"))
+      self$`succeeded` <- ApiClient$new()$deserializeObj(JobBulkOperationResponseObject$`succeeded`, "array[BulkJobSucceededInfo]", loadNamespace("olrundeck"))
+      self$`failed` <- ApiClient$new()$deserializeObj(JobBulkOperationResponseObject$`failed`, "array[BulkJobFailedInfo]", loadNamespace("olrundeck"))
       self
     }
   )

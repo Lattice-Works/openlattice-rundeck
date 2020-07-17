@@ -1,4 +1,4 @@
-# openlattice_rundeck::User
+# olrundeck::User
 
 ## Properties
 Name | Type | Description | Notes

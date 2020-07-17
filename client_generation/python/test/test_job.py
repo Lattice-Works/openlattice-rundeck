@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.job import Job  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.job import Job  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestJob(unittest.TestCase):
     """Job unit test stubs"""
@@ -33,7 +33,7 @@ class TestJob(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.job.Job()  # noqa: E501
+        # model = olrundeck.models.job.Job()  # noqa: E501
         if include_optional :
             return Job(
                 id = '0', 

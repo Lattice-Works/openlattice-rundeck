@@ -17,7 +17,7 @@ Bulk disable job schedule
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object5 <- inline_object_5$new(list("ids_example")) # InlineObject5 | 
 
@@ -60,7 +60,7 @@ Bulk enable job schedule
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.inline_object4 <- inline_object_4$new(list("ids_example")) # InlineObject4 | 
 
@@ -103,7 +103,7 @@ Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- TODO # AnyType | 
 
@@ -146,7 +146,7 @@ Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- TODO # AnyType | 
 

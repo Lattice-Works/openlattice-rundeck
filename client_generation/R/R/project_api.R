@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Project operations
-#' @description openlattice_rundeck.Project
+#' @description olrundeck.Project
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -396,7 +396,7 @@
 #' \dontrun{
 #' ####################  execution_list_running  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Project name or * for all projects
 #'
 #' #List job executions
@@ -410,7 +410,7 @@
 #'
 #' ####################  job_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Project name
 #' var.id_list <- 'id_list_example' # character | Comma separated list of Job IDs to include
 #' var.group_path <- 'group_path_example' # character | Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only.
@@ -431,7 +431,7 @@
 #'
 #' ####################  project_archive_export_sync  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.execution_ids <- 'execution_ids_example' # character | A list (comma-separated) of execution IDs. If this is specified then the archive will contain only executions that are specified, and will not contain Jobs, ACLs, or project configuration/readme files.
 #' var.export_all <- AnyType$new() # AnyType | Export all project resources
@@ -452,7 +452,7 @@
 #'
 #' ####################  project_archive_import  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.body <- NULL # object | 
 #' var.job_uuid_option <- AnyType$new() # AnyType | 
@@ -471,7 +471,7 @@
 #'
 #' ####################  project_config_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | 
 #'
 #' #Get project config
@@ -485,7 +485,7 @@
 #'
 #' ####################  project_config_key_delete  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | 
 #' var.key <- 'key_example' # character | 
 #'
@@ -500,7 +500,7 @@
 #'
 #' ####################  project_config_key_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | 
 #' var.key <- 'key_example' # character | 
 #'
@@ -515,7 +515,7 @@
 #'
 #' ####################  project_config_key_set  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | 
 #' var.key <- 'key_example' # character | 
 #' var.inline_object7 <- InlineObject7$new() # InlineObject7 | 
@@ -531,7 +531,7 @@
 #'
 #' ####################  project_config_update  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | 
 #' var.body <- NULL # object | 
 #'
@@ -546,7 +546,7 @@
 #'
 #' ####################  project_create  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.inline_object6 <- InlineObject6$new() # InlineObject6 | 
 #'
 #' #Create a new project
@@ -560,7 +560,7 @@
 #'
 #' ####################  project_delete  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | 
 #'
 #' #Delete project
@@ -574,7 +574,7 @@
 #'
 #' ####################  project_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | 
 #'
 #' #Get information about a project
@@ -588,7 +588,7 @@
 #'
 #' ####################  project_jobs_export  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | The project to export jobs for.
 #' var.format <- AnyType$new() # AnyType | XML or YAML format for exported jobs.
 #' var.idlist <- 'idlist_example' # character | A comma-separated list of Job IDs to export.
@@ -606,7 +606,7 @@
 #'
 #' ####################  project_jobs_import  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.body <- NULL # object | 
 #' var.content_type <- AnyType$new() # AnyType | 
@@ -626,7 +626,7 @@
 #'
 #' ####################  project_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List projects
 #' api.instance <- ProjectApi$new()
@@ -639,7 +639,7 @@
 #'
 #' ####################  project_motd_delete  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #'
 #' #Delete project motd.md
@@ -653,7 +653,7 @@
 #'
 #' ####################  project_motd_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #'
 #' #Get the readme.md contents
@@ -667,7 +667,7 @@
 #'
 #' ####################  project_motd_put  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.inline_object9 <- InlineObject9$new() # InlineObject9 | 
 #'
@@ -682,7 +682,7 @@
 #'
 #' ####################  project_readme_delete  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #'
 #' #Delete project README.md
@@ -696,7 +696,7 @@
 #'
 #' ####################  project_readme_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #'
 #' #Get the readme.md contents
@@ -710,7 +710,7 @@
 #'
 #' ####################  project_readme_put  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.project <- 'project_example' # character | Name of the project to import jobs into.
 #' var.inline_object8 <- InlineObject8$new() # InlineObject8 | 
 #'
@@ -781,7 +781,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ExecutionList", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "ExecutionList", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -851,7 +851,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[Job]", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "array[Job]", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -921,7 +921,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1050,7 +1050,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1172,7 +1172,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1251,7 +1251,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1479,7 +1479,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "Project", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "Project", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1543,7 +1543,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "character", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "character", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1624,7 +1624,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1672,7 +1672,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[InlineResponse200]", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "array[InlineResponse200]", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1778,7 +1778,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1949,7 +1949,7 @@ ProjectApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

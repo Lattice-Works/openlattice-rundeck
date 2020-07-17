@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Acl operations
-#' @description openlattice_rundeck.Acl
+#' @description olrundeck.Acl
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -105,7 +105,7 @@
 #' \dontrun{
 #' ####################  system_acl_policy_create  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #' var.inline_object12 <- InlineObject12$new() # InlineObject12 | 
 #'
@@ -120,7 +120,7 @@
 #'
 #' ####################  system_acl_policy_delete  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #'
 #' #Delete policy
@@ -134,7 +134,7 @@
 #'
 #' ####################  system_acl_policy_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #'
 #' #Retrieve the YAML texas of the ACL Policy file
@@ -148,7 +148,7 @@
 #'
 #' ####################  system_acl_policy_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List ACL Policies
 #' api.instance <- AclApi$new()
@@ -161,7 +161,7 @@
 #'
 #' ####################  system_acl_policy_update  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #' var.inline_object11 <- InlineObject11$new() # InlineObject11 | 
 #'
@@ -347,7 +347,7 @@ AclApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -395,7 +395,7 @@ AclApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "AclList", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "AclList", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -466,7 +466,7 @@ AclApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

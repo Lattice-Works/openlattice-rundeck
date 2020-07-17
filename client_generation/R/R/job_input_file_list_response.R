@@ -56,7 +56,7 @@ JobInputFileListResponse <- R6::R6Class(
         self$`paging` <- pagingObject
       }
       if (!is.null(JobInputFileListResponseObject$`files`)) {
-        self$`files` <- ApiClient$new()$deserializeObj(JobInputFileListResponseObject$`files`, "array[JobInputFileInfo]", loadNamespace("openlattice_rundeck"))
+        self$`files` <- ApiClient$new()$deserializeObj(JobInputFileListResponseObject$`files`, "array[JobInputFileInfo]", loadNamespace("olrundeck"))
       }
     },
     toJSONString = function() {
@@ -82,7 +82,7 @@ JobInputFileListResponse <- R6::R6Class(
     fromJSONString = function(JobInputFileListResponseJson) {
       JobInputFileListResponseObject <- jsonlite::fromJSON(JobInputFileListResponseJson)
       self$`paging` <- Paging$new()$fromJSON(jsonlite::toJSON(JobInputFileListResponseObject$paging, auto_unbox = TRUE, digits = NA))
-      self$`files` <- ApiClient$new()$deserializeObj(JobInputFileListResponseObject$`files`, "array[JobInputFileInfo]", loadNamespace("openlattice_rundeck"))
+      self$`files` <- ApiClient$new()$deserializeObj(JobInputFileListResponseObject$`files`, "array[JobInputFileInfo]", loadNamespace("olrundeck"))
       self
     }
   )

@@ -14,18 +14,165 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice_rundeck
-from openlattice_rundeck.api.job_api import JobApi  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.api.job_api import JobApi  # noqa: E501
+from olrundeck.rest import ApiException
 
 
 class TestJobApi(unittest.TestCase):
     """JobApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice_rundeck.api.job_api.JobApi()  # noqa: E501
+        self.api = olrundeck.api.job_api.JobApi()  # noqa: E501
 
     def tearDown(self):
+        pass
+
+    def test_job_bulk_delete(self):
+        """Test case for job_bulk_delete
+
+        Delete multiple job definitions at once  # noqa: E501
+        """
+        pass
+
+    def test_job_delete(self):
+        """Test case for job_delete
+
+        Delete a single job definition.  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_bulk_disable(self):
+        """Test case for job_execution_bulk_disable
+
+        Bulk disable job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_bulk_enable(self):
+        """Test case for job_execution_bulk_enable
+
+        Bulk enable job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_delete(self):
+        """Test case for job_execution_delete
+
+        Delete all job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_disable(self):
+        """Test case for job_execution_disable
+
+        Disable all executions for a job (scheduled or manual). (ACL requires toggle_execution action for a job.)  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_enable(self):
+        """Test case for job_execution_enable
+
+        Enable executions for a job. (ACL requires toggle_execution action for a job.)  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_list(self):
+        """Test case for job_execution_list
+
+        List job executions  # noqa: E501
+        """
+        pass
+
+    def test_job_execution_run(self):
+        """Test case for job_execution_run
+
+        Run the specified job  # noqa: E501
+        """
+        pass
+
+    def test_job_get(self):
+        """Test case for job_get
+
+        Export a single job definition in XML or YAML formats.  # noqa: E501
+        """
+        pass
+
+    def test_job_info_get(self):
+        """Test case for job_info_get
+
+        Get metadata about a specific job.  # noqa: E501
+        """
+        pass
+
+    def test_job_input_file_info_get(self):
+        """Test case for job_input_file_info_get
+
+        Get job input file info  # noqa: E501
+        """
+        pass
+
+    def test_job_input_file_upload(self):
+        """Test case for job_input_file_upload
+
+        Upload file as job option  # noqa: E501
+        """
+        pass
+
+    def test_job_input_files_upload(self):
+        """Test case for job_input_files_upload
+
+        List uploaded input files for job  # noqa: E501
+        """
+        pass
+
+    def test_job_list(self):
+        """Test case for job_list
+
+        List the jobs that exist for a project  # noqa: E501
+        """
+        pass
+
+    def test_job_retry_execution(self):
+        """Test case for job_retry_execution
+
+        Retry a failed job execution on failed nodes only or on the same as the execution. This is the same functionality as the `Retry Failed Nodes ...` button on the execution page.  # noqa: E501
+        """
+        pass
+
+    def test_job_schedule_bulk_disable(self):
+        """Test case for job_schedule_bulk_disable
+
+        Bulk disable job schedule  # noqa: E501
+        """
+        pass
+
+    def test_job_schedule_bulk_enable(self):
+        """Test case for job_schedule_bulk_enable
+
+        Bulk enable job schedule  # noqa: E501
+        """
+        pass
+
+    def test_job_schedule_disable(self):
+        """Test case for job_schedule_disable
+
+        Disable the schedule for a job. (ACL requires toggle_schedule action for a job.)  # noqa: E501
+        """
+        pass
+
+    def test_job_schedule_enable(self):
+        """Test case for job_schedule_enable
+
+        Enable the schedule for a job. (ACL requires toggle_schedule action for a job.)  # noqa: E501
+        """
+        pass
+
+    def test_job_workflow_get(self):
+        """Test case for job_workflow_get
+
+        Get job workflow tree.  # noqa: E501
+        """
         pass
 
     def test_project_archive_import(self):
@@ -46,6 +193,27 @@ class TestJobApi(unittest.TestCase):
         """Test case for project_jobs_import
 
         Import job definitions in XML or YAML formats.  # noqa: E501
+        """
+        pass
+
+    def test_system_scheduled_jobs_for_server(self):
+        """Test case for system_scheduled_jobs_for_server
+
+        List the scheduled Jobs with their schedule owned by the cluster server with the specified UUID  # noqa: E501
+        """
+        pass
+
+    def test_system_scheduled_jobs_list(self):
+        """Test case for system_scheduled_jobs_list
+
+        List the scheduled Jobs with their schedule owned by the cluster server  # noqa: E501
+        """
+        pass
+
+    def test_system_scheduler_takeover(self):
+        """Test case for system_scheduler_takeover
+
+        Tell a Rundeck server in cluster mode to claim all scheduled jobs from another cluster server  # noqa: E501
         """
         pass
 

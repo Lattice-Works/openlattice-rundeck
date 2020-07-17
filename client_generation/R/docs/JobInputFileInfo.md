@@ -1,4 +1,4 @@
-# openlattice_rundeck::JobInputFileInfo
+# olrundeck::JobInputFileInfo
 
 ## Properties
 Name | Type | Description | Notes

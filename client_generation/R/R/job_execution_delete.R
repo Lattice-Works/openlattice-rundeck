@@ -92,7 +92,7 @@ JobExecutionDelete <- R6::R6Class(
         self$`requestCount` <- JobExecutionDeleteObject$`requestCount`
       }
       if (!is.null(JobExecutionDeleteObject$`failures`)) {
-        self$`failures` <- ApiClient$new()$deserializeObj(JobExecutionDeleteObject$`failures`, "array[JobExecutionDeleteFailures]", loadNamespace("openlattice_rundeck"))
+        self$`failures` <- ApiClient$new()$deserializeObj(JobExecutionDeleteObject$`failures`, "array[JobExecutionDeleteFailures]", loadNamespace("olrundeck"))
       }
     },
     toJSONString = function() {
@@ -142,7 +142,7 @@ JobExecutionDelete <- R6::R6Class(
       self$`successCount` <- JobExecutionDeleteObject$`successCount`
       self$`allsuccessful` <- JobExecutionDeleteObject$`allsuccessful`
       self$`requestCount` <- JobExecutionDeleteObject$`requestCount`
-      self$`failures` <- ApiClient$new()$deserializeObj(JobExecutionDeleteObject$`failures`, "array[JobExecutionDeleteFailures]", loadNamespace("openlattice_rundeck"))
+      self$`failures` <- ApiClient$new()$deserializeObj(JobExecutionDeleteObject$`failures`, "array[JobExecutionDeleteFailures]", loadNamespace("olrundeck"))
       self
     }
   )

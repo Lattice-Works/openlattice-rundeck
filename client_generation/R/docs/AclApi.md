@@ -18,7 +18,7 @@ Create a policy
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.policy_name <- 'policy_name_example' # character | Policy file name
 var.inline_object12 <- inline_object_12$new("contents_example") # InlineObject12 | 
@@ -62,7 +62,7 @@ Delete policy
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.policy_name <- 'policy_name_example' # character | Policy file name
 
@@ -104,7 +104,7 @@ Retrieve the YAML texas of the ACL Policy file
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.policy_name <- 'policy_name_example' # character | Policy file name
 
@@ -147,7 +147,7 @@ List ACL Policies
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List ACL Policies
@@ -186,7 +186,7 @@ Update policy
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.policy_name <- 'policy_name_example' # character | Policy file name
 var.inline_object11 <- inline_object_11$new("contents_example") # InlineObject11 | 

@@ -14,7 +14,7 @@ List links to enabled Metrics endpoints
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 
 #List links to enabled Metrics endpoints

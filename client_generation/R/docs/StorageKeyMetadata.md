@@ -1,4 +1,4 @@
-# openlattice_rundeck::StorageKeyMetadata
+# olrundeck::StorageKeyMetadata
 
 ## Properties
 Name | Type | Description | Notes

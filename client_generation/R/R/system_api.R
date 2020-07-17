@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title System operations
-#' @description openlattice_rundeck.System
+#' @description olrundeck.System
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -198,7 +198,7 @@
 #' \dontrun{
 #' ####################  system_acl_policy_create  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #' var.inline_object12 <- InlineObject12$new() # InlineObject12 | 
 #'
@@ -213,7 +213,7 @@
 #'
 #' ####################  system_acl_policy_delete  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #'
 #' #Delete policy
@@ -227,7 +227,7 @@
 #'
 #' ####################  system_acl_policy_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #'
 #' #Retrieve the YAML texas of the ACL Policy file
@@ -241,7 +241,7 @@
 #'
 #' ####################  system_acl_policy_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List ACL Policies
 #' api.instance <- SystemApi$new()
@@ -254,7 +254,7 @@
 #'
 #' ####################  system_acl_policy_update  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.policy_name <- 'policy_name_example' # character | Policy file name
 #' var.inline_object11 <- InlineObject11$new() # InlineObject11 | 
 #'
@@ -269,7 +269,7 @@
 #'
 #' ####################  system_executions_disable  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #Disables executions, preventing adhoc and manual and scheduled jobs from running.
 #' api.instance <- SystemApi$new()
@@ -282,7 +282,7 @@
 #'
 #' ####################  system_executions_enable  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #Enables executions, allowing adhoc and manual and scheduled jobs to be run
 #' api.instance <- SystemApi$new()
@@ -295,7 +295,7 @@
 #'
 #' ####################  system_incomplete_log_storage_executions_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List all executions with incomplete log storage
 #' api.instance <- SystemApi$new()
@@ -308,7 +308,7 @@
 #'
 #' ####################  system_incomplete_log_storage_executions_resume  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #Resume processing incomplete Log Storage uploads
 #' api.instance <- SystemApi$new()
@@ -321,7 +321,7 @@
 #'
 #' ####################  system_info_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #Get Rundeck server information and stats
 #' api.instance <- SystemApi$new()
@@ -334,7 +334,7 @@
 #'
 #' ####################  system_log_storage_info_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #Get Log Storage information and stats
 #' api.instance <- SystemApi$new()
@@ -518,7 +518,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -566,7 +566,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "AclList", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "AclList", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -637,7 +637,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "AclPolicyResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -685,7 +685,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -733,7 +733,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -781,7 +781,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "IncompleteLogExecutions", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "IncompleteLogExecutions", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -829,7 +829,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -877,7 +877,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "SystemInfo", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "SystemInfo", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -925,7 +925,7 @@ SystemApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "LogStorage", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "LogStorage", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

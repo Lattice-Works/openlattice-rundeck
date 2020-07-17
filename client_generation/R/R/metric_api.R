@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Metric operations
-#' @description openlattice_rundeck.Metric
+#' @description olrundeck.Metric
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -37,7 +37,7 @@
 #' \dontrun{
 #' ####################  metric_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List links to enabled Metrics endpoints
 #' api.instance <- MetricApi$new()
@@ -98,7 +98,7 @@ MetricApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "InlineResponse2001", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "InlineResponse2001", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

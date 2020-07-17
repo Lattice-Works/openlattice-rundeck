@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.acl_list import AclList  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.acl_list import AclList  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestAclList(unittest.TestCase):
     """AclList unit test stubs"""
@@ -33,14 +33,14 @@ class TestAclList(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.acl_list.AclList()  # noqa: E501
+        # model = olrundeck.models.acl_list.AclList()  # noqa: E501
         if include_optional :
             return AclList(
                 path = '0', 
                 type = '0', 
                 href = '0', 
                 resources = [
-                    openlattice_rundeck.models.acl_reference.AclReference(
+                    olrundeck.models.acl_reference.AclReference(
                         path = '0', 
                         type = '0', 
                         name = '0', 

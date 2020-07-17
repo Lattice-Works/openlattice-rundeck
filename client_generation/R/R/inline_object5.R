@@ -40,7 +40,7 @@ InlineObject5 <- R6::R6Class(
     fromJSON = function(InlineObject5Json) {
       InlineObject5Object <- jsonlite::fromJSON(InlineObject5Json)
       if (!is.null(InlineObject5Object$`ids`)) {
-        self$`ids` <- ApiClient$new()$deserializeObj(InlineObject5Object$`ids`, "array[character]", loadNamespace("openlattice_rundeck"))
+        self$`ids` <- ApiClient$new()$deserializeObj(InlineObject5Object$`ids`, "array[character]", loadNamespace("olrundeck"))
       }
     },
     toJSONString = function() {
@@ -58,7 +58,7 @@ InlineObject5 <- R6::R6Class(
     },
     fromJSONString = function(InlineObject5Json) {
       InlineObject5Object <- jsonlite::fromJSON(InlineObject5Json)
-      self$`ids` <- ApiClient$new()$deserializeObj(InlineObject5Object$`ids`, "array[character]", loadNamespace("openlattice_rundeck"))
+      self$`ids` <- ApiClient$new()$deserializeObj(InlineObject5Object$`ids`, "array[character]", loadNamespace("olrundeck"))
       self
     }
   )

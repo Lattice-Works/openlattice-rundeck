@@ -1,4 +1,4 @@
-# openlattice_rundeck.ProjectApi
+# olrundeck.ProjectApi
 
 All URIs are relative to *http://localhost*
 
@@ -38,12 +38,12 @@ List job executions
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -53,7 +53,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -63,9 +63,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Project name or * for all projects
 
     try:
@@ -113,12 +113,12 @@ List the jobs that exist for a project
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -128,7 +128,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -138,9 +138,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Project name
 id_list = 'id_list_example' # str | Comma separated list of Job IDs to include (optional)
 group_path = 'group_path_example' # str | Group or partial group path to include all jobs within that group path. Set to the special value \"-\" to match the top level jobs only. (optional)
@@ -202,12 +202,12 @@ Export archive of project synchronously
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -217,7 +217,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -227,9 +227,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 execution_ids = True # bool | A list (comma-separated) of execution IDs. If this is specified then the archive will contain only executions that are specified, and will not contain Jobs, ACLs, or project configuration/readme files. (optional)
 export_all = None # object | Export all project resources (optional)
@@ -291,12 +291,12 @@ Import project archive.
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -306,7 +306,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -316,9 +316,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 body = None # object | 
 job_uuid_option = None # object |  (optional)
@@ -375,12 +375,12 @@ Get project config
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -390,7 +390,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -400,9 +400,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 
     try:
@@ -450,12 +450,12 @@ Delete project config key
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -465,7 +465,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -475,9 +475,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 key = 'key_example' # str | 
 
@@ -526,12 +526,12 @@ Get project config key
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -541,7 +541,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -551,9 +551,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 key = 'key_example' # str | 
 
@@ -603,12 +603,12 @@ Get project config key
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -618,7 +618,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -628,12 +628,12 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 key = 'key_example' # str | 
-inline_object7 = openlattice_rundeck.InlineObject7() # InlineObject7 | 
+inline_object7 = olrundeck.InlineObject7() # InlineObject7 | 
 
     try:
         # Get project config key
@@ -682,12 +682,12 @@ Update project config
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -697,7 +697,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -707,9 +707,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 body = None # object | 
 
@@ -758,12 +758,12 @@ Create a new project
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -773,7 +773,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -783,10 +783,10 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
-    inline_object6 = openlattice_rundeck.InlineObject6() # InlineObject6 | 
+    api_instance = olrundeck.ProjectApi(api_client)
+    inline_object6 = olrundeck.InlineObject6() # InlineObject6 | 
 
     try:
         # Create a new project
@@ -832,12 +832,12 @@ Delete project
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -847,7 +847,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -857,9 +857,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 
     try:
@@ -906,12 +906,12 @@ Get information about a project
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -921,7 +921,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -931,9 +931,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | 
 
     try:
@@ -981,12 +981,12 @@ Export the job definitions in XML or YAML formats.
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -996,7 +996,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1006,9 +1006,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | The project to export jobs for.
 format = None # object | XML or YAML format for exported jobs. (optional)
 idlist = 'idlist_example' # str | A comma-separated list of Job IDs to export. (optional)
@@ -1064,12 +1064,12 @@ Import job definitions in XML or YAML formats.
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -1079,7 +1079,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1089,9 +1089,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 body = None # object | 
 content_type = None # object |  (optional)
@@ -1151,12 +1151,12 @@ List projects
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -1166,7 +1166,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1176,9 +1176,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     
     try:
         # List projects
@@ -1222,12 +1222,12 @@ Delete project motd.md
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -1237,7 +1237,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1247,9 +1247,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 
     try:
@@ -1296,12 +1296,12 @@ Get the readme.md contents
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -1311,7 +1311,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1321,9 +1321,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 
     try:
@@ -1371,12 +1371,12 @@ Create or modify project MOTD.md
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -1386,7 +1386,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1396,11 +1396,11 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
-inline_object9 = openlattice_rundeck.InlineObject9() # InlineObject9 | 
+inline_object9 = olrundeck.InlineObject9() # InlineObject9 | 
 
     try:
         # Create or modify project MOTD.md
@@ -1447,12 +1447,12 @@ Delete project README.md
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -1462,7 +1462,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1472,9 +1472,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 
     try:
@@ -1521,12 +1521,12 @@ Get the readme.md contents
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -1536,7 +1536,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1546,9 +1546,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
 
     try:
@@ -1596,12 +1596,12 @@ Create or modify project README.md
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -1611,7 +1611,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -1621,11 +1621,11 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.ProjectApi(api_client)
+    api_instance = olrundeck.ProjectApi(api_client)
     project = 'project_example' # str | Name of the project to import jobs into.
-inline_object8 = openlattice_rundeck.InlineObject8() # InlineObject8 | 
+inline_object8 = olrundeck.InlineObject8() # InlineObject8 | 
 
     try:
         # Create or modify project README.md

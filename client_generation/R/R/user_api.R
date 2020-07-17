@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title User operations
-#' @description openlattice_rundeck.User
+#' @description olrundeck.User
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -120,7 +120,7 @@
 #' \dontrun{
 #' ####################  user_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List user profiles
 #' api.instance <- UserApi$new()
@@ -133,7 +133,7 @@
 #'
 #' ####################  user_profile_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #Get same user profile data
 #' api.instance <- UserApi$new()
@@ -146,7 +146,7 @@
 #'
 #' ####################  user_profile_get_by_id  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.user_id <- 'user_id_example' # character | The ID of the user to retrieve profile information for
 #'
 #' #Get another user's profile data
@@ -160,7 +160,7 @@
 #'
 #' ####################  user_profile_update  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.body <- NULL # object | 
 #'
 #' #Modify same user profile data
@@ -174,7 +174,7 @@
 #'
 #' ####################  user_profile_update_by_id  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.user_id <- 'user_id_example' # character | The ID of the user to retrieve profile information for
 #' var.body <- NULL # object | 
 #'
@@ -189,7 +189,7 @@
 #'
 #' ####################  user_role_list  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List the roles of the authenticated user
 #' api.instance <- UserApi$new()
@@ -250,7 +250,7 @@ UserApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[User]", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "array[User]", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -298,7 +298,7 @@ UserApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "User", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "User", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -354,7 +354,7 @@ UserApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "User", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "User", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -417,7 +417,7 @@ UserApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "User", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "User", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -488,7 +488,7 @@ UserApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "User", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "User", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -536,7 +536,7 @@ UserApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

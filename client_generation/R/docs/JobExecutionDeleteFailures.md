@@ -1,4 +1,4 @@
-# openlattice_rundeck::JobExecutionDeleteFailures
+# olrundeck::JobExecutionDeleteFailures
 
 ## Properties
 Name | Type | Description | Notes

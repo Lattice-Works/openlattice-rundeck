@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Bulk operations
-#' @description openlattice_rundeck.Bulk
+#' @description olrundeck.Bulk
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -38,7 +38,7 @@
 #' \dontrun{
 #' ####################  job_bulk_delete  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #' var.inline_object1 <- InlineObject1$new() # InlineObject1 | 
 #'
 #' #Delete multiple job definitions at once
@@ -115,7 +115,7 @@ BulkApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "JobBulkOperationResponse", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "JobBulkOperationResponse", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

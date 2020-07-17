@@ -15,7 +15,7 @@ List input files for an execution
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 
@@ -58,7 +58,7 @@ List input files for an execution
 
 ### Example
 ```R
-library(openlattice_rundeck)
+library(olrundeck)
 
 var.id <- 'id_example' # character | 
 var.offset <- 'offset_example' # character | 

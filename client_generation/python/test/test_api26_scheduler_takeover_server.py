@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.api26_scheduler_takeover_server import Api26SchedulerTakeoverServer  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.api26_scheduler_takeover_server import Api26SchedulerTakeoverServer  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestApi26SchedulerTakeoverServer(unittest.TestCase):
     """Api26SchedulerTakeoverServer unit test stubs"""
@@ -33,7 +33,7 @@ class TestApi26SchedulerTakeoverServer(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.api26_scheduler_takeover_server.Api26SchedulerTakeoverServer()  # noqa: E501
+        # model = olrundeck.models.api26_scheduler_takeover_server.Api26SchedulerTakeoverServer()  # noqa: E501
         if include_optional :
             return Api26SchedulerTakeoverServer(
                 uuid = '0', 

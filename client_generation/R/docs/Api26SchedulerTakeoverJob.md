@@ -1,4 +1,4 @@
-# openlattice_rundeck::Api26SchedulerTakeoverJob
+# olrundeck::Api26SchedulerTakeoverJob
 
 ## Properties
 Name | Type | Description | Notes

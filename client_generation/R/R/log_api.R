@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Log operations
-#' @description openlattice_rundeck.Log
+#' @description olrundeck.Log
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -68,7 +68,7 @@
 #' \dontrun{
 #' ####################  system_incomplete_log_storage_executions_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #List all executions with incomplete log storage
 #' api.instance <- LogApi$new()
@@ -81,7 +81,7 @@
 #'
 #' ####################  system_incomplete_log_storage_executions_resume  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #Resume processing incomplete Log Storage uploads
 #' api.instance <- LogApi$new()
@@ -94,7 +94,7 @@
 #'
 #' ####################  system_log_storage_info_get  ####################
 #'
-#' library(openlattice_rundeck)
+#' library(olrundeck)
 #'
 #' #Get Log Storage information and stats
 #' api.instance <- LogApi$new()
@@ -155,7 +155,7 @@ LogApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "IncompleteLogExecutions", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "IncompleteLogExecutions", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -203,7 +203,7 @@ LogApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "object", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "object", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -251,7 +251,7 @@ LogApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "LogStorage", loadNamespace("openlattice_rundeck")),
+          self$apiClient$deserialize(resp, "LogStorage", loadNamespace("olrundeck")),
           error = function(e){
              stop("Failed to deserialize response")
           }

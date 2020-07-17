@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.inline_response2001 import InlineResponse2001  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.inline_response2001 import InlineResponse2001  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestInlineResponse2001(unittest.TestCase):
     """InlineResponse2001 unit test stubs"""
@@ -33,29 +33,29 @@ class TestInlineResponse2001(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.inline_response2001.InlineResponse2001()  # noqa: E501
+        # model = olrundeck.models.inline_response2001.InlineResponse2001()  # noqa: E501
         if include_optional :
             return InlineResponse2001(
-                links = openlattice_rundeck.models.inline_response_200_1__links.inline_response_200_1__links(
-                    metrics = openlattice_rundeck.models.metrics.metrics(
+                links = olrundeck.models.inline_response_200_1__links.inline_response_200_1__links(
+                    metrics = olrundeck.models.metrics.metrics(
                         href = '0', ), 
-                    ping = openlattice_rundeck.models.ping.ping(
+                    ping = olrundeck.models.ping.ping(
                         href = '0', ), 
-                    threads = openlattice_rundeck.models.threads.threads(
+                    threads = olrundeck.models.threads.threads(
                         href = '0', ), 
-                    healthcheck = openlattice_rundeck.models.healthcheck.healthcheck(
+                    healthcheck = olrundeck.models.healthcheck.healthcheck(
                         href = '0', ), )
             )
         else :
             return InlineResponse2001(
-                links = openlattice_rundeck.models.inline_response_200_1__links.inline_response_200_1__links(
-                    metrics = openlattice_rundeck.models.metrics.metrics(
+                links = olrundeck.models.inline_response_200_1__links.inline_response_200_1__links(
+                    metrics = olrundeck.models.metrics.metrics(
                         href = '0', ), 
-                    ping = openlattice_rundeck.models.ping.ping(
+                    ping = olrundeck.models.ping.ping(
                         href = '0', ), 
-                    threads = openlattice_rundeck.models.threads.threads(
+                    threads = olrundeck.models.threads.threads(
                         href = '0', ), 
-                    healthcheck = openlattice_rundeck.models.healthcheck.healthcheck(
+                    healthcheck = olrundeck.models.healthcheck.healthcheck(
                         href = '0', ), ),
         )
 

@@ -1,4 +1,4 @@
-# openlattice_rundeck.UserApi
+# olrundeck.UserApi
 
 All URIs are relative to *http://localhost*
 
@@ -23,12 +23,12 @@ List user profiles
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -38,7 +38,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -48,9 +48,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.UserApi(api_client)
+    api_instance = olrundeck.UserApi(api_client)
     
     try:
         # List user profiles
@@ -94,12 +94,12 @@ Get same user profile data
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -109,7 +109,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -119,9 +119,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.UserApi(api_client)
+    api_instance = olrundeck.UserApi(api_client)
     
     try:
         # Get same user profile data
@@ -165,12 +165,12 @@ Get another user's profile data
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -180,7 +180,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -190,9 +190,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.UserApi(api_client)
+    api_instance = olrundeck.UserApi(api_client)
     user_id = 'user_id_example' # str | The ID of the user to retrieve profile information for
 
     try:
@@ -240,12 +240,12 @@ Modify same user profile data
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -255,7 +255,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -265,9 +265,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.UserApi(api_client)
+    api_instance = olrundeck.UserApi(api_client)
     body = None # object | 
 
     try:
@@ -315,12 +315,12 @@ Modify another user's profile data
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -330,7 +330,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -340,9 +340,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.UserApi(api_client)
+    api_instance = olrundeck.UserApi(api_client)
     user_id = 'user_id_example' # str | The ID of the user to retrieve profile information for
 body = None # object | 
 
@@ -392,12 +392,12 @@ List the roles of the authenticated user
 ```python
 from __future__ import print_function
 import time
-import openlattice_rundeck
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost"
 )
 
@@ -407,7 +407,7 @@ configuration = openlattice_rundeck.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: rundeck_auth
-configuration = openlattice_rundeck.Configuration(
+configuration = olrundeck.Configuration(
     host = "http://localhost",
     api_key = {
         'rundeck_auth': 'YOUR_API_KEY'
@@ -417,9 +417,9 @@ configuration = openlattice_rundeck.Configuration(
 # configuration.api_key_prefix['rundeck_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openlattice_rundeck.ApiClient(configuration) as api_client:
+with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openlattice_rundeck.UserApi(api_client)
+    api_instance = olrundeck.UserApi(api_client)
     
     try:
         # List the roles of the authenticated user

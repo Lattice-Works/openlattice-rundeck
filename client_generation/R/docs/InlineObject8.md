@@ -1,4 +1,4 @@
-# openlattice_rundeck::InlineObject8
+# olrundeck::InlineObject8
 
 ## Properties
 Name | Type | Description | Notes

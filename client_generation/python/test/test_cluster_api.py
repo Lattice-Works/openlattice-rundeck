@@ -14,16 +14,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import openlattice_rundeck
-from openlattice_rundeck.api.cluster_api import ClusterApi  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.api.cluster_api import ClusterApi  # noqa: E501
+from olrundeck.rest import ApiException
 
 
 class TestClusterApi(unittest.TestCase):
     """ClusterApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice_rundeck.api.cluster_api.ClusterApi()  # noqa: E501
+        self.api = olrundeck.api.cluster_api.ClusterApi()  # noqa: E501
 
     def tearDown(self):
         pass

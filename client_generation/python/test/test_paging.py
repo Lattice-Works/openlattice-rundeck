@@ -15,9 +15,9 @@ from __future__ import absolute_import
 import unittest
 import datetime
 
-import openlattice_rundeck
-from openlattice_rundeck.models.paging import Paging  # noqa: E501
-from openlattice_rundeck.rest import ApiException
+import olrundeck
+from olrundeck.models.paging import Paging  # noqa: E501
+from olrundeck.rest import ApiException
 
 class TestPaging(unittest.TestCase):
     """Paging unit test stubs"""
@@ -33,7 +33,7 @@ class TestPaging(unittest.TestCase):
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openlattice_rundeck.models.paging.Paging()  # noqa: E501
+        # model = olrundeck.models.paging.Paging()  # noqa: E501
         if include_optional :
             return Paging(
                 count = 56, 
