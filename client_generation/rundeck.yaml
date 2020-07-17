@@ -316,6 +316,27 @@ paths:
         in: path
         required: true
         description: Job ID
+      - name: status
+        schema:
+          type: string
+        in: query
+        required: false
+        description: the status of executions you want to be returned. Must be one
+          of "succeeded", "failed", "aborted", or "running". If this parameter is
+          blank or unset, include all executions.
+      - name: max
+        schema:
+          type: integer
+        in: query
+        required: false
+        description: indicate the maximum number of results to return. If unspecified,
+          all results will be returned.
+      - name: offset
+        schema:
+          type: integer
+        in: query
+        required: false
+        description: indicate the 0-indexed offset for the first result to return.
       responses:
         '200':
           description: List of executions for job
@@ -2720,36 +2741,36 @@ components:
           items:
             $ref: '#/definitions/WorkflowStep'
 tags:
-- name: cluster
-  description: API endpoints to clusters
-- name: execution
-  description: API endpoints to executions
-- name: file
-  description: API endpoints to files
-- name: storage
-  description: API endpoints to storages
-- name: roles
-  description: API endpoints to roless
-- name: bulk
-  description: API endpoints to bulks
-- name: schedule
-  description: API endpoints to schedules
-- name: job
-  description: API endpoints to jobs
-- name: project
-  description: API endpoints to projects
-- name: system
-  description: API endpoints to systems
-- name: log
-  description: API endpoints to logs
-- name: scheduler
-  description: API endpoints to schedulers
-- name: acl
-  description: API endpoints to acls
 - name: user
   description: API endpoints to users
+- name: job
+  description: API endpoints to jobs
+- name: storage
+  description: API endpoints to storages
+- name: cluster
+  description: API endpoints to clusters
+- name: acl
+  description: API endpoints to acls
+- name: log
+  description: API endpoints to logs
+- name: roles
+  description: API endpoints to roless
+- name: file
+  description: API endpoints to files
+- name: execution
+  description: API endpoints to executions
+- name: scheduler
+  description: API endpoints to schedulers
 - name: metric
   description: API endpoints to metrics
+- name: system
+  description: API endpoints to systems
+- name: project
+  description: API endpoints to projects
+- name: schedule
+  description: API endpoints to schedules
+- name: bulk
+  description: API endpoints to bulks
 externalDocs:
   description: Combined API specifications for Rundeck
   url: https://github.com/Lattice-Works/openlattice-rundeck
