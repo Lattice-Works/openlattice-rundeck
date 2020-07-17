@@ -1783,6 +1783,12 @@ class ExecutionApi(object):
 
         :param id: Job ID (required)
         :type id: str
+        :param status: the status of executions you want to be returned. Must be one of \"succeeded\", \"failed\", \"aborted\", or \"running\". If this parameter is blank or unset, include all executions.
+        :type status: str
+        :param max: indicate the maximum number of results to return. If unspecified, all results will be returned.
+        :type max: int
+        :param offset: indicate the 0-indexed offset for the first result to return.
+        :type offset: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1812,6 +1818,12 @@ class ExecutionApi(object):
 
         :param id: Job ID (required)
         :type id: str
+        :param status: the status of executions you want to be returned. Must be one of \"succeeded\", \"failed\", \"aborted\", or \"running\". If this parameter is blank or unset, include all executions.
+        :type status: str
+        :param max: indicate the maximum number of results to return. If unspecified, all results will be returned.
+        :type max: int
+        :param offset: indicate the 0-indexed offset for the first result to return.
+        :type offset: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1838,7 +1850,10 @@ class ExecutionApi(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'status',
+            'max',
+            'offset'
         ]
         all_params.extend(
             [
@@ -1870,6 +1885,12 @@ class ExecutionApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
+        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if 'max' in local_var_params and local_var_params['max'] is not None:  # noqa: E501
+            query_params.append(('max', local_var_params['max']))  # noqa: E501
+        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
+            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
 
