@@ -1016,7 +1016,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **job_execution_list**
-> ExecutionList job_execution_list(id)
+> ExecutionList job_execution_list(id, status=status, max=max, offset=offset)
 
 List job executions
 
@@ -1055,10 +1055,13 @@ with olrundeck.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = olrundeck.ExecutionApi(api_client)
     id = 'id_example' # str | Job ID
+status = 'status_example' # str | the status of executions you want to be returned. Must be one of \"succeeded\", \"failed\", \"aborted\", or \"running\". If this parameter is blank or unset, include all executions. (optional)
+max = 56 # int | indicate the maximum number of results to return. If unspecified, all results will be returned. (optional)
+offset = 56 # int | indicate the 0-indexed offset for the first result to return. (optional)
 
     try:
         # List job executions
-        api_response = api_instance.job_execution_list(id)
+        api_response = api_instance.job_execution_list(id, status=status, max=max, offset=offset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ExecutionApi->job_execution_list: %s\n" % e)
@@ -1069,6 +1072,9 @@ with olrundeck.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Job ID | 
+ **status** | **str**| the status of executions you want to be returned. Must be one of \&quot;succeeded\&quot;, \&quot;failed\&quot;, \&quot;aborted\&quot;, or \&quot;running\&quot;. If this parameter is blank or unset, include all executions. | [optional] 
+ **max** | **int**| indicate the maximum number of results to return. If unspecified, all results will be returned. | [optional] 
+ **offset** | **int**| indicate the 0-indexed offset for the first result to return. | [optional] 
 
 ### Return type
 
