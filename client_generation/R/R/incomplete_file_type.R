@@ -17,7 +17,7 @@
 IncompleteFileType <- R6::R6Class(
   'IncompleteFileType',
   public = list(
-    initialize = function(, ...){
+    initialize = function(...){
       local.optional.var <- list(...)
     },
     toJSON = function() {
