@@ -17,7 +17,7 @@
 StorageKeyMetaType <- R6::R6Class(
   'StorageKeyMetaType',
   public = list(
-    initialize = function(, ...){
+    initialize = function(...){
       local.optional.var <- list(...)
     },
     toJSON = function() {

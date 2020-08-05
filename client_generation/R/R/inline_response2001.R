@@ -10,7 +10,7 @@
 #' @title InlineResponse2001
 #' @description InlineResponse2001 Class
 #' @format An \code{R6Class} generator object
-#' @field _links  \link{InlineResponse2001Links} 
+#' @field links  \link{InlineResponse2001Links} 
 #'
 #'
 #' @importFrom R6 R6Class
@@ -19,39 +19,39 @@
 InlineResponse2001 <- R6::R6Class(
   'InlineResponse2001',
   public = list(
-    `_links` = NULL,
-    initialize = function(`_links`, ...){
+    `links` = NULL,
+    initialize = function(`links`, ...){
       local.optional.var <- list(...)
-      if (!missing(`_links`)) {
-        stopifnot(R6::is.R6(`_links`))
-        self$`_links` <- `_links`
+      if (!missing(`links`)) {
+        stopifnot(R6::is.R6(`links`))
+        self$`links` <- `links`
       }
     },
     toJSON = function() {
       InlineResponse2001Object <- list()
-      if (!is.null(self$`_links`)) {
-        InlineResponse2001Object[['_links']] <-
-          self$`_links`$toJSON()
+      if (!is.null(self$`links`)) {
+        InlineResponse2001Object[['links']] <-
+          self$`links`$toJSON()
       }
 
       InlineResponse2001Object
     },
     fromJSON = function(InlineResponse2001Json) {
       InlineResponse2001Object <- jsonlite::fromJSON(InlineResponse2001Json)
-      if (!is.null(InlineResponse2001Object$`_links`)) {
-        _linksObject <- InlineResponse2001Links$new()
-        _linksObject$fromJSON(jsonlite::toJSON(InlineResponse2001Object$_links, auto_unbox = TRUE, digits = NA))
-        self$`_links` <- _linksObject
+      if (!is.null(InlineResponse2001Object$`links`)) {
+        linksObject <- InlineResponse2001Links$new()
+        linksObject$fromJSON(jsonlite::toJSON(InlineResponse2001Object$links, auto_unbox = TRUE, digits = NA))
+        self$`links` <- linksObject
       }
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`_links`)) {
+        if (!is.null(self$`links`)) {
         sprintf(
-        '"_links":
+        '"links":
         %s
         ',
-        jsonlite::toJSON(self$`_links`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`links`$toJSON(), auto_unbox=TRUE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -59,7 +59,7 @@ InlineResponse2001 <- R6::R6Class(
     },
     fromJSONString = function(InlineResponse2001Json) {
       InlineResponse2001Object <- jsonlite::fromJSON(InlineResponse2001Json)
-      self$`_links` <- InlineResponse2001Links$new()$fromJSON(jsonlite::toJSON(InlineResponse2001Object$_links, auto_unbox = TRUE, digits = NA))
+      self$`links` <- InlineResponse2001Links$new()$fromJSON(jsonlite::toJSON(InlineResponse2001Object$links, auto_unbox = TRUE, digits = NA))
       self
     }
   )

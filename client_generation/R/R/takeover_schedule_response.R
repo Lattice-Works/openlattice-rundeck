@@ -12,7 +12,7 @@
 #' @format An \code{R6Class} generator object
 #' @field takeoverSchedule  object [optional]
 #'
-#' @field self  object [optional]
+#' @field zelve  object [optional]
 #'
 #' @field message  character [optional]
 #'
@@ -28,50 +28,50 @@ TakeoverScheduleResponse <- R6::R6Class(
   'TakeoverScheduleResponse',
   public = list(
     `takeoverSchedule` = NULL,
-    `self` = NULL,
+    `zelve` = NULL,
     `message` = NULL,
     `apiversion` = NULL,
     `success` = NULL,
-    initialize = function(`takeoverSchedule`=NULL, `self`=NULL, `message`=NULL, `apiversion`=NULL, `success`=NULL, ...){
+    initialize = function(`takeoverSchedule`=NULL, `zelve`=NULL, `message`=NULL, `apiversion`=NULL, `success`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`takeoverSchedule`)) {
-        self$`takeoverSchedule` <- `takeoverSchedule`
+        zelve$`takeoverSchedule` <- `takeoverSchedule`
       }
-      if (!is.null(`self`)) {
-        self$`self` <- `self`
+      if (!is.null(`zelve`)) {
+        zelve$`zelve` <- `zelve`
       }
       if (!is.null(`message`)) {
         stopifnot(is.character(`message`), length(`message`) == 1)
-        self$`message` <- `message`
+        zelve$`message` <- `message`
       }
       if (!is.null(`apiversion`)) {
-        self$`apiversion` <- `apiversion`
+        zelve$`apiversion` <- `apiversion`
       }
       if (!is.null(`success`)) {
-        self$`success` <- `success`
+        zelve$`success` <- `success`
       }
     },
     toJSON = function() {
       TakeoverScheduleResponseObject <- list()
-      if (!is.null(self$`takeoverSchedule`)) {
+      if (!is.null(zelve$`takeoverSchedule`)) {
         TakeoverScheduleResponseObject[['takeoverSchedule']] <-
-          self$`takeoverSchedule`
+          zelve$`takeoverSchedule`
       }
-      if (!is.null(self$`self`)) {
-        TakeoverScheduleResponseObject[['self']] <-
-          self$`self`
+      if (!is.null(zelve$`zelve`)) {
+        TakeoverScheduleResponseObject[['zelve']] <-
+          zelve$`zelve`
       }
-      if (!is.null(self$`message`)) {
+      if (!is.null(zelve$`message`)) {
         TakeoverScheduleResponseObject[['message']] <-
-          self$`message`
+          zelve$`message`
       }
-      if (!is.null(self$`apiversion`)) {
+      if (!is.null(zelve$`apiversion`)) {
         TakeoverScheduleResponseObject[['apiversion']] <-
-          self$`apiversion`
+          zelve$`apiversion`
       }
-      if (!is.null(self$`success`)) {
+      if (!is.null(zelve$`success`)) {
         TakeoverScheduleResponseObject[['success']] <-
-          self$`success`
+          zelve$`success`
       }
 
       TakeoverScheduleResponseObject
@@ -79,57 +79,57 @@ TakeoverScheduleResponse <- R6::R6Class(
     fromJSON = function(TakeoverScheduleResponseJson) {
       TakeoverScheduleResponseObject <- jsonlite::fromJSON(TakeoverScheduleResponseJson)
       if (!is.null(TakeoverScheduleResponseObject$`takeoverSchedule`)) {
-        self$`takeoverSchedule` <- TakeoverScheduleResponseObject$`takeoverSchedule`
+        zelve$`takeoverSchedule` <- TakeoverScheduleResponseObject$`takeoverSchedule`
       }
-      if (!is.null(TakeoverScheduleResponseObject$`self`)) {
-        self$`self` <- TakeoverScheduleResponseObject$`self`
+      if (!is.null(TakeoverScheduleResponseObject$`zelve`)) {
+        zelve$`zelve` <- TakeoverScheduleResponseObject$`zelve`
       }
       if (!is.null(TakeoverScheduleResponseObject$`message`)) {
-        self$`message` <- TakeoverScheduleResponseObject$`message`
+        zelve$`message` <- TakeoverScheduleResponseObject$`message`
       }
       if (!is.null(TakeoverScheduleResponseObject$`apiversion`)) {
-        self$`apiversion` <- TakeoverScheduleResponseObject$`apiversion`
+        zelve$`apiversion` <- TakeoverScheduleResponseObject$`apiversion`
       }
       if (!is.null(TakeoverScheduleResponseObject$`success`)) {
-        self$`success` <- TakeoverScheduleResponseObject$`success`
+        zelve$`success` <- TakeoverScheduleResponseObject$`success`
       }
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`takeoverSchedule`)) {
+        if (!is.null(zelve$`takeoverSchedule`)) {
         sprintf(
         '"takeoverSchedule":
           "%s"
                 ',
-        self$`takeoverSchedule`
+        zelve$`takeoverSchedule`
         )},
-        if (!is.null(self$`self`)) {
+        if (!is.null(zelve$`zelve`)) {
         sprintf(
-        '"self":
+        '"zelve":
           "%s"
                 ',
-        self$`self`
+        zelve$`zelve`
         )},
-        if (!is.null(self$`message`)) {
+        if (!is.null(zelve$`message`)) {
         sprintf(
         '"message":
           "%s"
                 ',
-        self$`message`
+        zelve$`message`
         )},
-        if (!is.null(self$`apiversion`)) {
+        if (!is.null(zelve$`apiversion`)) {
         sprintf(
         '"apiversion":
           %d
                 ',
-        self$`apiversion`
+        zelve$`apiversion`
         )},
-        if (!is.null(self$`success`)) {
+        if (!is.null(zelve$`success`)) {
         sprintf(
         '"success":
           "%s"
                 ',
-        self$`success`
+        zelve$`success`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -137,12 +137,12 @@ TakeoverScheduleResponse <- R6::R6Class(
     },
     fromJSONString = function(TakeoverScheduleResponseJson) {
       TakeoverScheduleResponseObject <- jsonlite::fromJSON(TakeoverScheduleResponseJson)
-      self$`takeoverSchedule` <- TakeoverScheduleResponseObject$`takeoverSchedule`
-      self$`self` <- TakeoverScheduleResponseObject$`self`
-      self$`message` <- TakeoverScheduleResponseObject$`message`
-      self$`apiversion` <- TakeoverScheduleResponseObject$`apiversion`
-      self$`success` <- TakeoverScheduleResponseObject$`success`
-      self
+      zelve$`takeoverSchedule` <- TakeoverScheduleResponseObject$`takeoverSchedule`
+      zelve$`zelve` <- TakeoverScheduleResponseObject$`zelve`
+      zelve$`message` <- TakeoverScheduleResponseObject$`message`
+      zelve$`apiversion` <- TakeoverScheduleResponseObject$`apiversion`
+      zelve$`success` <- TakeoverScheduleResponseObject$`success`
+      zelve
     }
   )
 )
